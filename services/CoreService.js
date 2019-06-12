@@ -68,7 +68,13 @@
         }
         service.getProgramDetails = function(id) {
             var deferred = $q.defer();
-            CoreHttpRequest.post("programme_detail", { programmeid: id })
+            var data = {
+                programmeid: id
+            }
+            if (localStorage["userToken"]) {
+                data.utoken = localStorage["userToken"];
+            }
+            CoreHttpRequest.post("programme_detail", data)
                 .then(function(response) {
                     if (response.status == 200) {
                         deferred.resolve(response.data);
