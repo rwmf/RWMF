@@ -1,0 +1,68 @@
+<!-- Start your project here-->
+<!--Double navigation-->
+<header>
+    <!-- Sidebar navigation -->
+    <div id="slide-out" class="side-nav sn-bg-4">
+        <ul class="custom-scrollbar">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light">
+                    <a href="#"><img src="img/rwmf-02.png" class="img-fluid flex-center"></a>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!--Social-->
+            <li>
+                <ul class="social">
+                    <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-facebook-f"> </i></a></li>
+                    <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-pinterest"> </i></a></li>
+                    <li><a href="#" class="icons-sm gplus-ic"><i class="fab fa-google-plus-g"> </i></a></li>
+                    <li><a href="#" class="icons-sm tw-ic"><i class="fab fa-twitter"> </i></a></li>
+                </ul>
+            </li>
+            <!--/Social-->
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="home"><i class="fas fa-chevron-right"></i>Dashboard</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="login"><i class="fas fa-chevron-right"></i>Login</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="register"><i class="fas fa-chevron-right"></i>Registration</a>
+                    </li>
+                    <li ng-if="isLoggedIn"><a ng-click="headerctrl.closeSideNav()" ui-sref="registeredPgm" class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>My Programmes</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()"><i class="fas fa-chevron-right"></i>Venue Locator</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="busSchedule"><i class="fas fa-chevron-right"></i>Shuttle Bus Schedule</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="ticketInfo"><i class="fas fa-chevron-right"></i>Tickets Info</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="about"><i class="fas fa-chevron-right"></i>About</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="contact"><i class="fas fa-chevron-right"></i>Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+        </ul>
+        <div class="sidenav-bg mask-strong"></div>
+    </div>
+    <!--/. Sidebar navigation -->
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav noshad">
+        <!-- SideNav slide-out button -->
+        <div class="float-left">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
+        </div>
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-dn mr-auto">
+        </div>
+        <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <li class="nav-item">
+                <a class="nav-link"><i class="fas fa-search"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.Navbar -->
+</header>

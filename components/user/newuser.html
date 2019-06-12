@@ -1,0 +1,58 @@
+<div>
+    <div class="flex-center flex-column login-card">
+
+
+        <div class="view overlay register-logo">
+        </div>
+
+        <div class="thank">
+            <p>Thank you for registering as member, we would like to collect some basic information of your profile. The information collected here is for internal use only. Please see our <a href="">data privacy policy</a>.</p>
+        </div>
+
+        <!--Card content-->
+        <div class="card login">
+            <div class="card-body">
+                <form name="regCtrl.userReg" novalidate>
+                    <div class="form-group username first">
+                        <input ng-class="{ 'has-error': regCtrl.userReg.first_name.$dirty && regCtrl.userReg.first_name.$invalid }" name="first_name" ng-model="regCtrl.user.first_name" type="text" placeholder="First Name" class="form-control" id="fname" required>
+                        <span ng-if="regCtrl.userReg.first_name.$dirty && regCtrl.userReg.first_name.$error.required" class="pl-0 text-error col-md-12">First name is required</span>
+                    </div>
+                    <div class="form-group username last">
+                        <input ng-class="{ 'has-error': regCtrl.userReg.last_name.$dirty && regCtrl.userReg.last_name.$invalid }" name="last_name" ng-model="regCtrl.user.last_name" type="text" placeholder="Last Name" class="form-control" id="lname" required>
+                        <span ng-if="regCtrl.userReg.last_name.$dirty && regCtrl.userReg.last_name.$error.required" class="pl-0 text-error col-md-12">Last name is required</span>
+                    </div>
+                    <div class="form-group phone">
+                        <input ng-class="{ 'has-error': regCtrl.userReg.phone.$dirty && regCtrl.userReg.phone.$invalid }" name="phone" ng-model="regCtrl.user.phone" type="phone" placeholder="Phone" class="form-control" id="phone" required>
+                        <span ng-if="regCtrl.userReg.phone.$dirty && regCtrl.userReg.phone.$error.required" class="pl-0 text-error col-md-12">Phone Number is required</span>
+                    </div>
+                    <div class="form-group email">
+                        <input ng-class="{ 'has-error': regCtrl.userReg.email.$dirty && regCtrl.userReg.email.$invalid }" name="email" ng-model="regCtrl.user.email" type="text" placeholder="Email ID" class="form-control" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                            required>
+                        <span ng-if="regCtrl.userReg.email.$dirty && regCtrl.userReg.email.$error.required" class="pl-0 text-error col-md-12">Email is required</span>
+                        <span ng-if="regCtrl.userReg.email.$dirty && regCtrl.userReg.email.$error.pattern" class="pl-0 text-error col-md-12 format">Invalid email format</span>
+                    </div>
+                    <div class="form-group password">
+                        <input ng-class="{ 'has-error': regCtrl.userReg.password.$dirty && regCtrl.userReg.password.$invalid }" name="password" ng-model="regCtrl.user.password" type="password" placeholder="Password" class="form-control" id="pwd" required>
+                        <span ng-if="regCtrl.userReg.password.$dirty && regCtrl.userReg.password.$error.required" class="pl-0 text-error col-md-12">Password is required</span>
+                    </div>
+                    <div class="chck">
+                        <!-- Default checked -->
+                        <div class="custom-control custom-checkbox">
+                            <input ng-class="{ 'has-error': regCtrl.userReg.terms.$dirty && regCtrl.userReg.terms.$invalid }" name="terms" type="checkbox" ng-model="regCtrl.user.terms" class="custom-control-input" id="terms" checked required>
+                            <label class="custom-control-label width-100" for="terms"><p>I have read and agree to the Data Privacy Policy </p></label>
+                            <span ng-if="regCtrl.userReg.terms.$dirty && regCtrl.userReg.terms.$error.required" class="pl-0 text-error col-md-12">You should accept the terms</span>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input name="contract" type="checkbox" ng-model="regCtrl.user.contract" class="custom-control-input" id="contract" checked>
+                            <label class="custom-control-label" for="contract"><p>I agree that Sarawak Tourism Board may use my email address to contact 
+                      me for purpose of verification. And where relevant, for purpose of business development and/or partnership</p></label>
+                        </div>
+                    </div>
+                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                </form>
+                <a ng-click="regCtrl.register()" class="user-btn btn btn-primary gren" ng-disabled="regCtrl.userReg.$invalid">REGISTER</a>
+                <a ng-click="regCtrl.cancel()" class="user-btn btn btn-primary gry" ng-disabled="regCtrl.userReg.$pristine">CANCEL</a>
+            </div>
+        </div>
+    </div>
+</div>

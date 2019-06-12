@@ -1,0 +1,63 @@
+<!--Main Layout-->
+<main class="secmain">
+    <div class="row" ng-if="regPgmctrl.programmes">
+        <h2 class="text-center event-header">REGISTERED PROGRAMMES</h2>
+    </div>
+    <div class="row">
+        <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
+            <label class="btn btn-primary form-check-label active noshad" ng-click="regPgmctrl.checkboxChecked($event)">                    
+                  <input class="form-check-input" type="radio" value="1" ng-model="regPgmctrl.day" name="options" id="option1" autocomplete="off" checked>
+                  Day 1
+                </label>
+            <label class="btn btn-primary form-check-label noshad" ng-click="regPgmctrl.checkboxChecked($event)">
+                  <input class="form-check-input" type="radio" value="2"  ng-model="regPgmctrl.day" name="options" id="option2" autocomplete="off"> Day 2
+                </label>
+            <label class="btn btn-primary form-check-label noshad" ng-click="regPgmctrl.checkboxChecked($event)">
+                  <input class="form-check-input" type="radio" value="3"  ng-model="regPgmctrl.day" name="options" id="option3" autocomplete="off"> Day 3
+                </label>
+        </div>
+    </div>
+    <div>
+        <div class="container mt-2" ng-if="regPgmctrl.programmes">
+            <div class="row">
+                <!-- Card -->
+                <div class="col-sm-6 mt-4 nopad" ng-repeat="program in regPgmctrl.programmes | filterWithDay : regPgmctrl.day">
+                    <div class="card">
+                        <!-- Card image -->
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <!-- Title -->
+                            <h4 class="card-title text-upper text-theme">{{program.name}}</h4>
+                            <!-- Text -->
+                            <div class="view overlay view-custom">
+                                <img ng-click="regPgmctrl.gotoDetail(program.id)" class="card-img" src="{{ program.image }}" alt="Card image cap">
+                                <div class="social">
+                                    <a href=""><img src="img/twt.png" class="widhgt" alt="" /></a>
+                                    <a href=""><img src="img/fb.png" class="widhgt" alt="" /></a>
+                                    <a href=""><img src="img/insta.png" class="widhgt" alt="" /></a>
+                                    <a href=""><img src="img/share.png" class="widhgt" alt="" /></a>
+                                </div>
+                            </div>
+
+                            <ul class="location">
+                                <li class="time mb-1">
+                                    <span>{{ program.time | to24Hrs}}</span>
+                                </li>
+                                <li class="event mb-1">
+                                    <span>{{ program.date }}</span>
+                                    <a href="" class="maptheme" data-lat="{{program.stage_latitude}}" data-lon="{{program.stage_longitude}}"><img src="img/map.png" alt="" /></a>
+                                </li>
+                                <li class="address">
+                                    <span>{{ program.stage_name }} &nbsp; {{ program.stage_location }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+        <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+    </div>
+</main>
+<!--Main Layout-->

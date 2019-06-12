@@ -1,0 +1,90 @@
+<!--Main Layout-->
+<main>
+    <div style="height: 120vh">
+        <div class="container mt-6">
+            <div class="row">
+                <!-- Card -->
+                <div class="card card-cascade wider reverse">
+
+                    <!-- Card image -->
+                    <div class="view view-cascade overlay bnrhgt">
+                        <img class="card-img-top" src="{{pgmctrl.programDetail.image}}" alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+
+                    <!-- Card content -->
+                    <div class="card-body card-body-cascade grn">
+
+                        <!-- Title -->
+                        <h3 class="card-title"><strong>{{pgmctrl.programDetail.name}}</strong></h3>
+                        <!-- Subtitle -->
+                        <ul class="location">
+                            <li class="time mb-3">
+                                <span>{{pgmctrl.programDetail.time | to24Hrs}}</span>
+                            </li>
+                            <li class="event mb-3">
+                                <span>{{pgmctrl.programDetail.date}}</span>
+                                <a href="" class="maptheme"><img src="img/map.png" alt="" /></a>
+                            </li>
+                            <li class="address">
+                                <span><b class="text-upper">{{pgmctrl.programDetail.stage_location}}</b></span>
+                            </li>
+                        </ul>
+                        <!-- Text -->
+                        <p class="card-text">{{pgmctrl.programDetail.description}}</p>
+
+                        <!-- Carousel -->
+
+                        <!--Carousel Wrapper-->
+                        <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+                            <!--Indicators-->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-with-lb" data-slide-to="0" class="active secondary-color"></li>
+                            </ol>
+                            <!--/.Indicators-->
+
+                            <!--Slides and lightbox-->
+
+                            <div class="carousel-inner mdb-lightbox" role="listbox">
+                                <div id="mdb-lightbox-ui"></div>
+                                <!--First slide-->
+                                <div class=" carousel-item active text-center">
+
+                                    <figure class="col-md-3 d-md-inline-block" ng-repeat="item in pgmctrl.programDetail.gallery">
+                                        <div class="iframe-container" ng-if="item.gallery_type == 'youtube'">
+                                            <a href="{{item.link}}" data-size="1600x1067">
+                                                <iframe id="player" type="text/html" width="100%" height="100%" src="{{item.link | trusted}}" frameborder="0"></iframe>
+                                            </a>
+                                        </div>
+                                        <div class="image-container" ng-if="item.gallery_type == 'image'">
+                                            <a href="{{item.link}}" data-size="1600x1067">
+                                                <img src="{{item.link}}" class="img-fluid">
+                                            </a>
+                                        </div>
+                                    </figure>
+
+                                </div>
+                                <!--/.First slide-->
+                            </div>
+                            <!--/.Slides-->
+
+                        </div>
+                        <!--/.Carousel Wrapper-->
+
+                    </div>
+                    <div class="program-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+                    <a ng-if="!isLoggedIn || (isLoggedIn && pgmctrl.programDetail.register_status == 0)" ng-click="pgmctrl.register(pgmctrl.programDetail.id)" class="btn btn-warning waves-effect waves-light orang">REGISTER</a>
+                    <a ng-if="isLoggedIn && pgmctrl.programDetail.register_status == 1" class="btn btn-gray waves-effect waves-light orang" disabled>Registered</a>
+                </div>
+                <!-- Card -->
+
+
+
+            </div>
+        </div>
+    </div>
+</main>
+<!--Main Layout-->

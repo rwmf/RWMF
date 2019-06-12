@@ -1,0 +1,24 @@
+<div style="height: 90vh">
+    <div class="flex-center flex-column login-card">
+        <div class="login-logo">
+        </div>
+        <div class="card login">
+            <div class="card-body">
+                <form name="loginCtrl.loginForm">
+                    <div class="form-group email">
+                        <input name="email" ng-model="loginCtrl.user.email" ng-class="{ 'has-error': loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$invalid }" type="text" placeholder="User Name / Email" class="form-control" id="usr" required>
+                        <span ng-if="loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$error.required" class="pl-0 text-error col-md-12">User Name is required</span>
+                    </div>
+                    <div class="password">
+                        <input name="password" ng-model="loginCtrl.user.password" ng-class="{ 'has-error': loginCtrl.loginForm.password.$dirty && loginCtrl.loginForm.password.$invalid }" type="password" placeholder="Password" class="form-control" id="pwd" required>
+                        <span ng-if="loginCtrl.loginForm.password.$dirty && loginCtrl.loginForm.password.$error.required" class="pl-0 text-error col-md-12">Password is required</span>
+                    </div>
+                    <p class="forgt"><a ui-sref="forgot">Forgot Password ?</a></p>
+                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                    <a ng-click="loginCtrl.login()" ng-disabled="loginCtrl.loginForm.$invalid" class="btn btn-primary login-btn user-btn">Login</a>
+                    <p class="sgnup mt-1">Don’t have an account ? <a ui-sref="register">SIGN UP</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
