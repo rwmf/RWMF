@@ -12,7 +12,7 @@
         $rootScope.pageName = "login";
         vm.user = {};
         vm.login = login;
-
+        angular.element('.sidenav-overlay').remove();
         (function initController() {
             // reset login status
             CoreService.ClearCredentials();

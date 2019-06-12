@@ -13,6 +13,7 @@
         $rootScope.pageName = "login";
         vm.register = register;
         vm.cancel = cancel;
+        angular.element('.sidenav-overlay').remove();
 
         function register() {
             vm.dataLoading = true;

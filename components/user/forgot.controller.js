@@ -9,6 +9,7 @@
     function ForgotController(UserService, $rootScope) {
         var vm = this;
         $rootScope.pageName = "login";
+        angular.element('.sidenav-overlay').remove();
     }
 
 })();
