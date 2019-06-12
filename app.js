@@ -163,6 +163,7 @@
                 url: '/about',
                 views: {
                     'innerPages@': {
+                        controller: 'StaticController',
                         templateUrl: 'components/static/about.html'
                     },
                     'header@': {
@@ -176,6 +177,7 @@
                 url: '/contact',
                 views: {
                     'innerPages@': {
+                        controller: 'StaticController',
                         templateUrl: 'components/static/contact.html'
                     },
                     'header@': {

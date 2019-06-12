@@ -9,6 +9,7 @@
     function GeneralController($rootScope, CoreService) {
         var vm = this;
         $rootScope.pageName = "home";
+        angular.element('.sidenav-overlay').remove();
         CoreService.getBusScheduleDetails().then(function(res) {
             vm.busSchedule = res.data.bus_schedule.schedule;
         }, function() {

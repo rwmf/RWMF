@@ -44,10 +44,11 @@
         $rootScope.pageName = "home";
 
         function closeSideNav() {
-            angular.element('.sidenav-overlay').hide();
+            angular.element('.sidenav-overlay').remove();
         }
-        angular.element(document).on("click", "body", function() {
+        angular.element(document).on("click", "body", function(evt) {
             $('.button-collapse').sideNav('hide');
+            angular.element(".sidenav-overlay").not(":first").remove()
         });
     }
 
