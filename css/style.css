@@ -642,6 +642,7 @@ input.has-error[type="checkbox"]:focus {
     margin-top: 20%;
 }
 
+
 /*contact*/
 
 .map-card .map-container {
@@ -680,8 +681,10 @@ input.has-error[type="checkbox"]:focus {
     padding-top: 1.25rem;
 }
 
+
 /*about*/
-.abo p{
+
+.abo p {
     color: #fff !important;
 }
 
