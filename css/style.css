@@ -45,6 +45,7 @@ html {
     color: white;
     padding-left: 15px;
     border-bottom: 2px solid #15560f!important;
+    border-left: 2px solid #15560f!important;
 }
 
 .search::-webkit-input-placeholder {
