@@ -26,7 +26,9 @@
                 <ul class="collapsible collapsible-accordion">
                     <li><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="home"><i class="fas fa-chevron-right"></i>Dashboard</a>
                     </li>
-                    <li><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="login"><i class="fas fa-chevron-right"></i>Login</a>
+                    <li ng-if="!isLoggedIn"><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="login"><i class="fas fa-chevron-right"></i>Login</a>
+                    </li>
+                    <li ng-if="isLoggedIn"><a ng-click="headerctrl.logout()" ui-sref="registeredPgm" class="menu-list collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>Logout</a>
                     </li>
                     <li><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="register"><i class="fas fa-chevron-right"></i>Registration</a>
                     </li>
@@ -58,11 +60,16 @@
         <!-- Breadcrumb-->
         <div class="breadcrumb-dn mr-auto">
         </div>
-        <ul class="nav navbar-nav nav-flex-icons ml-auto">
+        <!-- <ul class="nav navbar-nav nav-flex-icons ml-auto">
             <li class="nav-item">
                 <a class="nav-link"><i class="fas fa-search"></i></a>
             </li>
-        </ul>
+        </ul> -->
+        <div id="wrap">
+            <form action="" autocomplete="off">
+                <input ng-focus="headerctrl.setPlaceHolder($event)" ng-blur="headerctrl.removePlaceHolder($event)" class="search" type="text" name="search">
+            </form>
+        </div>
     </nav>
     <!-- /.Navbar -->
 </header>

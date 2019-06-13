@@ -35,47 +35,45 @@
 </head>
 
 <body ng-if="!isSplashScreen">
-    <p style="color:white">
+    <div class="container mx-auto" ui-view="header"></div>
+    <div class="container mx-auto" ui-view="login"></div>
+    <div class="container mx-auto" ui-view="innerPages"></div>
 
-        <div class="container mx-auto" ui-view="header"></div>
-        <div class="container mx-auto" ui-view="login"></div>
-        <div class="container mx-auto" ui-view="innerPages"></div>
+    <!-- Library scripts -->
+    <script type="text/javascript" src="js/libs/jquery.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js" defer></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap-lighthouse.js"></script>
+    <script type="text/javascript" src="js/libs/angular.min.js"></script>
+    <script type="text/javascript" src="js/libs/angular-animate.min.js"></script>
+    <script type="text/javascript" src="js/libs/angular-ui-router.js"></script>
+    <script type="text/javascript" src="js/libs/cookies.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/libs/platform.js"></script>
+    <script type="text/javascript" src="js/libs/ng-sanitize.js"></script>
+    <!-- Library scripts -->
 
-        <!-- Library scripts -->
-        <script type="text/javascript" src="js/libs/jquery.js"></script>
-        <script type="text/javascript" src="js/mdb.min.js" defer></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/libs/bootstrap-lighthouse.js"></script>
-        <script type="text/javascript" src="js/libs/angular.min.js"></script>
-        <script type="text/javascript" src="js/libs/angular-animate.min.js"></script>
-        <script type="text/javascript" src="js/libs/angular-ui-router.js"></script>
-        <script type="text/javascript" src="js/libs/cookies.js"></script>
-        <script type="text/javascript" src="js/popper.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/libs/platform.js"></script>
-        <script type="text/javascript" src="js/libs/ng-sanitize.js"></script>
-        <!-- Library scripts -->
+    <!-- App scripts -->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="components/user/login.controller.js"></script>
+    <script type="text/javascript" src="components/home/home.controller.js"></script>
+    <script type="text/javascript" src="components/header/header.controller.js"></script>
+    <script type="text/javascript" src="components/program/registeredProgram.controller.js"></script>
+    <script type="text/javascript " src="components/user/forgot.controller.js"></script>
+    <script type="text/javascript " src="components/user/newuser.controller.js"></script>
+    <script type="text/javascript " src="components/general/general.controller.js"></script>
+    <script type="text/javascript " src="components/program/programDetail.controller.js"></script>
+    <script type="text/javascript " src="components/static/staticCtrl.js"></script>
+    <!-- service providers -->
+    <script src="services/authentication.service.js"></script>
+    <script src="services/flash.service.js"></script>
 
-        <!-- App scripts -->
-        <script type="text/javascript" src="app.js"></script>
-        <script type="text/javascript" src="components/user/login.controller.js"></script>
-        <script type="text/javascript" src="components/home/home.controller.js"></script>
-        <script type="text/javascript" src="components/header/header.controller.js"></script>
-        <script type="text/javascript" src="components/program/registeredProgram.controller.js"></script>
-        <script type="text/javascript " src="components/user/forgot.controller.js"></script>
-        <script type="text/javascript " src="components/user/newuser.controller.js"></script>
-        <script type="text/javascript " src="components/general/general.controller.js"></script>
-        <script type="text/javascript " src="components/program/programDetail.controller.js"></script>
-        <script type="text/javascript " src="components/static/staticCtrl.js"></script>
-        <!-- service providers -->
-        <script src="services/authentication.service.js"></script>
-        <script src="services/flash.service.js"></script>
-
-        <!-- Real user service that uses an api -->
-        <script src="services/appConstants.js"></script>
-        <script src="services/HttpRequest.js"></script>
-        <script src="services/CoreService.js"></script>
-        <script src="services/user.service.js"></script>
+    <!-- Real user service that uses an api -->
+    <script src="services/appConstants.js"></script>
+    <script src="services/HttpRequest.js"></script>
+    <script src="services/CoreService.js"></script>
+    <script src="services/user.service.js"></script>
 </body>
 
 </html>
