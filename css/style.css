@@ -688,6 +688,100 @@ input.has-error[type="checkbox"]:focus {
     color: #fff !important;
 }
 
+/*search*/
+
+/* .openBtn {
+  background: transparent;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.openBtn:hover {
+  background: transparent;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+}
+
+.overlay-content {
+  position: relative;
+  top: 46%;
+  width: 80%;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
+}
+
+.overlay .closebtn:hover {
+  color: #ccc;
+}
+
+.overlay input[type=text] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 80%;
+  background: white;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.overlay input[type=text]:hover {
+  background: #f1f1f1;
+}
+
+.overlay button {
+  float: left;
+  width: 20%;
+  padding: 15px;
+  background: #006936;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.overlay button:hover {
+  background: #bbb;
+}
+
+.fa-search{
+    color: #fff;
+} */
+
+/*modal*/
+
+.modal-dialog.modal-notify.modal-success .badge, .modal-dialog.modal-notify.modal-success .modal-header {
+    background-color: #006a36;
+}
+
+.gdprc a{
+    width: 100% !important;
+    height: 45px !important;
+    line-height: 22px !important;
+    font-size: 16px !important;
+}
+
 
 /* Media Queries */
 
@@ -889,13 +983,25 @@ input.has-error[type="checkbox"]:focus {
 
 @media (min-width: 768px) and (max-width: 1280px) {
     .login {
-        background-image: url(../img/registration_desktop_bg.PNG);
+        background-image: url(../img/login-min.png);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .login {
-        background-image: url(../img/registration_desktop_bg.PNG);
+        background-image: url(../img/login-min.png);
+    }
+}
+
+@media only screen  and (min-width : 1224px) {
+    .login {
+        background-image: url(../img/login-min.png);
+    }
+}
+
+@media only screen  and (min-width : 1824px) {
+    .login {
+        background-image: url(../img/login-min.png);
     }
 }
 
