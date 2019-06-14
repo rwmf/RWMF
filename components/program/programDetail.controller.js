@@ -42,7 +42,7 @@
                     console.log(err)
                 })
             } else {
-                FlashService.Warning("Please Login to register");
+                FlashService.Warning("Please Login/Sign Up first, to register to a program");
                 FlashService.clearFlashMessageOntimeout(5000);
             }
         }

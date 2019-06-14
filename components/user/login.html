@@ -4,7 +4,7 @@
         </div>
         <div class="card login">
             <div class="card-body">
-                <form name="loginCtrl.loginForm">
+                <form name="loginCtrl.loginForm" autocomplete="off" novalidate>
                     <div class="form-group email">
                         <input name="email" ng-model="loginCtrl.user.email" ng-class="{ 'has-error': loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$invalid }" type="text" placeholder="User Name / Email" class="form-control" id="usr" required>
                         <span ng-if="loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$error.required" class="pl-0 text-error col-md-12">User Name is required</span>

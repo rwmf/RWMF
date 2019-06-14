@@ -4,9 +4,9 @@
     angular
         .module('RWMF')
         .controller('HeaderController', HeaderController);
-    HeaderController.$inject = ['$rootScope', 'CoreService'];
+    HeaderController.$inject = ['$rootScope', 'CoreService', '$state'];
 
-    function HeaderController($rootScope, CoreService) {
+    function HeaderController($rootScope, CoreService, $state) {
         CoreService.recall();
         angular.element(".button-collapse").sideNav({
             closeOnClick: true
@@ -41,10 +41,27 @@
         }
         var vm = this;
         vm.closeSideNav = closeSideNav;
+        vm.logout = logout;
+        vm.setPlaceHolder = setPlaceHolder;
+        vm.removePlaceHolder = removePlaceHolder;
         $rootScope.pageName = "home";
 
         function closeSideNav() {
             angular.element('.sidenav-overlay').remove();
+        }
+
+        function logout() {
+            localStorage.removeItem("userToken");
+            delete $rootScope.isLoggedIn;
+            $state.go("login");
+        }
+
+        function setPlaceHolder(event) {
+            event.currentTarget.placeholder = "Search Here";
+        }
+
+        function removePlaceHolder(event) {
+            event.currentTarget.placeholder = "";
         }
         angular.element(document).on("click", "body", function(evt) {
             $('.button-collapse').sideNav('hide');

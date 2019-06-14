@@ -12,7 +12,7 @@
         <!--Card content-->
         <div class="card login">
             <div class="card-body">
-                <form name="regCtrl.userReg" novalidate>
+                <form name="regCtrl.userReg" novalidate autocomplete="off">
                     <div class="form-group username first">
                         <input ng-class="{ 'has-error': regCtrl.userReg.first_name.$dirty && regCtrl.userReg.first_name.$invalid }" name="first_name" ng-model="regCtrl.user.first_name" type="text" placeholder="First Name" class="form-control" id="fname" required>
                         <span ng-if="regCtrl.userReg.first_name.$dirty && regCtrl.userReg.first_name.$error.required" class="pl-0 text-error col-md-12">First name is required</span>

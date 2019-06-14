@@ -14,7 +14,7 @@
                     <p class="mx-auto align-base text-center">We'll help you to create a new password</p>
                 </div>
 
-                <form name="forgotCtrl.forgot" ng-submit="vm.login()" role="form">
+                <form name="forgotCtrl.forgot" ng-submit="vm.login()" role="form" autocomplete="off">
 
                     <div class="form-group email" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
                         <input placeholder="Email ID" type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
