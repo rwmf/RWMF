@@ -68,14 +68,14 @@
                 <button class="openBtn" onclick="openSearch()"><i class="fas fa-search"></i></button> 
             </li>
         </ul> -->
-    
+
         <div id="wrap">
             <form action="" autocomplete="off">
                 <input ng-focus="headerctrl.setPlaceHolder($event)" ng-blur="headerctrl.removePlaceHolder($event)" class="search" type="text" name="search">
             </form>
         </div>
 
-        <h2 class="text-center event-header">EVENTS</h2>
+        <h2 class="text-center event-header" ng-click="headerctrl.showAppInstallBanner()">EVENTS</h2>
 
     </nav>
     <!-- /.Navbar -->

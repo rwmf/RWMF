@@ -39,11 +39,13 @@
         } else {
             console.log('service worker is not supported');
         }
+
         var vm = this;
         vm.closeSideNav = closeSideNav;
         vm.logout = logout;
         vm.setPlaceHolder = setPlaceHolder;
         vm.removePlaceHolder = removePlaceHolder;
+        vm.showAppInstallBanner = showAppInstallBanner;
         $rootScope.pageName = "home";
 
         function closeSideNav() {
@@ -62,6 +64,27 @@
 
         function removePlaceHolder(event) {
             event.currentTarget.placeholder = "";
+        }
+        $rootScope.deferredPrompt;
+        window.addEventListener("beforeinstallprompt", function(event) {
+            console.log("Before install fired");
+            event.preventDefault();
+            $rootScope.deferredPrompt = event;
+        });
+
+        function showAppInstallBanner() {
+            //to create a prompt
+            if ($rootScope.deferredPrompt) {
+                $rootScope.deferredPrompt.prompt();
+                $rootScope.deferredPrompt.userchoice.then(function(choiceResult) {
+                    if (choiceResult.outcome === "dismissed") {
+                        console.log("user cancelled")
+                    } else {
+                        console.log("app installed")
+                    }
+                    $rootScope.deferredPrompt = null;
+                })
+            }
         }
         angular.element(document).on("click", "body", function(evt) {
             $('.button-collapse').sideNav('hide');
