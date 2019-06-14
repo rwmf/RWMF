@@ -118,6 +118,9 @@ h2.text-center.event-header {
     width: 100%;
     color: #146c4f;
     padding: 10px;
+    position: fixed;
+    z-index: 99;
+    left: 0;;
 }
 
 .filter-btn .form-check-input {
@@ -638,6 +641,7 @@ table.table th {
 
 .ninfyv {
     width: 95%;
+    margin-top: 5rem;
 }
 
 .double-nav a {
