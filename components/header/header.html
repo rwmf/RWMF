@@ -42,6 +42,8 @@
                     </li>
                     <li><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="about"><i class="fas fa-chevron-right"></i>About</a>
                     </li>
+                    <li><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="profile"><i class="fas fa-chevron-right"></i>Profile</a>
+                    </li>
                     <li><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="contact"><i class="fas fa-chevron-right"></i>Contact Us</a>
                     </li>
                 </ul>
@@ -63,14 +65,18 @@
         <!-- <ul class="nav navbar-nav nav-flex-icons ml-auto">
             <li class="nav-item">
                 <a class="nav-link"><i class="fas fa-search"></i></a>
-                <!-- <button class="openBtn" onclick="openSearch()"><i class="fas fa-search"></i></button> -->
+                <button class="openBtn" onclick="openSearch()"><i class="fas fa-search"></i></button> 
             </li>
         </ul> -->
+    
         <div id="wrap">
             <form action="" autocomplete="off">
                 <input ng-focus="headerctrl.setPlaceHolder($event)" ng-blur="headerctrl.removePlaceHolder($event)" class="search" type="text" name="search">
             </form>
         </div>
+
+        <h2 class="text-center event-header">EVENTS</h2>
+
     </nav>
     <!-- /.Navbar -->
 </header>

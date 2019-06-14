@@ -31,7 +31,7 @@
             if ($rootScope.isLoggedIn) {
                 var token = localStorage["userToken"];
                 var data = {
-                    program_id: id,
+                    programme_id: id,
                     utoken: token
                 }
                 CoreService.registerToProgram(data).then(function(response) {

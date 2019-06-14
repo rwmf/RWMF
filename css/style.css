@@ -29,7 +29,7 @@ html {
     padding: 12px 10px 10px 6px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
-    float: right;
+    /* float: right; */
     outline: none !important;
     outline-width: 0 !important;
     box-shadow: none;
@@ -37,6 +37,9 @@ html {
     -webkit-box-shadow: none;
     border: none!important;
     background-size: 40px;
+    z-index: 99;
+    position: absolute;
+    right: 0;
 }
 
 .search:focus {
@@ -116,11 +119,11 @@ body {
 
 h2.text-center.event-header {
     width: 100%;
-    color: #146c4f;
+    color: #00ffab;
     padding: 10px;
     position: fixed;
-    z-index: 99;
-    left: 0;;
+    font-weight: 400;
+    font-size: 1.5rem;
 }
 
 .filter-btn .form-check-input {
@@ -291,7 +294,7 @@ p.sgnup {
 /*04062019*/
 
 .mt-6 {
-    margin-top: 4rem!important;
+    margin-top: 6rem!important;
 }
 
 
@@ -748,6 +751,11 @@ input.has-error[type="checkbox"]:focus {
     padding-top: 1.25rem; 
 }
 
+table td {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 
 /*about*/
 
@@ -755,86 +763,74 @@ input.has-error[type="checkbox"]:focus {
     color: #fff !important;
 }
 
-/*search*/
+/*menu*/
 
-/* .openBtn {
-  background: transparent;
-  border: none;
-  padding: 10px 15px;
-  font-size: 20px;
-  cursor: pointer;
+.double-nav .button-collapse {
+    position: relative !important;
 }
 
-.openBtn:hover {
-  background: transparent;
+.navbar.scrolling-navbar.top-nav-collapse {
+    background: rgba(0,0,0,0.4);
+    height: 50px;
 }
 
-.overlay {
-  height: 100%;
-  width: 100%;
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.9);
+.navbar.scrolling-navbar {
+    background: rgba(0,0,0,0.4);
 }
 
-.overlay-content {
-  position: relative;
-  top: 46%;
-  width: 80%;
-  text-align: center;
-  margin-top: 30px;
-  margin: auto;
+.double-nav .button-collapse {
+    z-index: 99;
 }
 
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-  cursor: pointer;
-  color: white;
+.navbar{
+    height: 50px;
 }
 
-.overlay .closebtn:hover {
-  color: #ccc;
+/*profile*/
+
+.avatar-pic {
+    width: 160px;
+    text-align: center;
+    display: block;
+    margin: auto;
 }
 
-.overlay input[type=text] {
-  padding: 15px;
-  font-size: 17px;
-  border: none;
-  float: left;
-  width: 80%;
-  background: white;
-  border-radius: 10px 0px 0px 10px;
+.prof input{
+    color: #00c894;
+    font-weight: 500;
+    font-size: 2rem;
 }
 
-.overlay input[type=text]:hover {
-  background: #f1f1f1;
+.prof label{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #828282;
 }
 
-.overlay button {
-  float: left;
-  width: 20%;
-  padding: 15px;
-  background: #006936;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  border-radius: 0px 10px 10px 0px;
+.plus i{
+    text-align: center;
+    display: block;
+    margin: auto;
+    color: #13daa6;
+    font-size: 3rem;
+    position: relative;
+    z-index: 90;
+    top: -45px;
+    left: 55px;
+    background: url(../img/plus.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 90%;
 }
 
-.overlay button:hover {
-  background: #bbb;
+.file-field input[type=file] {
+    z-index: 99;
 }
 
-.fa-search{
-    color: #fff;
-} */
+.btn-warning {
+    background-color: #ff8000!important;
+}
+
 
 /*modal*/
 
