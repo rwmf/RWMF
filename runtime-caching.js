@@ -5,12 +5,18 @@
 (function(global) {
     'use strict'
     global.toolbox.router.get('/(.*)', global.toolbox.fastest);
-    // global.toolbox.router.get('/', global.toolbox.fastest)
-    // global.toolbox.router.get('/details', global.toolbox.fastest)
-    // global.toolbox.router.get('/layout', global.toolbox.fastest)
-    // global.toolbox.router.get('/header', global.toolbox.fastest)
-    // global.toolbox.router.get('/shots', global.toolbox.fastest)
-    // global.toolbox.router.get('/index.html', global.toolbox.fastest)
+    global.toolbox.router.get('/', global.toolbox.fastest);
+    global.toolbox.router.get('/admin', global.toolbox.fastest);
+    global.toolbox.router.get('/components', global.toolbox.fastest);
+    global.toolbox.router.get('/css', global.toolbox.fastest);
+    global.toolbox.router.get('/font', global.toolbox.fastest);
+    global.toolbox.router.get('/images', global.toolbox.fastest);
+    global.toolbox.router.get('/img', global.toolbox.fastest);
+    global.toolbox.router.get('/js', global.toolbox.fastest);
+    global.toolbox.router.get('/services', global.toolbox.fastest);
+    global.toolbox.router.get('/index.html', global.toolbox.fastest);
+
+
     global.toolbox.router.get('/(.*)', global.toolbox.fastest, {
         origin: /\.(?:googleapis|gstatic|bootstrapcdn|estrradodemo)\.com$/
     })
