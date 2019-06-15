@@ -32,7 +32,7 @@
 
         service.SetCredentials = function(userToken) {
             localStorage["userToken"] = userToken;
-            $rootScope.isLoggedIn = true;
+            $rootScope.isLoggedIn = !!localStorage["userToken"];
         };
         service.ClearCredentials = function() {
             delete localStorage["userToken"];

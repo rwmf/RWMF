@@ -28,7 +28,7 @@
         });
 
         function register(id) {
-            if ($rootScope.isLoggedIn) {
+            if (localStorage["userToken"]) {
                 var token = localStorage["userToken"];
                 var data = {
                     programme_id: id,

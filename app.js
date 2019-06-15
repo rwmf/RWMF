@@ -144,21 +144,6 @@
                     }
                 }
             })
-            .state('dashboard', {
-                url: '/dashboard',
-                views: {
-                    'innerPages@': {
-                        controller: 'DashController',
-                        templateUrl: 'components/dashboard/dashboard.html',
-                        controllerAs: 'vm'
-                    },
-                    'header@': {
-                        controller: 'HeaderController',
-                        templateUrl: 'components/header/header.html',
-                        controllerAs: 'vm'
-                    }
-                }
-            })
             .state('about', {
                 url: '/about',
                 views: {
@@ -204,10 +189,10 @@
         $urlRouterProvider.otherwise('/home');
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http', 'CoreService'];
+    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http', 'CoreService', 'stateHeaders'];
 
-    function run($rootScope, $location, $cookieStore, $http, CoreService) {
-        // keep user logged in after page refresh
+    function run($rootScope, $location, $cookieStore, $http, CoreService, stateHeaders) {
+        $rootScope.isLoggedIn = !!localStorage["userToken"];
         $(".button-collapse").sideNav();
         if (CoreService.isStandalone()) {
             CoreService.activateSplash();
@@ -225,7 +210,9 @@
             //     $location.path('/login');
             // }
         });
-        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {});
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+            $rootScope.mainHeader = stateHeaders[toState.name];
+        });
 
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
 
