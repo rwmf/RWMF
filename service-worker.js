@@ -31,442 +31,495 @@
 
 
 // /* eslint-disable quotes, comma-spacing */
-// var PrecacheConfig = [
-//         ["/app.js", "HkLukmheMwqaGQJdc83G69HXxE6n6nhg"],
-//         ["/components", "sOV72YZrQ3fNMHDe0hGnpmyNEsv0CwXZ"],
-//         ["/css", "deX5szQ1lwC2x6SdxIezBDr6LsXGt9PO"],
-//         ["/data", "xJ7G3bcqjtxe9vANrnK5SnEeoGn450nC"],
-//         ["/dist", "7c1ZqmDidmVd7osU9QzAGnOFbatKo1eb"],
-//         ["/font", "w9ytPOOawsfZI2P0fMG0YxzyK9E45Zey"],
-//         ["/images", "fvPPzWvptxqoKrcp6yMOxpEi7rm8tGmF"],
-//         ["/img", "EbwYnZDgpoPvnwwG4fflT7ktSWbeYFlm"],
-//         ["/index.html", "9H70ma0IxzLY9IT1hHXs7WJMGFMDTfRH"],
-//         ["/js", "zrynOycuTEFlTmhnDHrMzE7MG8ZSCRgS"],
-//         ["/manifest.json", "AgygkxI6pY5pJf54FmZ2jzPGTSmTkcCa"],
-//         ["/services", "k2g4pnviFFDn0cTEwnB2eecjTzEoOX9D"],
-//         ["/components/general", "6AQB6UwFDKx3SPYv5TuR6v4kvKkOvKES"],
-//         ["/components/header", "rf1C1Ng0qYFa6urQNwKHVoBMo8Dk2Tj0"],
-//         ["/components/home", "fABt5bd04tHETG5C6EtlLLvsWvYiw75L"],
-//         ["/components/program", "AhoyXAnwMglh2PRXBdtwgrDxZw8WNs9l"],
-//         ["/components/user", "R7z35i3D8ynBrbcaTgXxr90MbdjEglAQ"],
-//         ["/components/general/busSchedule.html", "ArVyN4bE2VzX8Vp0bEKoqeNMahTpoDrG"],
-//         ["/components/general/general.controller.js", "7VADdp9VEZd1YuoNdQdtDmtS3gAvW8e6"],
-//         ["/components/general/ticketInfo.html", "WuCWQhfFe2YI3lDtA1MaoTmQF28mcCwG"],
-//         ["/components/header/header.controller.js", "nwD2TDRJqNFXiO7Pt3HekpuSB0NjMvMM"],
-//         ["/components/header/header.html", "bu7q1YuYMRCXhEZPzQXEwFFsqCV1Xe6v"],
-//         ["/components/home/home.controller.js", "MhyqRsRYR5Z8KADKe5wvZoXWIcYG2E0r"],
-//         ["/components/home/home.html", "GUscoSUBRYvqOVVEtpq2bkwV07soRxZO"],
-//         ["/components/program/programDetail.controller.js", "1aWeam5sOgSX3dPxZUktmnU3XtvKw7Y9"],
-//         ["/components/program/programDetail.html", "ucRJ10v1tP9Qb3AWZWKX9RIsPtpkE095"],
-//         ["/components/program/registeredProgram.controller.js", "OqdQazTKZE2vMIDqFwJih04eWEMhfJwV"],
-//         ["/components/program/registeredProgram.html", "qsINcSoNRuwWNJHGDiMUPBXA8SF88Bo8"],
-//         ["/components/user/forgot.controller.js", "uayEbjUueWJ7XqFfBeoBLILyQ28PnV4C"],
-//         ["/components/user/forgot.html", "OYyu1jDrPwIkdqi6gJeh6yZoPhx56SPk"],
-//         ["/components/user/login.controller.js", "JbYxpzm32Jzc6o0DHZqEJ1ACxKABFtKc"],
-//         ["/components/user/login.html", "YguLYccUkluWlqp9JmM72ktLau9ycr1L"],
-//         ["/components/user/newuser.controller.js", "CYPAqp06V0VZD9wLoqek3DVCanwsC817"],
-//         ["/components/user/newuser.html", "JEezIOP8t0MbkwxVLCYnbg2uDmVrseNC"],
-//         ["/css/addons", "evl0KthhMilpDfLWoHVAP4WgE9ct7Pvo"],
-//         ["/css/all.css", "eGlOoSGGcH5gCIOv5gDyJz9PLMbsWCNX"],
-//         ["/css/all.min.css", "Bn5k36VkjRrQkdY8rVliceTCVjtaTl55"],
-//         ["/css/bootstrap.min.css", "Pl8ZbFlNOme4U4Xh162wBdpGVc79HWG9"],
-//         ["/css/bootstrap.css", "pDZRY6ymBIEa6AK3YrjATMBNd62vfN0H"],
-//         ["/css/libs", "Qs2CddtZNN3WWVRMt1kKth99pcWOBaPI"],
-//         ["/css/mdb.css", "TchyFX9EB7oopfMYfmgmulauo8gsKSjA"],
-//         ["/css/mdb.min.css", "NPwjf5eV1piE4716XEwB7up4gFScfJn0"],
-//         ["/css/modules", "lGDKKtf7ANT1Fo1Fkx7bfMk9wSx6zuno"],
-//         ["/css/style.css", "oXMvP0VONKamYLYLgWlMAZUh6aZ4mn9F"],
-//         ["/css/style.min.css", "1xBXpKjEnLiw75RwKwWQfZndfMboZxEM"],
-//         ["/css/addons/datatables-select.css", "zE3SLnsjGaSeITmr2q9ghD0UDhSdTcTS"],
-//         ["/css/addons/datatables-select.min.css", "BXbYisWQ1yM8OoAdCZ8Bvh1sU1vyI7ql"],
-//         ["/css/addons/datatables.css", "qm7BABOdWYn3xB6AV4yK5OYatmHOqOHS"],
-//         ["/css/addons/datatables.min.css", "ZRxL8eKKJzjrQGUHFfYZIeAmJdMz8rVY"],
-//         ["/css/addons/directives.css", "sEW4AIqofgu2ZXeSWbxv5YgNQantz1c0"],
-//         ["/css/addons/directives.min.css", "g09fwW2Na7Dvr9WQpdqislajJEYkYDEA"],
-//         ["/css/libs/font-awesome.min.css", "PsTPy8674izkWgnVuQs07gflTqge9v4u"],
-//         ["/css/libs/jquery.dataTables.min.css", "NAtnHVm2nlDZ2Epnh2qU2DQ5Fw7geSOs"],
-//         ["/css/modules/animations-extended.css", "aeVTem20l2e0cmrZwGD4OlDKuM3L2rPe"],
-//         ["/css/modules/animations-extended.min.css", "shd9L0UUNY1BnvpavtKBdOXNlWHDie6R"],
-//         ["/data/rwmf.json", "VwKHXkvEfHxQWgXW58pAdoRgFF4LE7xA"],
-//         ["/dist/css", "i2J2V221AxRYd3ehpc60nzVSAUB6zQlJ"],
-//         ["/dist/js", "fljCe44uGO51OLZjFwAPIDsaoaleYxa8"],
-//         ["/font/fa5", "oovs5IlDTx4ExlBpuS7DECDnipLVca86"],
-//         ["/font/roboto", "YJ5JMD9X73YNRtJ7hesAAj0UdSNzXyG7"],
-//         ["/font/fa5/fa-brands-400.eot", "VIfcf61IicLI4akDgzeCbNwfbBHjnkvo"],
-//         ["/font/fa5/fa-brands-400.svg", "KkR5FCYJTgYoclhbMaC8HrN0DCXnNvSj"],
-//         ["/font/fa5/fa-brands-400.ttf", "Nct5cZUiU5tH14Hqo172msHKGZ05zr2e"],
-//         ["/font/fa5/fa-brands-400.woff", "hYXEfCHbZmp6Ga1zllEZTIVwlJ9oyGsc"],
-//         ["/font/fa5/fa-brands-400.woff2", "I0B5A93xjs1Frwd5G5yMEe3x40bgJKRn"],
-//         ["/font/fa5/fa-regular-400.eot", "VCXAqZTqP37peIJ8dM3LpIrZ17A3JDuN"],
-//         ["/font/fa5/fa-regular-400.svg", "nuiEeVBwk8E7QqkuXnTyfv97aK1wh9PZ"],
-//         ["/font/fa5/fa-regular-400.ttf", "MZWPnFIFxZjwozBqfVhWMXeurlXOccMM"],
-//         ["/font/fa5/fa-regular-400.woff", "l2FbBSD645l1D6YfSNILX8jG56jOnQl6"],
-//         ["/font/fa5/fa-regular-400.woff2", "jvnk9sK1ucUaR63lrjMw0KnTOOF1rOWu"],
-//         ["/font/fa5/fa-solid-900.eot", "Dex2wuenyJ7oGsgT5f4zADK6kIG3dWcn"],
-//         ["/font/fa5/fa-solid-900.svg", "G2MScesQtiNB0fBh9fRhWe8clhTIqXWs"],
-//         ["/font/fa5/fa-solid-900.ttf", "91xl6VFz4wemKDIZ0VzFzjtU4dZgalBe"],
-//         ["/font/fa5/fa-solid-900.woff", "rs4F8dwrjc8KgWvm5XHYH789Rp35zBMs"],
-//         ["/font/fa5/fa-solid-900.woff2", "ciF0kMvDv7wbw2s8kcPYwWikQNtIHMca"],
-//         ["/font/roboto/Roboto-Bold.eot", "gEfq0O6S4KKJoi06CQWcfHX188EwNzff"],
-//         ["/font/roboto/Roboto-Bold.ttf", "KQsNJpocuDVpxN2Zms8IOKX152X1DufT"],
-//         ["/font/roboto/Roboto-Bold.woff", "cbucPJCSieBKxGUGwmuSn7auvUJM7dLw"],
-//         ["/font/roboto/Roboto-Bold.woff2", "rBVJ3yuKk8OpRYEDSbsQRNVoqpizbZ8s"],
-//         ["/font/roboto/Roboto-Light.eot", "4aK1jeXBZN61rJXUiMv9Myv9DHnlVHmt"],
-//         ["/font/roboto/Roboto-Light.ttf", "up05HK3FOVN4zrmfv99pdl62XFfZTyZr"],
-//         ["/font/roboto/Roboto-Light.woff", "N6Z3pN48uYN5ioQNyNi152JRGQFV0C1a"],
-//         ["/font/roboto/Roboto-Light.woff2", "aUpXmn8xZhoe9HMNyb7z7fQeu4GCeyA2"],
-//         ["/font/roboto/Roboto-Medium.eot", "dHwFM3P1sQAoVH7NvTDQH7ZB03FxIRhU"],
-//         ["/font/roboto/Roboto-Medium.ttf", "7K8vTwZjdtsVi5gz6DIXuGHbR9TIsaAp"],
-//         ["/font/roboto/Roboto-Medium.woff", "YWR6qBPBAecfGtoTN5yjwbMQbnxXzpnJ"],
-//         ["/font/roboto/Roboto-Medium.woff2", "pjXlzgqWoomptA8NETTzvpj6ggyNNpzA"],
-//         ["/font/roboto/Roboto-Regular.eot", "sr03qGvxrJFREB8yM0Ik9W88K8MaKd0M"],
-//         ["/font/roboto/Roboto-Regular.ttf", "QMJTRMzllBnDrhwwrk3uusy2CTviv0Zw"],
-//         ["/font/roboto/Roboto-Regular.woff", "did5GhsUPJFGDrsDpJIg3d1MPaSUG0Pm"],
-//         ["/font/roboto/Roboto-Regular.woff2", "2wYxvyYQIEyJ2e7SAUAGtB6rMN9Fln8u"],
-//         ["/font/roboto/Roboto-Thin.eot", "fZaBV1wtwHQ8TLi10ygFKCn7EMhDFr6d"],
-//         ["/font/roboto/Roboto-Thin.ttf", "JsnewGtlBbWv8pI0C744o4U16WKTdzPv"],
-//         ["/font/roboto/Roboto-Thin.woff", "H1H7nkYfK8gwza8LAke68RFbsMSk9Gap"],
-//         ["/font/roboto/Roboto-Thin.woff2", "lFmkTXjMpDJ594jyc5tGho5aab5auUbF"],
-//         ["/images/icons", "kIoommxp9FBv2CV3pb5FnqZiLfzKMnpG"],
-//         ["/images/icons/icon-128x128.png", "Z0sL0cmOPtVKgu7CPu9aRbs3KuUgM97Y"],
-//         ["/images/icons/icon-144x144.png", "WgywHV4384sotweFsAt067aSwhOUtqYk"],
-//         ["/images/icons/icon-152x152.png", "HWsOcmQJJedvD4Z6rdSeIvJyUkGUGIXM"],
-//         ["/images/icons/icon-192x192.png", "dKf2qjOoCrZx5hpB88vcdLViUipBc1tc"],
-//         ["/images/icons/icon-384x384.png", "sgxqJWrz2snO1dAMjoT9k7OHtXLAFlkN"],
-//         ["/images/icons/icon-512x512.png", "45QOrwd76IyEAuEXnGv3Gq5Lu7jH6Vws"],
-//         ["/images/icons/icon-72x72.png", "TbrX0zGM22TRXM1L3UQyWIJpJa89jVgv"],
-//         ["/images/icons/icon-96x96.png", "l5oXPaWZ6UyFCtRepppPGM2pk0sGgcQB"],
-//         ["/img/arrow_down-min.png", "5ebk3zhF5s29sDpof2pNAjQnrFm0fvE2"],
-//         ["/img/load.png", "5ebk3zhF5s29sDpof2pNAjPGM2pk0vE2"],
-//         ["/img/arrow_up-min.png", "kvktHI35c8emgtXeRn6kIYAJgldxmS61"],
-//         ["/img/bottom-border.png", "wDqNa2KaYWXVRzuhWOVkybtvgj1mxwiU"],
-//         ["/img/calender.png", "4D9a4DR9JmdrDPWFdlpaS6KcT6NCghOT"],
-//         ["/img/check_act-min.png", "mv6KUo1sQ0zwlM6wM3YzZVq3TT3Myt9n"],
-//         ["/img/check_inact-min.png", "OXFLhtXRFyEOBdVrO4FHHtoSPNSjEHBr"],
-//         ["/img/dummy.jpg", "W7r642p58TN5CFtqD3K3ZBSctju0tWt3"],
-//         ["/img/fb.png", "Vy9ZV6CrkEOdkMXMc58nJAvOrkhby7O0"],
-//         ["/img/flags.png", "WHpYJl5Wcun5OcWXLiwOlj2p1mzeXFa1"],
-//         ["/img/inner_bg-min.jpg", "gxNXOgDJLRunVXX345fE3XxrXI3sDWoD"],
-//         ["/img/inner_bg-min.png", "SFuPQzJtZeUJRQ3waprhAQRdhVMHW0om"],
-//         ["/img/insta.png", "YJFImzwZhFosz0inYeqjWYQ8AMtTxuqy"],
-//         ["/img/lightbox", "f6wbkUzXCWVrYsinJcePV7PQ8nR8xlbv"],
-//         ["/img/loader.gif", "fFHPyEKmEHNFPLiVR2a7GE2XnOx6VYah"],
-//         ["/img/location.png", "hX5zDWNOx9Fb66SSkukoJseJG5lELoGk"],
-//         ["/img/mail-min.png", "y8v2eGWu0Its9IDzTlAo5mwhUYJW3TXk"],
-//         ["/img/map.png", "VhAoMKcZOgpZEH20LHi9VwPrOXgSEzCb"],
-//         ["/img/overlays", "Wk1Dk3o5cNJE5TDO0A2hfH91XHpIsXsI"],
-//         ["/img/password_min.png", "dQFIGz7LEGfZHJEmCp354R51B6UhrG7D"],
-//         ["/img/registration_bg.png", "p13bRwKArmE9KHd8XfpuCkYphZEKH5Rm"],
-//         ["/img/registration_desktop_bg.png", "2wC1DBReBrLYhIPb0eEN8fVOuW9RAfCl"],
-//         ["/img/registration_logo.png", "NF2AVdSvPU0dWTTW2rNz9Th6WSEXcT6t"],
-//         ["/img/rwmf-02.png", "Whlonj6IGP7xd6vEp6TOr4IdBTMrbmtw"],
-//         ["/img/share.png", "JEZgbClfpg2dAnN6gv3Jq0YvrymVYGe3"],
-//         ["/img/sidenav.jpg", "Cp9dbK3Cq3xlrSTgBQDtts2y5IG2EnZg"],
-//         ["/img/svg", "gWFkUWVxfzGFysaNJ3DNC15ytTfSlecV"],
-//         ["/img/ticket.jpg", "NeCupkIJNJvQGOrlNkpo8GrbdIbEbbAE"],
-//         ["/img/time.png", "fenmOPu4JVBAw2iA9yJDfNwcqOQEyKgP"],
-//         ["/img/twt.png", "iJXfIhuWxAOvbUWQcVCUT59qxMvcYbLr"],
-//         ["/img/user-min.png", "npG5ljU1lSb3OrrGBIWXGfHUulqDnqM4"],
-//         ["/img/lightbox/default-skin.png", "GN1DW4rGaysc2YC4VKVIxTEpADhDOtun"],
-//         ["/img/lightbox/default-skin.svg", "VFUe4N3rxktL4iFOgmhFubIEJ4QYEXMQ"],
-//         ["/img/lightbox/preloader.gif", "Q22WuPEwrLpymqq4fu4vk9vwrvajr671"],
-//         ["/img/overlays/01.png", "5onJE04cp5dEawMXQLvffx4pOxywrOOu"],
-//         ["/img/overlays/02.png", "IDFHp48zZ2lcLyfywxpVLukSloJ0px2P"],
-//         ["/img/overlays/03.png", "vo94eveptMl5d4PAVHJkmvZ5R5RIaYBb"],
-//         ["/img/overlays/04.png", "wwZgqKJzOzrNlgw8r9PdZfok2Mq1icp7"],
-//         ["/img/overlays/05.png", "ObBg7h6aXYAijXqmhU2rY2uFYPEL31mH"],
-//         ["/img/overlays/06.png", "vfypqPDmsxlJfNzirsJRUAKy7GHZIn7v"],
-//         ["/img/overlays/07.png", "e5M9Kx3lQfb9lypGdGMAEKTqQy1dMyPa"],
-//         ["/img/overlays/08.png", "tOYLZfnaYuwxSDUaw2NtcIZiDSnCtS0o"],
-//         ["/img/overlays/09.png", "iK3YtnnP4PdfpqBMyqAbrSgqRBf35Z69"],
-//         ["/img/svg/arrow_left.svg", "RDHqDO39LwvrJjoVRzJRIWfS3hk1ZHlM"],
-//         ["/img/svg/arrow_right.svg", "0IrzZrngP3WzKC98LdSes525YY8FgmGN"],
-//         ["/img/svg/flags.png", "IRg7l9SWW4B8KntCqdpxljoiIZQBFGz6"],
-//         ["/js/addons", "bnuYujQ4KyQGcqbLO1L2Vdo1CtloW6M9"],
-//         ["/js/bootstrap.js", "v06ZOmFayrqopyMsbhUuJp8pzl8LQp76"],
-//         ["/js/bootstrap.min.js", "z8EphwWR2D7JuWPCpEjccw8czrHgj94H"],
-//         ["/js/custom.js", "xUnAHigMJapeTEBheHMPq7QEV2ynIfNc"],
-//         ["/js/jquery-3.4.1.min.js", "MxQ8c2kgDK85hb3SrWhf3tjJm2l5t5rw"],
-//         ["/js/libs", "OC6eJ0dxvOG9AxPBpLQsXhKxWJR4lrHm"],
-//         ["/js/main.js", "EWu8wHYerIg0SWG8Lw4VvnUcshydRcQg"],
-//         ["/js/mdb.js", "eXmeANm67iiWhx9qwgqBwjhNGhxW5wdq"],
-//         ["/js/mdb.min.js", "sUiQvDefRW2bhOqJhp3Pa1Cy1ZkIoSsV"],
-//         ["/js/modules", "g1w8ev3W1HE8IpOOUHzJUy5cC5YeewMV"],
-//         ["/js/popper.min.js", "LaQlcuzAqY579KTHIHqTOcy0hdZnd30N"],
-//         ["/js/addons/datatables-select.js", "RhDZGyQrcEXsXIdbRcota3VvaqTPVKo9"],
-//         ["/js/addons/datatables-select.min.js", "LhiYjBVwe5ekZakqOeuIC4ASmbMZbUip"],
-//         ["/js/addons/datatables.js", "xm7U3i1skTJAXpCNRDGGYyzW7FL6Tulf"],
-//         ["/js/addons/datatables.min.js", "egGcdOQ67VAunAibroFO6NXp9TexzdV2"],
-//         ["/js/addons/imagesloaded.pkgd.min.js", "fhs7lqDlzOcJdBZ79EiSgp0VuApD8iLs"],
-//         ["/js/addons/jquery.zmd.hierarchical-display.js", "3XRJsHW8pdW4O60JRgZXAml5kUETdkho"],
-//         ["/js/addons/jquery.zmd.hierarchical-display.min.js", "HlKGqJGoeM5mDF7Tupo3fMpXuQa8UoGG"],
-//         ["/js/addons/masonry.pkgd.min.js", "p8jHMHohyYAis6iYFpWuhLZCzHwU0zKZ"],
-//         ["/js/addons/rating.js", "DvkLXEncBtAPucdJRyTCPBila7UZApvG"],
-//         ["/js/libs/angular-animate.min.js", "QmxJazkUdDaT42cqwWUe3Xhkhc6m2l0N"],
-//         ["/js/libs/angular-animate.min.map.txt", "BEJnUX4EDgQb6lXV82CPIRd7EhDCPpWc"],
-//         ["/js/libs/angular-ui-router.js", "cgNjz4cSQQCOUg66hTJfFETWR8R2AM1l"],
-//         ["/js/libs/angular.min.js", "OcT9u0SMxwy0kbq7mkHMpXEvhverlUYq"],
-//         ["/js/libs/bootstrap-lighthouse.js", "vgqXcD5ojzLYJo00VDxk6JKgJv8hW78p"],
-//         ["/js/libs/clipboard.js", "PIxfxRjVPjtVsKhBKsTW7Q3XSRmw3Y1T"],
-//         ["/js/libs/cookies.js", "vJIsrvPcfcITBRSoX4o4elReuyhl0wiq"],
-//         ["/js/libs/jquery.js", "oNfbNbEaU0jNfJTmuYOyI9I9Vso4hjMp"],
-//         ["/js/modules/bs-custom-file-input.js", "Bfk3O45y7LfQmhctGTLzuFcfBtD6wyfw"],
-//         ["/js/modules/chart.js", "1WdzcW2MoASLiKvCaE8AYnY02wg5238t"],
-//         ["/js/modules/enhanced-modals.js", "gpcRJ12hDFK91Aa4G1M1EjeGmlVE2Bjs"],
-//         ["/js/modules/forms-free.js", "PvxbwwBXcwTHT76hRzpIWROL3HVUh47E"],
-//         ["/js/modules/jquery.easing.js", "Ji9ryAeDLcmtoy4x3f7vgC21nKSkgODw"],
-//         ["/js/modules/scrolling-navbar.js", "tD9jIEVvXV43BtMx8OPQOEMkx6C6eKIe"],
-//         ["/js/modules/treeview.js", "6JHjQgSt4hOTd2DaN9ru1yXWnZnfbHFZ"],
-//         ["/js/modules/velocity.js", "GxMAsSt21lEQ3XBGd2szjQz5v2XtJSpQ"],
-//         ["/js/modules/velocity.min.js", "76UBqnEb0SHYdGap1R8oJWH0iEuJKCPj"],
-//         ["/js/modules/waves.js", "KFuqui8NvNzmN9zUnpxWjLlZVJVrS2IF"],
-//         ["/js/modules/wow.js", "ALrBf8pOmTzS4uCqVnPPYXFSvglS2aEf"],
-//         ["/services/appConstants.js", "8wUKOS9N1wqDY1XCsowfSLufZX3Z2jDQ"],
-//         ["/services/authentication.service.js", "vexCGGpUeXP5DUJz55mjC8wFnwfSanHk"],
-//         ["/services/CoreService.js", "5GskrpqZRhyVcLLjVD7AUspu0GmmlCVx"],
-//         ["/services/flash.service.js", "SiOAiKQH4GkmAwQZwmtGfcmLSXfgUJ8X"],
-//         ["/services/HttpRequest.js", "P3LvPRb6Bg2WcDRMNJI75tmHZ2yf5e2n"],
-//         ["/services/user.service.js", "rLEYpFON5BS35RBg3K8KMEomWREmLQLS"],
-//         ["/admin/uploads/programme_image/programme_1.png", "DORKAN0qVAIIPaiFPq9NyCawLRxiNe0L"],
-//         ["/admin/uploads/programme_image/programme_2.png", "hyyRSwLEB5S6cX2OJ6QKja4HCB9fEK2b"],
-//         ["/admin/uploads/programme_image/programme_3.png", "kS3F79Mej3QqwbePKUmHvPmQ5yyjJSoO"],
-//         ["/admin/uploads/programme_image/programme_4.png", "VuHYvmMnXDMU17Rn4FxHzdT8zwToFvKz"],
-//         ["/admin/uploads/programme_image/programme_5.png", "44CPjx60MVaMbq9YYvCwURQNCZ2j3pjK"],
-//         ["/admin/uploads/programme_image/programme_6.png", "uM4YpufjY7GnJNVhDqOINplqmAxbqKx1"],
-//         ["/admin/uploads/rwmf_image/rwmf_bus_1.png", "uM4YpufjY7GnJNVhDqOIPKUmHvPmQqKx1"]
-//     ]
-//     /* eslint-enable quotes, comma-spacing */
-// var CacheNamePrefix = 'sw-precache-v1-sw-precache-' + (self.registration ? self.registration.scope : '') + '-';
+var PrecacheConfig = [
+        ["/", "xMW1TWucbdAVeDPGUB0Eda1YWZX8lwxN"],
+        ["/home", "DG1XHTngL1SoqfSQdVViB4ksGKqx2Alh"],
+        ["app.js", "jdahpcXU6bqdky0lqVfQfqn3EckhQ43U"],
+        ["index.html", "V6H69WRWB9KwGA9uj52RGov58F3Ziti8"],
+        ["components", "JizQHN2GU5NWUjYpRkGu2LMIiuBOVuuV"],
+        ["css", "aryAWuIeHKySoZCXlvgZa4fC1w5dFjr4"],
+        ["favicon.ico", "IVdFkY697iEPVW5XYH2gshnbraWrkg6d"],
+        ["font", "X11ilWn0tJ39QCiDZUuYTcWYFAIngc7Q"],
+        ["images", "qlHVLkj6h510sJtaoI7f1finhnOZ2xSd"],
+        ["img", "EoPUVGrCJH9t6bu5XG5r7duC4uikbYwu"],
+        ["js", "Yb1dgXLS9GhQDnAW2wyypSKgDXB3dBSd"],
+        ["main.js", "Hz6KXmPaqAHSBwCZRQdwfZgJRlKurjXz"],
+        ["manifest.json", "LdBYvj87YfUo4BjvFK67J6jfqf2QAqiq"],
+        ["services", "sKRg5Y45A2ZMQ3fWTe1I640x6yYIdBu8"],
+        ["service-worker.js", "fFF6QJxiSqjeo7UcWNDDUBLyw98tUiK5"],
+        ["services/appConstants.js", "dK5F8UgaRaCbmKRJzFp4EnYF8Nw46bj0"],
+        ["services/CoreService.js", "tfM2LucobRYOEClVXDnS4KZ3f2BTA8GR"],
+        ["services/flash.service.js", "Tsjgjn2sONaFbAlLu2dlvimX4XegOzO4"],
+        ["services/HttpRequest.js", "hjs1xgrBoj1AFHvFWLBsCvriGnhc8pKb"],
+        ["services/user.service.js", "BwzO9fSMaUyu8YVmHhqyi8qshun8arky"],
+        ["components/general", "4R7PWdyunN5nPkXqCqMCU8PBl5An0o8r"],
+        ["components/header", "G6RHR2nnFF07cA7x4QCH7Hsst8tOWlE9"],
+        ["components/home", "olsCr45wZWYg5mPlLamg0J4qHQwf1hua"],
+        ["components/program", "KY6zwHFXwGp7WL3stbteZPj4QlagsrME"],
+        ["components/static", "9kmTYKlST7icbkGihsUMNbl1VqX1d3xu"],
+        ["components/user", "uOKZMqr0Vx8TBf6ZFQ59enQ8Xl9Mk1RV"],
+        ["components/general/busSchedule.html", "I2EIypzh9YriCWg6srpZXmBcPs4UiKSJ"],
+        ["components/general/general.controller.js", "CeZJJyGu52EMrDSmE5wvuaLWkQS0Woqc"],
+        ["components/general/ticketInfo.html", "VJadEVsXUd418qzVHfntFdczuoo6F7Ij"],
+        ["components/header/header.controller.js", "2A7TjnxF0nfQmXRbJOBpVgl52mDWgt56"],
+        ["components/header/header.html", "lBbMqbfnPDNHFhvS5RCoMnkZ9OUgCFtl"],
+        ["components/home/home.controller.js", "PhJ5eje69fmyPCNjjzXsZyvHcF3CtmGE"],
+        ["components/home/home.html", "FVWxcwdwZLq4IN8pJTYt6M0ffWGuLg1f"],
+        ["components/program/programDetail.controller.js", "SnInSg9tqTCHjoPUU8a2tGAtkW3lEX9C"],
+        ["components/program/programDetail.html", "UU5ghT9CwsHQ2q02hJiCvS095sFIGpWS"],
+        ["components/program/registeredProgram.controller.js", "XJ4O20jqJ3kF9sKaItmrZpn19uAPF4ro"],
+        ["components/program/registeredProgram.html", "FIQhNYLl3qG8IDigShh0wBiUlQApIkr2"],
+        ["components/static/about.html", "T4vpw2fGk1lz49AXNcZ0wIlWpxUbiZ0Y"],
+        ["components/static/contact.html", "meTIk9YSes3PUsvzLj4V3yGyfemv4dMn"],
+        ["components/static/profile.html", "dOiBKQKC9S4yYt6sxdBYX1NXvZ3zDAGZ"],
+        ["components/static/staticCtrl.js", "oZ4xhieFnlGloNmrZJXF4RoknjEYoNk1"],
+        ["components/user/forgot.controller.js", "d5TwXt8KxEeA9GPUKamuP8Mlt4vrEshw"],
+        ["components/user/forgot.html", "spM8N6gHRONxvEgabQDVK9X6H5vUDkz2"],
+        ["components/user/login.controller.js", "sia6iuKsVQLvCzEci5BUerRXWjImmNvY"],
+        ["components/user/login.html", "0BvM3xSAXWTLeE8rU1OYSSee99UOdzT4"],
+        ["components/user/newuser.controller.js", "scxFNh6bj7lthIJ7HPDgLOqAvq1YA555"],
+        ["components/user/newuser.html", "ES3q4mPqc5Q1KaN5qyp3d1uawEigx622"],
+        ["css/addons", "KZ2ZaOL5hz9NyM3dF8X1NqGDI8dpK50F"],
+        ["css/all.css", "Z1UeTxyNU0Y8SYhk9LXDpRBRvjtnR1LZ"],
+        ["css/all.min.css", "LB1c2eWUTKpUsgToBJQDNoQz2To17Asj"],
+        ["css/bootstrap.css", "IoQKDg9plleZyyr3aFufZEl1pd7I2vg0"],
+        ["css/bootstrap.min.css", "F2qyhIBfmQP191CdKDDRtrn58QRjQHsb"],
+        ["css/libs", "T1FTCKYPbVlgLgVk21DT7tUhsssq0U0b"],
+        ["css/mdb.css", "Mswuj4JvLUyIyZU1g5SROT9xYn0fmQwG"],
+        ["css/mdb.min.css", "YTSC6u9I6qyx3daz1jWT3dMW6SPRK4ry"],
+        ["css/modules", "s2Vc2RE37tqBnogPimkcFEkOX8EOMXhN"],
+        ["css/style.css", "W1CeMcZ5sRcCWpVrqajoKMLh8O6cpJVE"],
+        ["css/style.min.css", "3S1zPUY9EdBaDR4IfE4ykKloFSbUhN9K"],
+        ["css/addons/datatables-select.css", "tBOHInrZpZ6yK4CTtTYgOXAQQHCGmqf2"],
+        ["css/addons/datatables-select.min.css", "gd0bLVfLoW8ihyaasRrQ3o5ZRJzgUloT"],
+        ["css/addons/datatables.css", "2mnFDDv5GfBtstJKPCIJ0ZaLwGm0MSJc"],
+        ["css/addons/datatables.min.css", "0HdN3f09MiNh8MjRDBq4ELsBy3Q0aMm4"],
+        ["css/addons/directives.css", "nv6FmqEMQmKP20EhxI55Dq7YSJ7e7i1D"],
+        ["css/addons/directives.min.css", "05LyzpLtEcoPdJ08ZFRQDTtqLVRs4Ox9"],
+        ["css/libs/font-awesome.min.css", "C7I0PqXl3bXe7g3aPFz03SDj159cRCoX"],
+        ["css/libs/jquery.dataTables.min.css", "NrYvKyY8mpahOKJ5pMTiCNQtvHlGqIvo"],
+        ["css/modules/animations-extended.css", "bPPg4763XbLYBH2bB50ONwjHerLMW7EN"],
+        ["css/modules/animations-extended.min.css", "b3BZYJtkV1LANb33WXobn8vpSf8H4vqE"],
+        ["css/temp/register.controller.js", "iCpYKaAvWCAABNcE7aY7hsb3SHHmsT0d"],
+        ["css/temp/register.html", "DOmpDfUcK0OkpPVcPgkLpYVIpsiFwQSG"],
+        ["font/fa5", "nHCsSkr2rysacPv3lqLy2hXMeRnsACjY"],
+        ["font/roboto", "WbxBUOBTQtck0sKoTIzQ79e09wyAPfAc"],
+        ["font/fa5/fa-brands-400.eot", "YLdh55BRGBgfj1RXXIGScjItA6oqKE1C"],
+        ["font/fa5/fa-brands-400.svg", "J2kwWqVBEbXrLQTRtAmVSKyeFc1BwERf"],
+        ["font/fa5/fa-brands-400.ttf", "iRTypq5YhOrIf52bGbj7iEDEUVoL2awO"],
+        ["font/fa5/fa-brands-400.woff", "BW82sQNZaeHF9CJec4bYa5Adc7j0M4WC"],
+        ["font/fa5/fa-brands-400.woff2", "UFAZI0XOvRTyqwltahEpsAoiObBvlbrm"],
+        ["font/fa5/fa-regular-400.eot", "8FXtk9MTzSCqc6gMNUlD8m5eL8RhHPHh"],
+        ["font/fa5/fa-regular-400.svg", "N9Ua4L5xBHpuPhaz6LpCn19kPQJLxqky"],
+        ["font/fa5/fa-regular-400.ttf", "zaRWwzonG2GJg0JYWCX2Q29AdjujFcGW"],
+        ["font/fa5/fa-regular-400.woff", "iFaJy66Lg1dkXQtKfMfK0ihoeLpsMREW"],
+        ["font/fa5/fa-regular-400.woff2", "Zg2EYvk8jMN7pIAws9udKA9I7MIO1sZO"],
+        ["font/fa5/fa-solid-900.eot", "s3Y38vWGYzIRHvwhhTafUpaEtlolofiJ"],
+        ["font/fa5/fa-solid-900.svg", "A5qrCmpYpzbh2oClAFnuv1wFj22I5sqw"],
+        ["font/fa5/fa-solid-900.ttf", "NamvMtToW4RRGb2Tr4yXeAi4B30L1cnL"],
+        ["font/fa5/fa-solid-900.woff", "yQ530ssowd6igxrfYgsK35PtpTbnyXRB"],
+        ["font/fa5/fa-solid-900.woff2", "qVyhI8Fa9fpj5kFjEHzv1hepQVfyk2d2"],
+        ["font/roboto/Roboto-Bold.eot", "4fqdJ43uh48qtrcnLxASCZKQ4frTZN6C"],
+        ["font/roboto/Roboto-Bold.ttf", "S4rAAp0t2LkjF4MPJMLQiGHbFXqNrXgG"],
+        ["font/roboto/Roboto-Bold.woff", "7JRJY1sPWMLPjuH2quPgNpCUQW9vg4Zr"],
+        ["font/roboto/Roboto-Bold.woff2", "pICGotg9aemG9AZn1UL7pBLvBsEzB2oe"],
+        ["font/roboto/Roboto-Light.eot", "DFFCbFqjKPBel39qu6Gb2nfe2mKawgGX"],
+        ["font/roboto/Roboto-Light.ttf", "jusRGf2WRiSEJDSDsLjfprIzk7oDPP1Y"],
+        ["font/roboto/Roboto-Light.woff", "CEdcE0gdfrmiiQTxThynlrSjHkBrX6QT"],
+        ["font/roboto/Roboto-Light.woff2", "FyV5eJY5gDEUuZkMgX0h054GkV0upJnV"],
+        ["font/roboto/Roboto-Medium.eot", "HSiUolacwELLgpN36LNdd6eEYvB7X7z1"],
+        ["font/roboto/Roboto-Medium.ttf", "A72JmfKg4jEApVs5786wgilu9R7xc730"],
+        ["font/roboto/Roboto-Medium.woff", "12zpZkVe7SjYcGk7Rl8wkIHhQ52y5u0b"],
+        ["font/roboto/Roboto-Medium.woff2", "CxTWQRBgKKRSsJA3uXnPGHTpHHZZu95n"],
+        ["font/roboto/Roboto-Regular.eot", "8QJC82Ifnkv41xohToD5vjJRTL9DSXzG"],
+        ["font/roboto/Roboto-Regular.ttf", "ileFFf1l5hGej35DDFrflqt0XnMjnu9i"],
+        ["font/roboto/Roboto-Regular.woff", "WarImIREuatLCZlgXQ0ce9Asbj5vekfh"],
+        ["font/roboto/Roboto-Regular.woff2", "3ib1awEwz5Z4IvpB14DQHAXpRYER2Qks"],
+        ["font/roboto/Roboto-Thin.eot", "XklMf4kbFPYkESmdzNSYBLjOO0v0YbJe"],
+        ["font/roboto/Roboto-Thin.ttf", "KDAsXeGrUFqKdTka7PYpZELkIZwmmBJG"],
+        ["font/roboto/Roboto-Thin.woff", "CKohkNXyhUu1JSUuzjamrdNYF2TgJjHZ"],
+        ["font/roboto/Roboto-Thin.woff2", "KjypOog5Gzri6FMub47PhWBtDLSeMcpM"],
+        ["images/favicon", "c4a6ILNswhuJitY5tzSy0mEAoz3f9LSm"],
+        ["images/icons", "pzmrycnMKIH5bmRWz2tbivQEqvzRxYMq"],
+        ["images/splash", "tjHQvFH6E2rlCB664RBHpsZ98zzODIXb"],
+        ["images/favicon/android-chrome-192x192.png", "pGt3b5opnG7mdIbn3FnOYu6fz8dbaklO"],
+        ["images/favicon/android-chrome-512x512.png", "kdmGBUklqYGkkUWNw3DqzwSYH3djCEWv"],
+        ["images/favicon/apple-touch-icon.png", "FdUvPJxEcqq8PLOzcpKluKbNobW37x4f"],
+        ["images/favicon/browserconfig.xml", "dvhmXSCTaQchjC3BtU9dY2SaRUfTXNfH"],
+        ["images/favicon/favicon-16x16.png", "KRm9obCUl6Cy4C65HPVn3ZW7Ay0bN7cR"],
+        ["images/favicon/favicon-32x32.png", "iWNsaAQcXMiSAz6XAKjY2Vg6KjqFTS73"],
+        ["images/favicon/favicon.ico", "A9uvaMOBGR7V832mQp0Zr4p1QDPJ10KB"],
+        ["images/favicon/mstile-150x150.png", "MxsShPcaxOuqaXk0elRvYdmF6kivqDKf"],
+        ["images/favicon/safari-pinned-tab.svg", "hf9KxECjJktBUVfhsczdcZJ9mQvcXsCE"],
+        ["images/icons/apple-touch-icon.png", "te0Fc9YFDHbsy86AcKF9Bbf77FovSTLf"],
+        ["images/icons/icon-128x128.png", "nSjCUHiXpAjQD2bcjmLoa4RERjpQB7FN"],
+        ["images/icons/icon-144x144.png", "jYwuyWsuEhL5TMkSkbLCFLBI30nW84EJ"],
+        ["images/icons/icon-152x152.png", "ppc9Lo4rJ1zZrRbORh0mkKAKl4mmhcoi"],
+        ["images/icons/icon-192x192.png", "awc4JLxOtGmSunbYakOYCfPbocdw9OS6"],
+        ["images/icons/icon-384x384.png", "geRI2YY7TBhIV4ZGhk2tb18UouXZg83N"],
+        ["images/icons/icon-512x512.png", "x0Z0yyqRd3rg7mwO4a2QVKDP9kEdYPI5"],
+        ["images/icons/icon-72x72.png", "ugB5LpXO3ItNxuzMykPrkaXbUdIW29Jt"],
+        ["images/icons/icon-96x96.png", "GmOl1JLWgIEvGuw1SwZmiSSrCTWHTseD"],
+        ["images/splash/launch-1125x2436.png", "yNzwelsRyn9Aa1AtyM9Pp9NFScMKYZsS"],
+        ["images/splash/launch-1242x2148.png", "XhnabUH4GKCG4rxlVPDvRm6DEJPVQahb"],
+        ["images/splash/launch-1536x2048.png", "PNI0Oed4TcK203AVat5rXSaPEuoR7xXJ"],
+        ["images/splash/launch-1668x2224.png", "Rpa5KxKCX0SqUTlXRI0o7wfSP5ToPNJj"],
+        ["images/splash/launch-2048x2732.png", "BSa9LsHOcUQCNQn7uOb1RFdKjkeZUDsh"],
+        ["images/splash/launch-640x1136.png", "m1y0NN5LOlgV8pF93vjPwlyeSLnS0O2t"],
+        ["images/splash/launch-750x1294.png", "1fZfzmtyu4bkT1t5nDXxNLPyvTM80D3j"],
+        ["img/abo.jpg", "VxLromE55KITF3fGCnbZLiLZiSYfUv8l"],
+        ["img/app_icon.png", "xphmUPx3RZqb8j7t0tnO2M3GHLleqdCz"],
+        ["img/arrow_down-min.png", "VrO8cU4ipv7ROzZoOsK0rQI8tWIjeAUP"],
+        ["img/arrow_up-min.png", "QmqmJwcO5X4blme81f6TeviXnuUW1AIJ"],
+        ["img/avat.png", "uvYyL0INxU1u5BJxRymFBw4eN1HBxeZs"],
+        ["img/BALLET-FOLCLORIC-DE-CHILE-BAFOCHI-min.jpg", "IOvEtu5QRuYv4VtJbt98oUXpM1Exiv5h"],
+        ["img/bottom-border.png", "K36n52V0ip8jGNTJE8Az3pZVPpgiG9LB"],
+        ["img/calender.png", "UWbPn05aVPgIlNdi6hqRe1j84EEMxAux"],
+        ["img/check_act-min.png", "Jz8yRWx8PgBTGYGJgWGLh6f0OYpswrlJ"],
+        ["img/check_inact-min.png", "SK0niSMV9ctT1lsMadL799hPGZSx080i"],
+        ["img/dummy.jpg", "kdE9qFCNW2DeWXmEivoKl6boqHM4nZ0k"],
+        ["img/fb.png", "scMG5TCddOCTlcfauDsh7DnpJOD0LC2p"],
+        ["img/flags.png", "T8zBZkUdAa6ShUYWsAaiQy1KpANinlfH"],
+        ["img/forgot-min.png", "ylFUmKmon4Fh2TLxjnqOWD1ZvZ3gxLlh"],
+        ["img/HA-NOI-DUO-min.jpg", "Rn9u9Z3uwdkFk5E7qNtKJ7YRrjrk1oby"],
+        ["img/inner_bg-min.jpg", "OmL1IUen32GxRiPO35lwUaHNVaErBllr"],
+        ["img/inner_bg-min.png", "3Zlg5uPaCeGiapex4cu4TTJLXb90eaIM"],
+        ["img/insta.png", "DxsRp9tRisXQL945S9y5dF0utc4kqBpK"],
+        ["img/lightbox", "jlot5WIrFWxHLjvugFWKEXzlXlJv5hok"],
+        ["img/load.png", "DUDTnXEmpAkwjiKExt64eknqMLDcpH6Z"],
+        ["img/loader.gif", "P0G5PDJ1l51Q1L4uNFGuwaWvyJR0mfwp"],
+        ["img/location.png", "g933b8Zh8VD5QnPewAo1AN6QaGoNNaWT"],
+        ["img/login-min.png", "EvC2C5dF9x4U4B6rhubfRL1sgZJgHwfG"],
+        ["img/mail-min.png", "M1U4VK6hxbm3x52ZWd3ekFw9h3LCD3Ji"],
+        ["img/map.png", "pn1XAazuTuIaMvngn7QJTrkvAfjsANg2"],
+        ["img/MEHDI-NASSOULI-min.jpg", "Xlb79sqRwozO0VL6O3A0JMpCJ2EtrCML"],
+        ["img/OLGA-CERPA-Y-MESTISAY-min.jpg", "2D8bK3scqO2txWCzspo9VHRcoQcIq3Rx"],
+        ["img/OTAVA-YO-min.jpg", "WHlA2cSfdIJU3Eb50uS5O0BdXO3NN9LL"],
+        ["img/overlays", "iE1CYltODFO2Lv3tCkqmBkD86M8MJ53Y"],
+        ["img/password_min.png", "fd11SQavlk8t6MEDihQuwaUMY4wFBcvl"],
+        ["img/plus.png", "Ql8awS9qKNWvl5yw5olGSKL9hARLNWOR"],
+        ["img/RAJERY-min.jpg", "E3Aw3qh6Wjtz4GYmhGhQNCfIwHNNQZ43"],
+        ["img/registration_bg.png", "hwwolLJvWgXJYOVjLgD5X4XzBymHK7RA"],
+        ["img/registration_desktop_bg.png", "3Xv0ep00U45IgVjtywJhMfhVzPtWRbUc"],
+        ["img/registration_logo.png", "OmqYelULC4bYkEgUoOEYuqaFU0duUeek"],
+        ["img/rwmf-02.png", "XXr9TqFuWeilj0fkP5aiDcEdmaDCJynl"],
+        ["img/searchicon.png", "fItxN2YjIuNkyz0h1ozayeQgjFczW8Bk"],
+        ["img/share.png", "DPhh3eC1GVjK9mdzL3PFHpQvNUfLJqlX"],
+        ["img/sidenav.jpg", "G1gnKw35eMHGuYoG71jtQKWlcqDpSC78"],
+        ["img/SPIRIT-OF-THE-HORNBILLS-min.jpg", "J14l5vreupa6Yb2IaChULUWErl18aMzo"],
+        ["img/SUK-BINIE-min.jpg", "x3uBtnYLnWK8AxLNNwnI8B7LMFEfMgWv"],
+        ["img/svg", "HEGykNHxteXPiGe47HqY5T5RnUobofkm"],
+        ["img/TALISK-min.jpg", "948n9XqVkB0vH48NvVnAeKYNFCwR3K7a"],
+        ["img/ticket.jpg", "djLBYPOxRnTDc1dOCVQ1Nc5mVIOxYxQJ"],
+        ["img/time.png", "HzPn2vcNWATgB5xdPpBjthLktnUXXcAR"],
+        ["img/twt.png", "nw2ptpjlQgDAKOtEuWT0npPGBRR2PCqC"],
+        ["img/user-min.png", "nmz9VRltMi33NUSXgj6z0T94JxXUiSun"],
+        ["img/lightbox/default-skin.png", "ooU3jVjxZMbilFDUNYBJq5huHRcaUGDj"],
+        ["img/lightbox/default-skin.svg", "8r3jNCavUgdEEei5FWQ6DbEOILOWX7HE"],
+        ["img/lightbox/preloader.gif", "N6pfD5HildNk6RSQoKS1bbU7ZZPb2xIo"],
+        ["img/overlays/01.png", "VnBORSXGT94DXo3ALgiFDv9Uz0s872k9"],
+        ["img/overlays/02.png", "hGtLnAZMglioXDRq4OlOYd9GkuaUCS2Q"],
+        ["img/overlays/03.png", "rT7XAbXCBNEV0Ov0De0vUA6eKLjEyne1"],
+        ["img/overlays/04.png", "nRdoh0ofA8wMPVhjZTOKcIR1X8prCUaA"],
+        ["img/overlays/05.png", "l6sy7RV3rqkEhsLIWcBZFzq5I5jue9UK"],
+        ["img/overlays/06.png", "gQ5hnMsZL30Wg7r44R7oMVPby1X538aj"],
+        ["img/overlays/07.png", "wrrxZf78NWow7EMTsb2iJsD5NrBNlSVa"],
+        ["img/overlays/08.png", "fOsM50QbwDtj5MWS9TXOQFbFxfxA5vRH"],
+        ["img/overlays/09.png", "g85rWbmQnaO5seGcxy8qq1JdSAw1nVR9"],
+        ["img/svg/arrow_left.svg", "BgEQPrVkpxw3JI9ZNOqhdKLjVuUamC4U"],
+        ["img/svg/arrow_right.svg", "zJ7u2NOYWB3E8omEsTnG0oGz5u5fq9tO"],
+        ["img/svg/flags.png", "pjlcvg9BQcmbDRIQoA7NsanL8z5M2MzC"],
+        ["js/addons", "Uxp5kvPVWruZApZPgQclAWCwyqWtgtix"],
+        ["js/bootstrap.js", "Oohkp7Fm50Zzx5O9cgLSO7BuifVTZIGF"],
+        ["js/bootstrap.min.js", "a9SeNZE8KjsgHoWlxGKjDIoe53fqvPbK"],
+        ["js/custom.js", "J4YLSIx3EcSM773ZjlkWTJJY6NCbNrFh"],
+        ["js/jquery-3.4.1.min.js", "rslRIQFabKUQqAY8dc2jwkZgDoGxExTn"],
+        ["js/libs", "AuCCJB3Q4Lf6GyepIGW8FxFXJ8fqiZnz"],
+        ["js/main.js", "AbljssAITwcoyAX2Kml0eIqp4sTuCkZI"],
+        ["js/mdb.js", "tiCfqZ4dRqAV9WgRlkLZ3iXnJqckvUOh"],
+        ["js/mdb.min.js", "3jr2NkULwXbojBt3CtLjSjUO81kOQeT4"],
+        ["js/modules", "valJ4AATohrRrUjHd6nWanyCO8yeR1sN"],
+        ["js/popper.min.js", "9o92Fh9uQB3aVdD3NNmnj6D7D336P8iF"],
+        ["js/addons/datatables-select.js", "2aCxXIKoJ5y6bVeHEkeRCCaTuALRjb0T"],
+        ["js/addons/datatables-select.min.js", "Q2vk9y6sZl54Lm7GzvM3yn93HGHkoteO"],
+        ["js/addons/datatables.js", "CvuS9ahagWBYcWrzqTcRGB6f7BUhpGIK"],
+        ["js/addons/datatables.min.js", "CWPwIXENH4wm8EFJYQ3fvS5qQXFFOM6b"],
+        ["js/addons/imagesloaded.pkgd.min.js", "WQL2Up2ywfQz9ncgZ5CUtIqJdyIVyvqP"],
+        ["js/addons/jquery.zmd.hierarchical-display.js", "fiywWYW9re6s7rmPAn1OKsiikbF9Tlib"],
+        ["js/addons/jquery.zmd.hierarchical-display.min.js", "Wa6M0H8dlbCFjnqiHaHb9N8vGcfcUZrY"],
+        ["js/addons/masonry.pkgd.min.js", "WXQWnBDYxLU7oXD98EMg7rTOeTPbUPNJ"],
+        ["js/addons/rating.js", "dCK3p6AiU09ayEqkZoitq3xJNfwUJlAS"],
+        ["js/libs/angular-animate.min.js", "tjcrRweYT65oiA4fD751jlWo0hBiVjkZ"],
+        ["js/libs/angular-animate.min.js.map.txt", "ZGZtwk4taU3sklUmdoU8YnB2JLiI8D07"],
+        ["js/libs/angular-sanitize.min.js.map", "QHMmJ6arDjqpKy20HoFp19vyuPQU9rP0"],
+        ["js/libs/angular-ui-router.js", "lPvrKehKHTbxwnLzO9BeyHNTDktEOP1h"],
+        ["js/libs/angular.min.js", "srivIAmyso9U0dG5pLeCMxzcWh1t8aES"],
+        ["js/libs/bootstrap-lighthouse.js", "ssgs4OiP6l4rU25wCFxELdE8R6Wt1mfx"],
+        ["js/libs/clipboard.js", "bEig9Igi1I2UrJtPssbRJTVQXUh1GN4O"],
+        ["js/libs/cookies.js", "aQQ6vEcYJRJ0OJjvAHkx9CRDrtHpIGjK"],
+        ["js/libs/jquery.js", "GYZoYcHyqRAf54X2YTXtvX1oPEbmF4RX"],
+        ["js/libs/ng-sanitize.js", "ON904j32Zq2PJQJsInyEPL163UVqiVWx"],
+        ["js/libs/platform.js", "fReDLS47TegVGzF1roEbJtozLuewlxDh"],
+        ["js/modules/bs-custom-file-input.js", "mEWYzPZTtoJuTy83ypsZ59BmcPP9zsHI"],
+        ["js/modules/chart.js", "8QaOUOXLy6R0dsv1nhxQWNrAReS6QcwV"],
+        ["js/modules/enhanced-modals.js", "8GVTczvqMrXYAbk6yUiT9x9Xtm19aDHZ"],
+        ["js/modules/forms-free.js", "WugrrlCorQm5DHN8nyK7wBM3sDW3uobG"],
+        ["js/modules/jquery.easing.js", "9ZVXyYSUZnG3xxxof0U6xYTDOPPu1AjQ"],
+        ["js/modules/scrolling-navbar.js", "D2VEpALNpv9MfwO8EEZ0WvDvVzmQnYnE"],
+        ["js/modules/treeview.js", "PpG2iNshStmMO7fFWreJpgRxJqIAuhAh"],
+        ["js/modules/velocity.js", "UzkjbF4kh9KvtZyiQyj24W5Nqm7JDMSv"],
+        ["js/modules/velocity.min.js", "ptZVdGqJrs06L2kpQawWwSiSLlkcgihF"],
+        ["js/modules/waves.js", "ouOjwCh9sZV5xKXUhExkeGlEOuStEwNF"],
+        ["js/modules/wow.js", "N7WvkXwERNQXn3Ivxe9PsQSOf3ux2fme"]
+    ]
+    //     /* eslint-enable quotes, comma-spacing */
+var CacheNamePrefix = 'sw-precache-v1-sw-precache-' + (this.registration ? this.registration.scope : '') + '-';
 
 
-// var IgnoreUrlParametersMatching = [/^utm_/];
+var IgnoreUrlParametersMatching = [/^utm_/];
 
 
 
-// var addDirectoryIndex = function(originalUrl, index) {
-//     var url = new URL(originalUrl);
-//     if (url.pathname.slice(-1) === '/') {
-//         url.pathname += index;
-//     }
-//     return url.toString();
-// };
+var addDirectoryIndex = function(originalUrl, index) {
+    var url = new URL(originalUrl);
+    if (url.pathname.slice(-1) === '/') {
+        url.pathname += index;
+    }
+    return url.toString();
+};
 
-// var getCacheBustedUrl = function(url, param) {
-//     param = param || Date.now();
+var getCacheBustedUrl = function(url, param) {
+    param = param || Date.now();
 
-//     var urlWithCacheBusting = new URL(url);
-//     urlWithCacheBusting.search += (urlWithCacheBusting.search ? '&' : '') +
-//         'sw-precache=' + param;
+    var urlWithCacheBusting = new URL(url);
+    urlWithCacheBusting.search += (urlWithCacheBusting.search ? '&' : '') +
+        'sw-precache=' + param;
 
-//     return urlWithCacheBusting.toString();
-// };
+    return urlWithCacheBusting.toString();
+};
 
-// var isPathWhitelisted = function(whitelist, absoluteUrlString) {
-//     // If the whitelist is empty, then consider all URLs to be whitelisted.
-//     if (whitelist.length === 0) {
-//         return true;
-//     }
+var isPathWhitelisted = function(whitelist, absoluteUrlString) {
+    // If the whitelist is empty, then consider all URLs to be whitelisted.
+    if (whitelist.length === 0) {
+        return true;
+    }
 
-//     // Otherwise compare each path regex to the path of the URL passed in.
-//     var path = (new URL(absoluteUrlString)).pathname;
-//     return whitelist.some(function(whitelistedPathRegex) {
-//         return path.match(whitelistedPathRegex);
-//     });
-// };
+    // Otherwise compare each path regex to the path of the URL passed in.
+    var path = (new URL(absoluteUrlString)).pathname;
+    return whitelist.some(function(whitelistedPathRegex) {
+        return path.match(whitelistedPathRegex);
+    });
+};
 
-// function makeid(length) {
-//     var result = '';
-//     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//     var charactersLength = characters.length;
-//     for (var i = 0; i < length; i++) {
-//         result += characters.charAt(Math.floor(Math.random() * charactersLength));
-//     }
-//     return result;
-// }
-// var populateCurrentCacheNames = function(precacheConfig, cacheNamePrefix, baseUrl) {
-//     var absoluteUrlToCacheName = {};
-//     var currentCacheNamesToAbsoluteUrl = {};
-//     precacheConfig.forEach(function(cacheOption) {
-//         var absoluteUrl = new URL(cacheOption[0], baseUrl).toString();
-//         var cacheName = cacheNamePrefix + absoluteUrl + '-' + cacheOption[1];
-//         currentCacheNamesToAbsoluteUrl[cacheName] = absoluteUrl;
-//         absoluteUrlToCacheName[absoluteUrl] = cacheName;
-//     });
+function makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+var populateCurrentCacheNames = function(precacheConfig, cacheNamePrefix, baseUrl) {
+    var absoluteUrlToCacheName = {};
+    var currentCacheNamesToAbsoluteUrl = {};
+    precacheConfig.forEach(function(cacheOption) {
+        var absoluteUrl = new URL(cacheOption[0], baseUrl).toString();
+        var cacheName = cacheNamePrefix + absoluteUrl + '-' + cacheOption[1];
+        currentCacheNamesToAbsoluteUrl[cacheName] = absoluteUrl;
+        absoluteUrlToCacheName[absoluteUrl] = cacheName;
+    });
 
-//     return {
-//         absoluteUrlToCacheName: absoluteUrlToCacheName,
-//         currentCacheNamesToAbsoluteUrl: currentCacheNamesToAbsoluteUrl
-//     };
-// };
+    return {
+        absoluteUrlToCacheName: absoluteUrlToCacheName,
+        currentCacheNamesToAbsoluteUrl: currentCacheNamesToAbsoluteUrl
+    };
+};
 
-// var stripIgnoredUrlParameters = function(originalUrl,
-//     ignoreUrlParametersMatching) {
-//     var url = new URL(originalUrl);
+var stripIgnoredUrlParameters = function(originalUrl,
+    ignoreUrlParametersMatching) {
+    var url = new URL(originalUrl);
 
-//     url.search = url.search.slice(1) // Exclude initial '?'
-//         .split('&') // Split into an array of 'key=value' strings
-//         .map(function(kv) {
-//             return kv.split('='); // Split each 'key=value' string into a [key, value] array
-//         })
-//         .filter(function(kv) {
-//             return ignoreUrlParametersMatching.every(function(ignoredRegex) {
-//                 return !ignoredRegex.test(kv[0]); // Return true iff the key doesn't match any of the regexes.
-//             });
-//         })
-//         .map(function(kv) {
-//             return kv.join('='); // Join each [key, value] array into a 'key=value' string
-//         })
-//         .join('&'); // Join the array of 'key=value' strings into a string with '&' in between each
+    url.search = url.search.slice(1) // Exclude initial '?'
+        .split('&') // Split into an array of 'key=value' strings
+        .map(function(kv) {
+            return kv.split('='); // Split each 'key=value' string into a [key, value] array
+        })
+        .filter(function(kv) {
+            return ignoreUrlParametersMatching.every(function(ignoredRegex) {
+                return !ignoredRegex.test(kv[0]); // Return true iff the key doesn't match any of the regexes.
+            });
+        })
+        .map(function(kv) {
+            return kv.join('='); // Join each [key, value] array into a 'key=value' string
+        })
+        .join('&'); // Join the array of 'key=value' strings into a string with '&' in between each
 
-//     return url.toString();
-// };
-
-
-// var mappings = populateCurrentCacheNames(PrecacheConfig, CacheNamePrefix, self.location);
-// var AbsoluteUrlToCacheName = mappings.absoluteUrlToCacheName;
-// var CurrentCacheNamesToAbsoluteUrl = mappings.currentCacheNamesToAbsoluteUrl;
-
-// function deleteAllCaches() {
-//     return caches.keys().then(function(cacheNames) {
-//         return Promise.all(
-//             cacheNames.map(function(cacheName) {
-//                 return caches.delete(cacheName);
-//             })
-//         );
-//     });
-// }
-
-// self.addEventListener('install', function(event) {
-//     event.waitUntil(
-//         // Take a look at each of the cache names we expect for this version.
-//         Promise.all(Object.keys(CurrentCacheNamesToAbsoluteUrl).map(function(cacheName) {
-//             return caches.open(cacheName).then(function(cache) {
-//                 // Get a list of all the entries in the specific named cache.
-//                 // For caches that are already populated for a given version of a
-//                 // resource, there should be 1 entry.
-//                 return cache.keys().then(function(keys) {
-//                     // If there are 0 entries, either because this is a brand new version
-//                     // of a resource or because the install step was interrupted the
-//                     // last time it ran, then we need to populate the cache.
-//                     if (keys.length === 0) {
-//                         // Use the last bit of the cache name, which contains the hash,
-//                         // as the cache-busting parameter.
-//                         // See https://github.com/GoogleChrome/sw-precache/issues/100
-//                         var cacheBustParam = cacheName.split('-').pop();
-//                         var urlWithCacheBusting = getCacheBustedUrl(
-//                             CurrentCacheNamesToAbsoluteUrl[cacheName], cacheBustParam);
-
-//                         var request = new Request(urlWithCacheBusting, { credentials: 'same-origin' });
-//                         return fetch(request).then(function(response) {
-//                             if (response.ok) {
-//                                 return cache.put(CurrentCacheNamesToAbsoluteUrl[cacheName],
-//                                     response);
-//                             }
-
-//                             console.error('Request for %s returned a response status %d, ' +
-//                                 'so not attempting to cache it.',
-//                                 urlWithCacheBusting, response.status);
-//                             // Get rid of the empty cache if we can't add a successful response to it.
-//                             return caches.delete(cacheName);
-//                         });
-//                     }
-//                 });
-//             });
-//         })).then(function() {
-//             return caches.keys().then(function(allCacheNames) {
-//                 return Promise.all(allCacheNames.filter(function(cacheName) {
-//                     return cacheName.indexOf(CacheNamePrefix) === 0 &&
-//                         !(cacheName in CurrentCacheNamesToAbsoluteUrl);
-//                 }).map(function(cacheName) {
-//                     return caches.delete(cacheName);
-//                 }));
-//             });
-//         }).then(function() {
-//             if (typeof self.skipWaiting === 'function') {
-//                 // Force the SW to transition from installing -> active state
-//                 self.skipWaiting();
-//             }
-//         })
-//     );
-// });
-
-// if (self.clients && (typeof self.clients.claim === 'function')) {
-//     self.addEventListener('activate', function(event) {
-//         event.waitUntil(self.clients.claim());
-//     });
-// }
-
-// self.addEventListener('message', function(event) {
-//     if (event.data.command === 'delete_all') {
-//         console.log('About to delete all caches...');
-//         deleteAllCaches().then(function() {
-//             console.log('Caches deleted.');
-//             event.ports[0].postMessage({
-//                 error: null
-//             });
-//         }).catch(function(error) {
-//             console.log('Caches not deleted:', error);
-//             event.ports[0].postMessage({
-//                 error: error
-//             });
-//         });
-//     }
-// });
+    return url.toString();
+};
 
 
-// self.addEventListener('fetch', function(event) {
-//     if (event.request.method === 'GET') {
-//         var urlWithoutIgnoredParameters = stripIgnoredUrlParameters(event.request.url,
-//             IgnoreUrlParametersMatching);
+var mappings = populateCurrentCacheNames(PrecacheConfig, CacheNamePrefix, this.location);
+var AbsoluteUrlToCacheName = mappings.absoluteUrlToCacheName;
+var CurrentCacheNamesToAbsoluteUrl = mappings.currentCacheNamesToAbsoluteUrl;
 
-//         var cacheName = AbsoluteUrlToCacheName[urlWithoutIgnoredParameters];
-//         var directoryIndex = 'index.html';
-//         if (!cacheName && directoryIndex) {
-//             urlWithoutIgnoredParameters = addDirectoryIndex(urlWithoutIgnoredParameters, directoryIndex);
-//             cacheName = AbsoluteUrlToCacheName[urlWithoutIgnoredParameters];
-//         }
+function deleteAllCaches() {
+    return caches.keys().then(function(cacheNames) {
+        return Promise.all(
+            cacheNames.map(function(cacheName) {
+                return caches.delete(cacheName);
+            })
+        );
+    });
+}
 
-//         var navigateFallback = '';
-//         // Ideally, this would check for event.request.mode === 'navigate', but that is not widely
-//         // supported yet:
-//         // https://code.google.com/p/chromium/issues/detail?id=540967
-//         // https://bugzilla.mozilla.org/show_bug.cgi?id=1209081
-//         if (!cacheName && navigateFallback && event.request.headers.has('accept') &&
-//             event.request.headers.get('accept').includes('text/html') &&
-//             /* eslint-disable quotes, comma-spacing */
-//             isPathWhitelisted([], event.request.url)) {
-//             /* eslint-enable quotes, comma-spacing */
-//             var navigateFallbackUrl = new URL(navigateFallback, self.location);
-//             cacheName = AbsoluteUrlToCacheName[navigateFallbackUrl.toString()];
-//         }
+this.addEventListener('install', function(event) {
+    event.waitUntil(
+        // Take a look at each of the cache names we expect for this version.
+        Promise.all(Object.keys(CurrentCacheNamesToAbsoluteUrl).map(function(cacheName) {
+            return caches.open(cacheName).then(function(cache) {
+                // Get a list of all the entries in the specific named cache.
+                // For caches that are already populated for a given version of a
+                // resource, there should be 1 entry.
+                return cache.keys().then(function(keys) {
+                    // If there are 0 entries, either because this is a brand new version
+                    // of a resource or because the install step was interrupted the
+                    // last time it ran, then we need to populate the cache.
+                    if (keys.length === 0) {
+                        // Use the last bit of the cache name, which contains the hash,
+                        // as the cache-busting parameter.
+                        // See https://github.com/GoogleChrome/sw-precache/issues/100
+                        var cacheBustParam = cacheName.split('-').pop();
+                        var urlWithCacheBusting = getCacheBustedUrl(
+                            CurrentCacheNamesToAbsoluteUrl[cacheName], cacheBustParam);
 
-//         if (cacheName) {
-//             event.respondWith(
-//                 // Rely on the fact that each cache we manage should only have one entry, and return that.
-//                 caches.open(cacheName).then(function(cache) {
-//                     return cache.keys().then(function(keys) {
-//                         return cache.match(keys[0]).then(function(response) {
-//                             if (response) {
-//                                 return response;
-//                             }
-//                             // If for some reason the response was deleted from the cache,
-//                             // raise and exception and fall back to the fetch() triggered in the catch().
-//                             throw Error('The cache ' + cacheName + ' is empty.');
-//                         });
-//                     });
-//                 }).catch(function(e) {
-//                     console.warn('Couldn\'t serve response for "%s" from cache: %O', event.request.url, e);
-//                     return fetch(event.request);
-//                 })
-//             );
-//         }
-//     }
-// });
+                        var request = new Request(urlWithCacheBusting, { credentials: 'same-origin' });
+                        return fetch(request).then(function(response) {
+                            if (response.ok) {
+                                return cache.put(CurrentCacheNamesToAbsoluteUrl[cacheName],
+                                    response);
+                            }
 
-self.addEventListener("install", function(event) {});
-self.addEventListener("activate", function(event) {
-    return self.clients.claim();
+                            console.error('Request for %s returned a response status %d, ' +
+                                'so not attempting to cache it.',
+                                urlWithCacheBusting, response.status);
+                            // Get rid of the empty cache if we can't add a successful response to it.
+                            return caches.delete(cacheName);
+                        });
+                    }
+                });
+            });
+        })).then(function() {
+            return caches.keys().then(function(allCacheNames) {
+                return Promise.all(allCacheNames.filter(function(cacheName) {
+                    return cacheName.indexOf(CacheNamePrefix) === 0 &&
+                        !(cacheName in CurrentCacheNamesToAbsoluteUrl);
+                }).map(function(cacheName) {
+                    return caches.delete(cacheName);
+                }));
+            });
+        }).then(function() {
+            if (typeof this.skipWaiting === 'function') {
+                // Force the SW to transition from installing -> active state
+                this.skipWaiting();
+            }
+        })
+    );
 });
-self.addEventListener("fetch", function(event) {
-    //event.respondWith(fetch(event.rwquest))
+
+if (this.clients && (typeof this.clients.claim === 'function')) {
+    this.addEventListener('activate', function(event) {
+        event.waitUntil(this.clients.claim());
+    });
+}
+
+this.addEventListener('message', function(event) {
+    if (event.data.command === 'delete_all') {
+        console.log('About to delete all caches...');
+        deleteAllCaches().then(function() {
+            console.log('Caches deleted.');
+            event.ports[0].postMessage({
+                error: null
+            });
+        }).catch(function(error) {
+            console.log('Caches not deleted:', error);
+            event.ports[0].postMessage({
+                error: error
+            });
+        });
+    }
+});
+
+
+this.addEventListener('fetch', function(event) {
+    if (event.request.method === 'GET') {
+        var urlWithoutIgnoredParameters = stripIgnoredUrlParameters(event.request.url,
+            IgnoreUrlParametersMatching);
+
+        var cacheName = AbsoluteUrlToCacheName[urlWithoutIgnoredParameters];
+        var directoryIndex = 'index.html';
+        if (!cacheName && directoryIndex) {
+            urlWithoutIgnoredParameters = addDirectoryIndex(urlWithoutIgnoredParameters, directoryIndex);
+            cacheName = AbsoluteUrlToCacheName[urlWithoutIgnoredParameters];
+        }
+
+        var navigateFallback = '';
+        // Ideally, this would check for event.request.mode === 'navigate', but that is not widely
+        // supported yet:
+        // https://code.google.com/p/chromium/issues/detail?id=540967
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=1209081
+        if (!cacheName && navigateFallback && event.request.headers.has('accept') &&
+            event.request.headers.get('accept').includes('text/html') &&
+            /* eslint-disable quotes, comma-spacing */
+            isPathWhitelisted([], event.request.url)) {
+            /* eslint-enable quotes, comma-spacing */
+            var navigateFallbackUrl = new URL(navigateFallback, this.location);
+            cacheName = AbsoluteUrlToCacheName[navigateFallbackUrl.toString()];
+        }
+
+        if (cacheName) {
+            event.respondWith(
+                // Rely on the fact that each cache we manage should only have one entry, and return that.
+                caches.open(cacheName).then(function(cache) {
+                    return cache.keys().then(function(keys) {
+                        return cache.match(keys[0]).then(function(response) {
+                            if (response) {
+                                return response;
+                            }
+                            // If for some reason the response was deleted from the cache,
+                            // raise and exception and fall back to the fetch() triggered in the catch().
+                            throw Error('The cache ' + cacheName + ' is empty.');
+                        });
+                    });
+                }).catch(function(e) {
+                    console.warn('Couldn\'t serve response for "%s" from cache: %O', event.request.url, e);
+                    return fetch(event.request);
+                })
+            );
+        }
+    }
+});
+
+this.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open('v1').then(function(cache) {
+            return cache.addAll(["/", "index.html", "app.js", "#/login"]);
+        })
+    );
+});
+
+this.addEventListener("activate", function(event) {
+    return this.clients.claim();
+});
+this.addEventListener("fetch", function(event) {
+    event.respondWith(
+        caches.match(event.request)
+        .then(function(response) {
+            if (response) {
+                return response;
+            } else {
+                return fetch(event.request);
+            }
+        })
+    )
 })
