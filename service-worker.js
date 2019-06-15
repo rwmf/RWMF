@@ -463,14 +463,10 @@
 //     }
 // });
 
-self.addEventListener("install", function(event) {
-    console.log("[Service worker] Installing service worker ...", event);
-});
+self.addEventListener("install", function(event) {});
 self.addEventListener("activate", function(event) {
-    console.log("[Service worker] Activating service worker ...", event);
     return self.clients.claim();
 });
 self.addEventListener("fetch", function(event) {
-    console.log("[Service worker] FetchingSomething ...", event);
-    //event.respondWith(fetch(event.rwquest))
+    event.respondWith(fetch(event.rwquest))
 })
