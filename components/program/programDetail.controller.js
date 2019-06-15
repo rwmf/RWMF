@@ -35,11 +35,14 @@
                     utoken: token
                 }
                 CoreService.registerToProgram(data).then(function(response) {
-                    console.log(response)
+                    if (response.status == 200) {
+                        vm.programDetail.register_status = "1";
+                        FlashService.Success(response.data.display);
+                    }
                 }, function(err) {
-                    console.log(err)
+                    FlashService.Error(err.data.display);
                 }).catch(function(err) {
-                    console.log(err)
+                    FlashService.Error(err.data.display);
                 })
             } else {
                 FlashService.Warning("Please Login/Sign Up first, to register to a program");
