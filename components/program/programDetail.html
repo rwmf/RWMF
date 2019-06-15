@@ -8,7 +8,7 @@
 
                     <!-- Card image -->
                     <div class="view view-cascade overlay bnrhgt">
-                        <img class="card-img-top" src="{{pgmctrl.programDetail.image}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ pgmctrl.programDetail.image | stripExpiry}}" alt="Card image cap">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>

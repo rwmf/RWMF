@@ -21,6 +21,10 @@
             return function(item) {
                 return item ? CoreService.convert12to24(item) : item;
             };
+        }]).filter('stripExpiry', ['CoreService', function(CoreService) {
+            return function(item) {
+                return item = item.split("?")[0] ? item.split("?")[0] : item;
+            };
         }])
         .run(run);
 

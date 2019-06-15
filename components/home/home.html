@@ -1,5 +1,5 @@
 <main>
-    
+
     <div class="row">
         <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
             <label class="btn btn-primary form-check-label active noshad" ng-click="homectrl.checkboxChecked($event)">                    
@@ -21,7 +21,7 @@
                 <div class="card card-cascade wider reverse">
                     <!-- Card image -->
                     <div class="view view-cascade overlay brdr">
-                        <img ng-click="homectrl.gotoDetail(event.id)" class="card-img-top" src="{{ event.image }}" alt="Card image cap">
+                        <img ng-click="homectrl.gotoDetail(event.id)" class="card-img-top" src="{{ event.image | stripExpiry }}" alt="Card image cap">
                     </div>
                     <!-- Card content -->
                     <div class="card-body card-body-cascade text-center dattim">
