@@ -23,7 +23,7 @@
             $rootScope.isLoading = false;
         }, function(res) {
             if (localStorage["program_" + $stateParams.program_id]) {
-                vm.programDetail = localStorage["program_" + $stateParams.program_id];
+                vm.programDetail = JSON.parse(localStorage["program_" + $stateParams.program_id]);
             }
             $rootScope.isLoading = false;
         }).catch(function() {
