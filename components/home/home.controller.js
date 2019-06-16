@@ -18,12 +18,12 @@
         CoreService.getAllEvents().then(function(res) {
             localStorage["events"] = JSON.stringify(res.data.programme_list);
             vm.events = res.data.programme_list;
+            CoreService.removeLoader();
             for (var i = 0; i < vm.events.length; i++) {
                 CoreService.getProgramDetails(vm.events[i].id).then(function(res) {
                     localStorage["program_" + res.data.programme_data.id] = JSON.stringify(res.data.programme_data);
                 });
             }
-            CoreService.removeLoader();
         }, function(err) {
             if (localStorage["events"])
                 vm.events = JSON.parse(localStorage["events"]);

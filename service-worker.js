@@ -33,7 +33,15 @@ importScripts("sw-toolbox.js", "runtime-caching.js", "js/idb.js");
 // /* eslint-disable quotes, comma-spacing */
 var PrecacheConfig = [
         ["/", "xMW1TWucbdAVeDPGUB0Eda1YWZX8lwxN"],
-        ["/home", "DG1XHTngL1SoqfSQdVViB4ksGKqx2Alh"],
+        ["/home", "xMW1TWpcXU6b9WRWB9KwGZX8lwxN"],
+        ["/register", "xM9WRWB9KwGbqdky0lqVfWZX8lwxN"],
+        ["/login", "xMW1TWpcXU6bqdk9WRWB9KwGX8lwxN"],
+        ["/forgot", "xMW19WRWB9KwG0lqVfWZX8lwxN"],
+        ["/programDetail", "xMW1TWp2GU5NWUjYpRkWZX8lwxN"],
+        ["/ticket", "xMW1TWp9WRWB9KwGVfWZX8lwxN"],
+        ["/about", "xMW1TWp9W2GU5NWUjYpRkZX8lwxN"],
+        ["/contact", "xMW2GU5NWUjYp2G2GU5NWUjYpRklwxN"],
+        ["/profile", "xMW1TWp9WRWB2GU5NWUjYpRkfWZX8lwxN"],
         ["app.js", "jdahpcXU6bqdky0lqVfQfqn3EckhQ43U"],
         ["index.html", "V6H69WRWB9KwGA9uj52RGov58F3Ziti8"],
         ["components", "JizQHN2GU5NWUjYpRkGu2LMIiuBOVuuV"],

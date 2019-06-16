@@ -191,6 +191,7 @@
                 }
             })
         $urlRouterProvider.otherwise('/home');
+        $locationProvider.html5Mode(true);
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http', 'CoreService', 'stateHeaders'];
