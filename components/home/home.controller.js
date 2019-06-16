@@ -33,8 +33,8 @@
                         store2.put(res.data.programme_data);
                     })
                 }
-                tx.complete;
-                tx2.complete;
+                //tx.complete;
+                //tx2.complete;
             });
             vm.events = res.data.programme_list;
             CoreService.removeLoader();
