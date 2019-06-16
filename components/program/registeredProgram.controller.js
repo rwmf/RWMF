@@ -17,8 +17,14 @@
                 vm.programmes = response.data.registered_prgms;
                 CoreService.removeLoader();
             }, function(err) {
+                if (localStorage["registered_prgms"]) {
+                    vm.programmes = JSON.parse(localStorage["registered_prgms"]);
+                }
                 CoreService.removeLoader();
             }).catch(function(err) {
+                if (localStorage["registered_prgms"]) {
+                    vm.programmes = JSON.parse(localStorage["registered_prgms"]);
+                }
                 CoreService.removeLoader();
             });
         } else {

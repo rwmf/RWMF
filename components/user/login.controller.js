@@ -23,7 +23,14 @@
             CoreService.Login(vm.user).then(function(response) {
                 if (response.status == 200) {
                     CoreService.SetCredentials(response.data.user_token);
-                    $state.go('home');
+                    CoreService.getAllRegisteredProgrammes({ utoken: response.data.user_token }).then(function(response) {
+                        localStorage["registered_prgms"] = JSON.stringify(response.data.registered_prgms);
+                        $state.go('home');
+                    }, function(err) {
+                        $state.go('home');
+                    }).catch(function(err) {
+                        $state.go('home');
+                    });
                 } else {
                     var message = response.data && response.data.display ? response.data.display : "Unknown Error Try after some time"
                     FlashService.Error(message);
