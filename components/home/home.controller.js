@@ -36,7 +36,7 @@
                 var tx = db.transaction("events", "readonly");
                 var store = tx.objectStore("events");
                 store.getAll().then(function(data) {
-                    console.log(data)
+                    vm.events = data;
                     CoreService.removeLoader();
                 })
             });
