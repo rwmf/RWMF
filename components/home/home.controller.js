@@ -24,7 +24,9 @@
             dbPromise.then(function(db) {
                 var tx = db.transaction("events", "readwrite");
                 var store = tx.objectStore("events");
-                store.put(res.data.programme_list);
+                for (var i = 0; i < res.data.programme_list.length; i++) {
+                    store.put(res.data.programme_list[i]);
+                }
                 tx.complete;
                 vm.events = res.data.programme_list;
                 CoreService.removeLoader();
