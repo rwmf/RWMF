@@ -32,13 +32,14 @@
             vm.events = res.data.programme_list;
             CoreService.removeLoader();
         }, function(err) {
-            var tx = db.transaction("events", "readonly");
-            var store = tx.objectStore("events");
-            store.getAll().then(function(data) {
-                console.log(data)
-                CoreService.removeLoader();
-            })
-
+            dbPromise.then(function(db) {
+                var tx = db.transaction("events", "readonly");
+                var store = tx.objectStore("events");
+                store.getAll().then(function(data) {
+                    console.log(data)
+                    CoreService.removeLoader();
+                })
+            });
         }).catch(function(error) {
             console.log(error)
             CoreService.removeLoader();
