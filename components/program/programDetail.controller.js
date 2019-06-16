@@ -31,24 +31,29 @@
         });
 
         function register(id) {
-            if (localStorage["userToken"]) {
-                var token = localStorage["userToken"];
-                var data = {
-                    programme_id: id,
-                    utoken: token
-                }
-                CoreService.registerToProgram(data).then(function(response) {
-                    if (response.status == 200) {
-                        vm.programDetail.register_status = "1";
-                        FlashService.Success(response.data.display);
+            if (navigator.onLine) {
+                if (localStorage["userToken"]) {
+                    var token = localStorage["userToken"];
+                    var data = {
+                        programme_id: id,
+                        utoken: token
                     }
-                }, function(err) {
-                    FlashService.Error(err.data.display);
-                }).catch(function(err) {
-                    FlashService.Error(err.data.display);
-                })
+                    CoreService.registerToProgram(data).then(function(response) {
+                        if (response.status == 200) {
+                            vm.programDetail.register_status = "1";
+                            FlashService.Success(response.data.display);
+                        }
+                    }, function(err) {
+                        FlashService.Error(err.data.display);
+                    }).catch(function(err) {
+                        FlashService.Error(err.data.display);
+                    })
+                } else {
+                    FlashService.Warning("Please Login/Sign Up first, to register to a program");
+                    FlashService.clearFlashMessageOntimeout(5000);
+                }
             } else {
-                FlashService.Warning("Please Login/Sign Up first, to register to a program");
+                FlashService.Warning("Data loaded offline, Please try while on online to register");
                 FlashService.clearFlashMessageOntimeout(5000);
             }
         }
