@@ -34,6 +34,7 @@
                     })
                 }
                 tx.complete;
+                tx2.complete;
             });
             vm.events = res.data.programme_list;
             CoreService.removeLoader();
