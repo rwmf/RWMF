@@ -38,6 +38,7 @@ var PrecacheConfig = [
         ["/login", "xMW1TWpcXU6bqdk9WRWB9KwGX8lwxN"],
         ["/forgot", "xMW19WRWB9KwG0lqVfWZX8lwxN"],
         ["/programDetail", "xMW1TWp2GU5NWUjYpRkWZX8lwxN"],
+        ["/registeredPgm", "xMW1TWp2GU50lqVfWZpRkWZX8lwxN"],
         ["/ticket", "xMW1TWp9WRWB9KwGVfWZX8lwxN"],
         ["/about", "xMW1TWp9W2GU5NWUjYpRkZX8lwxN"],
         ["/contact", "xMW2GU5NWUjYp2G2GU5NWUjYpRklwxN"],
