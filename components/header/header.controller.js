@@ -11,7 +11,22 @@
         angular.element(".button-collapse").sideNav({
             closeOnClick: true
         });
+        window.addEventListener('load', function() {
+            var status = document.getElementById("status");
+            var log = document.getElementById("log");
 
+            function updateOnlineStatus(event) {
+                var condition = navigator.onLine ? "online" : "offline";
+
+                status.className = condition;
+                status.innerHTML = condition.toUpperCase();
+
+                log.insertAdjacentHTML("beforeend", "Event: " + event.type + "; Status: " + condition);
+            }
+
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+        });
         var vm = this;
         vm.closeSideNav = closeSideNav;
         vm.logout = logout;

@@ -25,9 +25,9 @@
 // 'use strict';
 
 
+//importScripts("sw-toolbox.js", "runtime-caching.js", "js/idb.js");
 
-
-// importScripts("sw-toolbox.js", "runtime-caching.js");
+importScripts("js/idb.js");
 
 
 // /* eslint-disable quotes, comma-spacing */
@@ -236,6 +236,7 @@ var PrecacheConfig = [
         ["js/jquery-3.4.1.min.js", "rslRIQFabKUQqAY8dc2jwkZgDoGxExTn"],
         ["js/libs", "AuCCJB3Q4Lf6GyepIGW8FxFXJ8fqiZnz"],
         ["js/main.js", "AbljssAITwcoyAX2Kml0eIqp4sTuCkZI"],
+        ["js/idb.js", "AbljssAITwcoyAX2Kml0eITwcoyAX2KmCkZI"],
         ["js/mdb.js", "tiCfqZ4dRqAV9WgRlkLZ3iXnJqckvUOh"],
         ["js/mdb.min.js", "3jr2NkULwXbojBt3CtLjSjUO81kOQeT4"],
         ["js/modules", "valJ4AATohrRrUjHd6nWanyCO8yeR1sN"],
@@ -274,11 +275,7 @@ var PrecacheConfig = [
     ]
     //     /* eslint-enable quotes, comma-spacing */
 var CacheNamePrefix = 'sw-precache-v1-sw-precache-' + (this.registration ? this.registration.scope : '') + '-';
-
-
 var IgnoreUrlParametersMatching = [/^utm_/];
-
-
 
 var addDirectoryIndex = function(originalUrl, index) {
     var url = new URL(originalUrl);
@@ -311,15 +308,6 @@ var isPathWhitelisted = function(whitelist, absoluteUrlString) {
     });
 };
 
-function makeid(length) {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-}
 var populateCurrentCacheNames = function(precacheConfig, cacheNamePrefix, baseUrl) {
     var absoluteUrlToCacheName = {};
     var currentCacheNamesToAbsoluteUrl = {};
@@ -498,28 +486,5 @@ this.addEventListener('fetch', function(event) {
             );
         }
     }
-});
 
-this.addEventListener('install', function(event) {
-    event.waitUntil(
-        caches.open('v1').then(function(cache) {
-            return cache.addAll(["/", "index.html", "app.js", "#/login"]);
-        })
-    );
 });
-
-this.addEventListener("activate", function(event) {
-    return this.clients.claim();
-});
-this.addEventListener("fetch", function(event) {
-    event.respondWith(
-        caches.match(event.request)
-        .then(function(response) {
-            if (response) {
-                return response;
-            } else {
-                return fetch(event.request);
-            }
-        })
-    )
-})
