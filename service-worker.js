@@ -25,9 +25,9 @@
 // 'use strict';
 
 
-//importScripts("sw-toolbox.js", "runtime-caching.js", "js/idb.js");
+importScripts("sw-toolbox.js", "runtime-caching.js", "js/idb.js");
 
-importScripts("js/idb.js");
+//importScripts("js/idb.js");
 
 
 // /* eslint-disable quotes, comma-spacing */
