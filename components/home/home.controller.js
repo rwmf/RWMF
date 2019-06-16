@@ -16,7 +16,7 @@
         vm.gotoDetail = gotoDetail;
         var dbPromise = idb.open("rwmf-store", 1, function(db) {
             if (!db.objectStoreNames.contains("events")) {
-                db.createObjectStore("events", { keyPath: "programme_list" });
+                db.createObjectStore("events", { keyPath: "id" });
             }
         });
         CoreService.addLoader();
@@ -24,7 +24,8 @@
             dbPromise.then(function(db) {
                 var tx = db.transaction("events", "readwrite");
                 var store = tx.objectStore("events");
-                store.put(res.data);
+                store.put(res.data.programme_list);
+                tx.complete;
                 vm.events = res.data.programme_list;
                 CoreService.removeLoader();
             });
