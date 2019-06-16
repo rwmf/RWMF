@@ -26,7 +26,7 @@
                 var tx = db.transaction("events", "readwrite");
                 var tx2 = db.transaction("eventDetails", "readwrite");
                 var store = tx.objectStore("events");
-                var store2 = tx.objectStore("eventDetails");
+                var store2 = tx2.objectStore("eventDetails");
                 for (var i = 0; i < res.data.programme_list.length; i++) {
                     store.put(res.data.programme_list[i]);
                     CoreService.getProgramDetails(res.data.programme_list[i].id).then(function(res) {
