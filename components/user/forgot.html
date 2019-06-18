@@ -14,22 +14,22 @@
                     <p class="mx-auto align-base text-center">We'll help you to create a new password</p>
                 </div>
 
-                <form name="forgotCtrl.forgot" ng-submit="vm.login()" role="form" autocomplete="off">
-                    <div class="form-group email fortgotform" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-                        <input placeholder="Email ID" type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
-                        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                <form name="forgotCtrl.forgot" role="form" autocomplete="off">
+                    <div class="form-group email fortgotform">
+                        <input placeholder="Email ID" type="text" name="email" id="email" class="form-control" ng-model="forgotCtrl.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required ng-class="{ 'has-error': forgotCtrl.forgot.email.$dirty && forgotCtrl.forgot.email.$error.required }"
+                        />
+                        <span ng-if="forgotCtrl.forgot.email.$dirty && forgotCtrl.forgot.email.$error.required" class="pl-0 text-error col-md-12">Email ID is required</span>
+                        <span ng-if="forgotCtrl.forgot.email.$dirty && forgotCtrl.forgot.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
+
                     </div>
-                    <div class="col-md-12 pl-0 pr-0 pull-left">
+                    <div class="col-md-12 pl-0 pr-0 pull-left mb-10">
                         <a class="home-link" ui-sref="home">Home</a>
                         <a class="forgot-link" ui-sref="login">Login</a>
                     </div>
-                    <div class="form-actions">
-                        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary forgot-btn">SUBMIT</button>
-                        <img ng-if="" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                        />
-                    </div>
                     <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-                    <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                    <div class="form-actions">
+                        <button type="button" ng-click="forgotCtrl.forgotPassword(forgotCtrl.password)" ng-disabled="forgotCtrl.forgot.$invalid" class="btn btn-primary forgot-btn">SUBMIT</button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -318,6 +318,10 @@ h2 {
     margin-bottom: 5px!important;
 }
 
+.mb-10 {
+    margin-bottom: 10px;
+}
+
 .pull-left {
     float: left;
 }

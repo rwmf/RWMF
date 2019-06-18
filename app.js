@@ -176,12 +176,12 @@
                     }
                 }
             })
-            .state('contact', {
-                url: '/contact',
+            .state('contactDetails', {
+                url: '/contactDetails',
                 views: {
                     'innerPages@': {
                         controller: 'StaticController',
-                        templateUrl: 'components/static/contact.html'
+                        templateUrl: 'components/static/contactDetails.html'
                     },
                     'header@': {
                         controller: 'HeaderController',

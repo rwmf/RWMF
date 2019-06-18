@@ -111,6 +111,19 @@
                 });
             return deferred.promise;
         };
+        service.forgotPassword = function(data) {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("forgotpassword", data)
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        };
         service.removeLoader = function(timeout) {
             if (timeout) {
                 $timeout(function() {

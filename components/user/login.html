@@ -6,8 +6,10 @@
             <div class="card-body">
                 <form name="loginCtrl.loginForm" autocomplete="off" novalidate>
                     <div class="form-group email">
-                        <input name="email" ng-model="loginCtrl.user.email" ng-class="{ 'has-error': loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$invalid }" type="text" placeholder="Email ID" class="form-control" id="usr" required>
+                        <input name="email" ng-model="loginCtrl.user.email" ng-class="{ 'has-error': loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$invalid }" type="text" placeholder="Email ID" class="form-control" id="usr" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                            required>
                         <span ng-if="loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$error.required" class="pl-0 text-error col-md-12">Email ID is required</span>
+                        <span ng-if="loginCtrl.loginForm.email.$dirty &&loginCtrl.loginForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
                     </div>
                     <div class="password">
                         <input name="password" ng-model="loginCtrl.user.password" ng-class="{ 'has-error': loginCtrl.loginForm.password.$dirty && loginCtrl.loginForm.password.$invalid }" type="password" placeholder="Password" class="form-control" id="pwd" required>
