@@ -17,7 +17,7 @@
         $rootScope.pageName = "home";
         $rootScope.isLoading = true;
         vm.register = register;
-
+        vm.gotoVenue = gotoVenue;
         CoreService.getProgramDetails($stateParams.program_id).then(function(res) {
             vm.programDetail = res.data.programme_data;
             $rootScope.isLoading = false;
@@ -46,7 +46,7 @@
                     }, function(err) {
                         FlashService.Error(err.data.display);
                     }).catch(function(err) {
-                        FlashService.Error(err.data.display);
+                        FlashService.Error("Something went wrong, please try later");
                     })
                 } else {
                     FlashService.Warning("Please Login/Sign Up first, to register to a program");
@@ -56,6 +56,10 @@
                 FlashService.Warning("Data loaded offline, Please try while on online to register");
                 FlashService.clearFlashMessageOntimeout(5000);
             }
+        }
+
+        function gotoVenue(venueObj) {
+            $state.go('specificVenue', { venueDetails: venueObj });
         }
     }
 

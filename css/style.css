@@ -16,6 +16,43 @@ html {
     right: 0;
 }
 
+.gm-style-iw.gm-style-iw-c.custom-marker {
+    border-radius: 0;
+    padding: 15px!important;
+    background-color: #081107;
+    opacity: .75;
+}
+
+.info-header {
+    color: #00ff8d;
+    font-weight: bold;
+}
+
+.custom-marker button[title="Close"] {
+    margin: 1px;
+}
+
+.custom-marker button[title="Close"] img {
+    top: -1px;
+    right: 0px;
+    width: 17px;
+    height: 17px;
+    background: white;
+}
+
+.custom-marker .gm-style-iw-d {
+    overflow: hidden!important;
+}
+
+.gm-style .gm-style-iw-t::after {
+    background: black!important;
+    opacity: .75;
+}
+
+.location .address {
+    padding-left: 0;
+}
+
 .search {
     width: 40px;
     box-sizing: border-box;
@@ -176,26 +213,15 @@ p.sgnup {
     font-size: .8rem;
 }
 
-
-/*.login .form-group:after {
-    content: "";
-    width: 30px;
-    position: absolute;
-    height: 30px;
-    background-size: 20px;
-    background-position: center center;
-    background-repeat: no-repeat;
+#map {
+    position: relative;
+    height: 630px;
 }
 
-.login .form-group.username:after {
-    top: 24px;
-    background-image: url(../img/user-min.png);
+h2 {
+    margin-bottom: 0;
+    margin-top: 0;
 }
-
-.login .form-group.password:after {
-    top: 77px;
-    background-image: url(../img/password_min.png);
-}*/
 
 .login input {
     padding-left: 30px;
@@ -748,7 +774,7 @@ input.has-error[type="checkbox"]:focus {
 }
 
 .map-card .pt-3-5 {
-    padding-top: 1.25rem; 
+    padding-top: 1.25rem;
 }
 
 table td {
@@ -763,6 +789,7 @@ table td {
     color: #fff !important;
 }
 
+
 /*menu*/
 
 .double-nav .button-collapse {
@@ -770,21 +797,22 @@ table td {
 }
 
 .navbar.scrolling-navbar.top-nav-collapse {
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     height: 50px;
 }
 
 .navbar.scrolling-navbar {
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .double-nav .button-collapse {
     z-index: 99;
 }
 
-.navbar{
+.navbar {
     height: 50px;
 }
+
 
 /*profile*/
 
@@ -795,19 +823,19 @@ table td {
     margin: auto;
 }
 
-.prof input{
+.prof input {
     color: #00c894;
     font-weight: 500;
     font-size: 2rem;
 }
 
-.prof label{
+.prof label {
     font-size: 1.2rem;
     font-weight: 400;
     color: #828282;
 }
 
-.plus i{
+.plus i {
     text-align: center;
     display: block;
     margin: auto;
@@ -834,11 +862,12 @@ table td {
 
 /*modal*/
 
-.modal-dialog.modal-notify.modal-success .badge, .modal-dialog.modal-notify.modal-success .modal-header {
+.modal-dialog.modal-notify.modal-success .badge,
+.modal-dialog.modal-notify.modal-success .modal-header {
     background-color: #006a36;
 }
 
-.gdprc a{
+.gdprc a {
     width: 100% !important;
     height: 45px !important;
     line-height: 22px !important;
@@ -1056,13 +1085,13 @@ table td {
     }
 }
 
-@media only screen  and (min-width : 1224px) {
+@media only screen and (min-width: 1224px) {
     .login {
         background-image: url(../img/login-min.png);
     }
 }
 
-@media only screen  and (min-width : 1824px) {
+@media only screen and (min-width: 1824px) {
     .login {
         background-image: url(../img/login-min.png);
     }

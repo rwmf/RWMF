@@ -10,11 +10,12 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
                     <div class="">
-                        <img class="img-full img-fluid" src="{{genctrl.busSchedule}}" />
+                        <img class="img-full img-fluid" src="{{genctrl.busSchedule | stripExpiry}}" />
                     </div>
 
                 </div>
             </div>
+            <div class="program-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
         </div>
     </div>
 </main>

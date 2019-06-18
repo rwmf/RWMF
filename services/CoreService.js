@@ -155,6 +155,27 @@
             }
             return false;
         };
+        service.getVenueDetails = function() {
+            var deferred = $q.defer();
+            CoreHttpRequest.get("venues")
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        }
+        service.setClientHeight = function() {
+            var deferred = $q.defer();
+            var calculatedHeight = (document.documentElement.clientHeight + 2) - document.getElementsByClassName('event-header')[0].offsetHeight + "px";
+            document.getElementById("map").style.height = calculatedHeight;
+            deferred.resolve(calculatedHeight);
+            return deferred.promise;
+        }
         service.activateSplash = function() {
             $rootScope.isSplashScreen = true;
             $timeout(function() {

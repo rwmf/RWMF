@@ -45,7 +45,7 @@
                                 </li>
                                 <li class="event mb-1">
                                     <span>{{ program.date }}</span>
-                                    <a href="" class="maptheme" data-lat="{{program.stage_latitude}}" data-lon="{{program.stage_longitude}}"><img src="img/map.png" alt="" /></a>
+                                    <a ui-sref="regPgmctrl.gotoVenue(program)" class="maptheme" data-lat="{{program.stage_latitude}}" data-lon="{{program.stage_longitude}}"><img src="img/map.png" alt="" /></a>
                                 </li>
                                 <li class="address">
                                     <span>{{ program.stage_name }} &nbsp; {{ program.stage_location }}</span>

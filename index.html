@@ -3,7 +3,7 @@
 
 <head>
     <title ng-if="!mainHeader">RWMF</title>
-    <base href="/" />
+    <base href="/rwmf_assets/RWMF-Latest/RWMF/" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
@@ -33,13 +33,14 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
+    <script type="text/javascript" src="js/libs/map.js"></script>
 </head>
 
 <body ng-if="!isSplashScreen">
     <div class="container mx-auto" ui-view="header"></div>
     <div class="container mx-auto" ui-view="login"></div>
     <div class="container mx-auto" ui-view="innerPages"></div>
-
+    <div class="map-page" ui-view="mapPage"></div>
     <!-- Library scripts -->
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="js/libs/jquery.js"></script>
@@ -68,6 +69,7 @@
     <script type="text/javascript " src="components/general/general.controller.js"></script>
     <script type="text/javascript " src="components/program/programDetail.controller.js"></script>
     <script type="text/javascript " src="components/static/staticCtrl.js"></script>
+    <script type="text/javascript " src="components/static/venueCtrl.js"></script>
     <!-- service providers -->
     <script src="services/authentication.service.js"></script>
     <script src="services/flash.service.js"></script>

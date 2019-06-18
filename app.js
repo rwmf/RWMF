@@ -190,6 +190,37 @@
                     }
                 }
             })
+            .state('venue', {
+                url: '/venue',
+                views: {
+                    'mapPage@': {
+                        controller: 'VenueController',
+                        templateUrl: 'components/static/venue.html'
+                    },
+                    'header@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('specificVenue', {
+                url: '/specificVenue/:latitude/:longitude',
+                views: {
+                    'mapPage@': {
+                        controller: 'VenueController',
+                        templateUrl: 'components/static/venue.html'
+                    },
+                    'header@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'vm'
+                    }
+                },
+                params: {
+                    venueDetails: null
+                }
+            })
         $urlRouterProvider.otherwise('/home');
         $locationProvider.html5Mode(true);
     }

@@ -1,0 +1,8 @@
+<div>
+    <div id="map" class="mt-5">
+        <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+            <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+        </div>
+    </div>
+    <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+</div>

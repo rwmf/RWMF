@@ -11,6 +11,7 @@
         vm.day = "1"
         vm.checkboxChecked = checkboxChecked;
         vm.gotoDetail = gotoDetail;
+        vm.gotoVenue = gotoVenue;
         if (localStorage['userToken']) {
             CoreService.addLoader();
             CoreService.getAllRegisteredProgrammes({ utoken: localStorage['userToken'] }).then(function(response) {
@@ -36,11 +37,15 @@
 
         function gotoDetail(id) {
             $state.go("programDetail", { program_id: id });
-        }
+        };
 
         function checkboxChecked($event) {
             vm.day = $event.currentTarget.firstElementChild.value;
-        }
+        };
+
+        function gotoVenue(venueObj) {
+            $state.go('specificVenue', { venueDetails: venueObj });
+        };
     }
 
 })();
