@@ -23,7 +23,7 @@
             };
         }]).filter('stripExpiry', ['CoreService', function(CoreService) {
             return function(item) {
-                return item = item.split("?")[0] ? item.split("?")[0] : item;
+                return item = item && item.split("?")[0] ? item.split("?")[0] : item;
             };
         }])
         .run(run);

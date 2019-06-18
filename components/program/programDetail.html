@@ -8,7 +8,7 @@
 
                     <!-- Card image -->
                     <div class="view view-cascade overlay bnrhgt">
-                        <img class="card-img-top" src="{{ pgmctrl.programDetail.image | stripExpiry}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ pgmctrl.programDetail.image | stripExpiry }}" alt="Card image cap">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -78,6 +78,8 @@
                     <div class="program-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
                     <a ng-if="!isLoggedIn || (isLoggedIn && pgmctrl.programDetail.register_status == 0)" ng-click="pgmctrl.register(pgmctrl.programDetail.id)" class="btn btn-warning waves-effect waves-light orang">Add To My Programme</a>
                     <a ng-if="isLoggedIn && pgmctrl.programDetail.register_status == 1" class="btn btn-gray waves-effect waves-light orang" disabled>Added Programme</a>
+                    <a ng-if="!isLoggedIn" ng-click="pgmctrl.gotoPayment()" class="btn btn-warning waves-effect waves-light orang">Get Tickets</a>
+
                 </div>
                 <!-- Card -->
 

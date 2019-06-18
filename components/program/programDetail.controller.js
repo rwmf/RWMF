@@ -10,14 +10,15 @@
                 return $sce.trustAsResourceUrl(url);
             };
         }]);
-    ProgramDetailController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$stateParams', 'FlashService'];
+    ProgramDetailController.$inject = ['$scope', '$window', '$rootScope', 'CoreService', '$state', '$stateParams', 'FlashService'];
 
-    function ProgramDetailController($scope, $rootScope, CoreService, $state, $stateParams, FlashService) {
+    function ProgramDetailController($scope, $window, $rootScope, CoreService, $state, $stateParams, FlashService) {
         var vm = this;
         $rootScope.pageName = "home";
         $rootScope.isLoading = true;
         vm.register = register;
         vm.gotoVenue = gotoVenue;
+        vm.gotoPayment = gotoPayment;
         CoreService.getProgramDetails($stateParams.program_id).then(function(res) {
             vm.programDetail = res.data.programme_data;
             $rootScope.isLoading = false;
@@ -60,6 +61,15 @@
         $scope.$on('$destroy', function() {
             angular.element('.sidenav-overlay').remove();
         });
+
+        function gotoPayment() {
+            if (navigator.onLine) {
+                $window.location.href = 'https://www.galactix.asia/rainforest-world-music-festival-2019';
+            } else {
+                FlashService.Warning("You seems to be offline, Try after connect to Internet");
+                FlashService.clearFlashMessageOntimeout(5000);
+            }
+        }
 
         function gotoVenue(venueObj) {
             $state.go('venue', { venueDetails: venueObj });
