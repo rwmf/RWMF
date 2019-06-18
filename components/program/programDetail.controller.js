@@ -10,9 +10,9 @@
                 return $sce.trustAsResourceUrl(url);
             };
         }]);
-    ProgramDetailController.$inject = ['$rootScope', 'CoreService', '$state', '$stateParams', 'FlashService'];
+    ProgramDetailController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$stateParams', 'FlashService'];
 
-    function ProgramDetailController($rootScope, CoreService, $state, $stateParams, FlashService) {
+    function ProgramDetailController($scope, $rootScope, CoreService, $state, $stateParams, FlashService) {
         var vm = this;
         $rootScope.pageName = "home";
         $rootScope.isLoading = true;
@@ -57,9 +57,12 @@
                 FlashService.clearFlashMessageOntimeout(5000);
             }
         }
+        $scope.$on('$destroy', function() {
+            angular.element('.sidenav-overlay').remove();
+        });
 
         function gotoVenue(venueObj) {
-            $state.go('specificVenue', { venueDetails: venueObj });
+            $state.go('venue', { venueDetails: venueObj });
         }
     }
 

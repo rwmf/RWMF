@@ -66,12 +66,12 @@
                     center: new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude),
                     mapTypeId: google.maps.MapTypeId.TERRAIN
                 }
-                var infoWindow = new google.maps.InfoWindow();
+                $scope.infoWindow = new google.maps.InfoWindow();
                 var position = new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude);
                 $scope.bounds = new google.maps.LatLngBounds();
                 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-                createMarker($stateParams.venueDetails, infoWindow);
-                google.maps.event.addListener(infoWindow, 'domready', function() {
+                createMarker($stateParams.venueDetails, $scope.infoWindow);
+                google.maps.event.addListener($scope.infoWindow, 'domready', function() {
                     $('.infoWindowContent').parents(".gm-style .gm-style-iw-c").addClass("custom-marker");
                 });
                 $scope.openInfoWindow = function(e, selectedMarker) {
@@ -93,14 +93,14 @@
                 $scope.bounds = new google.maps.LatLngBounds();
                 $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
                 $scope.map.setTilt(45);
-                var infoWindow = new google.maps.InfoWindow();
+                $scope.infoWindow = new google.maps.InfoWindow();
                 for (i = 0; i < vm.cities.length; i++) {
                     var position = new google.maps.LatLng(vm.cities[i].latitude, vm.cities[i].longitude);
                     $scope.bounds.extend(position);
-                    createMarker(vm.cities[i], infoWindow);
+                    createMarker(vm.cities[i], $scope.infoWindow);
                     $scope.map.fitBounds($scope.bounds);
                 }
-                google.maps.event.addListener(infoWindow, 'domready', function() {
+                google.maps.event.addListener($scope.infoWindow, 'domready', function() {
                     $('.infoWindowContent').parents(".gm-style .gm-style-iw-c").addClass("custom-marker");
                 });
                 $scope.openInfoWindow = function(e, selectedMarker) {
@@ -109,12 +109,17 @@
                 }
             }
             google.maps.event.addDomListener(window, "resize", function() {
-                CoreService.setClientHeight();
-                var center = $scope.map.getCenter();
-                google.maps.event.trigger($scope.map, "resize");
-                $scope.map.setCenter(center);
+                if (document.getElementById("map")) {
+                    CoreService.setClientHeight();
+                    var center = $scope.map.getCenter();
+                    google.maps.event.trigger($scope.map, "resize");
+                    $scope.map.setCenter(center);
+                }
             });
         })
+        $scope.$on('$destroy', function() {
+            angular.element('.sidenav-overlay').remove();
+        });
 
         function createMarker(info, infoWindow) {
             var marker = new google.maps.Marker({

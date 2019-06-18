@@ -5,9 +5,9 @@
         .module('RWMF')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$rootScope', 'CoreService', '$state', '$state'];
+    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state'];
 
-    function HomeController($rootScope, CoreService, $state) {
+    function HomeController($scope, $rootScope, CoreService, $state) {
         var vm = this;
         vm.day = "1";
         vm.events = [];
@@ -31,6 +31,9 @@
         }).catch(function(error) {
             console.log(error)
             CoreService.removeLoader();
+        });
+        $scope.$on('$destroy', function() {
+            angular.element('.sidenav-overlay').remove();
         });
 
         function gotoDetail(id) {

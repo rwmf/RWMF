@@ -3,9 +3,9 @@
     angular
         .module('RWMF')
         .controller('ProgramController', ProgramController);
-    ProgramController.$inject = ['$rootScope', 'CoreService', '$state', 'FlashService', '$timeout'];
+    ProgramController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', 'FlashService', '$timeout'];
 
-    function ProgramController($rootScope, CoreService, $state, FlashService, $timeout) {
+    function ProgramController($scope, $rootScope, CoreService, $state, FlashService, $timeout) {
         var vm = this;
         $rootScope.pageName = "home";
         vm.day = "1"
@@ -15,7 +15,11 @@
         if (localStorage['userToken']) {
             CoreService.addLoader();
             CoreService.getAllRegisteredProgrammes({ utoken: localStorage['userToken'] }).then(function(response) {
-                vm.programmes = response.data.registered_prgms;
+                if (response.data.registered_prgms.length > 0) {
+                    vm.programmes = response.data.registered_prgms;
+                } else {
+                    FlashService.Warning("You have not registered for any programmes");
+                }
                 CoreService.removeLoader();
             }, function(err) {
                 if (localStorage["registered_prgms"]) {
@@ -34,6 +38,9 @@
                 $state.go("login")
             }, 5000)
         }
+        $scope.$on('$destroy', function() {
+            angular.element('.sidenav-overlay').remove();
+        });
 
         function gotoDetail(id) {
             $state.go("programDetail", { program_id: id });
@@ -44,7 +51,7 @@
         };
 
         function gotoVenue(venueObj) {
-            $state.go('specificVenue', { venueDetails: venueObj });
+            $state.go('venue', { venueDetails: venueObj });
         };
     }
 

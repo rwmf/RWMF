@@ -4,9 +4,9 @@
     angular
         .module('RWMF')
         .controller('GeneralController', GeneralController);
-    GeneralController.$inject = ['$rootScope', 'CoreService', 'FlashService'];
+    GeneralController.$inject = ['$scope', '$rootScope', 'CoreService', 'FlashService'];
 
-    function GeneralController($rootScope, CoreService, FlashService) {
+    function GeneralController($scope, $rootScope, CoreService, FlashService) {
         var vm = this;
         $rootScope.pageName = "home";
         angular.element('.sidenav-overlay').remove();
@@ -19,7 +19,9 @@
             FlashService.Error("Something went wrong, please try later");
             vm.busSchedule = "/admin/uploads/rwmf_image/rwmf_bus_1.png";
         })
-        vm.busSchedule
+        $scope.$on('$destroy', function() {
+            angular.element('.sidenav-overlay').remove();
+        });
     }
 
 })();

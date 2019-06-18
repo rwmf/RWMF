@@ -15,10 +15,13 @@
                 </div>
 
                 <form name="forgotCtrl.forgot" ng-submit="vm.login()" role="form" autocomplete="off">
-
-                    <div class="form-group email" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                    <div class="form-group email fortgotform" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
                         <input placeholder="Email ID" type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
                         <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                    </div>
+                    <div class="col-md-12 pl-0 pr-0 pull-left">
+                        <a class="home-link" ui-sref="home">Home</a>
+                        <a class="forgot-link" ui-sref="login">Login</a>
                     </div>
                     <div class="form-actions">
                         <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary forgot-btn">SUBMIT</button>
