@@ -13,7 +13,7 @@
         angular.element('.sidenav-overlay').remove();
 
         function forgotPassword(data) {
-            CoreService.forgotPassword(data).then(function(resp) {
+            CoreService.forgotPassword({ email: data }).then(function(resp) {
                 if (resp.status == 200) {
                     FlashService.Success(resp.data.display);
                     $timeout(function() {
