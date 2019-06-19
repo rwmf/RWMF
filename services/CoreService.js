@@ -52,6 +52,20 @@
                 });
             return deferred.promise;
         }
+        service.getProfileData = function(data) {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("userprofile", data)
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        }
         service.getBusScheduleDetails = function() {
             var deferred = $q.defer();
             CoreHttpRequest.post("busschedule")
