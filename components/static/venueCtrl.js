@@ -63,7 +63,7 @@
             if ($stateParams.venueDetails) {
                 $stateParams.venueDetails.latitude = $stateParams.venueDetails.stage_latitude;
                 $stateParams.venueDetails.longitude = $stateParams.venueDetails.stage_longitude;
-                $stateParams.venueDetails.location = stateParams.venueDetails.stage_location
+                $stateParams.venueDetails.location = $stateParams.venueDetails.stage_location;
                 mapOptions = {
                     zoom: 4,
                     center: new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude),
