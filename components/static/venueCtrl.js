@@ -60,6 +60,7 @@
         vm.cities = cities;
         CoreService.setClientHeight().then(function() {
             var mapOptions;
+            $rootScope.isLoading = true;
             if ($stateParams.venueDetails) {
                 $stateParams.venueDetails.latitude = $stateParams.venueDetails.stage_latitude;
                 $stateParams.venueDetails.longitude = $stateParams.venueDetails.stage_longitude;
@@ -111,6 +112,9 @@
                     google.maps.event.trigger(selectedMarker, 'click');
                 }
             }
+            google.maps.event.addListenerOnce($scope.map, 'tilesloaded', function() {
+                $rootScope.isLoading = false;
+            });
             google.maps.event.addDomListener(window, "resize", function() {
                 if (document.getElementById("map")) {
                     CoreService.setClientHeight();
