@@ -282,13 +282,13 @@
         opacity: 1;
     }
     
-    .login-logo {
+    /* .login-logo {
         background-image: url(../img/registration_logo.png);
         width: 265px;
         height: 138px;
         background-repeat: no-repeat;
         background-size: 8rem;
-    }
+    } */
     
     .username input {
         background: url(../img/user-min.png) no-repeat scroll 2px 12px;
@@ -423,6 +423,10 @@
     .side-nav .logo-wrapper img {
         padding-left: 0px;
         padding-right: 0px;
+    }
+
+    .mentop{
+        margin-top: 16rem;
     }
     
     .bnrhgt {
@@ -643,7 +647,7 @@
         text-decoration: underline;
     }
     
-    .register-logo {
+    /* .register-logo {
         background-image: url(../img/registration_logo.png);
         width: 256px;
         height: 145px;
@@ -651,7 +655,7 @@
         background-size: 50%;
         position: relative;
         left: -86px;
-    }
+    } */
     
     .first {
         width: 49%;
@@ -831,8 +835,8 @@
     .navbar {
         height: 50px;
     }
+
     /*profile*/
-    
     .avatar-pic {
         width: 160px;
         text-align: center;
@@ -875,8 +879,8 @@
     .btn-warning {
         background-color: #ff8000!important;
     }
+
     /*modal*/
-    
     .modal-dialog.modal-notify.modal-success .badge,
     .modal-dialog.modal-notify.modal-success .modal-header {
         background-color: #006a36;
@@ -888,6 +892,38 @@
         line-height: 22px !important;
         font-size: 16px !important;
     }
+
+    /*filter*/
+    .filter{
+        margin-top: 1rem;
+    }
+
+    .filter ul{
+        padding: 0;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .filter li{
+        border-radius: 50px;
+        background: transparent;
+        padding: .4rem .6rem;
+        margin: .3rem .3rem .3rem 0;
+        border: 2px solid #fff;
+        display: inline-block;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .filter li.active{
+        background-image: linear-gradient(45deg, rgb(127, 255, 77), rgb(69,216,170));
+        border: 2px solid;
+        border-image-source: linear-gradient(45deg, rgb(0127, 255, 77), rgb(69,216,170));
+        border-image-slice: 0;
+    }
+
+
     /* Media Queries */
     
     @media (max-height: 992px) {
@@ -987,14 +1023,14 @@
             background-size: 30px 30px;
             background-color: #f3f4f6;
         }
-        .login-logo {
+        /* .login-logo {
             width: 265px;
             height: 270px;
             background-repeat: no-repeat;
             background-size: 90%;
-        }
+        } */
         /*register*/
-        .register-logo {
+        /* .register-logo {
             background-image: url(../img/registration_logo.png);
             width: 256px;
             height: 145px;
@@ -1002,7 +1038,7 @@
             background-size: 50%;
             position: relative;
             left: -86px;
-        }
+        } */
         .first {
             width: 49%;
             float: left;
@@ -1075,6 +1111,10 @@
         }
         .location li {
             padding-left: 40px;
+        }
+        /*menu*/
+        .mentop{
+        margin-top: 14rem;
         }
     }
     

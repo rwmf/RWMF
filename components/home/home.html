@@ -16,7 +16,29 @@
     </div>
     <div class="row filter">
         <!-- todo new filter -->
+        <ul>
+            <li class="active">
+                Performances
+            </li>
+            <li>
+                Mini Sessions
+            </li>
+            <li>
+                Lifestye
+            </li>
+            <li>
+                Tutorials
+            </li>
+            <li>
+                Gathering, Drum Circle, & DJ SET
+            </li>
+            <li>
+                Cultural Snippets
+            </li>
+        </ul>
+
     </div>
+
     <div class="container mt-4" ng-if="!isLoading || homectrl.events.length > 0">
         <div class="row">
             <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day">

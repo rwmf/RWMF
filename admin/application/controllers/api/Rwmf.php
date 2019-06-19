@@ -439,6 +439,7 @@
       {
         if($this->Apibasic_model->uservalid(trim($this->post('utoken'))))
         {
+          $app_id=$this->Apibasic_model->appdata('id');
           $u_token=trim($this->post('utoken'));
           $uid=$this->Apibasic_model->get_value('user','id','user_token',$u_token);
           $result['status'] = 200;
@@ -450,6 +451,9 @@
             $result['data']['display']='No data found';
           }
           $result['data']['registered_prgms']=$reg_prgs;
+          
+          $result['data']['programme_types'] = $this->db->select('id,type')->where('status',1)->where('app_id',$app_id)->get('programme_types')->result();
+
         }
       }
       $this->response($result); 
@@ -596,6 +600,47 @@
         $result['data']['ads']= $add_array;
        }
       $this->response($result);
+    }
+
+    public function notify_post()
+    {
+       $to=$this->post("to");
+       $title=$this->post("title");
+       $body=$this->post("body");
+       
+       $data = array();
+       $data['data']['notification']['title'] = $title;
+       $data['data']['notification']['body'] = $body;
+       $data['data']['webpush']['headers']['Urgency'] = "high";
+       $data['to'] = $to;
+
+       $ch = curl_init();
+
+       curl_setopt($ch, CURLOPT_POST, 1);
+       $headers = array();
+       $headers[] = "Authorization: key = AIzaSyC00dv4aWJDmgl1KnyXZRwLH2MeW8jjF_I";
+       $headers[] = "Content-Type: application/json";
+       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+       curl_setopt($ch, CURLOPT_URL , "https://fcm.googleapis.com/fcm/send");
+       curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+       curl_setopt($ch,CURLOPT_CUSTOMREQUEST, "POST");
+       curl_setopt($ch,CURLOPT_POSTFIELDS, json_encode($data));
+
+       curl_setopt($ch,CURLOPT_SSL_VERIFYHOST, false);
+       curl_setopt($ch,CURLOPT_SSL_VERIFYPEER , false);
+
+       $result = curl_exec($ch);
+       if (curl_errno($ch))
+       echo 'Error:' . curl_error($ch);
+
+       curl_close($ch);
+
+       echo $result;
+       //echo "<pre>Result : ";
+       //print_r(json_decode($result,1));
+       //echo '<br>sent through</pre>';
+       //echo $result;
     }
 
  }

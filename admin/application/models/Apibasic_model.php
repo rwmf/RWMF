@@ -283,6 +283,12 @@ class Apibasic_model extends CI_Model
             $ggg[0]['image'] =$this->Basic_model->image_link('user',0);
           }
           $ggg[0]['image_name'] =pathinfo($ggg[0]['image'], PATHINFO_FILENAME);
+            
+            $type = pathinfo($ggg[0]['image'], PATHINFO_EXTENSION);
+            $data = file_get_contents($ggg[0]['image']);
+            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+            $ggg[0]['image']=$base64;
+
           return $ggg[0];
         }
       else
@@ -393,6 +399,19 @@ class Apibasic_model extends CI_Model
             {
               $valid='false';
               $error='First name is required';
+            }
+            else
+            {
+               if(trim($data['phone']))
+               {
+                 $emailvld=$this->db->where(array('phone'=>trim($data['phone']),'id !='=>$u_data->id,'status'=>'1'))->get('user');
+                 if($emailvld->num_rows()>0)
+                 {
+                   $valid='false';
+                   $error='Phone number is already registered';
+                 }
+               }
+
             }
           }   
             
