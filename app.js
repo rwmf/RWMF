@@ -177,20 +177,6 @@
                     }
                 }
             })
-            .state('profile', {
-                url: '/profile',
-                views: {
-                    'innerPages@': {
-                        controller: 'StaticController',
-                        templateUrl: 'components/static/profile.html'
-                    },
-                    'header@': {
-                        controller: 'HeaderController',
-                        templateUrl: 'components/header/header.html',
-                        controllerAs: 'vm'
-                    }
-                }
-            })
             .state('contactDetails', {
                 url: '/contactDetails',
                 views: {
