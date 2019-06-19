@@ -10,44 +10,43 @@
         <!-- Card content -->
         <div class="card-body card-body-cascade prof">
 
-            <form class="md-form">
+            <form class="md-form" name="statCtrl.profileForm" autocomplete="off">
                 <div class="file-field">
                     <div class="mb-4">
-                        <img src="img/avat.png"
-                            class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
-                            <div class="plus"><i class=""></i></div>
-                            <input type="file">
-                    </div>
-                    <!-- <div class="d-flex justify-content-center">
-                        <div class="btn btn-mdb-color btn-rounded float-left">
-                            <span>Add photo</span>
-                            <input type="file">
+                        <img src="statCtrl.userData.image" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                        <div class="plus pull-left"><i class=""></i>
+                            <input type="file" class="pull-left">
                         </div>
-                    </div> -->
+                    </div>
                 </div>
+                <div class="col-sm-12">
+                    <div class="md-form mb-3">
+                        <input name="fname" value="John" type="text" id="inputPrefilledEx" class="form-control" ng-model="statCtrl.userdata.first_name">
+                        <label for="inputPrefilledEx" class="active">First Name</label>
+                    </div>
+                    <div class="md-form mb-3">
+                        <input name="lname" value="Doe" type="text" id="inputPrefilledEx" class="form-control" ng-model="statCtrl.userdata.last_name">
+                        <label for="inputPrefilledEx" class="active">Last Name</label>
+                    </div>
+                    <div class="md-form mb-3">
+                        <input name="email" value="john@doe.com" type="text" id="inputPrefilledEx" class="form-control" ng-model="statCtrl.userdata.email">
+                        <label for="inputPrefilledEx" class="active">Email ID</label>
+                        <span ng-if="statCtrl.profileForm.email.$dirty && statCtrl.profileForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
+                    </div>
+                    <div class="md-form mb-3">
+                        <input name="phone" value="john@doe.com" type="text" id="inputPrefilledEx" class="form-control" ng-model="statCtrl.userdata.phone">
+                        <label for="inputPrefilledEx" class="active">Phone Number</label>
+                    </div>
+                    <div class="form-actions">
+                        <button ng-if="statCtrl.profileForm.$dirty" type="button" ng-click="statCtrl.saveProfile(statCtrl.userdata)" ng-disabled="statCtrl.profileForm.$invalid" class="btn btn-primary forgot-btn">SUBMIT</button>
+                    </div>
+                </div>
+
             </form>
-
-
-            <!-- Text -->
-            <div class="col-sm-12">
-                <div class="md-form mb-3">
-                    <input value="John" type="text" id="inputPrefilledEx" class="form-control">
-                    <label for="inputPrefilledEx" class="active">First Name</label>
-                </div>
-                <div class="md-form mb-3">
-                    <input value="Doe" type="text" id="inputPrefilledEx" class="form-control">
-                    <label for="inputPrefilledEx" class="active">Last Name</label>
-                </div>
-                <div class="md-form mb-3">
-                    <input value="john@doe.com" type="text" id="inputPrefilledEx" class="form-control">
-                    <label for="inputPrefilledEx" class="active">Email ID</label>
-                </div>
-            </div>
 
         </div>
 
     </div>
-    <!-- Card Narrower -->
 
 
 </div>

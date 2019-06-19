@@ -167,7 +167,8 @@
                 views: {
                     'innerPages@': {
                         controller: 'StaticController',
-                        templateUrl: 'components/static/profile.html'
+                        templateUrl: 'components/static/profile.html',
+                        controllerAs: 'statCtrl'
                     },
                     'header@': {
                         controller: 'HeaderController',

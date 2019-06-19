@@ -4,19 +4,24 @@
     angular
         .module('RWMF')
         .controller('StaticController', StaticController);
-    StaticController.$inject = ['$scope', '$rootScope', 'CoreService'];
+    StaticController.$inject = ['$scope', '$rootScope', 'CoreService', 'FlashService'];
 
-    function StaticController($scope, $rootScope, CoreService) {
+    function StaticController($scope, $rootScope, CoreService, FlashService) {
         var vm = this;
         $rootScope.pageName = "home";
         angular.element('.sidenav-overlay').remove();
-        if (localStorage["utoken"]) {
-            CoreService.getProfileData({ utoken: localStorage["utoken"] }).then(function(resp) {
+        if (localStorage["userToken"]) {
+            CoreService.getProfileData({ utoken: localStorage["userToken"] }).then(function(resp) {
                 console.log(resp)
-            }, function(error) {
-                console.log(error)
-            }).catch(function(error) {
-
+                vm.userData = resp.data.user_data;
+            }, function(err) {
+                var message = err.data && err.data ? err.data.display : "Can't fetch profile data, Unknown Error";
+                FlashService.Error(message);
+                FlashService.clearFlashMessageOntimeout(5000);
+            }).catch(function(err) {
+                var message = err.data && err.data ? err.data.display : "Can't fetch profile data,  Unknown Error";
+                FlashService.Error(message);
+                FlashService.clearFlashMessageOntimeout(5000);
             })
         }
         $scope.$on('$destroy', function() {

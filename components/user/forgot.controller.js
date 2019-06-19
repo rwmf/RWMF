@@ -23,7 +23,7 @@
             }, function(err) {
                 var message = err.data && err.data ? err.data.display : "Unknown Error";
                 FlashService.Error(message);
-                //FlashService.clearFlashMessageOntimeout(5000);
+                FlashService.clearFlashMessageOntimeout(5000);
             }).catch(function(err) {
                 var message = err.data && err.data ? err.data.display : "Unknown Error";
                 FlashService.Error(message);
