@@ -12,8 +12,9 @@
 
             <form class="md-form" name="statCtrl.profileForm" autocomplete="off">
                 <div class="file-field">
+                    {{ statCtrl.userData | json }}"
                     <div class="mb-4">
-                        <img src="statCtrl.userData.image" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                        <img src="{{ statCtrl.userData.image }}" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
                         <div class="plus pull-left"><i class=""></i>
                             <input type="file" class="pull-left">
                         </div>
