@@ -353,12 +353,13 @@ class Apibasic_model extends CI_Model
           $kdata['phone']     = trim($newdata['phone']);
           $this->db->where('user_token',$newdata['utoken'])->update('user',$kdata);
           $u_data=$this->db->where('user_token',$newdata['utoken'])->get('user')->row();
-          if (isset($_FILES["image"]["tmp_name"]) && $_FILES["image"]["tmp_name"] != '') 
-            {
-              $filename3 = 'uploads/user_image/user_'.$u_data->id . '.png';
-              move_uploaded_file($_FILES["image"]['tmp_name'], $filename3);
-              $this->db->where('id',$u_data->id)->update('user',array('image'=>$filename3));
-            }
+          if ($newdata['image'])
+           {
+             $filename3 = 'uploads/user_image/user_'.$u_data->id . '.png';
+             $decoded=base64_decode(preg_replace('#^data:image/\w+;base64,#i', '',$newdata['image']));
+             file_put_contents($filename3,$decoded);
+             $this->db->where('id',$u_data->id)->update('user',array('image'=>$filename3));
+           }
 
           $result['status']  = 200;
           $result['message'] = 'success';
@@ -392,23 +393,6 @@ class Apibasic_model extends CI_Model
             {
               $valid='false';
               $error='First name is required';
-            }
-            else
-            {
-                if(trim($data['phone']))
-                {
-                  $emailvld=$this->db->where(array('phone'=>trim($data['phone']),'id !='=>$u_data->id,'status'=>'1'))->get('user');
-                  if($emailvld->num_rows()>0)
-                  {
-                    $valid='false';
-                    $error='Phone number is already registered';
-                  }
-                }
-                else
-                {
-                  $valid='false';
-                  $error='Phone number is required';
-                }
             }
           }   
             
