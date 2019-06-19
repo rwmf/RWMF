@@ -61,6 +61,8 @@
         CoreService.setClientHeight().then(function() {
             var mapOptions;
             if ($stateParams.venueDetails) {
+                $stateParams.venueDetails.latitude = $stateParams.venueDetails.stage_latitude;
+                $stateParams.venueDetails.longitude = $stateParams.venueDetails.stage_longitude;
                 mapOptions = {
                     zoom: 4,
                     center: new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude),
