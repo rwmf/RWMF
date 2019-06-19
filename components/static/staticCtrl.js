@@ -10,6 +10,7 @@
         var vm = this;
         $rootScope.pageName = "home";
         angular.element('.sidenav-overlay').remove();
+        vm.userData = {};
         if (localStorage["userToken"]) {
             CoreService.getProfileData({ utoken: localStorage["userToken"] }).then(function(resp) {
                 console.log(resp)
