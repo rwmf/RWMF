@@ -8,6 +8,7 @@
 
     function StaticController($scope, $rootScope, CoreService, FlashService) {
         var vm = this;
+        vm.updateUserProfile = updateUserProfile;
         $rootScope.pageName = "home";
         angular.element('.sidenav-overlay').remove();
         vm.userData = {};
@@ -24,6 +25,10 @@
                 FlashService.Error(message);
                 FlashService.clearFlashMessageOntimeout(5000);
             })
+        }
+
+        function updateUserProfile(data) {
+            console.log(data)
         }
         $scope.$on('$destroy', function() {
             angular.element('.sidenav-overlay').remove();
