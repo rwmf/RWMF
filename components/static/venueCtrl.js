@@ -99,7 +99,7 @@
         });
 
         function drawMap(cities) {
-            mapOptions = {
+            var mapOptions = {
                 zoom: 4,
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             }
