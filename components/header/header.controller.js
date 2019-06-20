@@ -73,10 +73,6 @@
                 })
             }
         }
-        angular.element(document).ready(function() {
-            if ($rootScope.deferredPrompt)
-                showAppInstallBanner();
-        });
         angular.element(document).on("click", "body", function(evt) {
             $('.button-collapse').sideNav('hide');
             angular.element(".sidenav-overlay").not(":first").remove()
