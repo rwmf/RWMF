@@ -653,6 +653,81 @@
        //echo $result;
     }
 
+    //20-06-2019
+
+   //fb_login
+   public function fblogin_post()
+   {
+     if($this->post())
+     {
+       $data=array();
+       $data['email']   = trim($this->post("email"));
+       $data['fb_id']   = trim($this->post("fbid"));
+       //$data['device_id']  = trim($this->post("device_id"));
+       //$data['device_type']= trim($this->post("device_type"));
+       $this->response($this->Apibasic_model->fblogin($data));
+
+     }
+     else
+     {
+       $result['status'] = 400;
+       $result['message']= 'failed';
+       $result['data']['display'] = 'Enter valid data';
+       $this->response($result);
+     }
+   }
+
+   //google_login
+   public function googlelogin_post()
+   {
+     if($this->post())
+     {
+       $data=array();
+       $data['email']    = trim($this->post("email"));
+       $data['google_id']= trim($this->post("googleid"));
+       //$data['device_id']  = trim($this->post("device_id"));
+       //$data['device_type']= trim($this->post("device_type"));
+       $this->response($this->Apibasic_model->googlelogin($data));
+
+     }
+     else
+     {
+       $result['status'] = 400;
+       $result['message']= 'failed';
+       $result['data']['display'] = 'Enter valid data';
+       $this->response($result);
+     }
+   }
+
+   //Social Signup
+   public function socialsignup_post()
+   {
+     if($this->post())
+     {
+       $data=array();
+
+       $data['first_name'] = trim($this->post("first_name"));
+       $data['last_name']  = trim($this->post("last_name"));
+       $data['phone']      = trim($this->post("phone"));
+       $data['email']      = trim($this->post("email"));
+       $data['fb_id']      = trim($this->post("fbid"));
+       $data['google_id']  = trim($this->post("googleid"));
+
+       //$data['device_id']  = trim($this->post("device_id"));
+       //$data['device_type']= trim($this->post("device_type"));
+       $this->response($this->Apibasic_model->soregister($data));
+
+     }
+     else
+     {
+       $result['status'] = 400;
+       $result['message']= 'failed';
+       $result['data']['display'] = 'Enter valid data';
+       $this->response($result);
+     }
+
+   }
+
  }
 
 ?>

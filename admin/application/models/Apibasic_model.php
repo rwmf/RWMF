@@ -598,6 +598,170 @@ class Apibasic_model extends CI_Model
       }
       return $add_array;
     }
+
+
+    //20-06-2019
+    //User FB Login
+    public function fblogin($data)
+    {
+      $result=array();
+      if($data['fb_id'])
+        {
+            $app_id=$this->appdata('id');
+            $longqry=$this->db->query('select * from user where app_id="'.$app_id.'" and (fb_id="'.$data['fb_id'].'" or email="'.$data['email'].'") and status="1"');
+            if($longqry->num_rows()==1)
+              {
+                $uid = $longqry->row()->id;
+                $result['status']  = 200;
+                $result['message'] = 'success';
+                $result['data']['display'] ='You have successfully logged in';
+                $result['data']['user_token'] = $longqry->row()->user_token;
+                $newdata=array('fb_id'=>$data['fb_id']);
+                $this->db->where('id',$uid)->update('user',$newdata);
+                
+              }
+            else
+              {
+                $result['status']  = 400;
+                $result['message'] = 'failed';
+                $result['data']['display'] ='User not found';
+                $result['data']['action'] ='socuser_register';
+              }
+        }
+      else
+        {
+            $result['status']  = 400;
+            $result['message'] = 'failed';
+            $result['data']['display'] = 'check facebook login';
+        }
+        return $result;
+    }
+    //User google Login
+    public function googlelogin($data)
+    {
+      $result=array();
+      if($data['google_id'])
+        {
+            $app_id=$this->appdata('id');
+            $longqry=$this->db->query('select * from user where app_id="'.$app_id.'" and (google_id="'.$data['google_id'].'" or email="'.$data['email'].'") and status="1"');
+            if($longqry->num_rows()==1)
+              {
+                $uid = $longqry->row()->id;
+                $result['status']  = 200;
+                $result['message'] = 'success';
+                $result['data']['display'] ='You have successfully logged in';
+                $result['data']['user_token'] = $longqry->row()->user_token;
+                $newdata=array('google_id'=>$data['google_id']);
+                $this->db->where('id',$uid)->update('user',$newdata);
+                
+              }
+            else
+              {
+                $result['status']  = 400;
+                $result['message'] = 'failed';
+                $result['data']['display'] ='User not found';
+                $result['data']['action'] ='socuser_register';
+              }
+        }
+      else
+        {
+            $result['status']  = 400;
+            $result['message'] = 'failed';
+            $result['data']['display'] = 'check google login';
+        }
+        return $result;
+    }
+    //User SO Registration
+    public function soregister($data)
+    {
+        if($this->sovalidate($data)=='true')
+            {
+                $app_id=$this->appdata('id');
+                $data['app_id']=$app_id;
+                $data['signup_date']=date('Y-m-d H:i:s');
+                $data['status']='1';
+                $this->db->insert('user',$data);
+                $uid=$this->db->insert_id();
+                if($uid)
+                {
+                  $result['status']  = 200;
+                  $result['message'] = 'success';
+                  $result['data']['display']    = 'You have successfully registered.';
+                  $result['data']['user_token'] = $this->usertoken($uid);
+                }
+            }
+        else
+            {
+                $result['status']  = 400;
+                $result['message'] = 'failed';
+                $result['data']['display'] = $this->sovalidate($data);
+            }
+        return $result;
+    }
+    //User SO Register validate
+    public function sovalidate($data)
+    {
+        $valid='true';
+        $error=array();
+        if($data['fb_id'] || $data['google_id'])
+            {
+                if($this->check_existsocial($data['fb_id'],$data['google_id']))
+                  {
+                    $valid='false';
+                    $error='User already registered';
+                  }
+                else
+                  {
+                    if($data['email'])
+                    {
+                       if($this->check_existuser('user','email',$data['email']))
+                        {
+                          $valid='false';
+                          $error='Email is already registered';
+                       }
+                    }
+                    else
+                    {
+                      $valid='false';
+                      $error='Email id required';
+                    }
+                  }
+            }
+          else
+            {
+              $valid='false';
+              $error='Fb or Google login failed';
+            }
+              if($valid=='true')
+              {
+                return $valid;
+              }
+              else
+              {
+                return $error;
+              }
+    }
+    public function check_existsocial($fbid,$googleid)
+    {
+      $app_id=$this->appdata('id');
+      if($fbid) 
+      {
+       $longqry=$this->db->query('select * from user where app_id="'.$app_id.'" and fb_id="'.$fbid.'"  and status="1"');
+      }
+      if($googleid)
+      {
+        $longqry=$this->db->query('select * from user where app_id="'.$app_id.'" and google_id="'.$googleid.'" and status="1"');
+      }
+      
+      if($longqry->num_rows()>0)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
 }
 
 ?>

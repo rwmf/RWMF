@@ -23,6 +23,7 @@
     .home-link:hover,
     .forgot-link:hover {
         color: #ff8000;
+        font-size: .9rem;
     }
     
     .forgot-link {
@@ -304,6 +305,14 @@
         background-size: 30px 30px;
         background-color: #f3f4f6;
     }
+
+    .phone input {
+        background: url(../img/call-min.png) no-repeat scroll 2px 12px;
+        background-color: rgba(0, 0, 0, 0);
+        background-size: auto;
+        background-size: 30px 30px;
+        background-color: #f3f4f6;
+    }
     
     .fortgotform.email {
         margin-bottom: 5px!important;
@@ -352,7 +361,15 @@
         height: 60px;
         line-height: 30px;
         font-size: 18px;
+        margin-top: .75rem;
     }
+
+    .socialbtn{
+        margin: 0 auto;
+        width: 140px;
+        display: block;
+    }
+
     /*04062019*/
     
     .mt-6 {
@@ -678,6 +695,7 @@
         float: left;
         background-color: #686868 !important;
         margin: 0;
+        margin-top: .75rem;
     }
     
     .chck {
@@ -1093,6 +1111,7 @@
             background-color: #686868 !important;
             margin: 0;
             padding: .84rem 1.14rem;
+            margin-top: .75rem;
         }
         .chck {
             margin-top: 6px;
@@ -1164,6 +1183,30 @@
         }
     }
 
+    @media (min-width: 576px){
+
+        .container {
+            max-width: 720px;
+        }
+
+        .dattim h4 {
+            font-size: 1.75rem;
+        }
+
+        .dattim h6 {
+            font-size: 1.2rem;
+        }
+
+        .dattim {
+            width: 101px;
+            padding: .5rem !important;
+        }
+
+        /* .nopad{
+            padding: 0 !important;
+        } */
+    }
+
 
     @media (min-width: 768px) and (max-width: 1024px) {
         
@@ -1184,9 +1227,9 @@
             padding: .5rem !important;
         }
 
-        .nopad{
+        /* .nopad{
             padding: 0 !important;
-        }
+        } */
 
     }
 
@@ -1210,9 +1253,9 @@
             padding: .5rem !important;
         }
 
-        .nopad{
+        /* .nopad{
             padding: 0 !important;
-        }
+        } */
 
     }
     
