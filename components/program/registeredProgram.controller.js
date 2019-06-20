@@ -17,6 +17,9 @@
             CoreService.getAllRegisteredProgrammes({ utoken: localStorage['userToken'] }).then(function(response) {
                 if (response.data.registered_prgms.length > 0) {
                     vm.programmes = response.data.registered_prgms;
+                    vm.programTypes = response.data.programme_types;
+                    localStorage["registered_prgms"] = JSON.stringify(vm.programmes);
+                    localStorage["registered_prgm_types"] = JSON.stringify(vm.programTypes);
                 } else {
                     FlashService.Warning("You have not registered for any programmes");
                 }
@@ -25,10 +28,16 @@
                 if (localStorage["registered_prgms"]) {
                     vm.programmes = JSON.parse(localStorage["registered_prgms"]);
                 }
+                if (localStorage["registered_prgm_types"]) {
+                    vm.programTypes = JSON.parse(localStorage["registered_prgm_types"]);
+                }
                 CoreService.removeLoader();
             }).catch(function(err) {
                 if (localStorage["registered_prgms"]) {
                     vm.programmes = JSON.parse(localStorage["registered_prgms"]);
+                }
+                if (localStorage["registered_prgm_types"]) {
+                    vm.programTypes = JSON.parse(localStorage["registered_prgm_types"]);
                 }
                 CoreService.removeLoader();
             });
