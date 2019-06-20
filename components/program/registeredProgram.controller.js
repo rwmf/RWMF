@@ -8,7 +8,8 @@
     function ProgramController($scope, $rootScope, CoreService, $state, FlashService, $timeout) {
         var vm = this;
         $rootScope.pageName = "home";
-        vm.day = "1"
+        vm.day = "1";
+        vm.type = "1";
         vm.checkboxChecked = checkboxChecked;
         vm.gotoDetail = gotoDetail;
         vm.gotoVenue = gotoVenue;
