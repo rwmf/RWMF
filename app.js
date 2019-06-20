@@ -5,12 +5,13 @@
         .module('RWMF', ['ui.router', 'ngCookies', 'ngSanitize'])
         .config(config)
         .filter('filterWithDay', ['CoreService', function(CoreService) {
-            return function(items, day) {
+            return function(items, day, type) {
+                console.log(day, type)
                 if (items.length > 0) {
                     var filtered = [];
                     for (var i = 0; i < items.length; i++) {
                         var item = items[i];
-                        if (items[i].day === day) {
+                        if (items[i].day == day && items[i].type == type) {
                             filtered.push(item);
                         }
                     }
@@ -124,6 +125,11 @@
                         controller: 'LoginController',
                         templateUrl: 'components/user/login.html',
                         controllerAs: 'loginCtrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
                     }
                 }
 
@@ -135,6 +141,11 @@
                         controller: 'RegisterController',
                         templateUrl: 'components/user/newuser.html',
                         controllerAs: 'regCtrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
                     }
                 }
             })
@@ -145,6 +156,11 @@
                         controller: 'ForgotController',
                         templateUrl: 'components/user/forgot.html',
                         controllerAs: 'forgotCtrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
                     }
                 }
             })

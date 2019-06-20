@@ -11,37 +11,21 @@
             </label>
             <label class="btn btn-primary form-check-label noshad" ng-click="homectrl.checkboxChecked($event)">
               <input class="form-check-input" type="radio" value="3"  ng-model="homectrl.day" name="options" id="option3" autocomplete="off"> Day 3
-            </label>
+             </label>
         </div>
     </div>
-    <div class="row filter" ng-if="homectrl.programTypes">
-        <!-- todo new filter -->
-        <ul>
-            <li class="active">
-                Performances
-            </li>
-            <li>
-                Mini Sessions
-            </li>
-            <li>
-                Lifestye
-            </li>
-            <li>
-                Tutorials
-            </li>
-            <li>
-                Gathering, Drum Circle, & DJ SET
-            </li>
-            <li>
-                Cultural Snippets
-            </li>
-        </ul>
-
+    <div class="row filter">
+        <div class="form-group">
+            <label ng-repeat="program in homectrl.programTypes">
+                    <input type="radio" name="pgmType" value="{{program.id}}" ng-model="homectrl.type">
+                    <span>{{program.type}}</span>
+                </label>
+        </div>
     </div>
 
     <div class="container mt-4" ng-if="!isLoading || homectrl.events.length > 0">
         <div class="row">
-            <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day">
+            <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day: homectrl.type">
                 <!-- Card -->
                 <div class="card card-cascade wider reverse">
                     <!-- Card image -->
