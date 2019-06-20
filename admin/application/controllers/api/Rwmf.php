@@ -367,6 +367,15 @@
         if($programme_data)
         {
           $result['data']['programme_data']=$programme_data;
+
+          $result['data']['ads']=array();
+          $add_array= $this->Apibasic_model->adds();
+          if($add_array)
+          {
+           $result['data']['ads']=$add_array;
+          }
+
+
           $result['status'] = 200;
           $result['message']= 'success';
           $result['data']['display']='Programme data';
@@ -609,8 +618,9 @@
        $body=$this->post("body");
        
        $data = array();
-       $data['data']['notification']['title'] = $title;
-       $data['data']['notification']['body'] = $body;
+       $msg=array('title' => $title, 'body' => $body, 'time'=>time(),'notf_id'=>'5');
+       $data['data']['notification']=$msg;
+       
        $data['data']['webpush']['headers']['Urgency'] = "high";
        $data['to'] = $to;
 

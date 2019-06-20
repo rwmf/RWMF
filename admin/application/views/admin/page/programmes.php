@@ -36,7 +36,7 @@
                                         <thead>
                                             <tr >
                                                 <th>#</th>
-                                                <th class='text-center'>Name</th>
+                                                <th >Name</th>
                                                 <th class='text-center'>Code</th>
                                                 <th class='text-center'>Day</th>
                                                 <th class='text-center'>Time</th>
@@ -51,14 +51,14 @@
                                                 {   $i=1;
                                                     foreach ($p_data as $key) 
                                                     {
-                                                        echo "<tr class='text-center'>
-                                                                <td>".$i."</td>
-                                                                <td>".$key->name."</td>
-                                                                <td>".$key->code."</td>
+                                                        echo "<tr >
+                                                                <td class='text-center'>".$i."</td>
+                                                                <td >".$key->name."</td>
+                                                                <td class='text-center'>".$key->code."</td>
                                                                 <td class='text-center'>".$key->day."</td>
-                                                                <td>".date("h:i a",strtotime($key->time))."</td>
-                                                                <td>".$key->sname."</td>
-                                                                <td>".$key->ptype."</td>
+                                                                <td class='text-center'>".date("h:i a",strtotime($key->time))."</td>
+                                                                <td class='text-center'>".$key->sname."</td>
+                                                                <td class='text-center'>".$key->ptype."</td>
                                                                 <td class='float-right'>
                                                                     <a class='btn btn-success btn-xs ' data-toggle='tooltip' title='Registered Users' href='" . base_url('programmes/users/'). $key->id . "'> Users</a>
                                                                     <a class='btn btn-primary btn-xs' data-toggle='tooltip' data-original-title='Gallery' href='" . base_url('gallery/'). $key->id . "'> Gallery</a>

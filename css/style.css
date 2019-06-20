@@ -1144,10 +1144,18 @@
         .location li {
             padding-left: 40px;
         }
+
         /*menu*/
         .mentop {
-            margin-top: 14rem;
+            margin-top: 12rem;
         }
+
+        /*filter*/
+        .filter label span {
+            padding: .3rem .4rem;
+            font-size: 12px;
+        }
+
     }
     
     @media (min-width: 768px) and (max-width: 1280px) {
@@ -1155,16 +1163,62 @@
             background-image: url(../img/login-min.png);
         }
     }
-    
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        
         .login {
             background-image: url(../img/login-min.png);
         }
+
+        .dattim h4 {
+            font-size: 1.75rem;
+        }
+
+        .dattim h6 {
+            font-size: 1.2rem;
+        }
+
+        .dattim {
+            width: 101px;
+            padding: .5rem !important;
+        }
+
+        .nopad{
+            padding: 0 !important;
+        }
+
+    }
+
+    
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+        .login {
+            background-image: url(../img/login-min.png);
+        }
+
+        .dattim h4 {
+            font-size: 1.75rem;
+        }
+
+        .dattim h6 {
+            font-size: 1.2rem;
+        }
+
+        .dattim {
+            width: 101px;
+            padding: .5rem !important;
+        }
+
+        .nopad{
+            padding: 0 !important;
+        }
+
     }
     
     @media only screen and (min-width: 1224px) {
         .login {
-            background-image: url(../img/login-min.png);
+            background-image: url(../img/login-min.png) center;
         }
     }
     
