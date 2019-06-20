@@ -83,38 +83,40 @@
                     google.maps.event.trigger(selectedMarker, 'click');
                 }
             } else {
-                CoreService.getVenueDetails().then(function(data) {
-                    vm.cities = data.venues;
+                CoreService.getVenueDetails().then(function(resp) {
+                    vm.cities = resp.data.venues;
+                    mapOptions = {
+                        zoom: 4,
+                        mapTypeId: google.maps.MapTypeId.TERRAIN
+                    }
+                    $scope.bounds = new google.maps.LatLngBounds();
+                    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                    $scope.map.setTilt(45);
+                    $scope.infoWindow = new google.maps.InfoWindow();
+                    for (i = 0; i < vm.cities.length; i++) {
+                        var position = new google.maps.LatLng(vm.cities[i].latitude, vm.cities[i].longitude);
+                        $scope.bounds.extend(position);
+                        createMarker(vm.cities[i], $scope.infoWindow);
+                        $scope.map.fitBounds($scope.bounds);
+                    }
+                    google.maps.event.addListener($scope.infoWindow, 'domready', function() {
+                        $('.infoWindowContent').parents(".gm-style .gm-style-iw-c").addClass("custom-marker");
+                    });
+                    $scope.openInfoWindow = function(e, selectedMarker) {
+                        e.preventDefault();
+                        google.maps.event.trigger(selectedMarker, 'click');
+                    }
+                    google.maps.event.addListenerOnce($scope.map, 'tilesloaded', function() {
+                        $rootScope.isLoading = false;
+                    });
                 }, function(error) {
                     vm.cities = cities;
                 }).catch(function(error) {
                     vm.cities = cities;
                 });
-                mapOptions = {
-                    zoom: 4,
-                    mapTypeId: google.maps.MapTypeId.TERRAIN
-                }
-                $scope.bounds = new google.maps.LatLngBounds();
-                $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-                $scope.map.setTilt(45);
-                $scope.infoWindow = new google.maps.InfoWindow();
-                for (i = 0; i < vm.cities.length; i++) {
-                    var position = new google.maps.LatLng(vm.cities[i].latitude, vm.cities[i].longitude);
-                    $scope.bounds.extend(position);
-                    createMarker(vm.cities[i], $scope.infoWindow);
-                    $scope.map.fitBounds($scope.bounds);
-                }
-                google.maps.event.addListener($scope.infoWindow, 'domready', function() {
-                    $('.infoWindowContent').parents(".gm-style .gm-style-iw-c").addClass("custom-marker");
-                });
-                $scope.openInfoWindow = function(e, selectedMarker) {
-                    e.preventDefault();
-                    google.maps.event.trigger(selectedMarker, 'click');
-                }
+
             }
-            google.maps.event.addListenerOnce($scope.map, 'tilesloaded', function() {
-                $rootScope.isLoading = false;
-            });
+
             google.maps.event.addDomListener(window, "resize", function() {
                 if (document.getElementById("map")) {
                     CoreService.setClientHeight();
