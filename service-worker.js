@@ -32,6 +32,21 @@ importScripts("sw-toolbox.js", "runtime-caching.js", "js/idb.js");
 
 // /* eslint-disable quotes, comma-spacing */
 var PrecacheConfig = [
+        ["images/icons/icon-128x128.png", "nSjCUHiXpAjQD2bcjmLoa4RERjpQB7FN"],
+        ["images/icons/icon-144x144.png", "jYwuyWsuEhL5TMkSkbLCFLBI30nW84EJ"],
+        ["images/icons/icon-152x152.png", "ppc9Lo4rJ1zZrRbORh0mkKAKl4mmhcoi"],
+        ["images/icons/icon-192x192.png", "awc4JLxOtGmSunbYakOYCfPbocdw9OS6"],
+        ["images/icons/icon-384x384.png", "geRI2YY7TBhIV4ZGhk2tb18UouXZg83N"],
+        ["images/icons/icon-512x512.png", "x0Z0yyqRd3rg7mwO4a2QVKDP9kEdYPI5"],
+        ["images/icons/icon-72x72.png", "ugB5LpXO3ItNxuzMykPrkaXbUdIW29Jt"],
+        ["images/icons/icon-96x96.png", "GmOl1JLWgIEvGuw1SwZmiSSrCTWHTseD"],
+        ["images/splash/launch-1125x2436.png", "yNzwelsRyn9Aa1AtyM9Pp9NFScMKYZsS"],
+        ["images/splash/launch-1242x2148.png", "XhnabUH4GKCG4rxlVPDvRm6DEJPVQahb"],
+        ["images/splash/launch-1536x2048.png", "PNI0Oed4TcK203AVat5rXSaPEuoR7xXJ"],
+        ["images/splash/launch-1668x2224.png", "Rpa5KxKCX0SqUTlXRI0o7wfSP5ToPNJj"],
+        ["images/splash/launch-2048x2732.png", "BSa9LsHOcUQCNQn7uOb1RFdKjkeZUDsh"],
+        ["images/splash/launch-640x1136.png", "m1y0NN5LOlgV8pF93vjPwlyeSLnS0O2t"],
+        ["images/splash/launch-750x1294.png", "1fZfzmtyu4bkT1t5nDXxNLPyvTM80D3j"],
         ["/", "xMW1TWucbdAVeDPGUB0Eda1YWZX8lwxN"],
         ["home", "xMW1TWpcXU6b9WRWB9KwGZX8lwxN"],
         ["register", "xM9WRWB9KwGbqdky0lqVfWZX8lwxN"],
