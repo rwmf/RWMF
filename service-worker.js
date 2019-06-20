@@ -47,6 +47,7 @@ var PrecacheConfig = [
         ["images/splash/launch-2048x2732.png", "BSa9LsHOcUQCNQn7uOb1RFdKjkeZUDsh"],
         ["images/splash/launch-640x1136.png", "m1y0NN5LOlgV8pF93vjPwlyeSLnS0O2t"],
         ["images/splash/launch-750x1294.png", "1fZfzmtyu4bkT1t5nDXxNLPyvTM80D3j"],
+        ["https://maps.googleapis.com/maps/api/js?key=AIzaSyBWT7iqdOu-1mtGsSwrsuX9NGHQBI3pCq0", "1fZfzmtyu4bxKCX0SqUTlXRI0PyvTM80D3j"],
         ["/", "xMW1TWucbdAVeDPGUB0Eda1YWZX8lwxN"],
         ["home", "xMW1TWpcXU6b9WRWB9KwGZX8lwxN"],
         ["register", "xM9WRWB9KwGbqdky0lqVfWZX8lwxN"],
