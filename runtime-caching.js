@@ -16,6 +16,15 @@
     })
     global.toolbox.router.get('/(.+)', global.toolbox.fastest, {
         origin: 'https://rwmf.estrradodemo.com'
+    });
+    global.toolbox.router.get('/(.+)', global.toolbox.fastest, {
+        origin: 'https://khm0.googleapis.com'
+    })
+    global.toolbox.router.get('/(.+)', global.toolbox.fastest, {
+        origin: 'https://cbk0.googleapis.com/cbk'
+    })
+    global.toolbox.router.get('/(.+)', global.toolbox.fastest, {
+        origin: 'https://maps.googleapis.com'
     })
     global.toolbox.router.get('/(.+)', global.toolbox.fastest, {
         origin: 'https://rwmf.estrradodemo.com/admin/api/rwmf/'
