@@ -29,12 +29,12 @@
                         <label for="inputPrefilledEx" class="active">Last Name</label>
                     </div>
                     <div class="md-form mb-3">
-                        <input name="email" type="text" id="inputPrefilledEx" class="form-control" ng-model="statCtrl.userdata.email">
+                        <input onchange="updateUserProfile()" name="email" type="text" id="inputPrefilledEx" class="form-control" ng-model="statCtrl.userdata.email">
                         <label for="inputPrefilledEx" class="active">Email ID</label>
                         <span ng-if="statCtrl.profileForm.email.$dirty && statCtrl.profileForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
                     </div>
                     <div class="md-form mb-3">
-                        <input name="phone" type="text" id="inputPrefilledEx" class="form-control" ng-model="statCtrl.userdata.phone">
+                        <input ng-change="statCtrl.updateUserProfile()" name="phone" type="text" id="inputPrefilledEx" class="form-control" ng-model="statCtrl.userdata.phone">
                         <label for="inputPrefilledEx" class="active">Phone Number</label>
                     </div>
                     <div class="form-actions">
