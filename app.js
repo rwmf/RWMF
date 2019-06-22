@@ -11,7 +11,7 @@
                     var filtered = [];
                     for (var i = 0; i < items.length; i++) {
                         var item = items[i];
-                        if (items[i].day == day && items[i].type == type) {
+                        if (((type && items[i].type == type) && items[i].day == day) ||  (!type && items[i].day == day)) {
                             filtered.push(item);
                         }
                     }
