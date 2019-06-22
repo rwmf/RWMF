@@ -28,6 +28,9 @@
             if (localStorage["programTypes"]) {
                 vm.programTypes = JSON.parse(localStorage["programTypes"])
             }
+            if(localStorage["programDays"]){
+                vm.programDays = JSON.parse(localStorage["programDays"])
+            }
             vm.type = res.data.programme_list[0].type;
             vm.day = res.data.programme_list[0].day;
             vm.events = res.data.programme_list;
@@ -39,6 +42,9 @@
             }
             if (localStorage["programTypes"]) {
                 vm.programTypes = JSON.parse(localStorage["programTypes"])
+            }
+            if(localStorage["programDays"]){
+                vm.programTypes = JSON.parse(localStorage["programDays"])
             }
             CoreService.removeLoader();
         }
