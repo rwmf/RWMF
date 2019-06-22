@@ -21,11 +21,9 @@
         CoreService.addLoader();
         if ($stateParams.params && $stateParams.params.searchKey) {
             CoreService.getSearchedEvents({ search_key: $stateParams.params.searchKey }).then(function (res) {
-                $scope.$apply(function(){
-                    vm.events = res.data.programme_list;
-                    vm.isSearch = true;
-                    CoreService.removeLoader();
-                })
+                vm.events = res.data.programme_list;
+                vm.isSearch = true;
+                CoreService.removeLoader();
             }, function (err) {
                 handleError();
             }).catch(function (error) {
