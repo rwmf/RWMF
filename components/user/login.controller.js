@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -21,15 +21,15 @@
 
         function login() {
             vm.dataLoading = true;
-            CoreService.Login(vm.user).then(function(response) {
+            CoreService.Login(vm.user).then(function (response) {
                 if (response.status == 200) {
                     CoreService.SetCredentials(response.data.user_token);
-                    CoreService.getAllRegisteredProgrammes({ utoken: response.data.user_token }).then(function(response) {
+                    CoreService.getAllRegisteredProgrammes({ utoken: response.data.user_token }).then(function (response) {
                         localStorage["registered_prgms"] = JSON.stringify(response.data.registered_prgms);
                         $state.go('home');
-                    }, function(err) {
+                    }, function (err) {
                         $state.go('home');
-                    }).catch(function(err) {
+                    }).catch(function (err) {
                         $state.go('home');
                     });
                 } else {
@@ -37,19 +37,26 @@
                     FlashService.Error(message);
                     FlashService.clearFlashMessageOntimeout(5000);
                 }
-            }, function(err) {
+            }, function (err) {
                 var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
                 FlashService.Error(message);
                 FlashService.clearFlashMessageOntimeout(5000);
-            }).catch(function(err) {
+            }).catch(function (err) {
                 var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
                 FlashService.Error(message);
                 FlashService.clearFlashMessageOntimeout(5000);
             });
         };
-        function FBLogin(){
-            FB.login(function(resp){
-                console.log(resp)
+        function FBLogin() {
+            FB.login(function (resp) {
+                if (response.authResponse) {
+                    console.log('Welcome!  Fetching your information.... ');
+                    FB.api('/me', function (response) {
+                        console.log('Good to see you, ' + response.name + '.');
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
             })
         }
     }
