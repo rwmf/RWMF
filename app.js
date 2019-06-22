@@ -106,20 +106,6 @@
                         controllerAs: 'headerctrl'
                     }
                 }
-            }).state('venueLocator', {
-                url: '/venueLocator',
-                views: {
-                    'innerPages': {
-                        controller: 'VenueController',
-                        templateUrl: 'components/general/venueLocator.html',
-                        controllerAs: 'venCtrl'
-                    },
-                    'header': {
-                        controller: 'HeaderController',
-                        templateUrl: 'components/header/header.html',
-                        controllerAs: 'headerctrl'
-                    }
-                }
             })
             .state('login', {
                 url: '/login',
@@ -210,22 +196,35 @@
                     }
                 }
             })
+            .state('venueLocator', {
+                url: '/venueLocator',
+                views: {
+                    'mapPage@': {
+                        controller: 'VenueController',
+                        templateUrl: 'components/general/venueLocator.html',
+                        controllerAs: 'venCtrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
+                    }
+                }
+            })
             .state('venue', {
                 url: '/venue',
                 views: {
                     'mapPage@': {
                         controller: 'VenueController',
-                        templateUrl: 'components/static/venue.html'
+                        templateUrl: 'components/static/venue.html',
+                        controllerAs: 'venCtrl'
                     },
                     'header@': {
                         controller: 'HeaderController',
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'vm'
                     }
-                },
-                params: {
-                    venueDetails: null
-                }
+                }                
             })
         $urlRouterProvider.otherwise('/home');
         $locationProvider.html5Mode(true);
