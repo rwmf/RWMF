@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="RWMF" ng-class="{'home': pageName == 'home', 'login': pageName == 'login', 'loading': isLoading, 'splash': isSplashScreen}">
+<html lang="en" ng-app="RWMF"
+    ng-class="{'home': pageName == 'home', 'login': pageName == 'login', 'loading': isLoading, 'splash': isSplashScreen}">
 
 <head>
     <title ng-if="!mainHeader">RWMF</title>
@@ -12,19 +13,33 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="image/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport"
+        content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="RWMF">
-    <link rel="apple-touch-startup-image" href="images/splash/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-    <link rel="apple-touch-startup-image" href="images/splash/launch-750x1294.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-    <link rel="apple-touch-startup-image" href="images/splash/launch-1242x2148.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-    <link rel="apple-touch-startup-image" href="images/splash/launch-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-    <link rel="apple-touch-startup-image" href="images/splash/launch-1536x2048.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-    <link rel="apple-touch-startup-image" href="images/splash/launch-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-    <link rel="apple-touch-startup-image" href="images/splash/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id"
+        content="971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-640x1136.png"
+        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-750x1294.png"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-1242x2148.png"
+        media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-1125x2436.png"
+        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-1536x2048.png"
+        media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-1668x2224.png"
+        media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-2048x2732.png"
+        media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
-
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};HandleGoogleApiLibrary()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -41,30 +56,57 @@
     <div class="container mx-auto" ui-view="innerPages"></div>
     <div class="map-page" ui-view="mapPage"></div>
     <!-- Library scripts -->
-    
-<script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '689863101457933',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v3.3'
-      });
-        
-      FB.AppEvents.logPageView();   
-        
-    };
-  
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '689863101457933',
+                cookie: true,
+                xfbml: true,
+                version: 'v3.3'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        // Called when Google Javascript API Javascript is loaded
+        function HandleGoogleApiLibrary() {
+            // Load "client" & "auth2" libraries
+            gapi.load('client:auth2', {
+                callback: function () {
+                    // Initialize client & auth libraries
+                    gapi.client.init({
+                        apiKey: 'YOUR_GOOGLE_API_KEY',
+                        clientId: 'YOUR_GOOGLE_API_CLIENT_ID',
+                        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
+                    }).then(
+                        function (success) {
+                            console.log(success)
+                        },
+                        function (error) {
+                            // Error occurred
+                            // console.log(error) to find the reason
+                        }
+                    );
+                },
+                onerror: function () {
+                    // Failed to load libraries
+                }
+            });
+        }
+    </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWT7iqdOu-1mtGsSwrsuX9NGHQBI3pCq0&libraries=places" async defer></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM&libraries=places" async
+        defer></script>
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="js/libs/jquery.js"></script>
     <script type="text/javascript" src="js/mdb.min.js" defer></script>
@@ -101,7 +143,6 @@
     <script src="services/appConstants.js"></script>
     <script src="services/HttpRequest.js"></script>
     <script src="services/CoreService.js"></script>
-    <script src="services/user.service.js"></script>
 </body>
 
 </html>

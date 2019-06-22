@@ -12,7 +12,8 @@
         $rootScope.pageName = "login";
         vm.user = {};
         vm.login = login;
-        vm.FBLogin = FBLogin
+        vm.FBLogin = FBLogin;
+        vm.googleLogin = googleLogin;
         angular.element('.sidenav-overlay').remove();
         (function initController() {
             // reset login status
@@ -53,7 +54,6 @@
             var user = {};
             FB.login(function (resp) {
                 if (resp.authResponse) {
-                    console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me?fields=id, email', function (response) {
                         console.log(response);
                         CoreService.fbLogin({fbid: response.id, email: response.email}).then(function (response) {
@@ -69,9 +69,22 @@
                         });
                     });
                 } else {
-                    console.log('User cancelled login or did not fully authorize.');
+                    FlashService.Warning('User cancelled login or did not fully authorize.');
                 }
             }, { scope: "public_profile, email" })
+        }
+
+        function googleLogin() {
+            var user = {};
+            gapi.auth2.getAuthInstance().signIn().then(
+                function(success) {
+                    console.log(success)
+                },
+                function(error) {
+                    // Error occurred
+                    // console.log(error) to find the reason
+                }
+            );
         }
     }
 
