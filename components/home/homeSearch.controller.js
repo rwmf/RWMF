@@ -8,6 +8,7 @@
     HomeSearchController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', '$timeout'];
 
     function HomeSearchController($scope, $rootScope, CoreService, $state, $stateParams, $timeout) {        
+        var vm = this;
         $rootScope.pageName = "home";
         vm.checkboxChecked = checkboxChecked;
         vm.gotoDetail = gotoDetail;

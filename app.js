@@ -37,7 +37,7 @@
                 url: '/home',
                 views: {
                     'innerPages': {
-                        controller: 'HomeSearchController',
+                        controller: 'HomeController',
                         templateUrl: 'components/home/home.html',
                         controllerAs: 'homectrl'
                     },
