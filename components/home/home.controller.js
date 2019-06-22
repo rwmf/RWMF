@@ -12,6 +12,7 @@
         vm.day = "1";
         vm.events = [];
         vm.type = "1";
+        vm.isSearch = false;
         vm.programTypes = [];
         $rootScope.pageName = "home";
         vm.checkboxChecked = checkboxChecked;
@@ -21,10 +22,7 @@
         if ($stateParams.params && $stateParams.params.searchKey) {
             CoreService.getSearchedEvents({ search_key: $stateParams.params.searchKey }).then(function (res) {
                 vm.events = res.data.programme_list;
-                vm.programTypes = JSON.parse(localStorage["programTypes"]);
-                vm.day = vm.events[0].day;
-                vm.type = vm.events[0].type;
-                $scope.$digest()
+                vm.isSearch = true;
                 CoreService.removeLoader();
             }, function (err) {
                 handleError();
