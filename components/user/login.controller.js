@@ -62,9 +62,9 @@
                             } else {
                                 errorHandler(err);
                             }
-                        }, function (error) {
+                        }, function (err) {
                             errorHandler(err);
-                        }).catch(function (error) {
+                        }).catch(function (err) {
                             errorHandler(err);
                         });
                     });
