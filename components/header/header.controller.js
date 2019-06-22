@@ -42,7 +42,15 @@
         function logout() {
             localStorage.removeItem("userToken");
             delete $rootScope.isLoggedIn;
-            $state.go("login");
+            if(FB && FB.logout){
+                FB.logout(function(){
+                    console.log("Loggedout from FB");
+                    $state.go("login");
+                })
+            }else {
+                $state.go("login");
+            }
+            
         }
 
         function setPlaceHolder(event) {
