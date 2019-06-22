@@ -5,7 +5,7 @@
         .module('RWMF')
         .controller('HomeSearchController', HomeSearchController);
 
-    HomeSearchController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', 'FlashService'];
+    HomeSearchController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$stateParams', 'FlashService'];
 
     function HomeSearchController($scope, $rootScope, CoreService, $state, $stateParams, FlashService) {
         var vm = this;
