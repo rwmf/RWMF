@@ -28,6 +28,8 @@
             if (localStorage["programTypes"]) {
                 vm.programTypes = JSON.parse(localStorage["programTypes"])
             }
+            vm.type = res.data.programme_list[0].type;
+            vm.day = res.data.programme_list[0].day;
             vm.events = res.data.programme_list;
             CoreService.removeLoader();
         }

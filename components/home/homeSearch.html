@@ -1,0 +1,48 @@
+<main>
+    <div class="row">
+        <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
+            <label class="btn btn-primary form-check-label active noshad" ng-click="homectrl.checkboxChecked($event)">                    
+              <input class="form-check-input" type="radio" value="1" ng-model="homectrl.day" name="options" id="option1" autocomplete="off" checked>
+              Day 1
+            </label>
+            <label class="btn btn-primary form-check-label noshad" ng-click="homectrl.checkboxChecked($event)">
+              <input class="form-check-input" type="radio" value="2"  ng-model="homectrl.day" name="options" id="option2" autocomplete="off"> Day 2
+            </label>
+            <label class="btn btn-primary form-check-label noshad" ng-click="homectrl.checkboxChecked($event)">
+              <input class="form-check-input" type="radio" value="3"  ng-model="homectrl.day" name="options" id="option3" autocomplete="off"> Day 3
+             </label>
+        </div>
+    </div>
+    <div class="row filter">
+        <div class="form-group">
+            <label ng-repeat="program in homectrl.programTypes">
+                    <input type="radio" name="pgmType" value="{{program.id}}" ng-model="homectrl.type">
+                    <span>{{program.type}}</span>
+                </label>
+        </div>
+    </div>
+
+    <div class="container mt-4" ng-if="!isLoading || homectrl.events.length > 0" ng-class="{'search': homectrl.isSearch}">
+        <div class="row">
+            <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day: homectrl.type">
+                <!-- Card -->
+                <div class="card card-cascade wider reverse">
+                    <!-- Card image -->
+                    <div class="view view-cascade overlay brdr">
+                        <img ng-click="homectrl.gotoDetail(event.id)" class="card-img-top" src="{{ event.image | stripExpiry }}" alt="Card image cap">
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body card-body-cascade text-center dattim">
+                        <!-- Title -->
+                        <h4 class="card-title"><strong>{{ event.time | to24Hrs}}</strong></h4>
+                        <!-- Subtitle -->
+                        <h6 class="indigo-text py-1">{{ event.date }}</h6>
+                    </div>
+                    <h3 class="prgrmn">{{ event.name }}</h3>
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+
+    </div>
+</main>
