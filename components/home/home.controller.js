@@ -31,6 +31,7 @@
             });
         }
         else {
+            vm.isSearch = false;
             CoreService.getAllEvents().then(function (res) {
                 processResponse(res);
             }, function (err) {

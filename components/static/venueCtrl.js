@@ -43,6 +43,7 @@
             } 
              else {
                 $rootScope.isLoading = false; 
+                vm.isNavigated = false;
             //     CoreService.getVenueDetails().then(function (resp) {
             //         drawMap(resp.data.venues);
             //     }, function (error) {
