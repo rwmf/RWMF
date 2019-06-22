@@ -237,7 +237,7 @@
     #map {
         position: relative;
         height: 630px;
-        margin-top: 50px;
+        margin-top: 50px!important;
     }
     
     h2 {
