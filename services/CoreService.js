@@ -64,6 +64,20 @@
                 });
             return deferred.promise;
         }
+        service.getSearchedEvents = function() {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("programmes")
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        }
         service.getProfileData = function(data) {
             var deferred = $q.defer();
             CoreHttpRequest.post("userprofile", data)
