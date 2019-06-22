@@ -24,14 +24,14 @@
                 handleError();
             });
         }
-        function processResponse(res) {
-            if (!vm.events.length || vm.events.length == 0) {
-                FlashService.Warning("No search results found for this keyword");
-            }
-            else {
+        function processResponse(res) {            
+            if(res.data && res.data.programme_list) {
                 vm.type = res.data.programme_list[0].type;
                 vm.day = res.data.programme_list[0].day;
                 vm.events = res.data.programme_list;
+            }
+            else (!vm.events.length || vm.events.length == 0) {
+                FlashService.Warning("No search results found for this keyword");
             }
             $rootScope.mainHeader = "Search Results";
             CoreService.removeLoader();
