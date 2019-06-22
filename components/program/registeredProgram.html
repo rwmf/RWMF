@@ -17,20 +17,12 @@
                 </label>
         </div>
     </div>
-    <div class="row filter">
-        <div class="form-group">
-            <label ng-repeat="program in regPgmctrl.programTypes">
-                <input type="radio" name="pgmType" value="{{program.id}}" ng-model="regPgmctrl.type">
-                <span>{{program.type}}</span>
-            </label>
-        </div>
-    </div>
 
     <div>
         <div class="container mt-2" ng-if="regPgmctrl.programmes">
             <div class="row">
                 <!-- Card -->
-                <div class="col-sm-6 mt-4 nopad" ng-repeat="program in regPgmctrl.programmes | filterWithDay : regPgmctrl.day: regPgmctrl.type">
+                <div class="col-sm-6 mt-4 nopad" ng-repeat="program in regPgmctrl.programmes | filterWithDay : regPgmctrl.day">
                     <div class="card">
                         <!-- Card image -->
                         <!-- Card content -->

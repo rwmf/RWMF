@@ -85,7 +85,6 @@
             } else {
                 CoreService.getVenueDetails().then(function(resp) {
                     drawMap(resp.data.venues);
-
                 }, function(error) {
                     drawMap(cities);
                 }).catch(function(error) {
