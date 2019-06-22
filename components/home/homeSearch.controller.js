@@ -16,7 +16,7 @@
         CoreService.addLoader();
         if ($stateParams.searchKey) {
             vm.isSearch = false;
-            CoreService.getSearchedEvents({ search_key: $stateParams.params.searchKey }).then(function (res) {
+            CoreService.getSearchedEvents({ search_key: $stateParams.searchKey }).then(function (res) {
                 processResponse(res);
             }, function (err) {
                 handleError();
