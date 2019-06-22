@@ -52,7 +52,7 @@
                 views: {
                     'innerPages': {
                         controller: 'HomeSearchController',
-                        templateUrl: 'components/home/home.html',
+                        templateUrl: 'components/home/homeSearch.html',
                         controllerAs: 'homectrl'
                     },
                     'header': {
