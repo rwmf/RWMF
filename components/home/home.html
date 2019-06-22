@@ -1,5 +1,5 @@
 <main>
-    <div class="row"  ng-if="!homectrl.isSearch">
+    <div class="row"  ng-if="!homectrl.isSearch && !isLoading">
         <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
             <label class="btn btn-primary form-check-label active noshad" ng-click="homectrl.checkboxChecked($event)">                    
               <input class="form-check-input" type="radio" value="1" ng-model="homectrl.day" name="options" id="option1" autocomplete="off" checked>
