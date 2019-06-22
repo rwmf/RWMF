@@ -200,14 +200,16 @@
                 views: {
                     'mapPage@': {
                         controller: 'VenueController',
-                        templateUrl: 'components/general/venueLocator.html',
-                        controllerAs: 'venCtrl'
+                        templateUrl: 'components/static/venueLocator.html'
                     },
-                    'header': {
+                    'header@': {
                         controller: 'HeaderController',
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'headerctrl'
                     }
+                },
+                params: {
+                    venueDetails: null
                 }
             })
             .state('venue', {
@@ -221,11 +223,8 @@
                     'header@': {
                         controller: 'HeaderController',
                         templateUrl: 'components/header/header.html',
-                        controllerAs: 'vm'
+                        controllerAs: 'headerctrl'
                     }
-                },
-                params: {
-                    venueDetails: null
                 }
             })
         $urlRouterProvider.otherwise('/home');

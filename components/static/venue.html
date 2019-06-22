@@ -1,11 +1,5 @@
 <div>
     <div id="map" class="mt-5">
-        <div id="class" ng-repeat="marker in markers | orderBy : 'title'" ng-if="venCtrl.isNavigated">
-            <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
-        </div>
-        <div class="google-maps" ng-if="!venCtrl.isNavigated">
-            <iframe id="iframeMap" src="https://www.google.com/maps/d/embed?mid=1g4Nr2mOxgBA2jqI_FeVefdeKNncFVj8T" width="100%" height="600" style="opacity: 1; visibility: visible;"></iframe>
-        </div>
     </div>
     <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
 </div>
