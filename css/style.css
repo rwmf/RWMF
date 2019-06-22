@@ -20,6 +20,9 @@
     .google-maps {
         margin-top: 50px;
     }
+    .i4ewOd-pzNkMb-haAclf {
+        display: none;
+    }
     .google-maps iframe {
         position: absolute;
         top: 0;
@@ -237,6 +240,7 @@
     #map {
         position: relative;
         height: 630px;
+        margin-top: 50px;
     }
     
     h2 {
