@@ -2,8 +2,8 @@
     <div class="row" ng-if="!isLoading || homectrl.programDays.length > 0">
         <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
             <label class="btn btn-primary form-check-label noshad" ng-repeat="day in homectrl.programDays">                    
-              <input class="form-check-input" type="radio" value="{{day.id}}" ng-model="homectrl.day" name="options" id="option1" autocomplete="off">
-              Day {{day.id}}
+              <input class="form-check-input" type="radio" value="{{day.day}}" ng-model="homectrl.day" name="options" id="option1" autocomplete="off">
+              Day {{day.day}}
             </label>
         </div>
     </div>
