@@ -12,6 +12,7 @@
         $rootScope.pageName = "login";
         vm.user = {};
         vm.login = login;
+        vm.FBLogin = FBLogin
         angular.element('.sidenav-overlay').remove();
         (function initController() {
             // reset login status
@@ -46,6 +47,11 @@
                 FlashService.clearFlashMessageOntimeout(5000);
             });
         };
+        function FBLogin(){
+            FB.login(function(resp){
+                console.log(resp)
+            })
+        }
     }
 
 })();
