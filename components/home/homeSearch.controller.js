@@ -14,7 +14,7 @@
         vm.gotoDetail = gotoDetail;
         vm.updateModel = updateModel;
         CoreService.addLoader();
-        if ($stateParams.params && $stateParams.params.searchKey) {
+        if ($stateParams.searchKey) {
             vm.isSearch = false;
             CoreService.getSearchedEvents({ search_key: $stateParams.params.searchKey }).then(function (res) {
                 processResponse(res);
