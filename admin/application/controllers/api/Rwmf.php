@@ -728,6 +728,49 @@
 
    }
 
+   //22-06-2019
+
+   //Programme remove registration
+   public function remove_programme_post()
+   {
+     $result=array();
+     $result['status'] = 400;
+     $result['message']= 'failed';
+     $result['data']['display']='Please login';
+     if($this->post("utoken"))
+     {
+       $app_id=$this->Apibasic_model->appdata('id');
+       if($this->Apibasic_model->uservalid(trim($this->post('utoken'))))
+       {
+         $u_token=trim($this->post('utoken'));
+         $login_status=1;
+         $u_data=$this->Apibasic_model->userdata($u_token);
+         $uid=$this->Apibasic_model->get_value('user','id','user_token',$u_token);
+         $result['data']['display']='Programme no found';
+         if($this->post("programme_id"))
+         {
+           $programme_id=trim($this->post("programme_id"));
+           if($this->db->where('programme_id',$programme_id)->where('user_id',$uid)->where('status','1')->get('registered_programmes')->num_rows()>0)
+           {
+             $this->db->where(array('user_id'=>$uid,'programme_id'=>$programme_id))->delete('registered_programmes');
+           }
+         }
+         $result['status'] = 200;
+         $result['message']= 'success';
+         $result['data']['display']='';
+         $reg_prgs=$this->Apibasic_model->registprogms($uid);
+         if(!$reg_prgs)
+         {
+           $result['data']['display']='No data found';
+         }
+         $result['data']['registered_prgms']=$reg_prgs;
+         $result['data']['programme_types'] = $this->db->select('id,type')->where('status',1)->where('app_id',$app_id)->get('programme_types')->result();
+       }
+
+     }
+     $this->response($result);
+   }
+   
  }
 
 ?>

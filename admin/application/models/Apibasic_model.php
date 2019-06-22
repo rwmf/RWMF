@@ -179,7 +179,8 @@ class Apibasic_model extends CI_Model
                 	$result['status']  = 200;
                 	$result['message'] = 'success';
                 	$result['data']['display'] ='You have successfully logged in';
-                	$result['data']['user_token'] = $longqry->row()->user_token;//$this->usertoken($uid);
+                  $result['data']['user_token'] = $longqry->row()->user_token;//$this->usertoken($uid);
+                  $result['data']['user_data']  = $this->userdata($result['data']['user_token']);
                 }
                 else
                 {
@@ -616,6 +617,7 @@ class Apibasic_model extends CI_Model
                 $result['message'] = 'success';
                 $result['data']['display'] ='You have successfully logged in';
                 $result['data']['user_token'] = $longqry->row()->user_token;
+                $result['data']['user_data']  = $this->userdata($result['data']['user_token']);
                 $newdata=array('fb_id'=>$data['fb_id']);
                 $this->db->where('id',$uid)->update('user',$newdata);
                 
@@ -651,6 +653,7 @@ class Apibasic_model extends CI_Model
                 $result['message'] = 'success';
                 $result['data']['display'] ='You have successfully logged in';
                 $result['data']['user_token'] = $longqry->row()->user_token;
+                $result['data']['user_data']  = $this->userdata($result['data']['user_token']);
                 $newdata=array('google_id'=>$data['google_id']);
                 $this->db->where('id',$uid)->update('user',$newdata);
                 
@@ -762,6 +765,8 @@ class Apibasic_model extends CI_Model
         return false;
       }
     }
+
+
 }
 
 ?>
