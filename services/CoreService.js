@@ -64,9 +64,9 @@
                 });
             return deferred.promise;
         }
-        service.getSearchedEvents = function() {
+        service.getSearchedEvents = function(data) {
             var deferred = $q.defer();
-            CoreHttpRequest.post("programmes")
+            CoreHttpRequest.post("programmes", data)
                 .then(function(response) {
                     if (response.status == 200) {
                         deferred.resolve(response.data);
