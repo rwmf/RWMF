@@ -20,9 +20,6 @@
     .google-maps {
         margin-top: 50px;
     }
-    .i4ewOd-pzNkMb-haAclf {
-        display: none;
-    }
     .google-maps iframe {
         position: absolute;
         top: 0;
@@ -612,7 +609,9 @@
         overflow-x: hidden;
         overflow-y: scroll;
     }
-    
+    .i4ewOd-pzNkMb-haAclf {
+        display: none!important;
+    }
     .orang {
         padding: 1.5em;
         background-color: #ff8000;
