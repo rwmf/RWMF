@@ -33,6 +33,7 @@
         vm.setPlaceHolder = setPlaceHolder;
         vm.removePlaceHolder = removePlaceHolder;
         vm.showAppInstallBanner = showAppInstallBanner;
+        vm.search = search;
         $rootScope.pageName = "home";
 
         function closeSideNav() {
@@ -52,7 +53,9 @@
             }
             
         }
-
+        function search(event) {
+            console.log(event, $rootScope.searchKey)
+        }
         function setPlaceHolder(event) {
             event.currentTarget.placeholder = "Search Here";
         }
