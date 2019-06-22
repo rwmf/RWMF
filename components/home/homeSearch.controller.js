@@ -25,7 +25,7 @@
             });
         }
         function processResponse(res) {            
-            if(res.data && res.data.programme_list) {
+            if(res.data && res.data.programme_list && res.data.programme_list.length > 0) {
                 vm.type = res.data.programme_list[0].type;
                 vm.day = res.data.programme_list[0].day;
                 vm.events = res.data.programme_list;
