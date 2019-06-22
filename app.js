@@ -48,7 +48,7 @@
                     }
                 }
             }).state('homeSearch', {
-                url: '/home:searchKey',
+                url: '/home/:searchKey',
                 views: {
                     'innerPages': {
                         controller: 'HomeSearchController',

@@ -41,8 +41,12 @@
             });
         }
         function processResponse(res) {
+            if(res.data.programme_list)
             localStorage["events"] = JSON.stringify(res.data.programme_list);
+            if(res.data.programme_types)
             localStorage["programTypes"] = JSON.stringify(res.data.programme_types);
+            if(res.data.programme_days)
+            localStorage["programDays"] = JSON.stringify(res.data.programme_days);
             if (res.data.user_data)
                 localStorage["userData"] = JSON.stringify(res.data.user_data);
             vm.events = res.data.programme_list;
