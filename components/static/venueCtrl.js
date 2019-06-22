@@ -4,9 +4,9 @@
     angular
         .module('RWMF')
         .controller('VenueController', VenueController);
-    VenueController.$inject = ['$rootScope', '$scope', "CoreService", "$stateParams", "$timeout"];
+    VenueController.$inject = ['$rootScope', '$state', '$scope', "CoreService", "$stateParams", "$timeout"];
 
-    function VenueController($rootScope, $scope, CoreService, $stateParams, $timeout) {
+    function VenueController($rootScope, $state, $scope, CoreService, $stateParams, $timeout) {
         var vm = this;
         $rootScope.mainHeader = "Venue Locator";
         $rootScope.pageName = "home";
@@ -45,6 +45,7 @@
              else {
                 $rootScope.isLoading = false; 
                 vm.isNavigated = false;
+                $state.go("venueLocator")
             //     CoreService.getVenueDetails().then(function (resp) {
             //         drawMap(resp.data.venues);
             //     }, function (error) {
