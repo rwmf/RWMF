@@ -22,6 +22,23 @@
                 <div class="row">
                     
                     <div class="col-sm-4">
+                     <a href="<?php echo base_url('stages'); ?>">
+                        <div class="card">
+                            <div class="card-block">
+                                 <div class="text-center">
+                                    <h4 class="card-title">Stages</h4>
+                                 </div>
+
+                                <div class="text-center">
+                                    <h2 class="font-light m-b-0"><i class="fa fa-bank text-success"></i></h2>
+                                    <span class="text-muted"><br/></span>
+                                </div>
+                            </div>
+                        </div>
+                     </a>
+                    </div>
+                    
+                    <div class="col-sm-4">
                      <a href="<?php echo base_url('programmes'); ?>">
                         <div class="card">
                             <div class="card-block">
@@ -77,11 +94,28 @@
                         <div class="card">
                             <div class="card-block">
                                  <div class="text-center">
-                                    <h4 class="card-title">Tticket Info</h4>
+                                    <h4 class="card-title">Ticket Info</h4>
                                  </div>
 
                                 <div class="text-center">
                                     <h2 class="font-light m-b-0"><i class="fa fa-ticket text-success"></i></h2>
+                                    <span class="text-muted"><br/></span>
+                                </div>
+                            </div>
+                        </div>
+                      </a>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                      <a href="<?php echo base_url('ads'); ?>">    
+                        <div class="card">
+                            <div class="card-block">
+                                 <div class="text-center">
+                                    <h4 class="card-title">Advertisements</h4>
+                                 </div>
+
+                                <div class="text-center">
+                                    <h2 class="font-light m-b-0"><i class="fa fa-audio-description text-success"></i></h2>
                                     <span class="text-muted"><br/></span>
                                 </div>
                             </div>

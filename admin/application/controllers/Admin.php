@@ -146,6 +146,14 @@ class Admin extends CI_Controller
                 $page_data['title']='New Programme';
                 $page_data['page'] ='page/programme_edit';
                 $page_data['prg_data']=array();
+                
+                $page_data['prg_code']='pgm01';
+                $lstcode=$this->db->query('select id from programmes order by id desc limit 1');
+                if($lstcode->num_rows()>=1)
+                {
+                    $num=$lstcode->row()->id+1;
+                    $page_data['prg_code']='pgm_0'.$num;
+                }
                 $this->load->view('admin/index',$page_data);
             }
             else
@@ -630,7 +638,7 @@ class Admin extends CI_Controller
             }
             else
             {
-                $pdata=array('name'=>trim($this->input->post('name')),'link'=>trim($this->input->post('link')),'last_update'=>date('Y-m-d H:i:s'));
+                $pdata=array('name'=>trim($this->input->post('name')),'link'=>trim($this->input->post('link')),'status'=>trim($this->input->post('status')),'last_update'=>date('Y-m-d H:i:s'));
                 $pdata['app_id']=$app_id;
                 $this->db->insert('advertisement',$pdata);
                 $prgid=$this->db->insert_id();
@@ -670,7 +678,7 @@ class Admin extends CI_Controller
                 else
                 {
                     
-                    $pdata=array('name'=>trim($this->input->post('name')),'link'=>trim($this->input->post('link')),'last_update'=>date('Y-m-d H:i:s'));
+                    $pdata=array('name'=>trim($this->input->post('name')),'link'=>trim($this->input->post('link')),'status'=>trim($this->input->post('status')),'last_update'=>date('Y-m-d H:i:s'));
                     $pdata['app_id']=$app_id;
                     $this->db->where('id',$argu2)->update('advertisement',$pdata);
                     if (isset($_FILES["image"]["tmp_name"]) && $_FILES["image"]["tmp_name"] != '') 
@@ -704,11 +712,64 @@ class Admin extends CI_Controller
             $page_data=array();
             $page_data['title']='Advertisement';
             $page_data['page']='page/adslist';
-            $pdata=$this->db->select('*')->from('advertisement')->where('status=1')->where('app_id',$app_id)->order_by('name')->get()->result();
+            $pdata=$this->db->select('*')->from('advertisement')->where('status>=1')->where('app_id',$app_id)->order_by('name')->get()->result();
             $page_data['ads_data']=$pdata;
             $this->load->view('admin/index',$page_data);
         }
         
+    }
+    
+    //21-06-2019
+    
+    public function appicon($argu1="")
+    {
+        if(!$this->Admin_model->adminloginstatus()) 
+        {
+            redirect('admin');
+        }
+        $app_id=$this->session->userdata('app_id');
+        if(isset($_FILES["image"]["tmp_name"]) && $_FILES["image"]["tmp_name"] != '')
+        {
+            $file_ext3 = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+            $filename3 = 'uploads/app_icons/app_'.$app_id.'/512x512.png';
+            move_uploaded_file($_FILES["image"]['tmp_name'], $filename3);
+            $this->appiconsup('48','48');
+            $this->appiconsup('72','72');
+            $this->appiconsup('96','96');
+            $this->appiconsup('144','144');
+            $this->appiconsup('168','168');
+            $this->appiconsup('192','192');
+            $this->session->set_flashdata('success', 'App icon updated successfully!');
+            redirect('appicon');
+        }
+        else
+        {
+            $page_data=array();
+            $page_data['title']='App Icon';
+            $page_data['page']='page/appicon';
+
+            $applink=base_url('uploads/app_icons/app_').$app_id.'/512x512.png';
+            $page_data['appicon_link']=$applink;
+
+            $this->load->view('admin/index',$page_data);
+        }
+    }
+    
+
+    function appiconsup($width = '512', $height = '512')
+    {
+        $app_id=$this->session->userdata('app_id');
+        $this->load->library('image_lib');
+        ini_set("memory_limit", "-1");
+        $config1['image_library']  = 'gd2';
+        $config1['new_image']   = 'uploads/app_icons/app_'.$app_id.'/'.$width.'x'.$height.'.png';
+        $config1['maintain_ratio'] = TRUE;
+        $config1['width']          = $width;
+        $config1['height']         = $height;
+        $config1['source_image']   = 'uploads/app_icons/app_'.$app_id.'/512x512.png';
+        $this->image_lib->initialize($config1);
+        $this->image_lib->resize();
+        $this->image_lib->clear();
     }
     
     

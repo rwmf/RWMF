@@ -31,6 +31,7 @@
                                             $prg_data['name']=$prg_data['description']=$prg_data['type']='';
                                             $prg_data['code']=$prg_data['day']=$prg_data['stage']='';
                                             $prg_data['time']='';
+                                            $prg_data['code']=$prg_code;
                                             $prg_data = (object) $prg_data;
                                         }
                                         else
@@ -65,7 +66,7 @@
                                                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                     <div class="form-group">
                                                         <label for="code" class="">Programme Code</label>
-                                                        <input type="text" name="code" placeholder="Code" class="form-control form-control-line" value="<?php echo set_value('code',$prg_data->code); ?>" >
+                                                        <input readonly type="text" name="code" placeholder="Code" class="form-control form-control-line" value="<?php echo set_value('code',$prg_data->code); ?>" >
                                                         <span class="from_validaton"><?php echo form_error('code');?></span>
                                                     </div>
                                                 </div>
@@ -143,7 +144,7 @@
                                                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                                     <div class="form-group">
                                                         <label for="description" class="">Description</label>
-                                                        <textarea rows="4" name="description" placeholder="Enter Description" class="form-control form-control-line"><?php echo set_value('description',$prg_data->description); ?></textarea>
+                                                        <textarea rows="2" name="description" placeholder="Enter Description" class="form-control form-control-line"><?php echo set_value('description',$prg_data->description); ?></textarea>
                                                     </div>
                                                     <span class="from_validaton"><?php echo form_error('description');?></span>
                                                 </div>
@@ -151,18 +152,18 @@
                                                 
 
                                                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group mt-3">
                                                         <label for="image" class="">Image</label>
                                                         <input  name="image" id="primage" type="file" class="form-control "  accept="image/jpeg, image/png" onchange="imgdis(this);">
-                                                        <span id="lyerrmsg" class="from_validaton"><?php echo form_error('image');?></span>
-                                                        <div style="height: 250px;width: 250px;display: block;margin: auto;">
-                                                            <img id="img_prew" src="<?php echo $defimage; ?>" />
-                                                        </div>
+                                                        <span id="lyerrmsg" class="from_validaton">* image size must be 1032X468 and jpeg or png format</span>
                                                     </div>
-                                                    
                                                 </div>
 
-
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="mt-1 mb-1 float-center" style="height: 313px;width: 690px;display: block;margin: auto;">
+                                                        <img id="img_prew" src="<?php echo $defimage; ?>" />
+                                                    </div>
+                                                </div>
 
                                             </div>
                                             <div class="form-group ">
@@ -210,6 +211,7 @@
 
   function imgdis(input) 
    {
+        var _URL = window.URL || window.webkitURL;
         $('#lyerrmsg').html('');
         if (input.files && input.files[0]) 
         {
@@ -223,12 +225,42 @@
             }
             else
             {
-                var reader = new FileReader();
-                reader.onload = function (e) 
+                // var reader = new FileReader();
+                // reader.onload = function (e) 
+                // {
+                //     $('#img_prew').attr('src', e.target.result);
+                // };
+                // reader.readAsDataURL(input.files[0]);
+                
+                var file =input.files[0];
+                img = new Image();
+                var imgwidth = 0;
+                var imgheight = 0;
+                var maxwidth = 1032;
+                var maxheight = 468;
+
+                img.src = _URL.createObjectURL(file);
+                img.onload = function() 
                 {
-                    $('#img_prew').attr('src', e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
+                    imgwidth = this.width;
+                    imgheight = this.height;
+                        if(imgwidth == maxwidth  && imgheight == maxheight)
+                        {
+                            var reader = new FileReader();
+                            reader.onload = function (e) 
+                            {
+                                $('#img_prew').attr('src', e.target.result);
+                            };
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                        else
+                        {
+                            var src="<?php echo $defimage; ?>";
+                            $("#lyerrmsg").html("* image size must be 1032X468 ");
+                            $(input).val("");
+                            $('#img_prew').attr('src',src);
+                        }
+                }
             }
         }
     }

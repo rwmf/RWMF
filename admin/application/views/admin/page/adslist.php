@@ -34,23 +34,32 @@
                                     <table class="table" id="ads_list">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Link</th>
-                                                <th>Options</th>
+                                                <th class="pl-2">#</th>
+                                                <th class="pl-2">Name</th>
+                                                <th class="pl-2">Link</th>
+                                                <th class="pl-2">Status</th>
+                                                <th class="pl-2">Options</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                                 if ($ads_data) 
-                                                {   $i=1;
+                                                {  
+                                                    
+                                                    $i=1;
                                                     foreach ($ads_data as $key) 
                                                     {
+                                                        $status_badge='<span class="badge badge-pill badge-success">Active</span>';
+                                                        if($key->status==2)
+                                                        {
+                                                            $status_badge='<span class="badge badge-pill badge-warning">In Active</span>';
+                                                        }
                                                         echo "<tr>
                                                                 <td>".$i."</td>
                                                                 <td>".$key->name."</td>
                                                                 <td>".$key->link."</td>
-                                                                <td class='float-right'>
+                                                                <td>".$status_badge."</td>
+                                                                <td>
                                                                     <a class='btn btn-info btn-xs' data-toggle='tooltip' data-original-title='Edit' href='" . base_url('ads/edit/'). $key->id . "'> Edit</a> 
                                                                     <button id='stage_".$key->id."' class='btn btn-danger btn-xs' data-toggle='tooltip' data-original-title='Delete' data-dhref='" .base_url('ads/delete/'). $key->id . "' onclick='deldata(this.id)'> Delete
                                                                     </button>

@@ -82,6 +82,18 @@
                             <a href="<?php echo base_url('ads'); ?>" class="waves-effect"><i class="fa fa-audio-description m-r-10" aria-hidden="true"></i>Advertisements</a>
                         </li>
                         
+                        <?php
+                                $acticon='';
+                                if($this->router->fetch_method()=='appicon')
+                                {
+                                    $acticon=' active';
+                                }
+                            ?>
+                        <li class="<?php echo $acticon; ?>">
+                            <a href="<?php echo base_url('appicon'); ?>" class="waves-effect"><i class="fa fa-mobile m-r-10" aria-hidden="true"></i>App Icon</a>
+                        </li>
+                        
+                        
                         <!-- <li>
                             <a href="pages-error-404.html" class="waves-effect"><i class="fa fa-info-circle m-r-10" aria-hidden="true"></i>Error 404</a>
                         </li> -->

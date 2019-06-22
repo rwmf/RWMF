@@ -170,6 +170,8 @@
          });
          google.maps.event.addListener(map, 'click', function (event) 
          {
+             marker.setPosition(event.latLng);
+             marker.setVisible(true);
              $('.MapLat').val(event.latLng.lat());
              $('.MapLon').val(event.latLng.lng());
              infowindow.close();

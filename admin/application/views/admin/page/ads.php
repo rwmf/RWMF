@@ -29,7 +29,7 @@
                                             $ads=array();
                                             $ads['id']=0;
                                             $ads['name']=$ads['link']='';
-                                            
+                                            $ads['status']=1;
                                             $ads = (object) $ads;
                                         }
                                         else
@@ -74,8 +74,20 @@
                                                     <div class="form-group">
                                                         <label for="image" class="">Image</label>
                                                         <input  name="image" id="primage" type="file" class="form-control "  accept="image/jpeg, image/png" onchange="imgdis(this);" <?php echo $imgreq; ?>>
-                                                        <span id="lyerrmsg" class="from_validaton"><?php echo form_error('image');?></span>
+                                                        <span id="lyerrmsg" class="from_validaton"><?php echo 'Image must be 728*90 or 900*90';?></span>
                                                     </div>
+                                                </div>
+                                                
+                                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                                    <div class="form-group">
+                                                        <label for="status" class="">Status</label>
+                                                        <?php
+                                                            $status_arry=array('1'=>'Activate','2'=>'Deactivate');
+                                                            echo form_dropdown('status', $status_arry, set_value('day',$ads->status), 'class="form-control form-control-line" id="status"');
+                                                        ?>
+                                                        <span class="from_validaton"><?php echo form_error('status');?></span>
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
