@@ -18,7 +18,7 @@
         vm.gotoDetail = gotoDetail;
         vm.updateModel = updateModel;
         CoreService.addLoader();
-        if ($stateParams.searchKey) {
+        if ($stateParams.current.params && $stateParams.current.params.searchKey) {
             CoreService.getSearchedEvents().then(function (res) {
                 localStorage["events"] = JSON.stringify(res.data.programme_list);
                 vm.events = res.data.programme_list;

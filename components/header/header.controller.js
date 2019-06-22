@@ -55,7 +55,7 @@
         }
         function search(event) {
             if (event.which === 13) {
-                $state.go('home', { searchKey: event.currentTarget.value });
+                $state.go('home', { searchKey: vm.searchKey });
             }
         }
         function setPlaceHolder(event) {
