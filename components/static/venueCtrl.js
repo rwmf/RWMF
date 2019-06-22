@@ -251,7 +251,7 @@
         }
 
         function createMarker(info, infoWindow) {
-            var position = new google.maps.LatLng(parseInt(info.latitude) + (Math.floor(Math.random() * 3) - 3), parseInt(info.longitude) + (Math.floor(Math.random() * 3) - 3));
+            var position = new google.maps.LatLng(parseInt(info.latitude) + (Math.floor(Math.random() * 6) - 6), parseInt(info.longitude) + (Math.floor(Math.random() * 6) - 6));
             var marker = new google.maps.Marker({
                 map: $scope.map,
                 position: position,
