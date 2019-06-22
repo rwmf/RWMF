@@ -1,5 +1,5 @@
 <main>
-    <div class="row" ng-if="!isLoading || homectrl.events.length > 0">
+    <!-- <div class="row" ng-if="!isLoading || homectrl.programDays.length > 0">
         <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
             <label class="btn btn-primary form-check-label noshad" ng-repeat="day in homectrl.programDays">                    
               <input class="form-check-input" type="radio" value="{{day.id}}" ng-model="homectrl.day" name="options" id="option1" autocomplete="off">
@@ -7,16 +7,16 @@
             </label>
         </div>
     </div>
-    <div class="row filter" ng-if="!isLoading || homectrl.events.length > 0">
+    <div class="row filter" ng-if="!isLoading || homectrl.programTypes.length > 0">
         <div class="form-group">
             <label ng-repeat="program in homectrl.programTypes">
                     <input type="radio" name="pgmType" value="{{program.id}}" ng-model="homectrl.type">
                     <span>{{program.type}}</span>
                 </label>
         </div>
-    </div>
+    </div> -->
 
-    <div class="container mt-4" ng-if="!isLoading || homectrl.events.length > 0" ng-class="{'search': homectrl.isSearch}">
+    <div class="container mt-4 search" ng-if="!isLoading || homectrl.events.length > 0">
         <div class="row">
             <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day: homectrl.type">
                 <!-- Card -->
