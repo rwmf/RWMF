@@ -195,8 +195,7 @@
                         controllerAs: 'vm'
                     }
                 }
-            })
-            .state('venueLocator', {
+            }).state('venueLocator', {
                 url: '/venueLocator',
                 views: {
                     'mapPage@': {
@@ -224,7 +223,10 @@
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'vm'
                     }
-                }                
+                },
+                params: {
+                    venueDetails: null
+                }
             })
         $urlRouterProvider.otherwise('/home');
         $locationProvider.html5Mode(true);
