@@ -9,7 +9,7 @@
 
     function HomeSearchController($scope, $rootScope, CoreService, $state, $stateParams, $timeout) {        
         var vm = this;
-        $rootScope.pageName = "home";
+        $rootScope.pageName = "home";        
         vm.checkboxChecked = checkboxChecked;
         vm.gotoDetail = gotoDetail;
         vm.updateModel = updateModel;
@@ -34,6 +34,7 @@
             vm.type = res.data.programme_list[0].type;
             vm.day = res.data.programme_list[0].day;
             vm.events = res.data.programme_list;
+            $rootScope.mainHeader = "Search Results";
             CoreService.removeLoader();
         }
         function handleError() {
