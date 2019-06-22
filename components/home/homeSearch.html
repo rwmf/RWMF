@@ -2,7 +2,7 @@
     <div class="row">
         <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
             <label class="btn btn-primary form-check-label active noshad" ng-click="homectrl.checkboxChecked($event)" ng-repeat="day in homectrl.programDays">                    
-              <input class="form-check-input" type="radio" value="{{day.id}}" ng-model="homectrl.day" name="options" id="option1" autocomplete="off" checked>
+              <input class="form-check-input" type="radio" value="{{day.id}}" ng-model="homectrl.day" name="options" id="option1" autocomplete="off">
               Day {{day.id}}
             </label>
         </div>
