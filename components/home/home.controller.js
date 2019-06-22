@@ -5,9 +5,9 @@
         .module('RWMF')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams'];
+    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', '$timeout'];
 
-    function HomeController($scope, $rootScope, CoreService, $state, $stateParams) {
+    function HomeController($scope, $rootScope, CoreService, $state, $stateParams, $timeout) {
         var vm = this;
         vm.day = "1";
         vm.events = [];

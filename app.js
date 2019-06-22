@@ -37,7 +37,7 @@
                 url: '/home',
                 views: {
                     'innerPages': {
-                        controller: 'HomeController',
+                        controller: 'HomeSearchController',
                         templateUrl: 'components/home/home.html',
                         controllerAs: 'homectrl'
                     },
@@ -46,9 +46,20 @@
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'headerctrl'
                     }
-                },
-                params: {
-                    searchKey: null
+                }
+            }).state('homeSearch', {
+                url: '/home:searchKey',
+                views: {
+                    'innerPages': {
+                        controller: 'HomeSearchController',
+                        templateUrl: 'components/home/home.html',
+                        controllerAs: 'homectrl'
+                    },
+                    'header': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'headerctrl'
+                    }
                 }
             }).state('registeredPgm', {
                 url: '/registeredPgm',
