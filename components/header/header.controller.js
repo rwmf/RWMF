@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -11,7 +11,7 @@
         angular.element(".button-collapse").sideNav({
             closeOnClick: true
         });
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             var status = document.getElementById("status");
             var log = document.getElementById("log");
 
@@ -43,18 +43,20 @@
         function logout() {
             localStorage.removeItem("userToken");
             delete $rootScope.isLoggedIn;
-            if(FB && FB.logout){
-                FB.logout(function(){
+            if (FB && FB.logout) {
+                FB.logout(function () {
                     console.log("Loggedout from FB");
                     $state.go("login");
                 })
-            }else {
+            } else {
                 $state.go("login");
             }
-            
+
         }
         function search(event) {
-            console.log(event, $rootScope.searchKey)
+            if (event.which === 13) {
+                console.log(event, $rootScope.searchKey);
+            }
         }
         function setPlaceHolder(event) {
             event.currentTarget.placeholder = "Search Here";
@@ -64,7 +66,7 @@
             event.currentTarget.placeholder = "";
         }
         $rootScope.deferredPrompt;
-        window.addEventListener("beforeinstallprompt", function(event) {
+        window.addEventListener("beforeinstallprompt", function (event) {
             console.log("Before install fired");
             event.preventDefault();
             $rootScope.deferredPrompt = event;
@@ -74,7 +76,7 @@
             //to create a prompt
             if ($rootScope.deferredPrompt) {
                 $rootScope.deferredPrompt.prompt();
-                $rootScope.deferredPrompt.userchoice.then(function(choiceResult) {
+                $rootScope.deferredPrompt.userchoice.then(function (choiceResult) {
                     if (choiceResult.outcome === "dismissed") {
                         console.log("user cancelled")
                     } else {
@@ -84,7 +86,7 @@
                 })
             }
         }
-        angular.element(document).on("click", "body", function(evt) {
+        angular.element(document).on("click", "body", function (evt) {
             $('.button-collapse').sideNav('hide');
             angular.element(".sidenav-overlay").not(":first").remove()
         });
