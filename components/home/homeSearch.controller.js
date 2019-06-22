@@ -30,7 +30,7 @@
                 vm.day = res.data.programme_list[0].day;
                 vm.events = res.data.programme_list;
             }
-            else (!vm.events.length || vm.events.length == 0) {
+            else {
                 FlashService.Warning("No search results found for this keyword");
             }
             $rootScope.mainHeader = "Search Results";
