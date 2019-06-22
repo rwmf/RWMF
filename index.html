@@ -37,6 +37,32 @@
         media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        function HandleGoogleApiLibrary() {
+            // Load "client" & "auth2" libraries
+            gapi.load('client:auth2', {
+                callback: function () {
+                    // Initialize client & auth libraries
+                    gapi.client.init({
+                        apiKey: 'YOUR_GOOGLE_API_KEY',
+                        clientId: 'YOUR_GOOGLE_API_CLIENT_ID',
+                        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
+                    }).then(
+                        function (success) {
+                            console.log(success)
+                        },
+                        function (error) {
+                            // Error occurred
+                            // console.log(error) to find the reason
+                        }
+                    );
+                },
+                onerror: function () {
+                    // Failed to load libraries
+                }
+            });
+        }
+    </script>
     <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};HandleGoogleApiLibrary()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
@@ -76,32 +102,8 @@
             js = d.createElement(s); js.id = id;
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        // Called when Google Javascript API Javascript is loaded
-        function HandleGoogleApiLibrary() {
-            // Load "client" & "auth2" libraries
-            gapi.load('client:auth2', {
-                callback: function () {
-                    // Initialize client & auth libraries
-                    gapi.client.init({
-                        apiKey: 'YOUR_GOOGLE_API_KEY',
-                        clientId: 'YOUR_GOOGLE_API_CLIENT_ID',
-                        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
-                    }).then(
-                        function (success) {
-                            console.log(success)
-                        },
-                        function (error) {
-                            // Error occurred
-                            // console.log(error) to find the reason
-                        }
-                    );
-                },
-                onerror: function () {
-                    // Failed to load libraries
-                }
-            });
-        }
+        }(document, 'script', 'facebook-jssdk'));        // Called when Google Javascript API Javascript is loaded
+
     </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script type="text/javascript"
