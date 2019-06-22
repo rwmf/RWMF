@@ -23,41 +23,55 @@
             vm.dataLoading = true;
             CoreService.Login(vm.user).then(function (response) {
                 if (response.status == 200) {
-                    CoreService.SetCredentials(response.data.user_token);
-                    CoreService.getAllRegisteredProgrammes({ utoken: response.data.user_token }).then(function (response) {
-                        localStorage["registered_prgms"] = JSON.stringify(response.data.registered_prgms);
-                        $state.go('home');
-                    }, function (err) {
-                        $state.go('home');
-                    }).catch(function (err) {
-                        $state.go('home');
-                    });
+                    fetchUserData(response.data.user_token);
                 } else {
-                    var message = response.data && response.data.display ? response.data.display : "Unknown Error Try after some time"
-                    FlashService.Error(message);
-                    FlashService.clearFlashMessageOntimeout(5000);
+                    errorHandler(err);
                 }
             }, function (err) {
-                var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
-                FlashService.Error(message);
-                FlashService.clearFlashMessageOntimeout(5000);
+                errorHandler(err);
             }).catch(function (err) {
-                var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
-                FlashService.Error(message);
-                FlashService.clearFlashMessageOntimeout(5000);
+                errorHandler(err);
             });
         };
+        function fetchUserData(token) {
+            CoreService.SetCredentials(token);
+            CoreService.getAllRegisteredProgrammes({ utoken: token }).then(function (response) {
+                localStorage["registered_prgms"] = JSON.stringify(response.data.registered_prgms);
+                $state.go('home');
+            }, function (err) {
+                $state.go('home');
+            }).catch(function (err) {
+                $state.go('home');
+            });
+        }
+        function errorHandler(err) {
+            var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
+            FlashService.Error(message);
+            FlashService.clearFlashMessageOntimeout(5000);
+        }
         function FBLogin() {
+            var user = {};
             FB.login(function (resp) {
                 if (resp.authResponse) {
                     console.log('Welcome!  Fetching your information.... ');
-                    FB.api('/me', function (response) {
-                        console.log('Good to see you, ' + response.name + '.');
+                    FB.api('/me?fields=id, email', function (response) {
+                        console.log(response);
+                        CoreService.fbLogin({fbid: response.id, email: response.email}).then(function (response) {
+                            if (response.status == 200) {
+                                fetchUserData(response.data.user_token);
+                            } else {
+                                errorHandler(err);
+                            }
+                        }, function (error) {
+                            errorHandler(err);
+                        }).catch(function (error) {
+                            errorHandler(err);
+                        });
                     });
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
                 }
-            })
+            }, { scope: "public_profile, email" })
         }
     }
 
