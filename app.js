@@ -46,6 +46,9 @@
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'headerctrl'
                     }
+                },
+                params: {
+                    searchKey: null
                 }
             }).state('registeredPgm', {
                 url: '/registeredPgm',

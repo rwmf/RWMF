@@ -1,18 +1,13 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('RWMF')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state'];
+    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams'];
 
-    function HomeController($scope, $rootScope, CoreService, $state) {
-        $scope.activity = {
-            name: "Dani",
-            currentActivity: "Testing code",
-            project: "App A"
-        };
+    function HomeController($scope, $rootScope, CoreService, $state, $stateParams) {
         var vm = this;
         vm.day = "1";
         vm.events = [];
@@ -23,7 +18,27 @@
         vm.gotoDetail = gotoDetail;
         vm.updateModel = updateModel;
         CoreService.addLoader();
-        CoreService.getAllEvents().then(function(res) {
+        if ($stateParams.params && $stateParams.params.searchKey) {
+            CoreService.getSearchedEvents().then(function (res) {
+                localStorage["events"] = JSON.stringify(res.data.programme_list);
+                vm.events = res.data.programme_list;
+                CoreService.removeLoader();
+            }, function (err) {
+                handleError();
+            }).catch(function (error) {
+                handleError();
+            });
+        }
+        else {
+            CoreService.getAllEvents().then(function (res) {
+                processResponse(res);
+            }, function (err) {
+                handleError();
+            }).catch(function (error) {
+                handleError();
+            });
+        }
+        function processResponse(res) {
             localStorage["events"] = JSON.stringify(res.data.programme_list);
             localStorage["programTypes"] = JSON.stringify(res.data.programme_types);
             if (res.data.user_data)
@@ -32,11 +47,12 @@
             vm.programTypes = res.data.programme_types;
             CoreService.removeLoader();
             for (var i = 0; i < vm.events.length; i++) {
-                CoreService.getProgramDetails(vm.events[i].id).then(function(res) {
+                CoreService.getProgramDetails(vm.events[i].id).then(function (res) {
                     localStorage["program_" + res.data.programme_data.id] = JSON.stringify(res.data.programme_data);
                 });
             }
-        }, function(err) {
+        }
+        function handleError() {
             if (localStorage["events"]) {
                 vm.events = JSON.parse(localStorage["events"]);
             }
@@ -44,16 +60,8 @@
                 vm.programTypes = JSON.parse(localStorage["programTypes"])
             }
             CoreService.removeLoader();
-        }).catch(function(error) {
-            if (localStorage["events"]) {
-                vm.events = JSON.parse(localStorage["events"]);
-            }
-            if (localStorage["programTypes"]) {
-                vm.programTypes = JSON.parse(localStorage["programTypes"])
-            }
-            CoreService.removeLoader();
-        });
-        $scope.$on('$destroy', function() {
+        }
+        $scope.$on('$destroy', function () {
             angular.element('.sidenav-overlay').remove();
         });
 

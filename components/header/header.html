@@ -71,7 +71,7 @@
 
         <div id="wrap">
             <form action="" autocomplete="off">
-                <input ng-focus="headerctrl.setPlaceHolder($event)" ng-blur="headerctrl.removePlaceHolder($event)" class="search" type="text" name="search">
+                <input ng-keypress="headerctrl.search($event)" ng-model="headerctrl.searchKey" ng-focus="headerctrl.setPlaceHolder($event)" ng-blur="headerctrl.removePlaceHolder($event)" class="search" type="text" name="search">
             </form>
         </div>
 
