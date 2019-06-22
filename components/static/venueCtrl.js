@@ -40,6 +40,7 @@
                     e.preventDefault();
                     google.maps.event.trigger(selectedMarker, 'click');
                 }
+                delete $stateParams.venueDetails;
             } 
              else {
                 $rootScope.isLoading = false; 
