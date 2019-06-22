@@ -23,6 +23,9 @@
             CoreService.getSearchedEvents({ search_key: $stateParams.params.searchKey }).then(function (res) {
                 vm.events = res.data.programme_list;
                 vm.isSearch = true;
+                if(!vm.events.length || vm.events.length == 0){
+                    FlashService.Warning("No Data to display");
+                }
                 CoreService.removeLoader();
             }, function (err) {
                 handleError();

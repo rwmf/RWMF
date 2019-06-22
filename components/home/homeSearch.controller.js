@@ -5,9 +5,9 @@
         .module('RWMF')
         .controller('HomeSearchController', HomeSearchController);
 
-    HomeSearchController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', '$timeout'];
+    HomeSearchController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', 'FlashService'];
 
-    function HomeSearchController($scope, $rootScope, CoreService, $state, $stateParams, $timeout) {        
+    function HomeSearchController($scope, $rootScope, CoreService, $state, $stateParams, FlashService) {        
         var vm = this;
         $rootScope.pageName = "home";        
         vm.checkboxChecked = checkboxChecked;
@@ -25,15 +25,12 @@
             });
         }
         function processResponse(res) {
-            if (localStorage["programTypes"]) {
-                vm.programTypes = JSON.parse(localStorage["programTypes"])
-            }
-            if(localStorage["programDays"]){
-                vm.programDays = JSON.parse(localStorage["programDays"])
-            }
             vm.type = res.data.programme_list[0].type;
             vm.day = res.data.programme_list[0].day;
             vm.events = res.data.programme_list;
+            if(!vm.events.length || vm.events.length == 0){
+                FlashService.Warning("No search results found for this keyword");
+            }
             $rootScope.mainHeader = "Search Results";
             CoreService.removeLoader();
         }
@@ -41,11 +38,8 @@
             if (localStorage["events"]) {
                 vm.events = JSON.parse(localStorage["events"]);
             }
-            if (localStorage["programTypes"]) {
-                vm.programTypes = JSON.parse(localStorage["programTypes"])
-            }
-            if(localStorage["programDays"]){
-                vm.programTypes = JSON.parse(localStorage["programDays"])
+            else {
+                FlashService.Warning("Ohh... Can't fetch search results");
             }
             CoreService.removeLoader();
         }
