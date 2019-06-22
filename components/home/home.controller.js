@@ -20,8 +20,9 @@
         CoreService.addLoader();
         if ($stateParams.params && $stateParams.params.searchKey) {
             CoreService.getSearchedEvents({search_key: $stateParams.params.searchKey}).then(function (res) {
-                localStorage["events"] = JSON.stringify(res.data.programme_list);
                 vm.events = res.data.programme_list;
+                vm.day = vm.events[0].day;
+                vm.type = vm.events[0].type;
                 CoreService.removeLoader();
             }, function (err) {
                 handleError();
