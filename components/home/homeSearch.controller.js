@@ -7,14 +7,14 @@
 
     HomeSearchController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', 'FlashService'];
 
-    function HomeSearchController($scope, $rootScope, CoreService, $state, $stateParams, FlashService) {        
+    function HomeSearchController($scope, $rootScope, CoreService, $state, $stateParams, FlashService) {
         var vm = this;
-        $rootScope.pageName = "home";        
+        $rootScope.pageName = "home";
         vm.checkboxChecked = checkboxChecked;
         vm.gotoDetail = gotoDetail;
         vm.updateModel = updateModel;
         CoreService.addLoader();
-        if ($stateParams.params && $stateParams.params.searchKey) {           
+        if ($stateParams.params && $stateParams.params.searchKey) {
             vm.isSearch = false;
             CoreService.getSearchedEvents({ search_key: $stateParams.params.searchKey }).then(function (res) {
                 processResponse(res);
@@ -25,11 +25,13 @@
             });
         }
         function processResponse(res) {
-            vm.type = res.data.programme_list[0].type;
-            vm.day = res.data.programme_list[0].day;
-            vm.events = res.data.programme_list;
-            if(!vm.events.length || vm.events.length == 0){
+            if (!vm.events.length || vm.events.length == 0) {
                 FlashService.Warning("No search results found for this keyword");
+            }
+            else {
+                vm.type = res.data.programme_list[0].type;
+                vm.day = res.data.programme_list[0].day;
+                vm.events = res.data.programme_list;
             }
             $rootScope.mainHeader = "Search Results";
             CoreService.removeLoader();
