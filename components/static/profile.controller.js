@@ -15,6 +15,7 @@
         if (localStorage["userToken"]) {
             CoreService.getProfileData({ utoken: localStorage["userToken"] }).then(function (resp) {
                 vm.userData = resp.data.user_data;
+                localStorage["userImage"] = resp.data.user_data.image;
                 CoreService.removeLoader();                
             }, function (err) {
                 handleError(); 
