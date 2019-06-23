@@ -39,7 +39,7 @@
                     'innerPages': {
                         controller: 'HomeController',
                         templateUrl: 'components/home/home.html',
-                        controllerAs: 'adsctrl'
+                        controllerAs: 'homectrl'
                     },
                     'header': {
                         controller: 'HeaderController',
