@@ -49,10 +49,12 @@
             var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
             FlashService.Error(message);
             FlashService.clearFlashMessageOntimeout(5000);
+            CoreService.removeLoader();
         }
         function FBLogin() {
             var user = {};
             FB.login(function (resp) {
+                CoreService.addLoader();
                 if (resp.authResponse) {
                     FB.api('/me?fields=id, email', function (response) {
                         console.log(response);
