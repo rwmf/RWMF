@@ -21,21 +21,21 @@
                 </div>
                 <div class="col-sm-12">
                     <div class="md-form mb-3">
-                        <input name="fname" type="text" id="inputPrefilledEx" class="form-control" ng-model="userdata.first_name">
-                        <label for="inputPrefilledEx" class="active">First Name</label>
+                        <input name="fname" type="text" id="fname" class="form-control" ng-model="userdata.first_name">
+                        <label for="fname" class="active">First Name</label>
                     </div>
                     <div class="md-form mb-3">
-                        <input name="lname" type="text" id="inputPrefilledEx" class="form-control" ng-model="userdata.last_name">
-                        <label for="inputPrefilledEx" class="active">Last Name</label>
+                        <input name="lname" type="text" id="lname" class="form-control" ng-model="userdata.last_name">
+                        <label for="lname" class="active">Last Name</label>
                     </div>
                     <div class="md-form mb-3">
-                        <input name="email" type="text" id="inputPrefilledEx" class="form-control" ng-model="userdata.email">
-                        <label for="inputPrefilledEx" class="active">Email ID</label>
+                        <input name="email" type="text" id="email" class="form-control" ng-model="userdata.email">
+                        <label for="email" class="active">Email ID</label>
                         <span ng-if="statCtrl.profileForm.email.$dirty && statCtrl.profileForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
                     </div>
                     <div class="md-form mb-3">
-                        <input name="phone" type="text" id="inputPrefilledEx" class="form-control" ng-model="userdata.phone">
-                        <label for="inputPrefilledEx" class="active">Phone Number</label>
+                        <input name="phone" type="text" id="phone" class="form-control" ng-model="userdata.phone">
+                        <label for="phone" class="active">Phone Number</label>
                     </div>
                     <div class="form-actions">
                         <button ng-if="statCtrl.profileForm.$dirty" type="button" ng-click="statCtrl.updateUserProfile(userdata)" ng-disabled="statCtrl.profileForm.$invalid" class="btn btn-primary forgot-btn">SUBMIT</button>
