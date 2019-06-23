@@ -4,9 +4,9 @@
     angular
         .module('RWMF')
         .controller('GeneralController', GeneralController);
-    GeneralController.$inject = ['$scope', '$rootScope', 'CoreService', 'FlashService'];
+    GeneralController.$inject = ['$scope', '$rootScope', 'CoreService', 'FlashService', '$window'];
 
-    function GeneralController($scope, $rootScope, CoreService, FlashService) {
+    function GeneralController($scope, $rootScope, CoreService, FlashService, $window) {
         var vm = this;
         $rootScope.pageName = "home";
         angular.element('.sidenav-overlay').remove();
