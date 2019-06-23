@@ -14,7 +14,8 @@
         CoreService.addLoader();
         if (localStorage["userToken"]) {
             CoreService.getProfileData({ utoken: localStorage["userToken"] }).then(function (resp) {
-                vm.userData = resp.data.user_data;                
+                vm.userData = resp.data.user_data;
+                CoreService.removeLoader();                
             }, function (err) {
                 handleError(); 
             }).catch(function (err) {
@@ -28,6 +29,7 @@
             data.utoken = localStorage["userToken"];
             CoreService.updateprofile(data).then(function(resp){
                 FlashService.Success(resp.data.display);
+                CoreService.removeLoader();
             }, function(err){
                 handleError(); 
             }).catch(function(err){
