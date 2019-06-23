@@ -85,7 +85,6 @@
                 $rootScope.isLoading = false;
             });
             google.maps.event.addDomListener(window, "resize", function () {
-                document.getElementById('iframeMap').contentDocument.location.reload(true);
                 if (document.getElementById("map")) {
                     CoreService.setClientHeight();
                     var center = $scope.map.getCenter();

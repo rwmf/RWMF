@@ -1,5 +1,5 @@
 <main>
-    <div class="program-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+    <div class="program-alert mt-30per" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
     <div class="row" ng-if="!isLoading || homectrl.events.length > 0">
         <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
             <label class="btn btn-primary form-check-label active noshad" ng-click="homectrl.checkboxChecked($event)">                    

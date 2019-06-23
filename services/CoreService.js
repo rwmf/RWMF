@@ -222,6 +222,20 @@
                 });
             return deferred.promise;
         }
+        service.getAdDetails = function() {
+            var deferred = $q.defer();
+            CoreHttpRequest.get("ads")
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        }
         service.setClientHeight = function() {
             var deferred = $q.defer();
             var calculatedHeight = (document.documentElement.clientHeight + 2) - document.getElementsByClassName('event-header')[0].offsetHeight + "px";

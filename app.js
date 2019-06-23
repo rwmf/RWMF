@@ -39,12 +39,17 @@
                     'innerPages': {
                         controller: 'HomeController',
                         templateUrl: 'components/home/home.html',
-                        controllerAs: 'homectrl'
+                        controllerAs: 'adsctrl'
                     },
                     'header': {
                         controller: 'HeaderController',
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'headerctrl'
+                    },
+                    'ads@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/general/ads.html',
+                        controllerAs: 'adsctrl'
                     }
                 }
             }).state('homeSearch', {

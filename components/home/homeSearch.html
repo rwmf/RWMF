@@ -15,7 +15,7 @@
                 </label>
         </div>
     </div> -->
-    <div class="program-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+    <div class="program-alert mt-30per" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
     <div class="container mt-4 searchContainer" ng-if="!isLoading || homectrl.events.length > 0">
         <div class="row">
             <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day: homectrl.type">

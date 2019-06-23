@@ -233,7 +233,9 @@
     p.sgnup {
         font-size: .8rem;
     }
-    
+    .mt-30per {
+        margin-top: 30%;
+    }
     #map {
         position: relative;
         height: 630px;

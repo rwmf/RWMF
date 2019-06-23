@@ -8,6 +8,20 @@
 
     function HeaderController($rootScope, CoreService, $state) {
         CoreService.recall();
+        CoreService.getAdDetails().then(function(resp){
+            processResponse(resp);
+        },function(err){
+            handleError(err);
+        }).catch(function(err){
+            handleError(err);
+        });
+        function processResponse(res) {
+            vm.ads = res.data.ads
+            console.log(res)
+        }
+        function handleError(err) {
+            console.log(err)
+        }
         angular.element(".button-collapse").sideNav({
             closeOnClick: true
         });
@@ -71,7 +85,10 @@
             event.preventDefault();
             $rootScope.deferredPrompt = event;
         });
-
+        window.addEventListener("resize", function (event) {
+            console.log("resize fired");
+            this.console.log(event)
+        });
         function showAppInstallBanner() {
             //to create a prompt
             if ($rootScope.deferredPrompt) {
