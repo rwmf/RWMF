@@ -38,7 +38,7 @@
                         <input name="phone" type="text" id="phone" class="form-control" ng-model="profCtrl.userData.phone">
                         <label for="phone" class="active">Phone Number</label>
                     </div>
-                    <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+                    <div class="mx-auto" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
                     <div class="form-actions">
                             <button type="button" ng-click="profCtrl.updateUserProfile(profCtrl.userData)" ng-disabled="profCtrl.profileForm.$invalid" class="m-0 col-lg-12 col-md-12 col-sm-12 col-12 btn btn-warning btn-rounded">Save Profile</button>
                     </div>

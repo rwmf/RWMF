@@ -16,25 +16,26 @@
             CoreService.getProfileData({ utoken: localStorage["userToken"] }).then(function (resp) {
                 vm.userData = resp.data.user_data;
                 localStorage["userImage"] = resp.data.user_data.image;
-                CoreService.removeLoader();                
+                CoreService.removeLoader();
             }, function (err) {
-                handleError(); 
+                handleError();
             }).catch(function (err) {
-                handleError(); 
+                handleError();
             })
         }
         function updateUserProfile(data) {
-            if(localStorage["userImage"]);
+            CoreService.addLoader();
+            if (localStorage["userImage"]);
             data.image = localStorage["userImage"];
-            if(localStorage["userToken"]);
+            if (localStorage["userToken"]);
             data.utoken = localStorage["userToken"];
-            CoreService.updateprofile(data).then(function(resp){
+            CoreService.updateprofile(data).then(function (resp) {
                 FlashService.Success(resp.data.display);
                 CoreService.removeLoader();
-            }, function(err){
-                handleError(); 
-            }).catch(function(err){
-                handleError(); 
+            }, function (err) {
+                handleError();
+            }).catch(function (err) {
+                handleError();
             });
         }
         function handleError() {
@@ -58,6 +59,6 @@ function previewFile() {
     }, false);
 
     if (file) {
-        reader.readAsDataURL(file);        
+        reader.readAsDataURL(file);
     }
 }
