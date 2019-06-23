@@ -17,7 +17,7 @@
                 </label>
         </div>
     </div>
-
+    <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
     <div>
         <div class="container mt-2" ng-if="regPgmctrl.programmes && !isLoading">
             <div class="row">
@@ -59,7 +59,7 @@
                 <!-- Card -->
             </div>
         </div>
-        <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+        
     </div>
 </main>
 <!--Main Layout-->

@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
     angular
         .module('RWMF')
@@ -15,7 +15,7 @@
         vm.removeProgram = removeProgram;
         if (localStorage['userToken']) {
             CoreService.addLoader();
-            CoreService.getAllRegisteredProgrammes({ utoken: localStorage['userToken'] }).then(function(response) {
+            CoreService.getAllRegisteredProgrammes({ utoken: localStorage['userToken'] }).then(function (response) {
                 if (response.data.registered_prgms.length > 0) {
                     vm.programmes = response.data.registered_prgms;
                     localStorage["registered_prgms"] = JSON.stringify(vm.programmes);
@@ -23,12 +23,12 @@
                     FlashService.Warning("You have not registered for any programmes");
                 }
                 CoreService.removeLoader();
-            }, function(err) {
+            }, function (err) {
                 if (localStorage["registered_prgms"]) {
                     vm.programmes = JSON.parse(localStorage["registered_prgms"]);
                 }
                 CoreService.removeLoader();
-            }).catch(function(err) {
+            }).catch(function (err) {
                 if (localStorage["registered_prgms"]) {
                     vm.programmes = JSON.parse(localStorage["registered_prgms"]);
                 }
@@ -36,20 +36,20 @@
             });
         } else {
             FlashService.Warning("You are not permitted to view this page without being logged in, You will be redirected to login page soon. Please login and come back");
-            $timeout(function() {
+            $timeout(function () {
                 $state.go("login")
             }, 5000)
         }
-        $scope.$on('$destroy', function() {
+        $scope.$on('$destroy', function () {
             angular.element('.sidenav-overlay').remove();
         });
         function removeProgram(id) {
             CoreService.addLoader();
-            var data = {programme_id: id};
-            if(localStorage["userToken"]){
+            var data = { programme_id: id };
+            if (localStorage["userToken"]) {
                 data["utoken"] = localStorage["userToken"]
             }
-            CoreService.removeProgram(data).then(function(response){
+            CoreService.removeProgram(data).then(function (response) {
                 if (response.data.registered_prgms.length > 0) {
                     vm.programmes = response.data.registered_prgms;
                     localStorage["registered_prgms"] = JSON.stringify(vm.programmes);
@@ -57,13 +57,16 @@
                     FlashService.Warning("You have not registered for any programmes");
                 }
                 CoreService.removeLoader();
-            },function(err){
-                CoreService.removeLoader();
-                FlashService.Warning("Something went wrong, Can't remove Program, Try later");
-            }).catch(function(err){
-                CoreService.removeLoader();
-                FlashService.Warning("Something went wrong, Can't remove Program, Try later");
+            }, function (err) {
+                handleError();
+            }).catch(function (err) {
+                handleError();
             });
+        }
+        function handleError() {
+            CoreService.removeLoader();
+            FlashService.Warning("Something went wrong, Can't remove Program, Try later");
+            FlashService.clearFlashMessageOntimeout(5000);
         }
         function gotoDetail(id) {
             $state.go("programDetail", { program_id: id });
