@@ -1,4 +1,4 @@
-<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+<div ng-if="adsctrl.ads.length > 1" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item" ng-class="{'active': $index==0}" ng-repeat="ad in adsctrl.ads">
             <a href="{{ad.link}}" target="_blank">
