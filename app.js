@@ -6,7 +6,6 @@
         .config(config)
         .filter('filterWithDay', ['CoreService', function(CoreService) {
             return function(items, day, type) {
-                console.log(day, type)
                 if (items.length > 0) {
                     var filtered = [];
                     for (var i = 0; i < items.length; i++) {

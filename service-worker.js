@@ -32,6 +32,17 @@ importScripts("sw-toolbox.js", "runtime-caching.js", "js/idb.js");
 
 // /* eslint-disable quotes, comma-spacing */
 var PrecacheConfig = [
+    ["/", "xMW1TWucbdAVeDPGUB0Eda1YWZX8lwxN"],
+    ["home", "xMW1TWpcXU6b9WRWB9KwGZX8lwxN"],
+    ["register", "xM9WRWB9KwGbqdky0lqVfWZX8lwxN"],
+    ["login", "xMW1TWpcXU6bqdk9WRWB9KwGX8lwxN"],
+    ["forgot", "xMW19WRWB9KwG0lqVfWZX8lwxN"],
+    ["programDetail", "xMW1TWp2GU5NWUjYpRkWZX8lwxN"],
+    ["registeredPgm", "xMW1TWp2GU50lqVfWZpRkWZX8lwxN"],
+    ["ticket", "xMW1TWp9WRWB9KwGVfWZX8lwxN"],
+    ["about", "xMW1TWp9W2GU5NWUjYpRkZX8lwxN"],
+    ["contactDetails", "xMW2GU5NWUjYp2G2GU5NWUjYpRklwxN"],
+    ["profile", "xMW1TWp9WRWB2GU5NWUjYpRkfWZX8lwxN"],
 	["splashscreens/ipadpro1_splash.png", "jSRYgYC0EIjqFWGgrDgHvUMLzZSQq4bY"],
 	["splashscreens/ipadpro2_splash.png", "MuxO7ZdZ0eO0xFEMuxCvcw41CysxmhAJ"],
 	["splashscreens/ipadpro3_splash.png", "KvpDiSxJUa0bquKkEIg38JaYlzoVlfqF"],
