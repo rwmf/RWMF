@@ -14,7 +14,7 @@
         if (localStorage["userToken"]) {
             CoreService.getProfileData({ utoken: localStorage["userToken"] }).then(function(resp) {
                 console.log(resp)
-                vm.userData = resp.data.user_data;
+                $rootScope.userData = resp.data.user_data;
             }, function(err) {
                 var message = err.data && err.data ? err.data.display : "Can't fetch profile data, Unknown Error";
                 FlashService.Error(message);
