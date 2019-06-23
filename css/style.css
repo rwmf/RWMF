@@ -589,7 +589,14 @@
       /* animation:scroll 10s linear infinite; */
       padding:3px;
       }
-      
+      #carouselExampleFade {
+          height: 200px;
+      }
+      .carousel-inner, 
+      .carousel-item,
+      .carousel-item img {
+          height: 100%!important;
+      }
       .marquee:hover {
           animation-play-state: paused
       }

@@ -1,12 +1,17 @@
-<div class="ads-container col-sm-6 mt-4 nopad ng-scope">
-    <div class="containerMarq">
-        <div class="marquee">
-            <div class="img1" ng-repeat="ad in adsctrl.ads">
-                <a href = "{{ad.link}}" target="_blank">
-                    <image src="{{ad.image}}" alt="Image will load shortly"/>
-                </a>
-                
-            </div>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item" ng-class="{'active': $index==0}" ng-repeat="ad in adsctrl.ads">
+            <a href="{{ad.link}}" target="_blank">
+                <img class="d-block w-100" src="{{ad.image}}" alt="Image loading...">
+            </a>
         </div>
     </div>
+    <a ng-if="adsctrl.ads.length > 1" class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a ng-if="adsctrl.ads.length > 1" class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
