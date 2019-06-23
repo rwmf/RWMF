@@ -4,9 +4,9 @@
     angular
         .module('RWMF')
         .controller('ForgotController', ForgotController);
-    ForgotController.$inject = ['UserService', '$rootScope', 'CoreService', 'FlashService', '$timeout', '$state'];
+    ForgotController.$inject = ['$rootScope', 'CoreService', 'FlashService', '$timeout', '$state'];
 
-    function ForgotController(UserService, $rootScope, CoreService, FlashService, $timeout, $state) {
+    function ForgotController($rootScope, CoreService, FlashService, $timeout, $state) {
         var vm = this;
         $rootScope.pageName = "login";
         vm.forgotPassword = forgotPassword;
