@@ -794,7 +794,12 @@
     .text-error {
         color: red;
     }
-    
+    body,
+    #map, 
+    .map-page,
+    .google-maps {
+        height: 99%!important;
+    }
     .user-btn[disabled="disabled"] {
         opacity: .5;
     }

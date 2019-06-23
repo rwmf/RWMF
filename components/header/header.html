@@ -40,7 +40,7 @@
                     </li>
                     <li ng-if="isLoggedIn"><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="profile"><i class="fas fa-chevron-right"></i>Profile</a>
                     </li>
-                    <li><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="register"><i class="fas fa-chevron-right"></i>Registration</a>
+                    <li ng-if="!isLoggedIn"><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="register"><i class="fas fa-chevron-right"></i>Registration</a>
                     </li>
                     <li ng-if="!isLoggedIn"><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="login"><i class="fas fa-chevron-right"></i>Login</a>
                     </li>
