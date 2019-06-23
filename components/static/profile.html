@@ -10,7 +10,7 @@
         <!-- Card content -->
         <div class="card-body card-body-cascade prof">
 
-            <form class="md-form" name="statCtrl.profileForm" autocomplete="off">
+            <form name="statCtrl.profileForm" autocomplete="off" novalidate>
                 <div class="file-field">
                     <div class="mb-4">
                         <img src="{{ userData.image }}" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
@@ -20,20 +20,20 @@
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <div class="md-form mb-3">
+                    <div class= "form-group mb-3">
                         <input name="fname" type="text" id="fname" class="form-control" ng-model="userdata.first_name">
                         <label for="fname" class="active">First Name</label>
                     </div>
-                    <div class="md-form mb-3">
+                    <div class="form-group mb-3">
                         <input name="lname" type="text" id="lname" class="form-control" ng-model="userdata.last_name">
                         <label for="lname" class="active">Last Name</label>
                     </div>
-                    <div class="md-form mb-3">
+                    <div class="form-group mb-3">
                         <input name="email" type="text" id="email" class="form-control" ng-model="userdata.email">
                         <label for="email" class="active">Email ID</label>
                         <span ng-if="statCtrl.profileForm.email.$dirty && statCtrl.profileForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
                     </div>
-                    <div class="md-form mb-3">
+                    <div class="form-group mb-3">
                         <input name="phone" type="text" id="phone" class="form-control" ng-model="userdata.phone">
                         <label for="phone" class="active">Phone Number</label>
                     </div>
