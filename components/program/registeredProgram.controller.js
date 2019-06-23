@@ -12,6 +12,7 @@
         vm.checkboxChecked = checkboxChecked;
         vm.gotoDetail = gotoDetail;
         vm.gotoVenue = gotoVenue;
+        vm.removeProgram = removeProgram;
         if (localStorage['userToken']) {
             CoreService.addLoader();
             CoreService.getAllRegisteredProgrammes({ utoken: localStorage['userToken'] }).then(function(response) {
@@ -42,7 +43,28 @@
         $scope.$on('$destroy', function() {
             angular.element('.sidenav-overlay').remove();
         });
-
+        function removeProgram(id) {
+            CoreService.addLoader();
+            var data = {programme_id: id};
+            if(localStorage["userToken"]){
+                data["utoken"] = localStorage["userToken"]
+            }
+            CoreService.removeProgram(data).then(function(response){
+                if (response.data.registered_prgms.length > 0) {
+                    vm.programmes = response.data.registered_prgms;
+                    localStorage["registered_prgms"] = JSON.stringify(vm.programmes);
+                } else {
+                    FlashService.Warning("You have not registered for any programmes");
+                }
+                CoreService.removeLoader();
+            },function(err){
+                CoreService.removeLoader();
+                FlashService.Warning("Something went wrong, Can't remove Program, Try later");
+            }).catch(function(err){
+                CoreService.removeLoader();
+                FlashService.Warning("Something went wrong, Can't remove Program, Try later");
+            });
+        }
         function gotoDetail(id) {
             $state.go("programDetail", { program_id: id });
         };

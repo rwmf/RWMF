@@ -29,6 +29,19 @@
                 });
             return deferred.promise;
         };
+        service.removeProgram = function(data) {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("remove_programme", data)
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        };
         service.fbLogin = function(data) {
             var deferred = $q.defer();
             CoreHttpRequest.post("fblogin", data)
