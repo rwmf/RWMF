@@ -571,11 +571,38 @@
         margin-top: 3px;
         color: #fff;
     }
-    /*.nopad {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-}*/
-    
+    .ads-container {
+        position: fixed;
+        bottom: 0;
+    }
+    .containerMarq {
+        padding:3px;
+        width:700px;
+        overflow:hidden;
+      }
+      .marquee{
+        display:block;
+      position:relative;
+      width:800px;
+      animation:scroll 10s linear infinite;
+      padding:3px;
+      }
+      
+      .marquee:hover {
+          animation-play-state: paused
+      }
+      
+      .img1 {
+        background-color:#f6f6f6;
+        margin:3px;
+        float:left;
+      }
+      
+      /* Make it move */
+      @keyframes scroll{
+      0% {left:800px;}
+      100% {left:-800px;}
+      }
     .view-custom {
         position: relative;
     }

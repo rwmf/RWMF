@@ -8,19 +8,19 @@
 
     function HeaderController($rootScope, CoreService, $state) {
         CoreService.recall();
-        CoreService.getAdDetails().then(function(resp){
+        var vm = this;
+        CoreService.getAdDetails().then(function (resp) {
             processResponse(resp);
-        },function(err){
+        }, function (err) {
             handleError(err);
-        }).catch(function(err){
+        }).catch(function (err) {
             handleError(err);
         });
         function processResponse(res) {
-            vm.ads = res.data.ads
-            console.log(res)
+            vm.ads = res.data.ads;
         }
         function handleError(err) {
-            console.log(err)
+            vm.ads = [];
         }
         angular.element(".button-collapse").sideNav({
             closeOnClick: true
@@ -41,7 +41,7 @@
             window.addEventListener('online', updateOnlineStatus);
             window.addEventListener('offline', updateOnlineStatus);
         });
-        var vm = this;
+        
         vm.closeSideNav = closeSideNav;
         vm.logout = logout;
         vm.setPlaceHolder = setPlaceHolder;
@@ -86,8 +86,9 @@
             $rootScope.deferredPrompt = event;
         });
         window.addEventListener("resize", function (event) {
-            console.log("resize fired");
-            this.console.log(event)
+            if (document.getElementById("iframeMap")) {
+                CoreService.setClientHeight("iframeMap");
+            }
         });
         function showAppInstallBanner() {
             //to create a prompt

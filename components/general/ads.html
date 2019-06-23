@@ -1,3 +1,12 @@
 <div class="ads-container">
-    {{ adsctrl.ads | json}}
+    <div class="containerMarq">
+        <div class="marquee">
+            <div class="img1" ng-repeat="ad in adsctrl.ads">
+                <a href = "{{ad.link}}" target="_blank">
+                    <image src="{{ad.image}}" alt="Image will load shortly"/>
+                </a>
+                
+            </div>
+        </div>
+    </div>
 </div>

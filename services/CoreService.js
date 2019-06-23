@@ -236,11 +236,11 @@
                 });
             return deferred.promise;
         }
-        service.setClientHeight = function() {
+        service.setClientHeight = function(id) {
             var deferred = $q.defer();
             var calculatedHeight = (document.documentElement.clientHeight + 2) - document.getElementsByClassName('event-header')[0].offsetHeight + "px";
-            if (document.getElementById("map"))
-                document.getElementById("map").style.height = calculatedHeight;
+            if (document.getElementById(id))
+                document.getElementById(id).style.height = calculatedHeight;
             deferred.resolve(calculatedHeight);
             return deferred.promise;
         }

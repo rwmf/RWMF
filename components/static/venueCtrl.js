@@ -86,7 +86,7 @@
             });
             google.maps.event.addDomListener(window, "resize", function () {
                 if (document.getElementById("map")) {
-                    CoreService.setClientHeight();
+                    CoreService.setClientHeight("map");
                     var center = $scope.map.getCenter();
                     google.maps.event.trigger($scope.map, "resize");
                     $scope.map.setCenter(center);
