@@ -800,11 +800,7 @@
         color: red;
     }
     
-    #map, 
-    .map-page,
-    .google-maps {
-        height: 99%!important;
-    }
+  
     .user-btn[disabled="disabled"] {
         opacity: .5;
     }
