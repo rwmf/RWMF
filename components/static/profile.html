@@ -3,47 +3,48 @@
 </div> -->
 
 <div class="container mt-6">
-    {{userData | json}}
     <!-- Card Narrower -->
     <div class="card card-cascade narrower">
 
         <!-- Card content -->
         <div class="card-body card-body-cascade prof">
 
-            <form name="statCtrl.profileForm" autocomplete="off" novalidate>
+            <form class="md-form" name="profCtrl.profileForm" autocomplete="off" novalidate>
                 <div class="file-field">
                     <div class="mb-4">
-                        <img src="{{ userData.image }}" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                        <img src="{{ profCtrl.userData.image }}" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
                         <div class="plus pull-left"><i class=""></i>
-                            <input type="file" onchange="previewFile()" class="pull-left" ng-model="userData.image" alt="imagePreview">
+                            <input type="file" onchange="previewFile()" class="pull-left" ng-model="profCtrl.userData.image" alt="imagePreview">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <div class= "form-group mb-3">
-                        <input name="fname" type="text" id="fname" class="form-control" ng-model="userdata.first_name">
+                    <div class= "md-form mb-3">
+                        <input name="first_name" type="text" id="fname" class="form-control" ng-model="profCtrl.userData.first_name" required>
                         <label for="fname" class="active">First Name</label>
+                        <span ng-if="profCtrl.profileForm.first_name.$dirty && profCtrl.profileForm.first_name.$error.required" class="pl-0 text-error col-md-12">First name is required</span>
                     </div>
-                    <div class="form-group mb-3">
-                        <input name="lname" type="text" id="lname" class="form-control" ng-model="userdata.last_name">
+                    <div class="md-form mb-3">
+                        <input name="last_name" type="text" id="lname" class="form-control" ng-model="profCtrl.userData.last_name">
                         <label for="lname" class="active">Last Name</label>
                     </div>
-                    <div class="form-group mb-3">
-                        <input name="email" type="text" id="email" class="form-control" ng-model="userdata.email">
+                    <div class="md-form mb-3">
+                        <input ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" name="email" type="text" id="email" class="form-control" ng-model="profCtrl.userData.email" required>
                         <label for="email" class="active">Email ID</label>
-                        <span ng-if="statCtrl.profileForm.email.$dirty && statCtrl.profileForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
+                        <span ng-if="profCtrl.profileForm.email.$dirty && profCtrl.profileForm.email.$error.required" class="pl-0 text-error col-md-12">First name is required</span>
+                        <span ng-if="profCtrl.profileForm.email.$dirty && profCtrl.profileForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
                     </div>
-                    <div class="form-group mb-3">
-                        <input name="phone" type="text" id="phone" class="form-control" ng-model="userdata.phone">
+                    <div class="md-form mb-3">
+                        <input name="phone" type="text" id="phone" class="form-control" ng-model="profCtrl.userData.phone">
                         <label for="phone" class="active">Phone Number</label>
                     </div>
                     <div class="form-actions">
-                        <button ng-if="statCtrl.profileForm.$dirty" type="button" ng-click="statCtrl.updateUserProfile(userdata)" ng-disabled="statCtrl.profileForm.$invalid" class="btn btn-primary forgot-btn">SUBMIT</button>
+                            <button type="button" ng-click="profCtrl.updateUserProfile(profCtrl.userData)" ng-disabled="profCtrl.profileForm.$invalid" class="m-0 col-lg-12 col-md-12 col-sm-12 col-12 btn btn-warning btn-rounded">Save Profile</button>
                     </div>
                 </div>
 
             </form>
-
+            <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
         </div>
 
     </div>

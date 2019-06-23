@@ -187,9 +187,9 @@
                 url: '/profile',
                 views: {
                     'innerPages@': {
-                        controller: 'StaticController',
+                        controller: 'ProfileController',
                         templateUrl: 'components/static/profile.html',
-                        controllerAs: 'statCtrl'
+                        controllerAs: 'profCtrl'
                     },
                     'header@': {
                         controller: 'HeaderController',

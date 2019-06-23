@@ -61,7 +61,7 @@
                         CoreService.fbLogin({fbid: response.id, email: response.email}).then(function (response) {
                             if (response.status == 200) {
                                 if(response.data && response.data.user_data){
-                                    localStorage["userData"] = response.data.user_data;
+                                    localStorage["userData"] = JSON.stringify(response.data.user_data);
                                     $rootScope.userData = response.data.user_data;
                                 }                                
                                 fetchUserData(response.data.user_token);

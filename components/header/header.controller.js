@@ -21,7 +21,7 @@
         }
         function handleError(err) {
             vm.ads = [];
-        }
+        }       
         angular.element(".button-collapse").sideNav({
             closeOnClick: true
         });
@@ -111,3 +111,16 @@
     }
 
 })();
+function previewFile() {
+    var preview = document.querySelector('img');
+    var file = document.querySelector('input[type=file]').files[0];
+    var reader = new FileReader();
+    reader.addEventListener("load", function () {
+        preview.src = reader.result;
+        localStorage["userImage"] = reader.result;
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);        
+    }
+}
