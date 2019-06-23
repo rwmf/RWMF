@@ -572,10 +572,8 @@
         color: #fff;
     }
     .ads-container {
-        position: fixed;
-        bottom: 0;
+        position: relative;
         z-index: 100;
-        width: 100%;
     }
     .m-0 {
         margin: 0!important
@@ -588,7 +586,7 @@
         display:block;
       position:relative;
       width:800px;
-      animation:scroll 10s linear infinite;
+      /* animation:scroll 10s linear infinite; */
       padding:3px;
       }
       
