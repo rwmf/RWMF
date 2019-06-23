@@ -234,7 +234,7 @@
         font-size: .8rem;
     }
     .mt-30per {
-        margin-top: 30%;
+        margin-top: 30%!important;
     }
     #map {
         position: relative;

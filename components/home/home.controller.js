@@ -5,9 +5,9 @@
         .module('RWMF')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', '$timeout'];
+    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams'];
 
-    function HomeController($scope, $rootScope, CoreService, $state, $stateParams, $timeout) {
+    function HomeController($scope, $rootScope, CoreService, $state, $stateParams) {
         var vm = this;
         vm.day = "1";
         vm.events = [];
@@ -23,9 +23,6 @@
             CoreService.getSearchedEvents({ search_key: $stateParams.params.searchKey }).then(function (res) {
                 vm.events = res.data.programme_list;
                 vm.isSearch = true;
-                if(!vm.events.length || vm.events.length == 0){
-                    FlashService.Warning("No Data to display");
-                }
                 CoreService.removeLoader();
             }, function (err) {
                 handleError();
@@ -44,12 +41,8 @@
             });
         }
         function processResponse(res) {
-            if(res.data.programme_list)
             localStorage["events"] = JSON.stringify(res.data.programme_list);
-            if(res.data.programme_types)
             localStorage["programTypes"] = JSON.stringify(res.data.programme_types);
-            if(res.data.programme_days)
-            localStorage["programDays"] = JSON.stringify(res.data.programme_days);
             if (res.data.user_data)
                 localStorage["userData"] = JSON.stringify(res.data.user_data);
             vm.events = res.data.programme_list;
