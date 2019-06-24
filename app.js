@@ -64,6 +64,11 @@
                         controller: 'HeaderController',
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'headerctrl'
+                    },
+                    'ads@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/general/ads.html',
+                        controllerAs: 'adsctrl'
                     }
                 }
             }).state('registeredPgm', {
@@ -78,6 +83,11 @@
                         controller: 'HeaderController',
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'headerctrl'
+                    },
+                    'ads@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/general/ads.html',
+                        controllerAs: 'adsctrl'
                     }
                 }
             }).state('programDetail', {
@@ -92,6 +102,11 @@
                         controller: 'HeaderController',
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'headerctrl'
+                    },
+                    'ads@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/general/ads.html',
+                        controllerAs: 'adsctrl'
                     }
                 }
             }).state('ticketInfo', {
@@ -106,6 +121,11 @@
                         controller: 'HeaderController',
                         templateUrl: 'components/header/header.html',
                         controllerAs: 'headerctrl'
+                    },
+                    'ads@': {
+                        controller: 'HeaderController',
+                        templateUrl: 'components/general/ads.html',
+                        controllerAs: 'adsctrl'
                     }
                 }
             }).state('busSchedule', {
