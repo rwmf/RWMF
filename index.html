@@ -5,7 +5,6 @@
 <head>
     <title ng-if="!mainHeader">RWMF</title>
     <base href="/" />
-
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
@@ -17,41 +16,26 @@
     <meta name="viewport"
         content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="RWMF">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id"
         content="971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com">
-    <link href="splashscreens/iphone5_splash.png"
-        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/iphone6_splash.png"
-        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/iphoneplus_splash.png"
-        media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/iphonex_splash.png"
-        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/iphonexr_splash.png"
-        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/iphonexsmax_splash.png"
-        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/ipad_splash.png"
-        media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/ipadpro1_splash.png"
-        media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/ipadpro3_splash.png"
-        media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
-        rel="apple-touch-startup-image" />
-    <link href="splashscreens/ipadpro2_splash.png"
-        media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
-        rel="apple-touch-startup-image" />
+    <link rel="apple-touch-startup-image" href="images/splash/launch-640x1136.png"
+        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-750x1294.png"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-1242x2148.png"
+        media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-1125x2436.png"
+        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-1536x2048.png"
+        media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-1668x2224.png"
+        media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash/launch-2048x2732.png"
+        media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
         function HandleGoogleApiLibrary() {
@@ -155,7 +139,6 @@
     <script type="text/javascript " src="components/program/programDetail.controller.js"></script>
     <script type="text/javascript " src="components/static/staticCtrl.js"></script>
     <script type="text/javascript " src="components/static/venueCtrl.js"></script>
-    <script type="text/javascript " src="components/static/profile.controller.js"></script>
     <!-- service providers -->
     <script src="services/authentication.service.js"></script>
     <script src="services/flash.service.js"></script>
