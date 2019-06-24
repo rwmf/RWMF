@@ -322,7 +322,7 @@ class Apibasic_model extends CI_Model
             $this->db->where('p.day="'.$day.'" ');
           }
           
-        $this->db->order_by('date','desc');
+        $this->db->order_by('time','asc');
         if($limit!='' && $offset!='')
           {
               $this->db->limit($limit, $offset);
@@ -523,6 +523,7 @@ class Apibasic_model extends CI_Model
       $this->db->select('p.id,p.name,p.code,p.day,pd.date as date,p.time,p.type,pt.type as type_name,p.image,p.stage,ps.name as stage_name,ps.location as stage_location,ps.latitude as stage_latitude,ps.longitude as stage_longitude,p.description,p.status,rp.notifi_status');
       $this->db->from('programmes as p,programme_types pt,programme_stages ps,programme_days pd,registered_programmes rp');
       $this->db->where('p.status=1 and p.type=pt.id and p.stage=ps.id and p.day=pd.day and rp.programme_id=p.id and p.app_id="'.$app_id.'" and rp.user_id="'.$uid.'"');
+      $this->db->order_by('time','asc');
       $prlistquery =$this->db->get();
       if($prlistquery->num_rows()>0)
         {

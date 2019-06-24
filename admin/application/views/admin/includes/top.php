@@ -15,5 +15,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="<?php echo base_url('template/assets/plugins/jquery/jquery.min.js'); ?>"></script>
-    <script src="https://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=true"></script>
+    <!-- <script src="https://maps.google.com/maps/api/js?libraries=places&region=uk&language=en&sensor=true"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM&libraries=places" ></script>
     <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" type="text/javascript"></script> -->
