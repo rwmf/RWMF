@@ -75,6 +75,9 @@ $route['ads'] = 'admin/ads';
 $route['ads/(:any)'] = 'admin/ads/$1';
 $route['ads/(:any)/(:any)'] = 'admin/ads/$1/$2';
 
+$route['appicon'] = 'admin/appicon';
+$route['appicon/(:any)'] = 'admin/appicon/$1';
+
 // $route['(:any)'] = 'admin/$1';
 // $route['(:any)/(:any)'] = 'admin/$1/$2';
 // $route['(:any)/(:any)/(:any)'] = 'admin/$1/$2/$3';
