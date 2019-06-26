@@ -23,11 +23,12 @@
             vm.programDetail = res.data.programme_data;
             $rootScope.isLoading = false;
         }, function(res) {
-            if (localStorage["program_" + $stateParams.program_id]) {
-                vm.programDetail = JSON.parse(localStorage["program_" + $stateParams.program_id]);
-            }
+            FlashService.Error("Something went wrong, please try later");
+            FlashService.clearFlashMessageOntimeout(5000);
             $rootScope.isLoading = false;
         }).catch(function() {
+            FlashService.Error("Something went wrong, please try later");
+            FlashService.clearFlashMessageOntimeout(5000);
             $rootScope.isLoading = false;
         });
 
@@ -48,6 +49,7 @@
                         FlashService.Error(err.data.display);
                     }).catch(function(err) {
                         FlashService.Error("Something went wrong, please try later");
+                        FlashService.clearFlashMessageOntimeout(5000);
                     })
                 } else {
                     FlashService.Warning("Please Login/Sign Up first, to register to a program");

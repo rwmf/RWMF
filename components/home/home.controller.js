@@ -55,11 +55,6 @@
             vm.events = res.data.programme_list;
             vm.programTypes = res.data.programme_types;
             CoreService.removeLoader();
-            for (var i = 0; i < vm.events.length; i++) {
-                CoreService.getProgramDetails(vm.events[i].id).then(function (res) {
-                    localStorage["program_" + res.data.programme_data.id] = JSON.stringify(res.data.programme_data);
-                });
-            }
         }
         function handleError() {
             if (localStorage["events"]) {
@@ -75,7 +70,13 @@
         });
 
         function gotoDetail(id) {
-            $state.go("programDetail", { program_id: id });
+            if (navigator.onLine) {
+                $state.go("programDetail", { program_id: id });
+            }
+            else {
+                FlashService.Warning("You are in offline mode, Please go online to view programme details");
+                FlashService.clearFlashMessageOntimeout(5000);
+            }
         }
 
         function updateModel($event) {

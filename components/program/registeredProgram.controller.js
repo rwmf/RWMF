@@ -80,9 +80,14 @@
             }
         }
         function gotoDetail(id) {
-            $state.go("programDetail", { program_id: id });
-        };
-
+            if (navigator.onLine) {
+                $state.go("programDetail", { program_id: id });
+            }
+            else {
+                FlashService.Warning("You are in offline mode, Please go online to view programme details");
+                FlashService.clearFlashMessageOntimeout(5000);
+            }
+        };        
         function checkboxChecked($event) {
             vm.day = $event.currentTarget.firstElementChild.value;
         };
