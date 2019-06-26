@@ -18,29 +18,29 @@
             var mapOptions;
             $rootScope.isLoading = true;
             if ($stateParams.venueDetails) {
-                vm.isNavigated = true;
-                $stateParams.venueDetails.latitude = $stateParams.venueDetails.stage_latitude;
-                $stateParams.venueDetails.longitude = $stateParams.venueDetails.stage_longitude;
-                $stateParams.venueDetails.location = $stateParams.venueDetails.stage_location;
-                mapOptions = {
-                    zoom: 4,
-                    center: new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude),
-                    mapTypeId: google.maps.MapTypeId.TERRAIN
-                }
-                $scope.infoWindow = new google.maps.InfoWindow();
-                var position = new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude);
-                $scope.bounds = new google.maps.LatLngBounds();
-                $scope.bounds.extend(position);
-                $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-                createMarker($stateParams.venueDetails, $scope.infoWindow);
-                google.maps.event.addListener($scope.infoWindow, 'domready', function () {
-                    $('.infoWindowContent').parents(".gm-style .gm-style-iw-c").addClass("custom-marker");
-                });
-                $scope.openInfoWindow = function (e, selectedMarker) {
-                    e.preventDefault();
-                    google.maps.event.trigger(selectedMarker, 'click');
-                }
-                delete $stateParams.venueDetails;
+                 vm.isNavigated = true;
+                // $stateParams.venueDetails.latitude = $stateParams.venueDetails.stage_latitude;
+                // $stateParams.venueDetails.longitude = $stateParams.venueDetails.stage_longitude;
+                // $stateParams.venueDetails.location = $stateParams.venueDetails.stage_location;
+                // mapOptions = {
+                //     zoom: 4,
+                //     center: new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude),
+                //     mapTypeId: google.maps.MapTypeId.TERRAIN
+                // }
+                // $scope.infoWindow = new google.maps.InfoWindow();
+                // var position = new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude);
+                // $scope.bounds = new google.maps.LatLngBounds();
+                // $scope.bounds.extend(position);
+                // $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                // createMarker($stateParams.venueDetails, $scope.infoWindow);
+                // google.maps.event.addListener($scope.infoWindow, 'domready', function () {
+                //     $('.infoWindowContent').parents(".gm-style .gm-style-iw-c").addClass("custom-marker");
+                // });
+                // $scope.openInfoWindow = function (e, selectedMarker) {
+                //     e.preventDefault();
+                //     google.maps.event.trigger(selectedMarker, 'click');
+                // }
+                // delete $stateParams.venueDetails;
             } 
              else {
                 $rootScope.isLoading = false; 
