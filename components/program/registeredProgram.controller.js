@@ -12,6 +12,7 @@
         vm.checkboxChecked = checkboxChecked;
         vm.gotoDetail = gotoDetail;
         vm.gotoVenue = gotoVenue;
+        vm.share = share;
         vm.removeProgram = removeProgram;
         if (localStorage['userToken']) {
             CoreService.addLoader();
@@ -64,6 +65,19 @@
                 CoreService.removeLoader();
                 FlashService.Warning("Something went wrong, Can't remove Program, Try later");
             });
+        }
+        function share() {
+            var text = 'Add text to share with the URL';
+            if ('share' in navigator) {
+                navigator.share({
+                    title: document.title,
+                    text: text,
+                    url: location.href,
+                })
+            } else {
+                // Here we use the WhatsApp API as fallback; remember to encode your text for URI
+                location.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text + ' - ') + location.href
+            }
         }
         function gotoDetail(id) {
             $state.go("programDetail", { program_id: id });
