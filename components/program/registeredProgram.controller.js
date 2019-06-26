@@ -85,7 +85,7 @@
             }
             else {
                 FlashService.Warning("You are in offline mode, Please go online to view programme details");
-                FlashService.clearFlashMessageOntimeout(5000);
+                FlashService.clearFlashMessageOntimeout(2000);
             }
         };        
         function checkboxChecked($event) {
