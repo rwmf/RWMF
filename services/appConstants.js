@@ -8,14 +8,14 @@
             "root_path": "rwmf.estrradodemo.com",
             "api_root_path": "rwmf.estrradodemo.com/admin/api"
         }).constant('stateHeaders', {
-            "home": "Events",
-            "registeredPgm": "Registered Events",
-            "programDetail": "Event Details",
-            "ticketInfo": "Tickets",
-            "busSchedule": "Bus Schedule",
+            "home": "Programmes",
+            "registeredPgm": "My Registered Programmes",
+            "programDetail": "Programme Details",
+            "ticketInfo": "Tickets Info",
+            "busSchedule": "Shuttle Bus Schedule",
             "venueLocator": "Venue Locator",
             "about": "About",
             "profile": "Profile",
-            "contact": "Contact Us"
+            "contactDetails": "Contact Us"
         });
 })();

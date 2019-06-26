@@ -245,6 +245,7 @@ var PrecacheConfig = [
             ["img/overlays/07.png", "fbpSpefVwUVdCGZW7p4lojusICxvYR85"],
             ["img/overlays/08.png", "tSfcdjHFgpbyJUCUDfQmro4brxi0jEfO"],
             ["img/overlays/09.png", "YkLLlNizyrbsty1RrUBz4IC97sZefEIs"],
+            ["https://rwmf.estrradodemo.com/admin/uploads/rwmf_image/rwmf_bus_1.png", "0nDAj6E3rs7p4lojusICxvxXGHUcGuca"],
             ["img/svg/arrow_left.svg", "p0lKmEqATj8NbZFsScsPzB5b8HDLL4uo"],
             ["img/svg/arrow_right.svg", "w2pytlCpnn7ddyMPQGv8VZ9ohjggqNQK"],
             ["img/svg/flags.png", "IIJ7XouhBRCuduUpQoyyVXWIjZ8yc42Q"],
