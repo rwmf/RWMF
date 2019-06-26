@@ -4,19 +4,25 @@
     angular
         .module('RWMF')
         .controller('GeneralController', GeneralController);
-    GeneralController.$inject = ['$scope', '$rootScope', 'CoreService', 'FlashService', '$window'];
+    GeneralController.$inject = ['$scope', '$rootScope', 'CoreService', 'FlashService', '$window', '$timeout'];
 
-    function GeneralController($scope, $rootScope, CoreService, FlashService, $window) {
+    function GeneralController($scope, $rootScope, CoreService, FlashService, $window, $timeout) {
         var vm = this;
         $rootScope.pageName = "home";
         angular.element('.sidenav-overlay').remove();
         vm.gotoPayment = gotoPayment;
         vm.gotoSceduleMap = gotoSceduleMap;
+        $timeout(function(){
+            vm.loadTicketDetails = true;
+        },1000)
         CoreService.getBusScheduleDetails().then(function(res) {
             vm.busSchedule = res.data.bus_schedule.schedule;
+            vm.loadSceduleDetails = true;
         }, function() {
+            vm.loadSceduleDetails = false;
             FlashService.Error("Something went wrong, please try later");
         }).catch(function() {
+            vm.loadSceduleDetails = false;
             FlashService.Error("Something went wrong, please try later");
         })
         $scope.$on('$destroy', function() {
