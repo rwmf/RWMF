@@ -20,12 +20,10 @@
             vm.loadSceduleDetails = true;
         }, function() {
             vm.busSchedule = "https://rwmf.estrradodemo.com/admin/uploads/rwmf_image/rwmf_bus_1.png";
-            vm.loadSceduleDetails = false;
-            FlashService.Error("Something went wrong, please try later");
+            vm.loadSceduleDetails = true;
         }).catch(function() {
             vm.busSchedule = "https://rwmf.estrradodemo.com/admin/uploads/rwmf_image/rwmf_bus_1.png";
-            vm.loadSceduleDetails = false;
-            FlashService.Error("Something went wrong, please try later");
+            vm.loadSceduleDetails = true;
         })
         $scope.$on('$destroy', function() {
             angular.element('.sidenav-overlay').remove();

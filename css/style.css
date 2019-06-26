@@ -806,8 +806,8 @@
     }
     
     .program-alert {
-        width: 92%;
         margin: 0 auto;
+        margin-top: 10px;
     }
     
     .btn-gray {
