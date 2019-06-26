@@ -592,11 +592,11 @@
       #carouselExampleFade {
           height: 90px;
       }
-      .carousel-inner, 
+      /* .carousel-inner, 
       .carousel-item,
       .carousel-item img {
           height: 100%!important;
-      }
+      } */
       .marquee:hover {
           animation-play-state: paused
       }
@@ -1029,6 +1029,21 @@
         color: #07210d;
         font-weight: bold;
     }
+
+    .lstyl ul li{
+        list-style-type:none;
+    }
+
+    .lstyl ul {
+        padding-left: 1rem;
+    }
+
+    .mb-6{
+        margin-bottom: 6rem;
+    }
+
+
+
     /* Media Queries */
     
     @media (max-height: 992px) {
@@ -1053,6 +1068,12 @@
             display: block;
         }
     }
+
+    @media (min-width: 1200px){
+        .container {
+            max-width: 1140px !important;
+        }
+    }    
     
     @media (min-width: 992px) and (max-width: 1199px) {
         html {
