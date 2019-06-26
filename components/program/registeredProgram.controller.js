@@ -72,7 +72,7 @@
                 navigator.share({
                     title: pgm.name,
                     text: pgm.description,
-                    url: "https://rwmf.estrradodemo.com/programDetail"+ pgm.id,
+                    url: "https://rwmf.estrradodemo.com/programDetail/"+ pgm.id,
                 })
             } else {
                 // Here we use the WhatsApp API as fallback; remember to encode your text for URI

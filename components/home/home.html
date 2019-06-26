@@ -24,6 +24,7 @@
 
     <div class="container mt-4" ng-if="!isLoading || homectrl.events.length > 0" ng-class="{'search': homectrl.isSearch}">
         <div class="row">
+                <div class="mx-auto registeredpgm-alert fixed-top" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
             <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day: homectrl.type">
                 <!-- Card -->
                 <div class="card card-cascade wider reverse">
