@@ -1,5 +1,12 @@
-<div>
+<!-- <div>
     <div id="map" class="mt-5">
     </div>
     <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+</div> -->
+
+<div id="map" class="mt-5">
+    <div class="google-maps">
+        <iframe id="iframeMap" src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM&center=47.65,-122.35000000000002&zoom=12&format=png&maptype=roadmap&size=480x360"
+            width="100%" height="100%" style="opacity: 1; visibility: visible;"></iframe>
+    </div>
 </div>
