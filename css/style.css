@@ -799,8 +799,10 @@
     .text-error {
         color: red;
     }
-    
-  
+    .fixed-top {
+        position: fixed;
+        top: 0;
+    }  
     .user-btn[disabled="disabled"] {
         opacity: .5;
     }

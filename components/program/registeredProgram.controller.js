@@ -66,17 +66,17 @@
                 FlashService.Warning("Something went wrong, Can't remove Program, Try later");
             });
         }
-        function share() {
+        function share(pgm) {
             var text = 'Add text to share with the URL';
             if ('share' in navigator) {
                 navigator.share({
-                    title: document.title,
-                    text: text,
-                    url: location.href,
+                    title: pgm.name,
+                    text: pgm.description,
+                    url: "https://rwmf.estrradodemo.com/programDetail"+ pgm.id,
                 })
             } else {
                 // Here we use the WhatsApp API as fallback; remember to encode your text for URI
-                location.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text + ' - ') + location.href
+                location.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text + ' - ') + "https://rwmf.estrradodemo.com/programDetail"+ pgm.id
             }
         }
         function gotoDetail(id) {
@@ -84,8 +84,8 @@
                 $state.go("programDetail", { program_id: id });
             }
             else {
-                FlashService.Warning("You are in offline mode, Please go online to view programme details");
-                //FlashService.clearFlashMessageOntimeout(2000);
+                FlashService.Warning("You are in offline mode, Please go online and reload to view programme details");
+                FlashService.clearFlashMessageOntimeout(2000);
             }
         };        
         function checkboxChecked($event) {
