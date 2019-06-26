@@ -5,9 +5,9 @@
         .module('RWMF')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', '$timeout'];
+    HomeController.$inject = ['$scope', '$rootScope', 'CoreService', '$state', '$state', '$stateParams', '$timeout', 'FlashService'];
 
-    function HomeController($scope, $rootScope, CoreService, $state, $stateParams, $timeout) {
+    function HomeController($scope, $rootScope, CoreService, $state, $stateParams, $timeout, FlashService) {
         var vm = this;
         vm.day = "1";
         vm.events = [];
@@ -75,7 +75,7 @@
             }
             else {
                 FlashService.Warning("You are in offline mode, Please go online to view programme details");
-                FlashService.clearFlashMessageOntimeout(5000);
+                //FlashService.clearFlashMessageOntimeout(5000);
             }
         }
 

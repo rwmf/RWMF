@@ -20,7 +20,7 @@
 
     <div>
         <div class="container mt-2" ng-if="regPgmctrl.programmes && !isLoading">
-            <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
+            <div class="mx-auto registeredpgm-alert fixed-top" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
             <div class="row">
                 <!-- Card -->
                 <div class="col-sm-6 mt-4 nopad" ng-repeat="program in regPgmctrl.programmes | filterWithDay : regPgmctrl.day">
@@ -59,8 +59,7 @@
                 </div>
                 <!-- Card -->
             </div>
-            <div class="mx-auto registeredpgm-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
-        </div>        
+            </div>        
     </div>
 </main>
 <!--Main Layout-->
