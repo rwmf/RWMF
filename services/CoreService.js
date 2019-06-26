@@ -278,8 +278,8 @@
             }, 3000)
         };
         service.isStandalone = function() {
-            return ((window.matchMedia('(display-mode: standalone)').matches));
-            //return ((window.matchMedia('(display-mode: standalone)').matches) && platform.os.family.toUpperCase() == "ANDROID");
+            //return ((window.matchMedia('(display-mode: standalone)').matches));
+            return ((window.matchMedia('(display-mode: standalone)').matches) && platform.os.family.toUpperCase() == "ANDROID");
         }
         service.convert12to24 = function(time) {
             var hrs = Number(time.match(/^(\d+)/)[1]);
