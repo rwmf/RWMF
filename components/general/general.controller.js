@@ -19,9 +19,11 @@
             vm.busSchedule = res.data.bus_schedule.schedule;
             vm.loadSceduleDetails = true;
         }, function() {
+            vm.busSchedule = "https://rwmf.estrradodemo.com/admin/uploads/rwmf_image/rwmf_bus_1.png";
             vm.loadSceduleDetails = false;
             FlashService.Error("Something went wrong, please try later");
         }).catch(function() {
+            vm.busSchedule = "https://rwmf.estrradodemo.com/admin/uploads/rwmf_image/rwmf_bus_1.png";
             vm.loadSceduleDetails = false;
             FlashService.Error("Something went wrong, please try later");
         })
