@@ -15,7 +15,7 @@
             vm.cities = cities;
         vm.isNavigated = false;
         CoreService.setClientHeight().then(function () {
-            vm.mapURL = $sce.trustAsResourceUrl("https://www.google.com/maps/d/embed?mid=1g4Nr2mOxgBA2jqI_FeVefdeKNncFVj8T");
+            
             $rootScope.isLoading = true;
             if ($stateParams.venueDetails) {
                 vm.isNavigated = true;
@@ -32,6 +32,9 @@
                     }
                 });
                 
+            }
+            else {
+                vm.mapURL = $sce.trustAsResourceUrl("https://www.google.com/maps/d/embed?mid=1g4Nr2mOxgBA2jqI_FeVefdeKNncFVj8T");
             }
         })
         $scope.$on('$destroy', function () {
