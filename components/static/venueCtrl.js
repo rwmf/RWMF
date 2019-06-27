@@ -14,7 +14,7 @@
         var cities =
             vm.cities = cities;
         vm.isNavigated = false;
-        CoreService.setClientHeight().then(function () {            
+        CoreService.setClientHeight("map").then(function () {            
             $rootScope.isLoading = true;
             if ($stateParams.venueDetails) {
                 vm.isNavigated = true;

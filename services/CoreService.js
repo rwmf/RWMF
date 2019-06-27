@@ -265,7 +265,7 @@
         }
         service.setClientHeight = function(id) {
             var deferred = $q.defer();
-            var calculatedHeight = (document.documentElement.clientHeight + 2) - document.getElementsByClassName('event-header')[0].offsetHeight + "px";
+            var calculatedHeight = (document.documentElement.clientHeight) - document.getElementsByClassName('event-header')[0].offsetHeight + "px";
             console.log(calculatedHeight)
             if (document.getElementById(id))
                 document.getElementById(id).style.height = calculatedHeight;
