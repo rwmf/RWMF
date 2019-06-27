@@ -78,7 +78,10 @@
     .location .address {
         padding-bottom: 18px;
     }
-    
+    .alert {
+        float: left;
+        width: 100%;
+    }
     .search {
         width: 40px;
         box-sizing: border-box;
