@@ -74,7 +74,7 @@
         }
 
         function gotoVenue(venueObj) {
-            $state.go('venueLocator', { venueDetails: venueObj });
+            $state.go('venue', { venueDetails: venueObj });
         }
     }
 
