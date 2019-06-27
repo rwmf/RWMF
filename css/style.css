@@ -1042,6 +1042,18 @@
         margin-bottom: 6rem;
     }
 
+    /*sidenav*/
+    .side-nav .siden{
+        text-align: right !important;
+        border-bottom: 0px solid rgba(255, 255, 255, .65) !important;
+        position: relative !important;
+    }
+
+    .side-nav a {
+        height: 30px;
+        line-height: 30px;
+    }
+
 
 
     /* Media Queries */
@@ -1149,22 +1161,7 @@
             background-size: 30px 30px;
             background-color: #f3f4f6;
         }
-        /* .login-logo {
-            width: 265px;
-            height: 270px;
-            background-repeat: no-repeat;
-            background-size: 90%;
-        } */
-        /*register*/
-        /* .register-logo {
-            background-image: url(../img/registration_logo.png);
-            width: 256px;
-            height: 145px;
-            background-repeat: no-repeat;
-            background-size: 50%;
-            position: relative;
-            left: -86px;
-        } */
+        
         .first {
             width: 49%;
             float: left;
@@ -1252,6 +1249,19 @@
         }
 
     }
+
+     @media (min-width: 568px) and (max-width: 736px) and (orientation: landscape) {
+
+        .custom-scrollbar{
+            min-height: 50vh;
+            overflow-y: auto;
+        }
+        
+        .mentop {
+            margin-top: 6rem;
+        }
+
+     }
     
     @media (min-width: 768px) and (max-width: 1280px) {
         .login {
