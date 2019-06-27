@@ -48,7 +48,7 @@
         function errorHandler(err) {
             var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
             FlashService.Error(message);
-            FlashService.clearFlashMessageOntimeout(5000);
+            //FlashService.clearFlashMessageOntimeout(5000);
             CoreService.removeLoader();
         }
         function FBLogin() {
@@ -76,6 +76,7 @@
                     });
                 } else {
                     FlashService.Warning('User cancelled login or did not fully authorize.');
+                    FlashService.clearFlashMessageOntimeout(5000);
                 }
             }, { scope: "public_profile, email" })
         }

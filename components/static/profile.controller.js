@@ -31,6 +31,7 @@
             data.utoken = localStorage["userToken"];
             CoreService.updateprofile(data).then(function (resp) {
                 FlashService.Success(resp.data.display);
+                FlashService.clearFlashMessageOntimeout(4000);
                 CoreService.removeLoader();
             }, function (err) {
                 handleError();

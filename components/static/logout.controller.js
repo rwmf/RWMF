@@ -8,17 +8,8 @@
 
     function LogoutController($state, $rootScope, $scope) {
         localStorage.removeItem("userToken");
-            delete $rootScope.isLoggedIn;
-            if (FB && FB.logout) {
-                FB.logout(function () {
-                    console.log("Loggedout from FB");
-                    $state.go("login");
-                }, function() {
-                    $state.go("login"); 
-                })
-            } else {
-                $state.go("login");
-            }
+        delete $rootScope.isLoggedIn;
+        $state.go("login");
         $scope.$on('$destroy', function () {
             angular.element('.sidenav-overlay').remove();
         });

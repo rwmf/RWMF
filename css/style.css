@@ -17,6 +17,9 @@
     .home-link {
         float: left;
     }
+    .fname-label {
+        margin-top: 20px;
+    }
     .google-maps {
         margin-top: 50px;
     }
