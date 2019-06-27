@@ -26,7 +26,7 @@
                 if (response.status == 200) {
                     fetchUserData(response.data.user_token);
                 } else {
-                    errorHandler(err);
+                    errorHandler({});
                 }
             }, function (err) {
                 errorHandler(err);
