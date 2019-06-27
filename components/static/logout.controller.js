@@ -4,9 +4,9 @@
     angular
         .module('RWMF')
         .controller('LogoutController', LogoutController);
-    LogoutController.$inject = ['$state', '$rootScope'];
+    LogoutController.$inject = ['$state', '$rootScope', '$scope'];
 
-    function LogoutController($state, $rootScope) {
+    function LogoutController($state, $rootScope, $scope) {
         localStorage.removeItem("userToken");
             delete $rootScope.isLoggedIn;
             if (FB && FB.logout) {
