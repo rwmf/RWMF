@@ -11,8 +11,8 @@
         $rootScope.mainHeader = "Venue Locator";
         $rootScope.pageName = "home";
         angular.element('.sidenav-overlay').remove();
-        var cities =
-            vm.cities = cities;
+        
+        vm.cities = cities;
         vm.isNavigated = false;
         CoreService.setClientHeight("map").then(function () {            
             $rootScope.isLoading = true;

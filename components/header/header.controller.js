@@ -43,7 +43,6 @@
         });
         
         vm.closeSideNav = closeSideNav;
-        vm.logout = logout;
         vm.setPlaceHolder = setPlaceHolder;
         vm.removePlaceHolder = removePlaceHolder;
         vm.showAppInstallBanner = showAppInstallBanner;
@@ -54,19 +53,6 @@
             angular.element('.sidenav-overlay').remove();
         }
 
-        function logout() {
-            localStorage.removeItem("userToken");
-            delete $rootScope.isLoggedIn;
-            if (FB && FB.logout) {
-                FB.logout(function () {
-                    console.log("Loggedout from FB");
-                    $state.go("login");
-                })
-            } else {
-                $state.go("login");
-            }
-
-        }
         function search(event) {
             if (event.which === 13) {
                 $state.go('homeSearch', { searchKey: vm.searchKey });

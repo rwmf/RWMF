@@ -158,6 +158,16 @@
                     }
                 }
 
+            }).state('logout', {
+                url: '/logout',
+                views: {
+                    'header': {
+                        controller: 'LogoutController',
+                        templateUrl: 'components/header/header.html',
+                        controllerAs: 'logoutctrl'
+                    }
+                }
+
             })
             .state('register', {
                 url: '/register',

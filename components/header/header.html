@@ -41,7 +41,7 @@
                     </li>
                     <li ng-if="!isLoggedIn"><a class="menu-list collapsible-header waves-effect arrow-r" ng-click="headerctrl.closeSideNav()" ui-sref="login"><i class="fas fa-chevron-right"></i>Login</a>
                     </li>
-                    <li ng-if="isLoggedIn"><a ng-click="headerctrl.logout()" class="menu-list collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i>Logout</a>
+                    <li ng-if="isLoggedIn"><a class="menu-list collapsible-header waves-effect arrow-r" ui-sref="logout"><i class="fas fa-chevron-right"></i>Logout</a>
                     </li>
                 </ul>
                 <!--Social-->
