@@ -235,7 +235,9 @@
                 url: '/venueLocator',
                 views: {
                     'mapPage@': {
-                        templateUrl: 'components/static/venueLocator.html'
+                        controller: 'VenueController',
+                        templateUrl: 'components/static/venueLocator.html',
+                        controllerAs: 'venCtrl'
                     },
                     'header@': {
                         controller: 'HeaderController',

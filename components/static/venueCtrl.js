@@ -16,12 +16,15 @@
         vm.isNavigated = false;
         CoreService.setClientHeight().then(function () {
             var mapOptions;
+            vm.mapURL = "https://www.google.com/maps/d/embed?mid=1g4Nr2mOxgBA2jqI_FeVefdeKNncFVj8T";
             $rootScope.isLoading = true;
             if ($stateParams.venueDetails) {
                  vm.isNavigated = true;
-                // $stateParams.venueDetails.latitude = $stateParams.venueDetails.stage_latitude;
-                // $stateParams.venueDetails.longitude = $stateParams.venueDetails.stage_longitude;
-                // $stateParams.venueDetails.location = $stateParams.venueDetails.stage_location;
+                 $stateParams.venueDetails.latitude = $stateParams.venueDetails.stage_latitude;
+                 $stateParams.venueDetails.longitude = $stateParams.venueDetails.stage_longitude;
+                 $stateParams.venueDetails.location = $stateParams.venueDetails.stage_location;
+                 console.log($stateParams.venueDetails);
+                 vm.mapURL = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM&q="+$stateParams.venueDetails.stage_latitude+","+$stateParams.venueDetails.stage_longitude;
                 // mapOptions = {
                 //     zoom: 4,
                 //     center: new google.maps.LatLng($stateParams.venueDetails.latitude, $stateParams.venueDetails.longitude),
@@ -42,19 +45,6 @@
                 // }
                 // delete $stateParams.venueDetails;
             } 
-             else {
-                $rootScope.isLoading = false; 
-                vm.isNavigated = false;
-                $state.go("venueLocator")
-            //     CoreService.getVenueDetails().then(function (resp) {
-            //         drawMap(resp.data.venues);
-            //     }, function (error) {
-            //         drawMap(cities);
-            //     }).catch(function (error) {
-            //         drawMap(cities);
-            //     });
-
-             }
         })
         $scope.$on('$destroy', function () {
             angular.element('.sidenav-overlay').remove();
