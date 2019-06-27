@@ -48,7 +48,7 @@
         function errorHandler(err) {
             var message = err.data && err.data.display ? err.data.display : "Unknown Error Try after some time"
             FlashService.Error(message);
-            //FlashService.clearFlashMessageOntimeout(5000);
+            FlashService.clearFlashMessageOntimeout(5000);
             CoreService.removeLoader();
         }
         function FBLogin() {
@@ -66,7 +66,7 @@
                                 }                                
                                 fetchUserData(response.data.user_token);
                             } else {
-                                errorHandler(err);
+                                errorHandler({});
                             }
                         }, function (err) {
                             errorHandler(err);
