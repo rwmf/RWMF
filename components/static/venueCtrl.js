@@ -22,7 +22,7 @@
                  $stateParams.venueDetails.latitude = $stateParams.venueDetails.stage_latitude;
                  $stateParams.venueDetails.longitude = $stateParams.venueDetails.stage_longitude;
                  $stateParams.venueDetails.location = $stateParams.venueDetails.stage_location;
-                 vm.mapURL = $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM&q="+$stateParams.venueDetails.stage_latitude+","+$stateParams.venueDetails.stage_longitude+","+$stateParams.venueDetails.stage_location);     
+                 vm.mapURL = $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM&q="+$stateParams.venueDetails.stage_latitude+","+$stateParams.venueDetails.stage_longitude);     
             } 
         })
         $scope.$on('$destroy', function () {
