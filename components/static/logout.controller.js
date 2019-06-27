@@ -13,6 +13,8 @@
                 FB.logout(function () {
                     console.log("Loggedout from FB");
                     $state.go("login");
+                }, function() {
+                    $state.go("login"); 
                 })
             } else {
                 $state.go("login");
