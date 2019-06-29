@@ -4,15 +4,13 @@
     angular
         .module('RWMF')
         .controller('VenueController', VenueController);
-    VenueController.$inject = ['$rootScope', '$sce', '$scope', "CoreService", "$stateParams", "$timeout"];
+    VenueController.$inject = ['$rootScope', '$sce', '$scope', "CoreService", "$stateParams", "FlashService"];
 
-    function VenueController($rootScope, $sce, $scope, CoreService, $stateParams, $timeout) {
+    function VenueController($rootScope, $sce, $scope, CoreService, $stateParams, FlashService) {
         var vm = this;
         $rootScope.mainHeader = "Venue Locator";
         $rootScope.pageName = "home";
         angular.element('.sidenav-overlay').remove();
-        
-        vm.cities = cities;
         vm.isNavigated = false;
         CoreService.setClientHeight("map").then(function () {            
             $rootScope.isLoading = true;
@@ -28,12 +26,16 @@
                         vm.mapURL = $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM&q=" + results[0].formatted_address);
                     } else {
                         vm.mapURL = $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM&q=" + $stateParams.venueDetails.stage_latitude + "," + $stateParams.venueDetails.stage_longitude);
+                        FlashService.Warning("Map loaded with coordinates Full address not available");
+                        FlashService.clearFlashMessageOntimeout(3000);
                     }
                 });
                 
             }
             else {
                 vm.mapURL = $sce.trustAsResourceUrl("https://www.google.com/maps/d/embed?mid=1g4Nr2mOxgBA2jqI_FeVefdeKNncFVj8T");
+                FlashService.Error("Google maps not available map loaded over offline, If not loaded please try after sometime.");
+                FlashService.clearFlashMessageOntimeout(3000);
             }
         })
         $scope.$on('$destroy', function () {
