@@ -19,6 +19,15 @@
 
         });
 
+        $scope.$on('$stateChangeStart', function($event, next, current) { 
+            if(next.name === 'register.gdpr') {
+                $scope.openModal();
+            }
+            else {
+                //$scope.closeModal();
+            }
+        });
+
         function register() {
             vm.dataLoading = true;
             CoreService.createUser(vm.user)
@@ -44,6 +53,27 @@
         function cancel() {
             vm.user = {};
             vm.userReg.$setPristine();
+        }
+
+        $scope.openModal = function(){
+            $('#centralModalSuccess').modal('show')
+            // $uibModal.open({
+            //   templateUrl: 'gdprModalTemplate.html',
+            //   resolve: {
+            //           newPath: function(){
+            //               return 'home'
+            //           },
+            //           oldPath: function(){
+            //               return 'home.modal'
+            //           }
+            //       },
+            //   controller: 'gdprModalController'
+            // });
+          };
+
+        $scope.closeModal = function () {
+            $('#centralModalSuccess').modal('hide');
+            $state.go('register');
         }
     }
 
