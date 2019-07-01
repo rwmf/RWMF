@@ -533,6 +533,7 @@ class Apibasic_model extends CI_Model
             {
               $pimages=array();
               $pvideos=array();
+              $row['same_time'] = (string)$this->same_timeprgm($uid,$row['date'],$row['time']);
               $row['name'] = ucfirst($row['name']);
               $row['date'] = date('M d Y',strtotime($row['date']));
               $row['time'] = date('h:i a',strtotime($row['time']));
@@ -543,6 +544,21 @@ class Apibasic_model extends CI_Model
         }
       return $prgramlist;
 
+    }
+    
+    public function same_timeprgm($uid,$date,$time)
+    {
+     $app_id=$this->appdata('id');
+     $this->db->select('p.id,p.name,p.code,p.day,pd.date as date,p.time,p.type,pt.type as type_name,p.image,p.stage,ps.name as stage_name,ps.location as stage_location,ps.latitude as stage_latitude,ps.longitude as stage_longitude,p.description,p.status,rp.notifi_status');
+     $this->db->from('programmes as p,programme_types pt,programme_stages ps,programme_days pd,registered_programmes rp');
+     $this->db->where('p.status=1 and p.type=pt.id and p.stage=ps.id and p.day=pd.day and rp.programme_id=p.id and p.app_id="'.$app_id.'" and rp.user_id="'.$uid.'" and pd.date="'.$date.'" and p.time="'.$time.'"');
+     $prlistquery =$this->db->get();
+      if($prlistquery->num_rows()>1)
+      {
+       return 1;
+      }
+      else
+      { return 0;}
     }
     
     //venue list
