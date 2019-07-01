@@ -76,10 +76,10 @@
     }
     
     @keyframes blink { 
-        50% { border-color: orange; } 
+        50% { border-color: yellow; } 
      }
      .time-conflict span{
-         border: 2px solid;
+         border: 2px solid goldenrod;
          animation: blink .75s step-end infinite alternate;
          width: fit-content;
          padding: 0 10px;
