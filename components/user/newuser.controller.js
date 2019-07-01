@@ -24,6 +24,7 @@
                 $scope.openModal();
             }
             else {
+                $('#centralModalSuccess').modal('hide');
                 //$scope.closeModal();
             }
         });
