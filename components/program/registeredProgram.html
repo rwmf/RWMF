@@ -42,7 +42,7 @@
                             </div>
 
                             <ul class="location">
-                                <li class="time mb-1">
+                                <li class="time mb-1" ng-class="{'time-conflict': program.same_time==1}">
                                     <span>{{ program.time | to24Hrs}}</span>
                                 </li>
                                 <li class="event mb-1">

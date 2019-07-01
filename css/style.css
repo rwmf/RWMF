@@ -75,6 +75,14 @@
         opacity: .75;
     }
     
+    @keyframes blink { 
+        50% { border-color: #ff0000; } 
+     }
+     .time-conflict{
+         border: 2px solid;
+         animation: blink .5s step-end infinite alternate;
+     }
+
     .location .address {
         padding-bottom: 18px;
     }
