@@ -36,7 +36,7 @@
                     if (response.status == 200) {
                         $state.go('login');
                     } else {
-                        var message = response.data && response.data ? response.data : "Unknown Error";
+                        var message = response.data && response.data.display ? response.data.display : "Unknown Error";
                         FlashService.Error(message);
                         FlashService.clearFlashMessageOntimeout(8000);
                     }

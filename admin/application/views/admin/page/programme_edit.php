@@ -105,7 +105,7 @@
                                                         <label for="type" class="">Type</label>
                                                         <?php
                                                             $optiontype=array(''=>'Select Type');
-                                                            $tpopq=$this->db->where('status','1')->get('programme_types');
+                                                            $tpopq=$this->db->where('status','1')->order_by('type','asc')->get('programme_types');
                                                             if($tpopq->num_rows()>0)
                                                             {
                                                                 foreach ($tpopq->result() as $key)
@@ -126,7 +126,7 @@
                                                         <?php
                                                             $app_id=$this->session->userdata('app_id');
                                                             $prgstage=array(''=>'Select Stage');
-                                                            $stopq=$this->db->where('status','1')->where('app_id',$app_id)->get('programme_stages');
+                                                            $stopq=$this->db->where('status','1')->where('app_id',$app_id)->order_by('name','asc')->get('programme_stages');
                                                             if($stopq->num_rows()>0)
                                                             {
                                                                 foreach ($stopq->result() as $key)
