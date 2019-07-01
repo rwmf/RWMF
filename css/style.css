@@ -78,9 +78,12 @@
     @keyframes blink { 
         50% { border-color: #ff0000; } 
      }
-     .time-conflict{
+     .time-conflict span{
          border: 2px solid;
-         animation: blink .5s step-end infinite alternate;
+         animation: blink .75s step-end infinite alternate;
+         width: fit-content;
+         padding: 0 10px;
+         border-radius: 50%;
      }
 
     .location .address {
