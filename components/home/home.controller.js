@@ -140,6 +140,8 @@
             	vm.type = '1';
                 //$scope.closeModal();
             }
+
+            $scope.$apply();
         });
     }
 
