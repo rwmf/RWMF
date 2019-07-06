@@ -117,12 +117,10 @@
         	if(next.name === 'home.day') {
             	vm.day = current.day;
             	vm.modifiedDay = current.day;
-                debugger;
             }
             else {
             	vm.day = '1';
             	vm.modifiedDay = '1';
-                //$scope.closeModal();
             }
 
 
@@ -132,13 +130,10 @@
 
             	vm.day = current.day;
             	vm.modifiedDay = current.day;
-
-                debugger;
             }
             else {
             	vm.modifiedType = '1';
             	vm.type = '1';
-                //$scope.closeModal();
             }
         });
     }
