@@ -1,15 +1,15 @@
 <main>
     <div class="row" ng-if="!isLoading || homectrl.events.length > 0">
         <div class="mx-auto btn-group filter-btn ninfyv" data-toggle="buttons">
-            <label class="btn btn-primary form-check-label active noshad" ng-click="homectrl.checkboxChecked($event)">                    
-              <input class="form-check-input" type="radio" value="1" ng-model="homectrl.day" name="options" id="option1" autocomplete="off" checked>
+            <label class="btn btn-primary form-check-label noshad" ng-class="{'active': homectrl.day == '1' || homectrl.modifiedDay == '1'}" ng-click="homectrl.checkboxChecked($event)">                    
+              <input class="form-check-input" type="radio" value="1" ng-model="homectrl.day" name="options" id="option1" autocomplete="off" checked ng-change="homectrl.changeDay(homectrl.day)">
               Day 1
             </label>
-            <label class="btn btn-primary form-check-label noshad" ng-click="homectrl.checkboxChecked($event)">
-              <input class="form-check-input" type="radio" value="2"  ng-model="homectrl.day" name="options" id="option2" autocomplete="off"> Day 2
+            <label class="btn btn-primary form-check-label noshad"  ng-class="{'active': homectrl.day == '2'  || homectrl.modifiedDay == '2'}" ng-click="homectrl.checkboxChecked($event)">
+              <input class="form-check-input" type="radio" value="2"  ng-model="homectrl.day" name="options" id="option2" autocomplete="off" ng-change="homectrl.changeDay(homectrl.day)"> Day 2
             </label>
-            <label class="btn btn-primary form-check-label noshad" ng-click="homectrl.checkboxChecked($event)">
-              <input class="form-check-input" type="radio" value="3"  ng-model="homectrl.day" name="options" id="option3" autocomplete="off"> Day 3
+            <label class="btn btn-primary form-check-label noshad"  ng-class="{'active': homectrl.day == '3'  || homectrl.modifiedDay == '3'}" ng-click="homectrl.checkboxChecked($event)">
+              <input class="form-check-input" type="radio" value="3"  ng-model="homectrl.day" name="options" id="option3" autocomplete="off" ng-change="homectrl.changeDay(homectrl.day)"> Day 3
              </label>
         </div>
     </div>
@@ -25,7 +25,7 @@
     <div class="container mt-4" ng-if="!isLoading || homectrl.events.length > 0" ng-class="{'search': homectrl.isSearch}">
         <div class="row">
                 <div class="mx-auto registeredpgm-alert fixed-top" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
-            <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.day: homectrl.modifiedType">
+            <div class="col-sm-6 mt-4 nopad" ng-repeat="event in homectrl.events | filterWithDay : homectrl.modifiedDay: homectrl.modifiedType">
                 <!-- Card -->
                 <div class="card card-cascade wider reverse">
                     <!-- Card image -->
