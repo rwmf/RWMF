@@ -12,6 +12,14 @@
         vm.day = "1";
         vm.events = [];
         vm.type = "1";
+        if ($stateParams.params && $stateParams.params.type) {
+        	vm.modifiedType = $stateParams.params.type;
+        	vm.type = $stateParams.params.type;
+        }
+        else {
+        	vm.modifiedType = '1';
+        }
+        
         vm.isSearch = false;
         vm.programTypes = [];
         $rootScope.pageName = "home";
@@ -86,6 +94,22 @@
         function checkboxChecked($event) {
             vm.day = $event.currentTarget.firstElementChild.value;
         }
+
+        vm.changeType = function (val) {
+        	$state.go('home.event', {type: val});
+        }
+
+        $scope.$on('$stateChangeStart', function($event, next, current) { 
+            if(next.name === 'home.event') {
+            	vm.modifiedType = current.type;
+                debugger;
+            }
+            else {
+            	vm.modifiedType = '1';
+            	vm.type = '1';
+                //$scope.closeModal();
+            }
+        });
     }
 
 })();
