@@ -10,6 +10,7 @@
     function HomeController($scope, $rootScope, CoreService, $state, $stateParams, $timeout, FlashService) {
         var vm = this;
         vm.day = "1";
+        vm.modifiedDay = '1';
         vm.events = [];
         vm.type = "1";
         if ($stateParams.params && $stateParams.params.type) {
@@ -18,6 +19,13 @@
         }
         else {
         	vm.modifiedType = '1';
+        }
+         if ($stateParams.params && $stateParams.params.day) {
+        	vm.day = $stateParams.params.day;
+        	vm.modifiedDay = $stateParams.params.day;
+        }
+        else {
+        	vm.modifiedDay  = '1'
         }
         
         vm.isSearch = false;
@@ -93,15 +101,38 @@
 
         function checkboxChecked($event) {
             vm.day = $event.currentTarget.firstElementChild.value;
+            $state.go('home.day', {day: vm.day});
         }
 
         vm.changeType = function (val) {
-        	$state.go('home.event', {type: val});
+        	$state.go('home.day.event', {type: val, day: vm.modifiedDay});
+        }
+
+        vm.changeDay = function (val) {
+        	$state.go('home.day', {day: val});
         }
 
         $scope.$on('$stateChangeStart', function($event, next, current) { 
-            if(next.name === 'home.event') {
+
+        	if(next.name === 'home.day') {
+            	vm.day = current.day;
+            	vm.modifiedDay = current.day;
+                debugger;
+            }
+            else {
+            	vm.day = '1';
+            	vm.modifiedDay = '1';
+                //$scope.closeModal();
+            }
+
+
+            if(next.name === 'home.day.event') {
             	vm.modifiedType = current.type;
+            	vm.type = current.type;
+
+            	vm.day = current.day;
+            	vm.modifiedDay = current.day;
+
                 debugger;
             }
             else {
