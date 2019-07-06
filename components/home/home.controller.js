@@ -135,6 +135,8 @@
             	vm.modifiedType = '1';
             	vm.type = '1';
             }
+
+            $scope.$apply();
         });
     }
 
