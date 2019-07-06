@@ -52,6 +52,8 @@
                         controllerAs: 'adsctrl'
                     }
                 }
+            }).state('home.event', {
+                url: '/event/:type',
             }).state('homeSearch', {
                 url: '/home/:searchKey',
                 views: {
