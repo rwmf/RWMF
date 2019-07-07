@@ -146,10 +146,15 @@
             // }
 
             setTimeout(function () {
+            	$scope.$digest();
+            });
+
+            setTimeout(function () {
             	$scope.$apply();
             	 try {
             	 	document.body.click();
 	            	$(window).trigger('resize');
+	            	$scope.$digest();
 	            	 // window.getComputedStyle();
 
 	            }
