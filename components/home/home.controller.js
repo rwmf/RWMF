@@ -150,6 +150,7 @@
             });
 
             setTimeout(function () {
+            	console.log(vm);
             	$scope.$apply();
             	 try {
             	 	document.body.click();
