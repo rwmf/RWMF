@@ -136,6 +136,14 @@
             	vm.modifiedType = '1';
             	vm.type = '1';
             }
+            try {
+            	$(window).trigger('resize');
+            	 window.getComputedStyle();
+            }
+            catch (e) {
+            	console.log('Window resize error: ', e);
+            }
+           
         });
     }
 
