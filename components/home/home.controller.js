@@ -143,6 +143,17 @@
             catch (e) {
             	console.log('Window resize error: ', e);
             }
+
+            try {
+            	$scope.$apply();
+            }
+            catch (e) {
+            	console.log('Scope apply error: ', e);
+            }
+
+            setTimeout(function () {
+            	$scope.$apply();
+            });
            
         });
     }
