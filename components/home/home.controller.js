@@ -138,19 +138,19 @@
             }
            
 
-            try {
-            	$scope.$apply();
-            }
-            catch (e) {
-            	console.log('Scope apply error: ', e);
-            }
+            // try {
+            // 	$scope.$apply();
+            // }
+            // catch (e) {
+            // 	console.log('Scope apply error: ', e);
+            // }
 
             setTimeout(function () {
             	$scope.$apply();
             	 try {
             	 	document.body.click();
 	            	$(window).trigger('resize');
-	            	 window.getComputedStyle();
+	            	 // window.getComputedStyle();
 
 	            }
 	            catch (e) {

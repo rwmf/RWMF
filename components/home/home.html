@@ -16,7 +16,7 @@
     <div class="row filter" ng-if="!isLoading || homectrl.events.length > 0">
         <div class="form-group">
             <label ng-repeat="program in homectrl.programTypes">
-                    <input type="radio" name="pgmType" value="{{program.id}}" ng-model="homectrl.type" ng-change="homectrl.changeType(homectrl.type)">
+                    <input type="radio" name="pgmType" value="{{program.id}}" ng-model="homectrl.type" ng-change="homectrl.changeType(homectrl.type)" ng-checked="homectrl.type==program.id">
                     <span>{{program.type}}</span>
                 </label>
         </div>
