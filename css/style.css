@@ -816,7 +816,7 @@
     .filter-btn label.active {
         background-color: transparent !important;
         border-bottom: 0px solid yellow;
-        /* background: linear-gradient( to left, rgba(120, 255, 213, 1) 0%, rgba(120, 255, 213, 1) 12%, rgba(168, 255, 121, 1) 47%, rgba(168, 255, 121, 1) 100%) left bottom #777 no-repeat; */
+        background: linear-gradient( to left, rgba(120, 255, 213, 1) 0%, rgba(120, 255, 213, 1) 12%, rgba(168, 255, 121, 1) 47%, rgba(168, 255, 121, 1) 100%) left bottom #777 no-repeat;
         background-size: 100% 5px;
     }
     

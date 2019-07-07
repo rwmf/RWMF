@@ -9,6 +9,7 @@
 
     function HomeController($scope, $rootScope, CoreService, $state, $stateParams, $timeout, FlashService) {
         var vm = this;
+        angular.element(".filter label input[type='radio']").prop("checked", false);
         vm.day = "1";
         vm.modifiedDay = '1';
         vm.events = [];
@@ -135,8 +136,6 @@
             	vm.modifiedType = '1';
             	vm.type = '1';
             }
-
-            $scope.$apply();
         });
     }
 
