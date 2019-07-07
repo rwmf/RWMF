@@ -148,13 +148,15 @@
             setTimeout(function () {
             	$scope.$apply();
             	 try {
+            	 	document.body.click();
 	            	$(window).trigger('resize');
 	            	 window.getComputedStyle();
+
 	            }
 	            catch (e) {
 	            	console.log('Window resize error: ', e);
 	            }
-            });
+            }, 200);
            
         });
     }
