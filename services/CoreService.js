@@ -295,61 +295,6 @@
             if (mnts < 10) minutes = "0" + minutes;
             return hours + ":" + minutes;
         }
-
-        var clientId = '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
-            apiKey = 'AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM',
-            scopes = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me';
-
-        service.googleLogin = function () {
-            var deferred = $q.defer();
-            gapi.auth.authorize({ 
-                client_id: clientId, 
-                scope: scopes, 
-                immediate: false
-            }, service.handleAuthResult);
-            return deferred.promise;
-        }
-        service.handleClientLoad = function () {
-            gapi.client.setApiKey(apiKey);
-            gapi.auth.init(function () { });
-            window.setTimeout(checkAuth, 1);
-        };
-
-        service.checkAuth = function() {
-            gapi.auth.authorize({ 
-                client_id: clientId, 
-                scope: scopes, 
-                immediate: true, 
-                hd: domain 
-            }, service.handleAuthResult);
-        };
-
-        service.handleAuthResult = function(authResult) {
-            var deferred = $q.defer();
-            if (authResult && !authResult.error) {
-                var data = {};
-                gapi.client.load('oauth2', 'v2', function () {
-                    var request = gapi.client.oauth2.userinfo.get();
-                    request.execute(function (resp) {
-                        data.email = resp.email;
-                        console.log(resp)
-                    });
-                });
-                deferred.resolve(data);
-            } else {
-                deferred.reject('error');
-            }
-        };
-
-        service.handleAuthClick = function(event) {
-            gapi.auth.authorize({ 
-                client_id: clientId, 
-                scope: scopes, 
-                immediate: false
-            }, service.handleAuthResult);
-            return false;
-        };
-
     };
     CoreService.$inject = ['$rootScope', 'CoreHttpRequest', '$state', '$http', '$q', '$timeout'];
     angular.module('RWMF')
