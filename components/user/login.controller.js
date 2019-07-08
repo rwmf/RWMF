@@ -83,29 +83,25 @@
 
         function googleLogin() {
             var user = {};
-            gapi.load('auth2', function() { // Loads the auth2 component of gapi
-                gapi.auth2.init({ // initialize the auth2 using your credentials
-                  client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com'
-                }).then(function onInit() { // on complete of init
-                  gapi.signin2.render("g-signin2", { // render the HTML button on the screen providing the ID of the element (g-signin2)
-                    onsuccess: function(googleUser) { // This executes when a user successfully authorizes you to their data by clicking the button and selecting their account.
-                      var profile = googleUser.getBasicProfile();
-                      console.log('ID: ' + profile.getId());
-                      console.log('Name: ' + profile.getName());
-                      console.log('Image URL: ' + profile.getImageUrl());
-                      console.log('Email: ' + profile.getEmail());
-                      // Do whatever you need to do to authenticate on your site.
-                    }
-                  });
-                });
-              });
             var myParams = {
                 'clientid': '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com', //You need to set client id
                 'cookiepolicy': 'single_host_origin',
                 'callback': loginCallback, //callback function
                 'approvalprompt': 'force',
-                'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+                'scope': 'profile, email'
             };
+            gapi.load('auth2', function() {
+              auth2 = gapi.auth2.init(myParams);
+            
+              auth2.attachClickHandler(element, {},
+                function(googleUser) {
+                    console.log('Signed in: ' + googleUser.getBasicProfile().getName());
+                  }, function(error) {
+                    console.log('Sign-in error', error);
+                  }
+                );
+              });
+            
             //gapi.auth.signIn(myParams);
         }
         function loginCallback (test){
