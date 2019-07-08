@@ -83,25 +83,13 @@
 
         function googleLogin() {
             var user = {};
-            gapi.auth2.getAuthInstance().signIn().then(
-                function(success) {
-                    console.log(success)
-                    // Login API call is successful	
-                },
-                function(error) {
-                    console.log(error)
-                    // Error occurred
-                    // console.log(error) to find the reason
-                }
-            );
-            // var myParams = {
-            //     'clientid': '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com', //You need to set client id
-            //     'cookiepolicy': 'single_host_origin',
-            //     'callback': loginCallback, //callback function
-            //     'approvalprompt': 'force',
-            //     'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
-            // };
-            // gapi.auth.signIn(myParams);
+            CoreService.googleLogin().then(function(res){
+                console.log(res)
+            }, function(err){
+                console.log(err)
+            }).catch(function(err){
+                console.log(err)
+            })
         }
         function loginCallback (test){
             console.log(test)
