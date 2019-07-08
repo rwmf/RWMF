@@ -83,15 +83,31 @@
 
         function googleLogin() {
             var user = {};
-            gapi.auth2.getAuthInstance().signIn().then(
-                function(success) {
-                    console.log(success)
+            gapi.load('client:auth2',  {
+                callback: function() {
+                    // Initialize client & auth libraries
+                    gapi.client.init({
+                        apiKey: 'AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM',
+                        clientId: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
+                        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
+                    }).then(
+                        function(success) {
+                              // Libraries are initialized successfully
+                              // You can now make API calls
+                              console.log(success)
+                        }, 
+                        function(error) {
+                            console.log(error)
+                            // Error occurred
+                            // console.log(error) to find the reason
+                          }
+                    );
                 },
-                function(error) {
-                    // Error occurred
-                    console.log(error) //to find the reason
+                onerror: function(error) {
+                    console.log(error)
+                    // Failed to load libraries
                 }
-            );
+            });
         }
     }
 
