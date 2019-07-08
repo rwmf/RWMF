@@ -1,130 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="RWMF"
-    ng-class="{'home': pageName == 'home', 'login': pageName == 'login', 'loading': isLoading, 'splash': isSplashScreen}">
+  ng-class="{'home': pageName == 'home', 'login': pageName == 'login', 'loading': isLoading, 'splash': isSplashScreen}">
 
 <head>
-    <title ng-if="!mainHeader">RWMF</title>
-    <base href="/" />
+  <title ng-if="!mainHeader">RWMF</title>
+  <base href="/" />
 
-     <!-- Apple splash -->
-     <meta name="mobile-web-app-capable" content="yes" />
-     <meta name="apple-touch-fullscreen" content="yes" />
-     <meta name="apple-mobile-web-app-title" content="RWMF" />
-     <meta name="apple-mobile-web-app-capable" content="yes" />
-     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-     <link
-       rel="apple-touch-icon"
-       sizes="180x180"
-       href="images/icons/apple-touch-icon.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
-       href="images/splash/launch-1136x640.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
-       href="images/splash/launch-2436x1125.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
-       href="images/splash/launch-1792x828.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-       href="images/splash/launch-828x1792.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
-       href="images/splash/launch-1334x750.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-       href="images/splash/launch-1242x2688.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
-       href="images/splash/launch-2208x1242.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-       href="images/splash/launch-1125x2436.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-       href="images/splash/launch-1242x2208.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
-       href="images/splash/launch-2732x2048.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
-       href="images/splash/launch-2688x1242.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
-       href="images/splash/launch-2224x1668.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-       href="images/splash/launch-750x1334.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-       href="images/splash/launch-2048x2732.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
-       href="images/splash/launch-2388x1668.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-       href="images/splash/launch-1668x2224.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-       href="images/splash/launch-640x1136.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-       href="images/splash/launch-1668x2388.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
-       href="images/splash/launch-2048x1536.png"
-     />
-     <link
-       rel="apple-touch-startup-image"
-       media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-       href="images/splash/launch-1536x2048.png"
- />
+  <!-- Apple splash -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="RWMF" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="images/splash/launch-1136x640.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    href="images/splash/launch-2436x1125.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="images/splash/launch-1792x828.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="images/splash/launch-828x1792.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="images/splash/launch-1334x750.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    href="images/splash/launch-1242x2688.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    href="images/splash/launch-2208x1242.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    href="images/splash/launch-1125x2436.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    href="images/splash/launch-1242x2208.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="images/splash/launch-2732x2048.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    href="images/splash/launch-2688x1242.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="images/splash/launch-2224x1668.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="images/splash/launch-750x1334.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="images/splash/launch-2048x2732.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="images/splash/launch-2388x1668.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="images/splash/launch-1668x2224.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="images/splash/launch-640x1136.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="images/splash/launch-1668x2388.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    href="images/splash/launch-2048x1536.png" />
+  <link rel="apple-touch-startup-image"
+    media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="images/splash/launch-1536x2048.png" />
 
-    <!-- Apple splash -->
+  <!-- Apple splash -->
 
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id"
+    content="971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com">
+  <script type="text/javascript">
+  (function() {
+  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+  po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+  </script>
 
-    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
         function HandleGoogleApiLibrary() {
             // Load "client" & "auth2" libraries
@@ -154,104 +117,107 @@
     <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};HandleGoogleApiLibrary()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()"></script> -->
-    <meta charset="utf-8">
-    <meta name="description" content="The Rainforest World Music Festival is 3-day global event held annually in the foothills of Mt. Santubong, Kuching, Sarawak, Malaysian Borneo."/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/all.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
+  <meta charset="utf-8">
+  <meta name="description"
+    content="The Rainforest World Music Festival is 3-day global event held annually in the foothills of Mt. Santubong, Kuching, Sarawak, Malaysian Borneo." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/all.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
 </head>
 
-<body ng-if="!isSplashScreen" >   
-    
-    <div class="container mx-auto" ui-view="header">   
-        <div id="ajax-loading-screen" data-disable-mobile="0" data-disable-fade-on-click="1" data-effect="standard" data-method="standard"><div class="loading-icon none"></div></div>     
+<body ng-if="!isSplashScreen">
+
+  <div class="container mx-auto" ui-view="header">
+    <div id="ajax-loading-screen" data-disable-mobile="0" data-disable-fade-on-click="1" data-effect="standard"
+      data-method="standard">
+      <div class="loading-icon none"></div>
     </div>
-    <div class="container mx-auto" ui-view="login"></div>
-    <div class="container mx-auto" ui-view="innerPages">        
-    </div>
-    <div class="map-page" ui-view="mapPage"></div>
-    <div class="ad-page container mx-auto ng-scope" ui-view="ads"></div>
-    <!-- Library scripts -->
+  </div>
+  <div class="container mx-auto" ui-view="login"></div>
+  <div class="container mx-auto" ui-view="innerPages">
+  </div>
+  <div class="map-page" ui-view="mapPage"></div>
+  <div class="ad-page container mx-auto ng-scope" ui-view="ads"></div>
+  <!-- Library scripts -->
 
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '440224780146557',
-                cookie: true,
-                xfbml: true,
-                version: 'v3.3'
-            });
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '440224780146557',
+        cookie: true,
+        xfbml: true,
+        version: 'v3.3'
+      });
 
-            FB.AppEvents.logPageView();
+      FB.AppEvents.logPageView();
 
-        };
+    };
 
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));        // Called when Google Javascript API Javascript is loaded
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));        // Called when Google Javascript API Javascript is loaded
 
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22338869-3"></script>
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22338869-3"></script>
 
-    <script>    
-      window.dataLayer = window.dataLayer || [];    
-      function gtag(){dataLayer.push(arguments);}    
-      gtag('js', new Date());  
-      gtag('config', 'UA-22338869-3');    
-    </script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM">
-    </script>
-    <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="js/libs/jquery.js"></script>
-    <script type="text/javascript" src="js/mdb.min.js" defer></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/libs/bootstrap-lighthouse.js"></script>
-    <script type="text/javascript" src="js/libs/angular.min.js"></script>
-    <script type="text/javascript" src="js/libs/angular-animate.min.js"></script>
-    <script type="text/javascript" src="js/libs/angular-ui-router.js"></script>
-    <script type="text/javascript" src="js/libs/cookies.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/libs/platform.js"></script>
-    <script type="text/javascript" src="js/libs/ng-sanitize.js"></script>
-    <script type="text/javascript" src="js/idb.js"></script>
-    <script src="js/webshare.js"></script>
-    <!-- Library scripts -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-22338869-3');    
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM">
+  </script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="js/libs/jquery.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js" defer></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/libs/bootstrap-lighthouse.js"></script>
+  <script type="text/javascript" src="js/libs/angular.min.js"></script>
+  <script type="text/javascript" src="js/libs/angular-animate.min.js"></script>
+  <script type="text/javascript" src="js/libs/angular-ui-router.js"></script>
+  <script type="text/javascript" src="js/libs/cookies.js"></script>
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/libs/platform.js"></script>
+  <script type="text/javascript" src="js/libs/ng-sanitize.js"></script>
+  <script type="text/javascript" src="js/idb.js"></script>
+  <script src="js/webshare.js"></script>
+  <!-- Library scripts -->
 
-    <!-- App scripts -->
-    <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="components/user/login.controller.js"></script>
-    <script type="text/javascript" src="components/home/home.controller.js"></script>
-    <script type="text/javascript" src="components/home/homeSearch.controller.js"></script>
-    <script type="text/javascript" src="components/header/header.controller.js"></script>
-    <script type="text/javascript" src="components/program/registeredProgram.controller.js"></script>
-    <script type="text/javascript " src="components/user/forgot.controller.js"></script>
-    <script type="text/javascript " src="components/user/newuser.controller.js"></script>
-    <script type="text/javascript " src="components/user/gdprController.js"></script>
-    <script type="text/javascript " src="components/general/general.controller.js"></script>
-    <script type="text/javascript " src="components/program/programDetail.controller.js"></script>
-    <script type="text/javascript " src="components/static/staticCtrl.js"></script>
-    <script type="text/javascript " src="components/static/venueCtrl.js"></script>
-    <script type="text/javascript " src="components/static/profile.controller.js"></script>
-    <script type="text/javascript " src="components/static/logout.controller.js"></script>
-    <!-- service providers -->
-    <script src="services/authentication.service.js"></script>
-    <script src="services/flash.service.js"></script>
+  <!-- App scripts -->
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="components/user/login.controller.js"></script>
+  <script type="text/javascript" src="components/home/home.controller.js"></script>
+  <script type="text/javascript" src="components/home/homeSearch.controller.js"></script>
+  <script type="text/javascript" src="components/header/header.controller.js"></script>
+  <script type="text/javascript" src="components/program/registeredProgram.controller.js"></script>
+  <script type="text/javascript " src="components/user/forgot.controller.js"></script>
+  <script type="text/javascript " src="components/user/newuser.controller.js"></script>
+  <script type="text/javascript " src="components/user/gdprController.js"></script>
+  <script type="text/javascript " src="components/general/general.controller.js"></script>
+  <script type="text/javascript " src="components/program/programDetail.controller.js"></script>
+  <script type="text/javascript " src="components/static/staticCtrl.js"></script>
+  <script type="text/javascript " src="components/static/venueCtrl.js"></script>
+  <script type="text/javascript " src="components/static/profile.controller.js"></script>
+  <script type="text/javascript " src="components/static/logout.controller.js"></script>
+  <!-- service providers -->
+  <script src="services/authentication.service.js"></script>
+  <script src="services/flash.service.js"></script>
 
-    <!-- Real user service that uses an api -->
-    <script src="services/appConstants.js"></script>
-    <script src="services/HttpRequest.js"></script>
-    <script src="services/CoreService.js"></script>
+  <!-- Real user service that uses an api -->
+  <script src="services/appConstants.js"></script>
+  <script src="services/HttpRequest.js"></script>
+  <script src="services/CoreService.js"></script>
 </body>
 
 </html>
