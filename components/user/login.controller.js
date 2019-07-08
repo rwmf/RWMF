@@ -92,8 +92,8 @@
             };
             gapi.auth.signIn(myParams);
         }
-    }
-    function loginCallback (test){
-        console.log(test)
-    }
+    }    
 })();
+function loginCallback (test){
+    console.log(test)
+}
