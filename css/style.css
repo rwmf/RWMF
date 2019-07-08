@@ -1041,14 +1041,17 @@
         color: black!important;
     }
     
-    .filter label:hover span {
-        background-image: linear-gradient(45deg, rgb(127, 255, 77), rgb(69, 216, 170));
-        border-image-source: linear-gradient(45deg, rgb(0127, 255, 77), rgb(69, 216, 170));
-        border-image-slice: 0;
-        text-transform: capitalize!important;
-        color: #07210d;
-        font-weight: bold;
-    }
+    @media (min-width:768px) {
+        .filter label:hover span {
+            background-image: linear-gradient(45deg, rgb(127, 255, 77), rgb(69, 216, 170));
+            border-image-source: linear-gradient(45deg, rgb(0127, 255, 77), rgb(69, 216, 170));
+            border-image-slice: 0;
+            text-transform: capitalize!important;
+            color: #07210d;
+            font-weight: bold;
+        }  
+    } 
+    
     
     .filter label input[type='radio']:checked~* {
         background-image: linear-gradient(45deg, rgb(127, 255, 77), rgb(69, 216, 170));

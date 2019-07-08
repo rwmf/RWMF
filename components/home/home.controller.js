@@ -136,6 +136,34 @@
             	vm.modifiedType = '1';
             	vm.type = '1';
             }
+           
+
+            // try {
+            // 	$scope.$apply();
+            // }
+            // catch (e) {
+            // 	console.log('Scope apply error: ', e);
+            // }
+
+            setTimeout(function () {
+            	$scope.$digest();
+            });
+
+            setTimeout(function () {
+            	console.log(vm);
+            	$scope.$apply();
+            	 try {
+            	 	document.body.click();
+	            	$(window).trigger('resize');
+	            	$scope.$digest();
+	            	 // window.getComputedStyle();
+
+	            }
+	            catch (e) {
+	            	console.log('Window resize error: ', e);
+	            }
+            }, 200);
+           
         });
     }
 
