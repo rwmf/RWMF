@@ -89,7 +89,7 @@
                 },
                 function(error) {
                     // Error occurred
-                    // console.log(error) to find the reason
+                    console.log(error) //to find the reason
                 }
             );
         }
