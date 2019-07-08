@@ -87,36 +87,34 @@
   })();
   </script>
 
-  <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script>
-        function HandleGoogleApiLibrary() {
-            // Load "client" & "auth2" libraries
-            gapi.load('client:auth2', {
-                callback: function () {
-                    // Initialize client & auth libraries
-                    gapi.client.init({
-                        apiKey: 'YOUR_GOOGLE_API_KEY',
-                        clientId: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
-                        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
-                    }).then(
-                        function (success) {
-                            console.log(success)
-                        },
-                        function (error) {
-                            // Error occurred
-                            // console.log(error) to find the reason
-                        }
-                    );
-                },
-                onerror: function () {
-                    // Failed to load libraries
-                }
-            });
-        }
-    </script>
-    <script async defer src="https://apis.google.com/js/api.js"
-        onload="this.onload=function(){};HandleGoogleApiLibrary()"
-        onreadystatechange="if (this.readyState === 'complete') this.onload()"></script> -->
+<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
+// Called when Google Javascript API Javascript is loaded
+function HandleGoogleApiLibrary() {
+	// Load "client" & "auth2" libraries
+	gapi.load('client:auth2',  {
+		callback: function() {
+			// Initialize client & auth libraries
+			gapi.client.init({
+		    	apiKey: 'AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM',
+		    	clientId: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
+		    	scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
+			}).then(
+				function(success) {
+			  		// Libraries are initialized successfully
+		  			// You can now make API calls
+				}, 
+				function(error) {
+					// Error occurred
+					// console.log(error) to find the reason
+			  	}
+			);
+		},
+		onerror: function() {
+			// Failed to load libraries
+		}
+	});
+}
+</script>
   <meta charset="utf-8">
   <meta name="description"
     content="The Rainforest World Music Festival is 3-day global event held annually in the foothills of Mt. Santubong, Kuching, Sarawak, Malaysian Borneo." />
