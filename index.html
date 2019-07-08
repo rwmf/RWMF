@@ -79,11 +79,12 @@
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id"
     content="971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
   <script type="text/javascript">
-    function init() {
-      gapi.load('auth2', function () { // Ready. });
-      }
+  (function() {
+  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+  po.src = 'https://apis.google.com/js/client.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
   </script>
 
   <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -168,10 +169,10 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22338869-3"></script>
 
   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'UA-22338869-3');    
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-22338869-3');    
   </script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgSkVT1uTk7XBFToLLzS50JO7UJtMujTM">
