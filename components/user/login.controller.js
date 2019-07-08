@@ -83,17 +83,14 @@
 
         function googleLogin() {
             var user = {};
-            var myParams = {
-                'clientid': '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com', //You need to set client id
-                'cookiepolicy': 'single_host_origin',
-                'callback': 'loginCallback', //callback function
-                'approvalprompt': 'force',
-                'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+            var params = {
+                'clientid': '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com'
             };
-            gapi.auth.signIn(myParams);
+            vm.googleAuth = gapi.auth2.init(params);
+            console.log(vm.googleAuth)
         }
-    }    
+        function loginCallback(test) {
+            console.log(test)
+        }
+    }
 })();
-function loginCallback (test){
-    console.log(test)
-}
