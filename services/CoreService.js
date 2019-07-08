@@ -325,6 +325,7 @@
         };
 
         service.handleAuthResult = function(authResult) {
+            var deferred = $q.defer();
             if (authResult && !authResult.error) {
                 var data = {};
                 gapi.client.load('oauth2', 'v2', function () {
@@ -344,8 +345,7 @@
             gapi.auth.authorize({ 
                 client_id: clientId, 
                 scope: scopes, 
-                immediate: false, 
-                hd: domain 
+                immediate: false
             }, service.handleAuthResult);
             return false;
         };
