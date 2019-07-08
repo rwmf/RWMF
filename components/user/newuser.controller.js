@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -14,17 +14,21 @@
         vm.register = register;
         vm.cancel = cancel;
         angular.element('.sidenav-overlay').remove();
-        $scope.$on('$destroy', function() {
+        $scope.$on('$destroy', function () {
             angular.element('.sidenav-overlay').remove();
 
         });
 
-        $scope.$on('$stateChangeStart', function($event, next, current) { 
-            if(next.name === 'register.gdpr') {
+        $scope.$on('$stateChangeStart', function ($event, next, current) {
+            if (next.name === 'register.gdpr') {
                 $scope.openModal();
+            }
+            if (next.name === 'register.terms') {
+                $scope.openTermsModal();
             }
             else {
                 $('#centralModalSuccess').modal('hide');
+                $('#centralModalSuccess_a').modal('hide');
                 //$scope.closeModal();
             }
         });
@@ -32,7 +36,7 @@
         function register() {
             vm.dataLoading = true;
             CoreService.createUser(vm.user)
-                .then(function(response) {
+                .then(function (response) {
                     if (response.status == 200) {
                         $state.go('login');
                     } else {
@@ -40,11 +44,11 @@
                         FlashService.Error(message);
                         FlashService.clearFlashMessageOntimeout(8000);
                     }
-                }, function(err) {
+                }, function (err) {
                     var message = err.data && err.data ? err.data.display : "Unknown Error";
                     FlashService.Error(message);
                     FlashService.clearFlashMessageOntimeout(8000);
-                }).catch(function(err) {
+                }).catch(function (err) {
                     var message = err.data && err.data ? err.data.display : "Unknown Error";
                     FlashService.Error(message);
                     FlashService.clearFlashMessageOntimeout(8000);
@@ -56,24 +60,18 @@
             vm.userReg.$setPristine();
         }
 
-        $scope.openModal = function(){
-            $('#centralModalSuccess').modal('show')
-            // $uibModal.open({
-            //   templateUrl: 'gdprModalTemplate.html',
-            //   resolve: {
-            //           newPath: function(){
-            //               return 'home'
-            //           },
-            //           oldPath: function(){
-            //               return 'home.modal'
-            //           }
-            //       },
-            //   controller: 'gdprModalController'
-            // });
-          };
-
+        $scope.openModal = function () {
+            $('#centralModalSuccess').modal('show');
+        };
+        $scope.openTermsModal = function () {
+            $('#centralModalSuccess_a').modal('show');
+        };
         $scope.closeModal = function () {
             $('#centralModalSuccess').modal('hide');
+            $state.go('register');
+        }
+        $scope.closeTermsModal = function () {
+            $('#centralModalSuccess_a').modal('hide');
             $state.go('register');
         }
     }

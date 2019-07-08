@@ -6,7 +6,7 @@
         </div>
 
         <div class="thank">
-            <p>Thank you for registering as member, we would like to collect some basic information of your profile. The information collected here is for internal use only. Please see our <a href="" data-toggle="modal" data-target="#centralModalSuccess_a">data privacy policy</a>.</p>
+            <p>Thank you for registering as member, we would like to collect some basic information of your profile. The information collected here is for internal use only. Please see our <a href="" data-toggle="modal" ui-sref="register.gdpr">data privacy policy</a>.</p>
         </div>
 
         <!--Card content-->
@@ -117,7 +117,7 @@
             <div class="modal-header">
                 <p class="heading lead text-center">Data Privacy Policy</p>
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" ng-click="closeTermsModal()" aria-label="Close">
                     <span aria-hidden="true" class="white-text">&times;</span>
                 </button>
             </div>

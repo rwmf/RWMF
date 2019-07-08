@@ -190,22 +190,9 @@
             })
             .state('register.gdpr', {
                 'url': '/gdpr',
-                // 'onEnter': [
-                //             '$uibModal',
-                //     function ($uibModal) {
-                //         $uibModal.open({
-                //             'controller': 'gdprModalController',
-                //             'templateUrl': 'components/user/gdprModalTemplate.html'
-                //         }).result.then(
-                //             function closed (item) {
-                //                 // Executed when uibModalInstance is closed, returns value
-                //             },
-                //             function dismissed () {
-                //                 // Executed when modal is dismissed/canceled
-                //             }
-                //         );
-                //     }
-                // ]
+            })
+            .state('register.terms', {
+                'url': '/terms',
             })
             .state('forgot', {
                 url: '/forgot',
