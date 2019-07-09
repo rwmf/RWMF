@@ -87,14 +87,15 @@
 
         }        
         
-        function onSignIn(googleUser) {
-            console.log(googleUser)
-          }
-          function onSignInFailure(error) {
-            console.log(error)
-          }
+        
         function loginCallback(test) {
             console.log(test)
         }
     }
 })();
+function onSignIn(googleUser) {
+    console.log(googleUser)
+  }
+  function onSignInFailure(error) {
+    console.log(error)
+  }
