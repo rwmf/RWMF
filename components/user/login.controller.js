@@ -96,9 +96,17 @@
                 ux_mode: 'redirect',
                 redirect_uri: 'https://rwmf.app'
             });
-            console.log(vm.auth2)
-            vm.auth2.signIn(myParams);
+            console.log(vm.auth2);
+            vm.auth2.attachClickHandler('signinButton', additionalParams, onSignIn, onSignInFailure);
+            vm.auth2.grantOfflineAccess().then(loginCallback);
+
         }
+        function onSignIn(googleUser) {
+            console.log(googleUser)
+          }
+          function onSignInFailure(error) {
+            console.log(error)
+          }
         function loginCallback(test) {
             console.log(test)
         }
