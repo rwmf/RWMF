@@ -83,22 +83,22 @@
 
         function googleLogin() {
             var user = {};
-            // vm.auth2 = gapi.auth2.init({
-            //     client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
-            //     scope: 'profile email'
-            // });
-            var myParams = {
-                'clientid': '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com', //You need to set client id
-                'cookiepolicy': 'single_host_origin',
-                'approvalprompt': 'force',
-                'scope': 'profile email'
-            };
-            gapi.signin2.render('myButton', myParams);
-            vm.auth2.attachClickHandler('myButton', myParams, onSignIn, onSignInFailure);
-            vm.auth2.grantOfflineAccess().then(loginCallback);
+            
 
         }        
-        
+        vm.auth2 = gapi.auth2.init({
+            client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
+            scope: 'profile email'
+        });
+        var myParams = {
+            'clientid': '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com', //You need to set client id
+            'cookiepolicy': 'single_host_origin',
+            'approvalprompt': 'force',
+            'scope': 'profile email'
+        };
+        gapi.signin2.render('signinButton', myParams);
+        vm.auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
+        vm.auth2.grantOfflineAccess().then(loginCallback);
         function onSignIn(googleUser) {
             console.log(googleUser)
           }
