@@ -98,7 +98,7 @@
         };
         gapi.signin2.render('signinButton', myParams);
         vm.auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
-        vm.auth2.grantOfflineAccess().then(loginCallback);
+        //vm.auth2.grantOfflineAccess().then(loginCallback);
         function onSignIn(googleUser) {
             console.log(googleUser)
           }
