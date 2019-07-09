@@ -86,7 +86,7 @@
 
 
         }
-        var auth2 = gapi.auth2.init({
+        window.auth2 = gapi.auth2.init({
             client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
             scope: 'profile email'
         });
@@ -97,7 +97,7 @@
             'scope': 'profile email'
         };
         gapi.signin2.render('signinButton', myParams);
-        auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
+        window.auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
         //vm.auth2.grantOfflineAccess().then(loginCallback);
         function onSignIn(googleUser) {
             CoreService.googleLogin({googleid:googleUser.w3.Eea, email:googleUser.w3.U3}).then(function (resp) {

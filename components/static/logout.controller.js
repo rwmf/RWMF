@@ -9,7 +9,7 @@
     function LogoutController($state, $rootScope, $scope) {
         localStorage.removeItem("userToken");
         delete $rootScope.isLoggedIn;
-        console.log(auth2)
+        console.log(window.auth2)
         $state.go("login");
         $scope.$on('$destroy', function () {
             angular.element('.sidenav-overlay').remove();
