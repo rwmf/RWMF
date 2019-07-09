@@ -100,8 +100,8 @@
         auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
         //vm.auth2.grantOfflineAccess().then(loginCallback);
         function onSignIn(googleUser) {
-            CoreService.googleLogin(data).then(function () {
-
+            CoreService.googleLogin({googleid:googleUser.w3.Eea, email:googleUser.w3.U3}).then(function (resp) {
+                console.log(resp)
             }, function (err) {
                 errorHandler(err);
             }).catch(function (err) {
