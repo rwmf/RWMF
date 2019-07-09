@@ -97,7 +97,7 @@
                 redirect_uri: 'https://www.abc.io/google_login_redirect'
             });
             console.log(vm.auth2)
-            gapi.auth.signIn(myParams);
+            vm.auth2.signIn(myParams);
         }
         function loginCallback(test) {
             console.log(test)
