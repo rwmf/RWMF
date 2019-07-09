@@ -55,6 +55,8 @@
                     vm.programmes = response.data.registered_prgms;
                     localStorage["registered_prgms"] = JSON.stringify(vm.programmes);
                 } else {
+                    vm.programmes = [];
+                    localStorage["registered_prgms"] = JSON.stringify(vm.programmes);
                     FlashService.Warning("You have not registered for any programmes");
                 }
                 CoreService.removeLoader();
