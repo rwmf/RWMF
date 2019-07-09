@@ -94,7 +94,7 @@
                 client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
                 scope: 'profile email',
                 ux_mode: 'redirect',
-                redirect_uri: 'https://www.abc.io/google_login_redirect'
+                redirect_uri: 'https://rwmf.app'
             });
             console.log(vm.auth2)
             vm.auth2.signIn(myParams);
