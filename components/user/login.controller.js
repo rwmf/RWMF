@@ -88,7 +88,7 @@
                 'cookiepolicy': 'single_host_origin',
                 'callback': loginCallback, //callback function
                 'approvalprompt': 'force',
-                'scope': 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
+                'scope': 'profile email'
             };
             
 
@@ -100,7 +100,7 @@
             redirect_uri: 'https://rwmf.app'
         });
         console.log(vm.auth2);
-        vm.auth2.attachClickHandler('signinButton', additionalParams, onSignIn, onSignInFailure);
+        vm.auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
         vm.auth2.grantOfflineAccess().then(loginCallback);
         function onSignIn(googleUser) {
             console.log(googleUser)
