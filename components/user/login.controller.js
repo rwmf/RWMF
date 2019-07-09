@@ -111,7 +111,7 @@
                     }
                     fetchUserData(response.data.user_token);
                 } else {
-                    errorHandler({});
+                    errorHandler(response);
                 }
             }, function (err) {
                 errorHandler(err);
