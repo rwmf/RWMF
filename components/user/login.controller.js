@@ -88,21 +88,9 @@
                 'cookiepolicy': 'single_host_origin',
                 'callback': loginCallback, //callback function
                 'approvalprompt': 'force',
-                'scope': 'profile, email'
+                'scope': 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
             };
-            gapi.load('auth2', function() {
-              auth2 = gapi.auth2.init(myParams);
-            
-              auth2.attachClickHandler(element, {},
-                function(googleUser) {
-                    console.log('Signed in: ' + googleUser.getBasicProfile().getName());
-                  }, function(error) {
-                    console.log('Sign-in error', error);
-                  }
-                );
-              });
-            
-            //gapi.auth.signIn(myParams);
+            gapi.auth.signIn(myParams);
         }
         function loginCallback (test){
             console.log(test)
