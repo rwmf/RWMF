@@ -55,6 +55,19 @@
                 });
             return deferred.promise;
         };
+        service.googleLogin = function(data) {
+            var deferred = $q.defer();
+            CoreHttpRequest.post("googlelogin", data)
+                .then(function(response) {
+                    if (response.status == 200) {
+                        deferred.resolve(response.data);
+                    }
+                }, function(response) {
+                    response.data = false;
+                    deferred.reject(response.data);
+                });
+            return deferred.promise;
+        };
         service.SetCredentials = function(userToken) {
             localStorage["userToken"] = userToken;
             $rootScope.isLoggedIn = !!localStorage["userToken"];

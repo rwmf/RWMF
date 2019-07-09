@@ -83,10 +83,10 @@
 
         function googleLogin() {
             var user = {};
-            
 
-        }        
-        vm.auth2 = gapi.auth2.init({
+
+        }
+        var auth2 = gapi.auth2.init({
             client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
             scope: 'profile email'
         });
@@ -97,16 +97,22 @@
             'scope': 'profile email'
         };
         gapi.signin2.render('signinButton', myParams);
-        vm.auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
+        auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
         //vm.auth2.grantOfflineAccess().then(loginCallback);
         function onSignIn(googleUser) {
+            CoreService.googleLogin(data).then(function () {
+
+            }, function (err) {
+                errorHandler(err);
+            }).catch(function (err) {
+                errorHandler(err);
+            });
             console.log(googleUser)
-          }
-          function onSignInFailure(error) {
-            console.log(error)
-          }
-        function loginCallback(test) {
-            console.log(test)
+        }
+        function onSignInFailure(error) {
+            if(error.error == "popup_closed_by_user") {
+                FlashService.Warning('User cancelled login or did not fully authorize.'); 
+            }
         }
     }
 })();
