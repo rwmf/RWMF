@@ -13,7 +13,13 @@
         top: 0;
         right: 0;
     }
-    
+    #signinButton .abcRioButton {
+        height: 47px!important;
+        width: 48px!important;
+    }
+    #signinButton .abcRioButton .abcRioButtonContentWrapper .abcRioButtonIcon{
+        padding: 15px!important;
+    }
     .home-link {
         float: left;
     }
