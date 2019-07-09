@@ -79,14 +79,26 @@
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id"
     content="971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com">
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
   (function() {
   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
   po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
+  </script> -->
+  <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
   </script>
-
+  <script>
+    function start() {
+      gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
+          // Scopes to request in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+      });
+    }
+  </script>
   <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
         function HandleGoogleApiLibrary() {
