@@ -83,10 +83,10 @@
 
         function googleLogin() {
             var user = {};
-            vm.auth2 = gapi.auth2.init({
-                client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
-                scope: 'profile email'
-            });
+            // vm.auth2 = gapi.auth2.init({
+            //     client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
+            //     scope: 'profile email'
+            // });
             var myParams = {
                 'clientid': '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com', //You need to set client id
                 'cookiepolicy': 'single_host_origin',
