@@ -90,10 +90,17 @@
                 'approvalprompt': 'force',
                 'scope': 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
             };
+            vm.auth2 = gapi.auth2.init({
+                client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
+                scope: 'profile email',
+                ux_mode: 'redirect',
+                redirect_uri: 'https://www.abc.io/google_login_redirect'
+            });
+            console.log(vm.auth2)
             gapi.auth.signIn(myParams);
         }
-        function loginCallback (test){
+        function loginCallback(test) {
             console.log(test)
         }
-    }    
+    }
 })();
