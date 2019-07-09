@@ -11,6 +11,9 @@
         var vm = this;
         $rootScope.pageName = "login";
         vm.user = {};
+        if(window.auth2) {
+            window.auth2.disconnect();
+        }
         vm.login = login;
         vm.FBLogin = FBLogin;
         vm.googleLogin = googleLogin;
@@ -100,8 +103,16 @@
         window.auth2.attachClickHandler('signinButton', myParams, onSignIn, onSignInFailure);
         //vm.auth2.grantOfflineAccess().then(loginCallback);
         function onSignIn(googleUser) {
-            CoreService.googleLogin({googleid:googleUser.w3.Eea, email:googleUser.w3.U3}).then(function (resp) {
-                console.log(resp)
+            CoreService.googleLogin({googleid:googleUser.w3.Eea, email:googleUser.w3.U3}).then(function (response) {
+                if (response.status == 200) {
+                    if (response.data && response.data.user_data) {
+                        localStorage["userData"] = JSON.stringify(response.data.user_data);
+                        $rootScope.userData = response.data.user_data;
+                    }
+                    fetchUserData(response.data.user_token);
+                } else {
+                    errorHandler({});
+                }
             }, function (err) {
                 errorHandler(err);
             }).catch(function (err) {
