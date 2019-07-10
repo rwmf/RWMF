@@ -7,36 +7,50 @@
                 <h3 class="text-center mb-3">SIGN IN</h3>
                 <form name="loginCtrl.loginForm" autocomplete="off" novalidate>
                     <div class="form-group email">
-                        <input name="email" ng-model="loginCtrl.user.email" ng-class="{ 'has-error': loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$invalid }" type="text" placeholder="Email ID" class="form-control" id="usr" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
-                            required>
-                        <span ng-if="loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$error.required" class="pl-0 text-error col-md-12">Email ID is required</span>
-                        <span ng-if="loginCtrl.loginForm.email.$dirty &&loginCtrl.loginForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
+                        <input name="email" ng-model="loginCtrl.user.email"
+                            ng-class="{ 'has-error': loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$invalid }"
+                            type="text" placeholder="Email ID" class="form-control" id="usr"
+                            ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+                        <span ng-if="loginCtrl.loginForm.email.$dirty && loginCtrl.loginForm.email.$error.required"
+                            class="pl-0 text-error col-md-12">Email ID is required</span>
+                        <span ng-if="loginCtrl.loginForm.email.$dirty &&loginCtrl.loginForm.email.$error.pattern"
+                            class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
                     </div>
                     <div class="password">
-                        <input name="password" ng-model="loginCtrl.user.password" ng-class="{ 'has-error': loginCtrl.loginForm.password.$dirty && loginCtrl.loginForm.password.$invalid }" type="password" placeholder="Password" class="form-control" id="pwd" required>
-                        <span ng-if="loginCtrl.loginForm.password.$dirty && loginCtrl.loginForm.password.$error.required" class="pl-0 text-error col-md-12">Password is required</span>
+                        <input name="password" ng-model="loginCtrl.user.password"
+                            ng-class="{ 'has-error': loginCtrl.loginForm.password.$dirty && loginCtrl.loginForm.password.$invalid }"
+                            type="password" placeholder="Password" class="form-control" id="pwd" required>
+                        <span
+                            ng-if="loginCtrl.loginForm.password.$dirty && loginCtrl.loginForm.password.$error.required"
+                            class="pl-0 text-error col-md-12">Password is required</span>
                     </div>
                     <div class="col-md-12 pl-0 pr-0">
                         <a class="home-link" ui-sref="home">Home</a>
                         <a class="forgot-link" ui-sref="forgot">Forgot Password ?</a>
                     </div>
-                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-                    <a ng-click="loginCtrl.login()" ng-disabled="loginCtrl.loginForm.$invalid" class="btn btn-primary login-btn user-btn">Login</a>
+                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
+                        ng-if="flash" ng-bind="flash.message"></div>
+                    <a ng-click="loginCtrl.login()" ng-disabled="loginCtrl.loginForm.$invalid"
+                        class="btn btn-primary login-btn user-btn">Login</a>
                     <p class="text-center">or login with</p>
                     <span class="socialbtn">
-                    <!--Facebook-->
-                    <a class="btn-floating btn-md btn-fb" ng-click="loginCtrl.FBLogin()" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
-                    <!--Email-->
-                    <a id="signinButton" 
-                    data-onsuccess="onSignIn"
-                    data-onfailure="onSignInFailure" class="btn-floating btn-md btn-email" type="button" role="button"><i class="fas fa-envelope"></i></a>
-                    
-                  </div>    
-                </span>    
-
-                    <p class="sgnup mt-1">Don’t have an account ? <a ui-sref="register">SIGN UP</a></p>
-                </form>
+                        <!--Facebook-->
+                        <a class="btn-floating btn-md btn-fb" ng-click="loginCtrl.FBLogin()" type="button"
+                            role="button"><i class="fab fa-facebook-f"></i></a>
+                        <!--Email-->
+                        <a id="signinButton" data-onsuccess="onSignIn" data-onfailure="onSignInFailure"
+                            class="btn-floating btn-md btn-email" type="button" role="button">
+                        </a>
+                    </span>
+                    <div class="alert alert-info" role="alert">
+                        A simple info alert—check it out!
+                    </div>
             </div>
+
+
+            <p class="sgnup mt-1">Don’t have an account ? <a ui-sref="register">SIGN UP</a></p>
+            </form>
         </div>
     </div>
+</div>
 </div>

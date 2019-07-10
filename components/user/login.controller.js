@@ -78,7 +78,7 @@
                         });
                     });
                 } else {
-                    FlashService.Warning('User cancelled login or did not fully authorize.');
+                    FlashService.Error('User cancelled login or did not fully authorize.');
                     FlashService.clearFlashMessageOntimeout(5000);
                 }
             }, { scope: "public_profile, email" })
@@ -122,7 +122,7 @@
         }
         function onSignInFailure(error) {
             if(error.error == "popup_closed_by_user") {
-                FlashService.Warning('User cancelled login or did not fully authorize.'); 
+                FlashService.Error('User cancelled login or did not fully authorize.'); 
             }
         }
     }
