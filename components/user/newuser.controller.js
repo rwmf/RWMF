@@ -38,7 +38,8 @@
             CoreService.createUser(vm.user)
                 .then(function (response) {
                     if (response.status == 200) {
-                        $state.go('login');
+                        var message = response.data && response.data.display ? response.data.display : "Successfully Registered";
+                        FlashService.Success(message);
                     } else {
                         var message = response.data && response.data.display ? response.data.display : "Unknown Error";
                         FlashService.Error(message);
