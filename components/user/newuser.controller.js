@@ -40,7 +40,10 @@
                     if (response.status == 200) {
                         var message = response.data && response.data.display ? response.data.display : "Successfully Registered";
                         FlashService.Success(message);
-                        FlashService.clearFlashMessageOntimeout(5000);
+                        FlashService.clearFlashMessageOntimeout(3000);
+                        $timeout(function(){
+                            $state.go('login');
+                        }, 3000)
                     } else {
                         var message = response.data && response.data.display ? response.data.display : "Unknown Error";
                         FlashService.Error(message);
