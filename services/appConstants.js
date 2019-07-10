@@ -4,9 +4,9 @@
         .constant('urlConfig', {
             "https": "https://",
             "http": "http://",
-            "api_endpoint": "rwmf.app/admin/api/rwmf/",
-            "root_path": "rwmf.app",
-            "api_root_path": "rwmf.app/admin/api"
+            "api_endpoint": "rwmf.estrradodemo.com/admin/api/rwmf/",
+            "root_path": "rwmf.estrradodemo.com",
+            "api_root_path": "rwmf.estrradodemo.com/admin/api"
         }).constant('stateHeaders', {
             "home": "Programmes",
             "registeredPgm": "My Registered Programmes",
