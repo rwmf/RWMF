@@ -22,17 +22,15 @@
                     </div>
                     <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
                     <a ng-click="loginCtrl.login()" ng-disabled="loginCtrl.loginForm.$invalid" class="btn btn-primary login-btn user-btn">Login</a>
-                    <p class="text-center">or login with</p>
+                    <!-- <p class="text-center">or login with</p>
                     <span class="socialbtn">
-                    <!--Facebook-->
                     <a class="btn-floating btn-md btn-fb" ng-click="loginCtrl.FBLogin()" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
-                    <!--Email-->
                     <a id="signinButton" 
                     data-onsuccess="onSignIn"
                     data-onfailure="onSignInFailure" class="btn-floating btn-md btn-email" type="button" role="button"><i class="fas fa-envelope"></i></a>
-                    
+                    </span> -->
                   </div>    
-                </span>    
+                   
 
                     <p class="sgnup mt-1">Don’t have an account ? <a ui-sref="register">SIGN UP</a></p>
                 </form>
