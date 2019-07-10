@@ -40,19 +40,20 @@
                     if (response.status == 200) {
                         var message = response.data && response.data.display ? response.data.display : "Successfully Registered";
                         FlashService.Success(message);
+                        FlashService.clearFlashMessageOntimeout(5000);
                     } else {
                         var message = response.data && response.data.display ? response.data.display : "Unknown Error";
                         FlashService.Error(message);
-                        FlashService.clearFlashMessageOntimeout(8000);
+                        FlashService.clearFlashMessageOntimeout(5000);
                     }
                 }, function (err) {
                     var message = err.data && err.data ? err.data.display : "Unknown Error";
                     FlashService.Error(message);
-                    FlashService.clearFlashMessageOntimeout(8000);
+                    FlashService.clearFlashMessageOntimeout(5000);
                 }).catch(function (err) {
                     var message = err.data && err.data ? err.data.display : "Unknown Error";
                     FlashService.Error(message);
-                    FlashService.clearFlashMessageOntimeout(8000);
+                    FlashService.clearFlashMessageOntimeout(5000);
                 });
         }
 
