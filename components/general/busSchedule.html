@@ -10,9 +10,9 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
                     <div class="">
-                        <img class="img-full img-fluid" src="{{genctrl.busSchedule | stripExpiry}}" />
+                        <img class="img-full img-fluid " src="{{genctrl.busSchedule | stripExpiry}}" />
                     </div>
-                    <button ng-if="genctrl.loadSceduleDetails" type="button" ng-click="genctrl.gotoSceduleMap()" class="m-0 col-lg-12 col-md-12 col-sm-12 col-12 btn btn-warning btn-rounded">View Schedule on map</button>
+                    <button ng-if="genctrl.loadSceduleDetails" type="button" ng-click="genctrl.gotoSceduleMap()" class="m-0 col-lg-12 col-md-12 col-sm-12 col-12 btn btn-warning btn-rounded">View Schedule On Map</button>
                 </div>
             </div>
             <div class="program-alert" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>

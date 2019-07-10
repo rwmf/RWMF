@@ -28,18 +28,20 @@
                         <a class="home-link" ui-sref="home">Home</a>
                         <a class="forgot-link" ui-sref="forgot">Forgot Password ?</a>
                     </div>
-                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }"
-                        ng-if="flash" ng-bind="flash.message"></div>
-                    <a ng-click="loginCtrl.login()" ng-disabled="loginCtrl.loginForm.$invalid"
-                        class="btn btn-primary login-btn user-btn">Login</a>
+                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                    <a ng-click="loginCtrl.login()" ng-disabled="loginCtrl.loginForm.$invalid" class="btn btn-primary login-btn user-btn">Login</a>
                     <!-- <p class="text-center">or login with</p>
                     <span class="socialbtn">
-                        <a class="btn-floating btn-md btn-fb" ng-click="loginCtrl.FBLogin()" type="button"
-                            role="button"><i class="fab fa-facebook-f"></i></a>
-                        <a id="signinButton" data-onsuccess="onSignIn" data-onfailure="onSignInFailure"
-                            class="btn-floating btn-md btn-email" type="button" role="button">
-                        </a>
+                    <a class="btn-floating btn-md btn-fb" ng-click="loginCtrl.FBLogin()" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
+                    <a id="signinButton" 
+                    data-onsuccess="onSignIn"
+                    data-onfailure="onSignInFailure" class="btn-floating btn-md btn-email" type="button" role="button"><i class="fas fa-envelope"></i></a>
                     </span> -->
+                  </div>    
+                   
+
+                    <p class="sgnup mt-1">Don’t have an account ? <a ui-sref="register">SIGN UP</a></p>
+                </form>
             </div>
 
 
