@@ -1046,6 +1046,27 @@
     .filter .show>.btn-primary.dropdown-toggle {
         color: black!important;
     }
+
+    /*cookie*/
+
+    .cooki{
+        padding: 0 !important;
+        background-color: #043a1b;
+        color: #20de71 !important;
+    }
+
+    .cooki a{
+        padding: .2rem 1rem !important;
+        border: 1px solid #20de71 !important;
+        color: #20de71 !important;
+    }
+
+    .cooki a:hover{
+        border-color: #6eff5c!important;
+        background-color: transparent!important;
+        color: #6eff5c!important;
+    }
+
     
     @media (min-width:768px) {
         .filter label:hover span {
