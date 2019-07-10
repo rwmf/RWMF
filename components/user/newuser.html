@@ -22,10 +22,10 @@
                         <input ng-class="{ 'has-error': regCtrl.userReg.last_name.$dirty && regCtrl.userReg.last_name.$invalid }" name="last_name" ng-model="regCtrl.user.last_name" type="text" placeholder="Last Name" class="form-control" id="lname" required>
                         <span ng-if="regCtrl.userReg.last_name.$dirty && regCtrl.userReg.last_name.$error.required" class="pl-0 text-error col-md-12">Last name is required</span>
                     </div>
-                    <!-- <div class="form-group phone">
+                    <div class="form-group phone">
                         <input ng-class="{ 'has-error': regCtrl.userReg.phone.$dirty && regCtrl.userReg.phone.$invalid }" name="phone" ng-model="regCtrl.user.phone" type="phone" placeholder="Phone" class="form-control" id="phone" required>
                         <span ng-if="regCtrl.userReg.phone.$dirty && regCtrl.userReg.phone.$error.required" class="pl-0 text-error col-md-12">Phone Number is required</span>
-                    </div> -->
+                    </div>
                     <div class="form-group email">
                         <input ng-class="{ 'has-error': regCtrl.userReg.email.$dirty && regCtrl.userReg.email.$invalid }" name="email" ng-model="regCtrl.user.email" type="text" placeholder="Email ID" class="form-control" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
                             required>
