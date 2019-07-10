@@ -34,10 +34,10 @@
                         <span ng-if="profCtrl.profileForm.email.$dirty && profCtrl.profileForm.email.$error.required" class="pl-0 text-error col-md-12">First name is required</span>
                         <span ng-if="profCtrl.profileForm.email.$dirty && profCtrl.profileForm.email.$error.pattern" class="pl-0 text-error col-md-12 text-error format">Invalid email format</span>
                     </div>
-                    <div class="md-form mb-3">
+                    <!-- <div class="md-form mb-3">
                         <input name="phone" type="text" id="phone" class="form-control" ng-model="profCtrl.userData.phone">
                         <label for="phone" class="active">Phone Number</label>
-                    </div>
+                    </div> -->
                     <div class="mx-auto" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' , 'alert-warning': flash.type === 'warning'}" ng-if="flash" ng-bind="flash.message"></div>
                     <div class="form-actions">
                             <button type="button" ng-click="profCtrl.updateUserProfile(profCtrl.userData)" ng-disabled="profCtrl.profileForm.$invalid" class="m-0 col-lg-12 col-md-12 col-sm-12 col-12 btn btn-warning btn-rounded">Save Profile</button>

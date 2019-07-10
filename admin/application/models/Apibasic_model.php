@@ -125,7 +125,7 @@ class Apibasic_model extends CI_Model
     {
         $valid='true';
         $error=array();
-        if($data['phone'])
+        /*if($data['phone'])
             {
                 if($this->check_existuser('user','phone',$data['phone']))
                   {
@@ -133,7 +133,7 @@ class Apibasic_model extends CI_Model
                     $error='Phone number already registered';
                   }
                 else
-                  {
+                  {*/
                     if($data['email'])
                     {
                        if($this->check_existuser('user','email',$data['email']))
@@ -147,13 +147,14 @@ class Apibasic_model extends CI_Model
                       $valid='false';
                       $error='Email id required';
                     }
+                  /*
                   }
               }
               else
               {
                 $valid='false';
                 $error='Mobile number required';
-              }
+              } */
 
               if($valid=='true')
               {
