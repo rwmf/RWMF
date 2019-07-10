@@ -8,6 +8,7 @@
 
     function HeaderController($rootScope, CoreService, $state) {
         CoreService.recall();
+        angular.element("#modalCookie1").modal("show");
         var vm = this;
         CoreService.getAdDetails().then(function (resp) {
             processResponse(resp);
