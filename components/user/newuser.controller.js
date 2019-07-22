@@ -66,11 +66,18 @@
             vm.userReg.$setPristine();
         }
         function FBSignUp() {
-            var user = {};
-            FB.api('/me?fields=id, email, first_name, last_name', function (response) {
-                response.password = "user";
-                vm.register(response);
-            });
+            FB.login(function (resp) {
+                CoreService.addLoader();
+                if (resp.authResponse) {
+                    FB.api('/me?fields=id, email, first_name, last_name', function (response) {
+                        response.password = "user";
+                        vm.register(response);
+                    });
+                } else {
+                    FlashService.Error('User cancelled login or did not fully authorize.');
+                    FlashService.clearFlashMessageOntimeout(5000);
+                }
+            }, { scope: "public_profile, email" })
         }
         window.auth2 = gapi.auth2.init({
             client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
@@ -86,9 +93,9 @@
         window.auth2.attachClickHandler('signupButton', myParams, onSignUp, onSignUpFailure);
         function onSignUp(googleUser) {
             var user = {};
-            user.first_name = googleUser.ofa;
-            user.last_name = googleUser.wea;
-            user.email = googleUser.U3;
+            user.first_name = googleUser.w3.ofa;
+            user.last_name = googleUser.w3.wea;
+            user.email = googleUser.w3.U3;
             user.password = "user";
             vm.register(user);
         }
