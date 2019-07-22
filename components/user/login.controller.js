@@ -16,7 +16,6 @@
         }
         vm.login = login;
         vm.FBLogin = FBLogin;
-        vm.googleLogin = googleLogin;
         angular.element('.sidenav-overlay').remove();
         (function initController() {
             // reset login status
@@ -84,11 +83,6 @@
             }, { scope: "public_profile, email" })
         }
 
-        function googleLogin() {
-            var user = {};
-
-
-        }
         window.auth2 = gapi.auth2.init({
             client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
             scope: 'profile email'

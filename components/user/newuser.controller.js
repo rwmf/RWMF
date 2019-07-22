@@ -12,6 +12,7 @@
         vm.user = {};
         $rootScope.pageName = "login";
         vm.register = register;
+        vm.FBSignUp = FBSignUp;
         vm.cancel = cancel;
         angular.element('.sidenav-overlay').remove();
         $scope.$on('$destroy', function () {
@@ -41,7 +42,7 @@
                         var message = response.data && response.data.display ? response.data.display : "Successfully Registered";
                         FlashService.Success(message);
                         FlashService.clearFlashMessageOntimeout(3000);
-                        $timeout(function(){
+                        $timeout(function () {
                             $state.go('login');
                         }, 3000)
                     } else {
@@ -64,7 +65,47 @@
             vm.user = {};
             vm.userReg.$setPristine();
         }
-
+        function FBSignUp() {
+            var user = {};
+            FB.api('/me?fields=id, email, first_name, last_name', function (response) {
+                console.log(response);
+                CoreService.fbLogin({ fbid: response.id, email: response.email }).then(function (response) {
+                    if (response.status == 200) {
+                        if (response.data && response.data.user_data) {
+                            localStorage["userData"] = JSON.stringify(response.data.user_data);
+                            $rootScope.userData = response.data.user_data;
+                        }
+                        fetchUserData(response.data.user_token);
+                    } else {
+                        errorHandler(response);
+                    }
+                }, function (err) {
+                    errorHandler(err);
+                }).catch(function (err) {
+                    errorHandler(err);
+                });
+            });
+        }
+        window.auth2 = gapi.auth2.init({
+            client_id: '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com',
+            scope: 'profile email'
+        });
+        var myParams = {
+            'clientid': '971257550676-94l84vfn2c96gq47mkqnqb8houuhd2p3.apps.googleusercontent.com', //You need to set client id
+            'cookiepolicy': 'single_host_origin',
+            'approvalprompt': 'force',
+            'scope': 'profile email'
+        };
+        gapi.signin2.render('signupButton', myParams);
+        window.auth2.attachClickHandler('signupButton', myParams, onSignUp, onSignUpFailure);
+        function onSignUp(googleUser) {
+            console.log(googleUser)
+        }
+        function onSignUpFailure(error) {
+            if (error.error == "popup_closed_by_user") {
+                FlashService.Error('User cancelled Signup or did not fully authorize.');
+            }
+        }
         $scope.openModal = function () {
             $('#centralModalSuccess').modal('show');
         };

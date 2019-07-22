@@ -40,6 +40,14 @@
                         <a class="home-link" ui-sref="home">Home</a>
                         <a class="forgot-link" ui-sref="login">Login</a>
                     </div>
+                    <p class="text-center">or Sign Up with</p>
+                    <span class="socialbtn">
+                        <a class="btn-floating btn-md btn-fb" ng-click="regCtrl.FBSignUp()" type="button"
+                            role="button"><i class="fab fa-facebook-f"></i></a>
+                        <a id="signupButton" data-onsuccess="onSignUp" data-onfailure="onSignUpFailure"
+                            class="btn-floating btn-md btn-email" type="button" role="button">
+                        </a>
+                    </span>
                     <div class="text-center gdprc">
                         <a href="" class="btn btn-default btn-rounded" ui-sref="register.gdpr">GDPR Compliance <i class="far fa-eye ml-1"></i></a>
                     </div>
