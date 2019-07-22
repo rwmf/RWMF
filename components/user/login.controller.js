@@ -29,7 +29,7 @@
                 if (response.status == 200) {
                     fetchUserData(response.data.user_token);
                 } else {
-                    errorHandler(response);
+                    errorHandler({});
                 }
             }, function (err) {
                 errorHandler(err);
@@ -69,7 +69,7 @@
                                 }
                                 fetchUserData(response.data.user_token);
                             } else {
-                                errorHandler({});
+                                errorHandler(response);
                             }
                         }, function (err) {
                             errorHandler(err);
