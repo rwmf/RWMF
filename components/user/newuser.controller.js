@@ -34,9 +34,9 @@
             }
         });
 
-        function register() {
+        function register(user) {
             vm.dataLoading = true;
-            CoreService.createUser(vm.user)
+            CoreService.createUser(user)
                 .then(function (response) {
                     if (response.status == 200) {
                         var message = response.data && response.data.display ? response.data.display : "Successfully Registered";
@@ -68,22 +68,8 @@
         function FBSignUp() {
             var user = {};
             FB.api('/me?fields=id, email, first_name, last_name', function (response) {
-                console.log(response);
-                CoreService.fbLogin({ fbid: response.id, email: response.email }).then(function (response) {
-                    if (response.status == 200) {
-                        if (response.data && response.data.user_data) {
-                            localStorage["userData"] = JSON.stringify(response.data.user_data);
-                            $rootScope.userData = response.data.user_data;
-                        }
-                        fetchUserData(response.data.user_token);
-                    } else {
-                        errorHandler(response);
-                    }
-                }, function (err) {
-                    errorHandler(err);
-                }).catch(function (err) {
-                    errorHandler(err);
-                });
+                response.password = "user";
+                vm.register(response);
             });
         }
         window.auth2 = gapi.auth2.init({
@@ -99,7 +85,12 @@
         gapi.signin2.render('signupButton', myParams);
         window.auth2.attachClickHandler('signupButton', myParams, onSignUp, onSignUpFailure);
         function onSignUp(googleUser) {
-            console.log(googleUser)
+            var user = {};
+            user.first_name = googleUser.ofa;
+            user.last_name = googleUser.wea;
+            user.email = googleUser.U3;
+            user.password = "user";
+            vm.register(user);
         }
         function onSignUpFailure(error) {
             if (error.error == "popup_closed_by_user") {

@@ -68,7 +68,7 @@
                     </div>
                     <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
                 </form>
-                <a ng-click="regCtrl.register()" class="user-btn btn btn-primary gren" ng-disabled="regCtrl.userReg.$invalid">REGISTER</a>
+                <a ng-click="regCtrl.register(regCtrl.user)" class="user-btn btn btn-primary gren" ng-disabled="regCtrl.userReg.$invalid">REGISTER</a>
                 <a ng-click="regCtrl.cancel()" class="user-btn btn btn-primary gry" ng-disabled="regCtrl.userReg.$pristine">CANCEL</a>
             </div>
         </div>
