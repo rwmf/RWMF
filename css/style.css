@@ -19,6 +19,10 @@
     .pb-20 {
         padding-bottom: 20px!important;
     }
+    .offline-text {
+        color: #0cf51e;
+        font-size: 13px;
+    }
     #signinButton .abcRioButton,
     #signupButton .abcRioButton {
         height: 47px!important;
@@ -27,6 +31,15 @@
     #signinButton .abcRioButton .abcRioButtonContentWrapper .abcRioButtonIcon,
     #signupButton .abcRioButton .abcRioButtonContentWrapper .abcRioButtonIcon {
         padding: 15px!important;
+    }
+    .navbar.scrolling-navbar.offline {
+        background: rgba(158, 154, 154, .5);
+        height: 60px;
+    }
+
+    .offline .event-header{
+        padding-top: 0!important;
+        margin-top: -5px;
     }
     .home-link {
         float: left;
@@ -1125,7 +1138,17 @@
             display: block;
         }
     }
-
+    @media (min-width:600px) {
+        .offline {
+            padding: 0!important;
+        }
+    }
+    @media (min-width:992px) {
+        .offline-text {
+            margin-top: 44px;
+            margin-left: -50px;
+        }
+    }
     @media (min-width: 1200px){
         .container {
             max-width: 1140px !important;

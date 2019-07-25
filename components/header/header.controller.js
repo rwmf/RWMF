@@ -4,9 +4,9 @@
     angular
         .module('RWMF')
         .controller('HeaderController', HeaderController);
-    HeaderController.$inject = ['$rootScope', 'CoreService', '$state'];
+    HeaderController.$inject = ['$rootScope', 'CoreService', '$state', '$timeout', '$interval'];
 
-    function HeaderController($rootScope, CoreService, $state) {
+    function HeaderController($rootScope, CoreService, $state, $timeout, $interval) {
         CoreService.recall();
         var vm = this;
         CoreService.getAdDetails().then(function (resp) {
@@ -48,6 +48,7 @@
         vm.showAppInstallBanner = showAppInstallBanner;
         vm.search = search;
         $rootScope.pageName = "home";
+        vm.online = true;
 
         function closeSideNav() {
             angular.element('.sidenav-overlay').remove();
@@ -76,6 +77,50 @@
                 CoreService.setClientHeight("iframeMap");
             }
         });
+        function handleConnectionChange(event){
+            if(event.type == "offline"){
+                $timeout(function(){
+                    vm.online = false;
+                    vm.wentOffline = new Date().getTime();  
+                });
+                vm.interval = $interval(function(){
+                    vm.wentOnline = new Date().getTime();  
+                    vm.timeString = "You are offline from last " + msToTime(vm.wentOnline-vm.wentOffline);
+                },1000)                         
+            }            
+            if(event.type == "online"){
+                $timeout(function(){
+                    vm.online = true;
+                    vm.wentOnline = new Date().getTime();  
+                    $interval.cancel(vm.interval);
+                    vm.timeString = "";
+                });              
+            }
+        }
+        function msToTime(duration) {
+            var milliseconds = parseInt((duration % 1000) / 100),
+              seconds = Math.floor((duration / 1000) % 60),
+              minutes = Math.floor((duration / (1000 * 60)) % 60),
+              hours = Math.floor((duration / (1000 * 60 * 60)) % 24),
+              time="";
+          
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+            if(hours != "00") {
+                time += hours + " hours ";
+            }
+            if(minutes != "00") {
+                time += minutes + " minutes ";
+            }
+            if(seconds != "00") {
+                time += seconds + " seconds";
+            }
+            return time;
+          }
+        window.addEventListener('online', handleConnectionChange);
+        window.addEventListener('offline', handleConnectionChange);
+        
         function showAppInstallBanner() {
             //to create a prompt
             if ($rootScope.deferredPrompt) {

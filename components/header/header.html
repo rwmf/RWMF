@@ -61,7 +61,7 @@
     </div>
     <!--/. Sidebar navigation -->
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav noshad">
+    <nav ng-class="{'offline':!headerctrl.online}" class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav noshad">
         <!-- SideNav slide-out button -->
         <div class="float-left">
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
@@ -83,7 +83,7 @@
         </div>
 
         <h2 class="text-center event-header">{{ mainHeader }}</h2>
-
+        <p class="col-md-12 pull-left offline-text text-center" ng-if="!headerctrl.online">{{headerctrl.timeString}}</p>
     </nav>
     <!-- /.Navbar -->
 </header>
