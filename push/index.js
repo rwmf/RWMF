@@ -10,11 +10,11 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'client')));
-
-const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
-const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
-
-webPush.setVapidDetails('mailto:test@example.com', publicVapidKey, privateVapidKey);
+const vapidKeys = webpush.generateVAPIDKeys();
+const publicVapidKey = vapidKeys.publicKey;
+const privateVapidKey = vapidKeys.privateKey;
+console.log(vapidKeys.publicKey, vapidKeys.privateKey);
+webPush.setVapidDetails('mailto:princegracys@gmail.com', publicVapidKey, privateVapidKey);
 
 // Subscribe route
 
