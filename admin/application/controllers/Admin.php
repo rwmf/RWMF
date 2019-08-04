@@ -50,7 +50,7 @@ class Admin extends CI_Controller
         } 
         else 
         {
-            redirect('');
+            redirect('admin');
         }
 	}
 
@@ -79,7 +79,7 @@ class Admin extends CI_Controller
 	    $this->session->unset_userdata('admin_user');
 	    $this->session->unset_userdata('admin_login');
 	    $this->session->unset_userdata('app_id');
-        redirect('');
+        redirect('admin');
 	}
 
 	public function notfound()
